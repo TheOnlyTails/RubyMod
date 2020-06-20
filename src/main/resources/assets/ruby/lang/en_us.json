@@ -1,5 +1,6 @@
 {
-    "item.ruby.ruby": "Ruby",
-    "block.ruby.ruby_block": "Ruby Block",
-    "itemGroup.rubyTab": "Ruby"
+  "item.ruby.ruby": "Ruby",
+  "block.ruby.ruby_block": "Ruby Block",
+  "block.ruby.ruby_ore": "Ruby Ore",
+  "itemGroup.rubyTab": "Ruby"
 }
