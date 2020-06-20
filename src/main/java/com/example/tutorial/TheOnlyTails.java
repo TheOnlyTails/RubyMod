@@ -13,14 +13,16 @@ import org.apache.logging.log4j.Logger;
 
 @Mod("ruby")
 public class TheOnlyTails {
-
     public static final String MOD_ID = "ruby";
+
     public static final ItemGroup TAB = new ItemGroup("rubyTab") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(RegistryHandler.RUBY.get());
         }
     };
+
+    @SuppressWarnings("unused")
     private static final Logger LOGGER = LogManager.getLogger();
 
     public TheOnlyTails() {
