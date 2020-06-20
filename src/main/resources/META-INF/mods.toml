@@ -1,0 +1,46 @@
+modLoader="javafml"
+
+loaderVersion="[31,)"
+
+issueTrackerURL="http://my.issue.tracker/"
+
+[[mods]]
+
+modId="ruby"
+
+version="${1.15.2-0.1.0.jarVersion}"
+
+displayName="Ruby"
+
+updateJSONURL="http://myurl.me/"
+
+displayURL="http://example.com/"
+
+logoFile="examplemod.png"
+
+credits="Thanks for this example mod goes to Forge and TechnoVision"
+
+authors="TheOnlyTails"
+
+description='''
+This mod adds rubies. They don't do anything yet, but at least they're there!
+'''
+
+[[dependencies.examplemod]]
+
+    modId="forge"
+
+    mandatory=true
+
+    versionRange="[31,)"
+
+    ordering="NONE"
+
+    side="BOTH"
+
+[[dependencies.examplemod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
