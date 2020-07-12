@@ -7,5 +7,9 @@
   "item.ruby.ruby_axe": "Ruby Axe",
   "item.ruby.ruby_shovel": "Ruby Shovel",
   "item.ruby.ruby_hoe": "Ruby Hoe",
+  "item.ruby.ruby_helmet": "Ruby Helmet",
+  "item.ruby.ruby_chestplate": "Ruby Chestplate",
+  "item.ruby.ruby_leggings": "Ruby Leggings",
+  "item.ruby.ruby_boots": "Ruby Boots",
   "itemGroup.rubyTab": "Ruby"
 }

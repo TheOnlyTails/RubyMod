@@ -10,8 +10,7 @@ public enum ModItemTier implements IItemTier {
     RUBY(3, 850, 7f,
             3f, 12,
             () -> {
-                return Ingredient.fromItems(
-                        RegistryHandler.RUBY_SWORD.get());
+                return Ingredient.fromItems(RegistryHandler.RUBY_SWORD.get());
             });
 
     private final int harvestLevel;
