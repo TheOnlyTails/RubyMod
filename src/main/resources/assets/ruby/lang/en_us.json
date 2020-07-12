@@ -2,5 +2,10 @@
   "item.ruby.ruby": "Ruby",
   "block.ruby.ruby_block": "Ruby Block",
   "block.ruby.ruby_ore": "Ruby Ore",
+  "item.ruby.ruby_sword": "Ruby Sword",
+  "item.ruby.ruby_pickaxe": "Ruby Pickaxe",
+  "item.ruby.ruby_axe": "Ruby Axe",
+  "item.ruby.ruby_shovel": "Ruby Shovel",
+  "item.ruby.ruby_hoe": "Ruby Hoe",
   "itemGroup.rubyTab": "Ruby"
 }

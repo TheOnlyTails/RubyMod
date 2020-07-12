@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 public class TheOnlyTails {
     public static final String MOD_ID = "ruby";
 
-    public static final ItemGroup TAB = new ItemGroup("rubyTab") {
+    public static final ItemGroup RUBY = new ItemGroup("rubyTab") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(RegistryHandler.RUBY.get());
