@@ -3,6 +3,7 @@ package com.example.tutorial.util;
 import com.example.tutorial.TheOnlyTails;
 import com.example.tutorial.blocks.BlockItemBase;
 import com.example.tutorial.items.ItemBase;
+import com.example.tutorial.items.PoisonedApple;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -27,6 +28,10 @@ public class RegistryHandler {
     public static final RegistryObject<Item> RUBY_ORE_BLOCK_ITEM =
             ITEMS.register("ruby_ore", () ->
                     new BlockItemBase(RegistryHandlerBlocks.RUBY_ORE_BLOCK.get()));
+
+    // A custom food item named Poisoned Apple
+    public static final RegistryObject<PoisonedApple> POISONED_APPLE =
+            ITEMS.register("poisoned_apple", PoisonedApple::new);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

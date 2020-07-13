@@ -4,6 +4,7 @@ import com.example.tutorial.TheOnlyTails;
 import com.example.tutorial.blocks.RubyBlock;
 import com.example.tutorial.blocks.RubyOreBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.OreBlock;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,7 +20,7 @@ public class RegistryHandlerBlocks {
             BLOCKS.register("ruby_block", RubyBlock::new);
 
     // A custom block "Ruby Ore"
-    public static final RegistryObject<Block> RUBY_ORE_BLOCK =
+    public static final RegistryObject<OreBlock> RUBY_ORE_BLOCK =
             BLOCKS.register("ruby_ore", RubyOreBlock::new);
 
     public static void init() {
