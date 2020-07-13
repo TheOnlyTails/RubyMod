@@ -1,6 +1,6 @@
 package com.example.tutorial.tools;
 
-import com.example.tutorial.util.RegistryHandler;
+import com.example.tutorial.util.RegistryHandlerTools;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -10,7 +10,7 @@ public enum ModItemTier implements IItemTier {
     RUBY(3, 850, 7f,
             3f, 12,
             () -> {
-                return Ingredient.fromItems(RegistryHandler.RUBY_SWORD.get());
+                return Ingredient.fromItems(RegistryHandlerTools.RUBY_SWORD.get());
             });
 
     private final int harvestLevel;

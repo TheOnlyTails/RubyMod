@@ -1,6 +1,9 @@
 package com.example.tutorial;
 
 import com.example.tutorial.util.RegistryHandler;
+import com.example.tutorial.util.RegistryHandlerArmor;
+import com.example.tutorial.util.RegistryHandlerBlocks;
+import com.example.tutorial.util.RegistryHandlerTools;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +34,9 @@ public class TheOnlyTails {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         RegistryHandler.init();
+        RegistryHandlerBlocks.init();
+        RegistryHandlerTools.init();
+        RegistryHandlerArmor.init();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
