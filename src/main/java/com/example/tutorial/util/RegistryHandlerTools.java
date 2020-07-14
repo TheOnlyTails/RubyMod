@@ -10,7 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class RegistryHandlerTools {
     public static final DeferredRegister<Item> ITEMS =
-            new DeferredRegister<>(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
 
     // A custom sword made out of ruby
     public static final RegistryObject<SwordItem> RUBY_SWORD =
@@ -48,7 +48,8 @@ public class RegistryHandlerTools {
     public static final RegistryObject<HoeItem> RUBY_HOE =
             RegistryHandler.ITEMS.register("ruby_hoe", () ->
                     new HoeItem(ModItemTier.RUBY,
-                            -0.5f,
+                            1,
+                            -3f,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
 
     public static void init() {

@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class RegistryHandlerBlocks {
     // A registry to hold all of the custom blocks
     public static final DeferredRegister<Block> BLOCKS =
-            new DeferredRegister<>(ForgeRegistries.BLOCKS, TheOnlyTails.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.BLOCKS, TheOnlyTails.MOD_ID);
 
     // A custom block "Ruby Block"
     public static final RegistryObject<Block> RUBY_BLOCK =

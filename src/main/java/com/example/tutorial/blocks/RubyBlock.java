@@ -12,6 +12,9 @@ public class RubyBlock extends Block {
                 .hardnessAndResistance(5.0f, 6.0f)
                 .sound(SoundType.METAL)
                 .harvestTool(ToolType.PICKAXE)
-                .harvestLevel(2));
+                .harvestLevel(2)
+                // This method ensures that only tools with the harvest level mentioned above (or higher)
+                // can break this block.
+                .func_235861_h_());
     }
 }

@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class RegistryHandler {
     // A registry to hold all of the custom items
     public static final DeferredRegister<Item> ITEMS =
-            new DeferredRegister<>(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
 
     // A custom item "Ruby"
     public static final RegistryObject<Item> RUBY =

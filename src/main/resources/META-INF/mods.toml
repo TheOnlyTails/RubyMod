@@ -2,21 +2,21 @@ modLoader="javafml"
 
 loaderVersion="[31,)"
 
-issueTrackerURL="http://my.issue.tracker/"
+issueTrackerURL="https://github.com/TheOnlyTails/RubyMod/issues"
 
 [[mods]]
 
 modId="ruby"
 
-version="${1.15.2-0.1.0.jarVersion}"
+version="1.16.1-0.5.0"
 
-displayName="Ruby"
+displayName="Ruby Mod"
 
 updateJSONURL="http://myurl.me/"
 
-displayURL="http://example.com/"
+displayURL="https://github.com/TheOnlyTails/RubyMod"
 
-logoFile="examplemod.png"
+logoFile="logo.png"
 
 credits="Thanks for this example mod goes to Forge and TechnoVision"
 
