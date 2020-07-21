@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xrx",
+    "xcx"
+  ],
+  "key": {
+    "x": {
+      "item": "forge:ingots/iron"
+    },
+    "r": {
+      "tag": "ruby:ruby"
+    },
+    "c": {
+      "item": "minecraft:cauldron"
+    }
+  },
+  "result": {
+    "item": "ruby:centrifuge"
+  }
+}

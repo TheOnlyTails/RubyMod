@@ -1,6 +1,6 @@
-package com.example.tutorial.blocks;
+package com.theonlytails.ruby.blocks;
 
-import com.example.tutorial.TheOnlyTails;
+import com.theonlytails.ruby.TheOnlyTails;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

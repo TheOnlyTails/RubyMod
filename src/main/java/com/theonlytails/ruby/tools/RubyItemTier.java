@@ -1,12 +1,13 @@
-package com.example.tutorial.tools;
+package com.theonlytails.ruby.tools;
 
-import com.example.tutorial.util.RegistryHandlerTools;
+import com.theonlytails.ruby.util.RegistryHandlerTools;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
+import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
-public enum ModItemTier implements IItemTier {
+public enum RubyItemTier implements IItemTier {
     RUBY(3, 850, 7f,
             3f, 12,
             () -> {
@@ -20,9 +21,9 @@ public enum ModItemTier implements IItemTier {
     private final int enchantability;
     private final Supplier<Ingredient> repairMaterial;
 
-    ModItemTier(int harvestLevel, int maxUses, float efficiency,
-                float attackDamage, int enchantability,
-                Supplier<Ingredient> repairMaterial) {
+    RubyItemTier(int harvestLevel, int maxUses, float efficiency,
+                 float attackDamage, int enchantability,
+                 Supplier<Ingredient> repairMaterial) {
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
         this.efficiency = efficiency;
@@ -57,6 +58,7 @@ public enum ModItemTier implements IItemTier {
         return enchantability;
     }
 
+    @Nonnull
     @Override
     public Ingredient getRepairMaterial() {
         return repairMaterial.get();

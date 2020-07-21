@@ -1,9 +1,9 @@
-package com.example.tutorial;
+package com.theonlytails.ruby;
 
-import com.example.tutorial.util.RegistryHandler;
-import com.example.tutorial.util.RegistryHandlerArmor;
-import com.example.tutorial.util.RegistryHandlerBlocks;
-import com.example.tutorial.util.RegistryHandlerTools;
+import com.theonlytails.ruby.util.RegistryHandler;
+import com.theonlytails.ruby.util.RegistryHandlerArmor;
+import com.theonlytails.ruby.util.RegistryHandlerBlocks;
+import com.theonlytails.ruby.util.RegistryHandlerTools;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;

@@ -1,4 +1,4 @@
-package com.example.tutorial.blocks;
+package com.theonlytails.ruby.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,14 +17,11 @@ public class RubyOreBlock extends OreBlock {
                 .sound(SoundType.STONE)
                 .harvestTool(ToolType.PICKAXE)
                 .harvestLevel(2)
-                // This method ensures that only tools with the harvest level mentioned above (or higher)
-                // can break this block.
-                .func_235861_h_());
+                .setRequiresTool());
     }
 
     @Override
     public int getExpDrop(BlockState state, IWorldReader reader, BlockPos pos, int fortune, int silktouch) {
         return 3;
     }
-
 }

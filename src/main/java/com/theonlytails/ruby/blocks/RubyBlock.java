@@ -1,4 +1,4 @@
-package com.example.tutorial.blocks;
+package com.theonlytails.ruby.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -13,8 +13,6 @@ public class RubyBlock extends Block {
                 .sound(SoundType.METAL)
                 .harvestTool(ToolType.PICKAXE)
                 .harvestLevel(2)
-                // This method ensures that only tools with the harvest level mentioned above (or higher)
-                // can break this block.
-                .func_235861_h_());
+                .setRequiresTool());
     }
 }

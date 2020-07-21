@@ -1,8 +1,9 @@
-package com.example.tutorial.util;
+package com.theonlytails.ruby.util;
 
-import com.example.tutorial.TheOnlyTails;
-import com.example.tutorial.blocks.RubyBlock;
-import com.example.tutorial.blocks.RubyOreBlock;
+import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.blocks.Centrifuge;
+import com.theonlytails.ruby.blocks.RubyBlock;
+import com.theonlytails.ruby.blocks.RubyOreBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.OreBlock;
 import net.minecraftforge.fml.RegistryObject;
@@ -22,6 +23,10 @@ public class RegistryHandlerBlocks {
     // A custom block "Ruby Ore"
     public static final RegistryObject<OreBlock> RUBY_ORE_BLOCK =
             BLOCKS.register("ruby_ore", RubyOreBlock::new);
+
+    // A custom block "Ruby Ore"
+    public static final RegistryObject<Block> CENTRIFUGE_BLOCK =
+            BLOCKS.register("centrifuge", Centrifuge::new);
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

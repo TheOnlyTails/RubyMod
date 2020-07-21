@@ -1,6 +1,6 @@
-package com.example.tutorial.items;
+package com.theonlytails.ruby.items;
 
-import com.example.tutorial.TheOnlyTails;
+import com.theonlytails.ruby.TheOnlyTails;
 import net.minecraft.item.Item;
 
 public class ItemBase extends Item {

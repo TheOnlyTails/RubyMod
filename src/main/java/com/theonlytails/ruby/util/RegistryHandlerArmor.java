@@ -1,7 +1,7 @@
-package com.example.tutorial.util;
+package com.theonlytails.ruby.util;
 
-import com.example.tutorial.TheOnlyTails;
-import com.example.tutorial.armor.RubyArmorMaterial;
+import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.armor.RubyArmorMaterial;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;

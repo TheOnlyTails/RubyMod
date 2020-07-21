@@ -1,15 +1,16 @@
-package com.example.tutorial.util;
+package com.theonlytails.ruby.util;
 
-import com.example.tutorial.TheOnlyTails;
-import com.example.tutorial.blocks.BlockItemBase;
-import com.example.tutorial.items.ItemBase;
-import com.example.tutorial.items.PoisonedApple;
+import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.blocks.BlockItemBase;
+import com.theonlytails.ruby.items.ItemBase;
+import com.theonlytails.ruby.items.PoisonedApple;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@SuppressWarnings("unused")
 public class RegistryHandler {
     // A registry to hold all of the custom items
     public static final DeferredRegister<Item> ITEMS =
@@ -24,10 +25,15 @@ public class RegistryHandler {
             ITEMS.register("ruby_block", () ->
                     new BlockItemBase(RegistryHandlerBlocks.RUBY_BLOCK.get()));
 
-    // A item block for the Ruby Ore
+    // A block item  for the Ruby Ore
     public static final RegistryObject<Item> RUBY_ORE_BLOCK_ITEM =
             ITEMS.register("ruby_ore", () ->
                     new BlockItemBase(RegistryHandlerBlocks.RUBY_ORE_BLOCK.get()));
+
+    // A block item for the Centrifuge
+    public static final RegistryObject<Item> CENTRIFUGE_BLOCK_ITEM =
+            ITEMS.register("centrifuge", () ->
+                    new BlockItemBase(RegistryHandlerBlocks.CENTRIFUGE_BLOCK.get()));
 
     // A custom food item named Poisoned Apple
     public static final RegistryObject<PoisonedApple> POISONED_APPLE =

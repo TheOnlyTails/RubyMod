@@ -1,7 +1,7 @@
-package com.example.tutorial.world.gen;
+package com.theonlytails.ruby.world.gen;
 
-import com.example.tutorial.TheOnlyTails;
-import com.example.tutorial.util.RegistryHandlerBlocks;
+import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.util.RegistryHandlerBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockMatcher;

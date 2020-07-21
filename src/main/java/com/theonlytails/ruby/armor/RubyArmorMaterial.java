@@ -1,7 +1,7 @@
-package com.example.tutorial.armor;
+package com.theonlytails.ruby.armor;
 
-import com.example.tutorial.TheOnlyTails;
-import com.example.tutorial.util.RegistryHandler;
+import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.util.RegistryHandler;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -10,6 +10,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public enum RubyArmorMaterial implements IArmorMaterial {
@@ -60,16 +61,19 @@ public enum RubyArmorMaterial implements IArmorMaterial {
     }
 
     @Override
+    @Nonnull
     public SoundEvent getSoundEvent() {
         return this.soundEvent;
     }
 
     @Override
+    @Nonnull
     public Ingredient getRepairMaterial() {
         return this.repairMaterial.get();
     }
 
     @OnlyIn(Dist.CLIENT)
+    @Nonnull
     @Override
     public String getName() {
         return this.name;
