@@ -1,9 +1,10 @@
 package com.theonlytails.ruby;
 
-import com.theonlytails.ruby.util.RegistryHandler;
-import com.theonlytails.ruby.util.RegistryHandlerArmor;
-import com.theonlytails.ruby.util.RegistryHandlerBlocks;
-import com.theonlytails.ruby.util.RegistryHandlerTools;
+import com.theonlytails.ruby.init.ItemsRegistry;
+import com.theonlytails.ruby.init.ArmorRegistry;
+import com.theonlytails.ruby.init.BlocksRegistry;
+import com.theonlytails.ruby.init.ToolsRegistry;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,7 +22,7 @@ public class TheOnlyTails {
     public static final ItemGroup RUBY = new ItemGroup("rubyTab") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(RegistryHandler.RUBY.get());
+            return new ItemStack(ItemsRegistry.RUBY.get());
         }
     };
 
@@ -33,10 +34,10 @@ public class TheOnlyTails {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        RegistryHandler.init();
-        RegistryHandlerBlocks.init();
-        RegistryHandlerTools.init();
-        RegistryHandlerArmor.init();
+        BlocksRegistry.init();
+        ItemsRegistry.init();
+        ToolsRegistry.init();
+        ArmorRegistry.init();
 
         MinecraftForge.EVENT_BUS.register(this);
     }

@@ -1,6 +1,6 @@
-package com.theonlytails.ruby.tools;
+package com.theonlytails.ruby.util.enums;
 
-import com.theonlytails.ruby.util.RegistryHandlerTools;
+import com.theonlytails.ruby.init.ToolsRegistry;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -11,7 +11,7 @@ public enum RubyItemTier implements IItemTier {
     RUBY(3, 850, 7f,
             3f, 12,
             () -> {
-                return Ingredient.fromItems(RegistryHandlerTools.RUBY_SWORD.get());
+                return Ingredient.fromItems(ToolsRegistry.RUBY_SWORD.get());
             });
 
     private final int harvestLevel;

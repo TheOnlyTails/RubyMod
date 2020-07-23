@@ -1,4 +1,4 @@
-package com.theonlytails.ruby.util;
+package com.theonlytails.ruby.init;
 
 import com.theonlytails.ruby.TheOnlyTails;
 import com.theonlytails.ruby.blocks.Centrifuge;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class RegistryHandlerBlocks {
+public class BlocksRegistry {
     // A registry to hold all of the custom blocks
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, TheOnlyTails.MOD_ID);

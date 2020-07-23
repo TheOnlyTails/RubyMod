@@ -1,7 +1,7 @@
-package com.theonlytails.ruby.util;
+package com.theonlytails.ruby.init;
 
 import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.armor.RubyArmorMaterial;
+import com.theonlytails.ruby.util.enums.RubyArmorMaterial;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -10,33 +10,33 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class RegistryHandlerArmor {
+public class ArmorRegistry {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
 
     public static final RegistryObject<ArmorItem> RUBY_HELMET =
-            RegistryHandler.ITEMS.register("ruby_helmet",
+            ItemsRegistry.ITEMS.register("ruby_helmet",
                     () -> new ArmorItem(
                             RubyArmorMaterial.RUBY,
                             EquipmentSlotType.HEAD,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
 
     public static final RegistryObject<ArmorItem> RUBY_CHESTPLATE =
-            RegistryHandler.ITEMS.register("ruby_chestplate",
+            ItemsRegistry.ITEMS.register("ruby_chestplate",
                     () -> new ArmorItem(
                             RubyArmorMaterial.RUBY,
                             EquipmentSlotType.CHEST,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
 
     public static final RegistryObject<ArmorItem> RUBY_LEGGINGS =
-            RegistryHandler.ITEMS.register("ruby_leggings",
+            ItemsRegistry.ITEMS.register("ruby_leggings",
                     () -> new ArmorItem(
                             RubyArmorMaterial.RUBY,
                             EquipmentSlotType.LEGS,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
 
     public static final RegistryObject<ArmorItem> RUBY_BOOTS =
-            RegistryHandler.ITEMS.register("ruby_boots",
+            ItemsRegistry.ITEMS.register("ruby_boots",
                     () -> new ArmorItem(
                             RubyArmorMaterial.RUBY,
                             EquipmentSlotType.FEET,

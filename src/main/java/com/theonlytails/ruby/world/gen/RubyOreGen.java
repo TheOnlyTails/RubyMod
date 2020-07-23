@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.world.gen;
 
 import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.util.RegistryHandlerBlocks;
+import com.theonlytails.ruby.init.BlocksRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockMatcher;
@@ -27,7 +27,7 @@ public class RubyOreGen {
         for (Biome biome : ForgeRegistries.BIOMES) {
             // Nether
             if (biome.getCategory() == Biome.Category.NETHER) {
-                genOre(biome, 5, 10, 5, 30, OreFeatureConfig.FillerBlockType.NETHERRACK, RegistryHandlerBlocks.RUBY_ORE_BLOCK.get().getDefaultState(), 3);
+                genOre(biome, 5, 10, 5, 30, OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksRegistry.RUBY_ORE_BLOCK.get().getDefaultState(), 3);
             }
         }
     }
