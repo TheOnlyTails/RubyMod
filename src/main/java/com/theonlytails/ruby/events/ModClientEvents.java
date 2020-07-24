@@ -27,7 +27,7 @@ public class ModClientEvents {
                 if (target instanceof PigEntity) {
                     target.addPotionEffect(new EffectInstance(Effects.POISON, 9 * 20, 1));
                     target.setGlowing(true);
-
+                    
                     if (!player.getEntityWorld().isRemote) {
                         String msg = "I don't think that pig is feeling so well...";
                         player.sendMessage(new StringTextComponent(msg), player.getUniqueID());
