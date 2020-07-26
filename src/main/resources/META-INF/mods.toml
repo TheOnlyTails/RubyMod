@@ -8,7 +8,7 @@ issueTrackerURL="https://github.com/TheOnlyTails/RubyMod/issues"
 
 modId="ruby"
 
-version="1.16.1-0.5.0.4.1"
+version="1.16.1-0.5.2.4.1"
 
 displayName="Ruby Mod"
 
@@ -23,6 +23,8 @@ Thanks for this mod goes to Forge, for providing the modding framework,
  TechnoVision, for creating the tutorial series that helped me create it,
  BlockBench, for giving me the tools to create the custom block models,
  and much more people.
+
+ Credit to Jelly Dash for creating the beautiful textures for the Ruby sheep and the ruby wool.
 """
 
 authors="TheOnlyTails"

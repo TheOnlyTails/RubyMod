@@ -24,12 +24,13 @@ public class ItemsRegistry {
             new BlockItemBase(BlocksRegistry.RUBY_BLOCK.get()));
 
     // A block item  for the Ruby Ore
-    public static final RegistryObject<Item> RUBY_ORE_BLOCK_ITEM = ITEMS.register("ruby_ore", () ->
-            new BlockItemBase(BlocksRegistry.RUBY_ORE_BLOCK.get()));
+    public static final RegistryObject<Item> RUBY_ORE_BLOCK_ITEM = ITEMS.register("ruby_ore", () -> new BlockItemBase(BlocksRegistry.RUBY_ORE_BLOCK.get()));
 
     // A block item for the Centrifuge
-    public static final RegistryObject<Item> CENTRIFUGE_BLOCK_ITEM = ITEMS.register("centrifuge", () ->
-            new BlockItemBase(BlocksRegistry.CENTRIFUGE_BLOCK.get()));
+    public static final RegistryObject<Item> CENTRIFUGE_BLOCK_ITEM = ITEMS.register("centrifuge", () -> new BlockItemBase(BlocksRegistry.CENTRIFUGE_BLOCK.get()));
+
+    public static final RegistryObject<Item> RUBY_WOOL_ITEM = ITEMS.register("ruby_wool", () ->
+            new BlockItemBase(BlocksRegistry.RUBY_WOOL.get()));
 
     // A custom food item named Poisoned Apple
     public static final RegistryObject<PoisonedApple> POISONED_APPLE = ITEMS.register("poisoned_apple", PoisonedApple::new);
