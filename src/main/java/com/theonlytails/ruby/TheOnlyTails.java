@@ -1,13 +1,15 @@
 package com.theonlytails.ruby;
 
-import com.theonlytails.ruby.init.ItemsRegistry;
-import com.theonlytails.ruby.init.ArmorRegistry;
-import com.theonlytails.ruby.init.BlocksRegistry;
-import com.theonlytails.ruby.init.ToolsRegistry;
-import net.minecraft.block.FallingBlock;
+import com.theonlytails.ruby.entities.RubySheepEntity;
+import com.theonlytails.ruby.init.*;
+import net.minecraft.client.renderer.entity.SheepRenderer;
+import net.minecraft.client.renderer.entity.model.SheepModel;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.DeferredWorkQueue;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -38,11 +40,13 @@ public class TheOnlyTails {
         ItemsRegistry.init();
         ToolsRegistry.init();
         ArmorRegistry.init();
+        RubyEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(RubyEntityTypes.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create()));
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

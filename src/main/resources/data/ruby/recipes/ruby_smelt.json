@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "minecraft:emerald"
+    "tag": "forge:gems/emerald"
   },
   "result": "ruby:ruby",
   "experience": 2.0,

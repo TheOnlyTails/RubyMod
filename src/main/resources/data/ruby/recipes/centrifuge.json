@@ -6,10 +6,10 @@
   ],
   "key": {
     "x": {
-      "item": "forge:ingots/iron"
+      "tag": "forge:ingots/iron"
     },
     "r": {
-      "tag": "ruby:ruby"
+      "tag": "forge:gems/ruby"
     },
     "c": {
       "item": "minecraft:cauldron"

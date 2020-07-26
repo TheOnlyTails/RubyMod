@@ -10,7 +10,7 @@
   {
     "x":
     {
-      "item": "ruby:ruby"
+      "tag": "forge:gems/ruby"
     }
   },
   "result":
