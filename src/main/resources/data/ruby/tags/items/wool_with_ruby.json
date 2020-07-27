@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "ruby:ruby_wool",
+    "#minecraft:wool"
+  ]
+}

@@ -36,11 +36,11 @@ public class TheOnlyTails {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
+        RubyEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
         BlocksRegistry.init();
         ItemsRegistry.init();
         ToolsRegistry.init();
         ArmorRegistry.init();
-        RubyEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
     }

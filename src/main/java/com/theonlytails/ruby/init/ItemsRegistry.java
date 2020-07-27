@@ -4,6 +4,7 @@ import com.theonlytails.ruby.TheOnlyTails;
 import com.theonlytails.ruby.blocks.BlockItemBase;
 import com.theonlytails.ruby.items.ItemBase;
 import com.theonlytails.ruby.items.PoisonedApple;
+import com.theonlytails.ruby.items.RubySheepSpawnEgg;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -34,6 +35,8 @@ public class ItemsRegistry {
 
     // A custom food item named Poisoned Apple
     public static final RegistryObject<PoisonedApple> POISONED_APPLE = ITEMS.register("poisoned_apple", PoisonedApple::new);
+
+    public static final RegistryObject<Item> RUBY_SHEEP_SPAWN_EGG = ITEMS.register("ruby_sheep_spawn_egg", () -> new RubySheepSpawnEgg(RubyEntityTypes.RUBY_SHEEP::get, 15198183, 2551717, new Item.Properties().group(TheOnlyTails.RUBY)));
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
