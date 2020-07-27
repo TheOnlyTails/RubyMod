@@ -2,10 +2,8 @@ package com.theonlytails.ruby.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.villager.IVillagerType;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.StateContainer;
-import net.minecraft.tags.ITag;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -13,7 +11,6 @@ import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.village.VillageSiege;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 
@@ -105,14 +102,14 @@ public class Centrifuge extends DirectionalBlock {
     @Override
     public VoxelShape getShape(BlockState state, @Nonnull IBlockReader worldIn, @Nonnull BlockPos pos, @Nonnull ISelectionContext context) {
         switch (state.get(FACING)) {
-            default:
-                return SHAPE_N;
             case EAST:
                 return SHAPE_E;
             case SOUTH:
                 return SHAPE_S;
             case WEST:
                 return SHAPE_W;
+            default:
+                return SHAPE_N;
         }
     }
 }
