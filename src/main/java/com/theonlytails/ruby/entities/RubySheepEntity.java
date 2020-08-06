@@ -10,6 +10,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeColor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
@@ -24,6 +25,8 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import java.util.List;
 
 import static net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 
@@ -129,6 +132,23 @@ public class RubySheepEntity extends SheepEntity {
                 itementity.setMotion(itementity.getMotion().add((this.rand.nextFloat() - this.rand.nextFloat()) * 0.1F, this.rand.nextFloat() * 0.05F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.1F));
             }
         }
+    }
+
+    @NotNull
+    @Override
+    public List<ItemStack> onSheared(@org.jetbrains.annotations.Nullable PlayerEntity player, @NotNull ItemStack item, @NotNull World world, @NotNull BlockPos pos, int fortune) {
+        world.playMovingSound(null, this, SoundEvents.ENTITY_SHEEP_SHEAR, player == null ? SoundCategory.BLOCKS : SoundCategory.PLAYERS, 1.0F, 1.0F);
+        if (!world.isRemote) {
+            this.setSheared(true);
+            int i = 1 + this.rand.nextInt(3);
+
+            java.util.List<ItemStack> items = new java.util.ArrayList<>();
+            for (int j = 0; j < i; ++j) {
+                items.add(new ItemStack(ItemsRegistry.RUBY_WOOL_ITEM.get()));
+            }
+            return items;
+        }
+        return java.util.Collections.emptyList();
     }
 
     @Nullable
