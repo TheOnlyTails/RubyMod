@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "crc",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "tag": "minecraft:carpets/ruby_carpet"
+    },
+    "r": {
+      "tag": "forge:gems/ruby"
+    }
+  },
+  "result": {
+    "item": "ruby:ruby_carpet",
+    "count": 8
+  }
+}
