@@ -1,10 +1,7 @@
 package com.theonlytails.ruby.init;
 
 import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.blocks.Centrifuge;
-import com.theonlytails.ruby.blocks.RubyBlock;
-import com.theonlytails.ruby.blocks.RubyOreBlock;
-import com.theonlytails.ruby.blocks.RubyWool;
+import com.theonlytails.ruby.blocks.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.OreBlock;
@@ -36,6 +33,9 @@ public class BlocksRegistry {
 
     public static final RegistryObject<Block> RUBY_WOOL =
             BLOCKS.register("ruby_wool", RubyWool::new);
+
+    public static final RegistryObject<Block> RUBY_CARPET =
+            BLOCKS.register("ruby_carpet", RubyCarpet::new);
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
