@@ -2,5 +2,26 @@
   "item.ruby.ruby": "Ruby",
   "block.ruby.ruby_block": "Ruby Block",
   "block.ruby.ruby_ore": "Ruby Ore",
+  "block.ruby.ruby_wool": "Ruby Wool",
+  "item.ruby.ruby_sheep_spawn_egg": "Ruby Sheep Spawn Egg",
+  "block.ruby.ruby_carpet": "Ruby Carpet",
+
+  "item.ruby.ruby_sword": "Ruby Sword",
+  "item.ruby.ruby_pickaxe": "Ruby Pickaxe",
+  "item.ruby.ruby_axe": "Ruby Axe",
+  "item.ruby.ruby_shovel": "Ruby Shovel",
+  "item.ruby.ruby_hoe": "Ruby Hoe",
+
+  "item.ruby.ruby_helmet": "Ruby Helmet",
+  "item.ruby.ruby_chestplate": "Ruby Chestplate",
+  "item.ruby.ruby_leggings": "Ruby Leggings",
+  "item.ruby.ruby_boots": "Ruby Boots",
+
+  "item.ruby.poisoned_apple": "Poisoned Apple",
+
+  "block.ruby.centrifuge": "Centrifuge",
+
+  "entity.ruby.ruby_sheep": "Ruby Sheep",
+
   "itemGroup.rubyTab": "Ruby"
 }

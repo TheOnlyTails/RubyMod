@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": { "model": "ruby:block/centrifuge" },
+    "facing=south": { "model": "ruby:block/centrifuge", "y":  180},
+    "facing=west": { "model": "ruby:block/centrifuge", "y":  270},
+    "facing=east": { "model": "ruby:block/centrifuge", "y":  90},
+    "facing=up": { "model": "ruby:block/centrifuge"},
+    "facing=down": { "model": "ruby:block/centrifuge"}
+  }
+}

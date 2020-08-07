@@ -2,23 +2,30 @@ modLoader="javafml"
 
 loaderVersion="[31,)"
 
-issueTrackerURL="http://my.issue.tracker/"
+issueTrackerURL="https://github.com/TheOnlyTails/RubyMod/issues"
 
 [[mods]]
 
 modId="ruby"
 
-version="${1.15.2-0.1.0.jarVersion}"
+version="1.16.1-0.5.2.4.1"
 
-displayName="Ruby"
+displayName="Ruby Mod"
 
 updateJSONURL="http://myurl.me/"
 
-displayURL="http://example.com/"
+displayURL="https://github.com/TheOnlyTails/RubyMod"
 
-logoFile="examplemod.png"
+logoFile="logo.png"
 
-credits="Thanks for this example mod goes to Forge and TechnoVision"
+credits="""
+Thanks for this mod goes to Forge, for providing the modding framework,
+ TechnoVision, for creating the tutorial series that helped me create it,
+ BlockBench, for giving me the tools to create the custom block models,
+ and much more people.
+
+ Credit to Jelly Dash for creating the beautiful textures for the Ruby sheep and the ruby wool.
+"""
 
 authors="TheOnlyTails"
 
@@ -41,6 +48,6 @@ This mod adds rubies. They don't do anything yet, but at least they're there!
 [[dependencies.examplemod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.1]"
     ordering="NONE"
     side="BOTH"

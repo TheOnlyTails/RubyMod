@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:rods/wooden"
+    },
+    "x": {
+      "tag": "forge:gems/ruby"
+    }
+  },
+  "result": {
+    "item": "ruby:ruby_pickaxe"
+  }
+}

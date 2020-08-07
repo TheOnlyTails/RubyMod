@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "x x",
+    "x x"
+  ],
+  "key": {
+    "x": {
+      "tag": "forge:gems/ruby"
+    }
+  },
+  "result": {
+    "item": "ruby:ruby_leggings"
+  }
+}
