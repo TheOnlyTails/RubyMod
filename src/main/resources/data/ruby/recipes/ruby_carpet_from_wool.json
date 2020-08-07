@@ -5,7 +5,7 @@
   ],
   "key": {
     "w": {
-      "tag": "minecraft:wool/ruby_wool"
+      "item": "ruby:ruby_wool"
     }
   },
   "result": {

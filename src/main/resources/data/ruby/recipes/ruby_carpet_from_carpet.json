@@ -7,7 +7,7 @@
   ],
   "key": {
     "c": {
-      "tag": "minecraft:carpets/ruby_carpet"
+      "item": "minecraft:white_carpet"
     },
     "r": {
       "tag": "forge:gems/ruby"

@@ -28,17 +28,14 @@
             },
             {
               "type": "minecraft:item",
-              "functions": [
-                {
-                  "function": "minecraft:explosion_decay"
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
               "name": "ruby:ruby"
             }
           ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
         }
       ]
     }
