@@ -27,6 +27,7 @@ public class CustomSpawnEgg extends SpawnEggItem {
 
     public CustomSpawnEgg(final RegistryObject<? extends EntityType<?>> entityTypeSupplier, int primaryColorIn, int secondaryColorIn,
                           Item.Properties builder) {
+        //noinspection ConstantConditions
         super(null, primaryColorIn, secondaryColorIn, builder);
         this.entityTypeSupplier = Lazy.of(entityTypeSupplier);
         UNADDED_EGGS.add(this);
