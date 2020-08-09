@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "xrx",
-    "xcx"
+    "iri",
+    "ici",
+    "idi"
   ],
   "key": {
-    "x": {
+    "i": {
       "tag": "forge:ingots/iron"
     },
     "r": {
@@ -13,6 +14,9 @@
     },
     "c": {
       "item": "minecraft:cauldron"
+    },
+    "d": {
+      "item": "minecraft:redstone_dust"
     }
   },
   "result": {
