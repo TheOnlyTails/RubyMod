@@ -12,8 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class RubyEntityTypes {
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, TheOnlyTails.MOD_ID);
 
-//    Entity Types
-
+    //  Entity Types
     public static final RegistryObject<EntityType<RubySheepEntity>> RUBY_SHEEP = ENTITY_TYPES.register("ruby_sheep", () -> EntityType.Builder.create(RubySheepEntity::new, EntityClassification.CREATURE).size(0.625f, 1.25f)
             .build(new ResourceLocation(TheOnlyTails.MOD_ID, "ruby_sheep").toString())
     );
