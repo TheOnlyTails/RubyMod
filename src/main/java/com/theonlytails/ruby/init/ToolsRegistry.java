@@ -24,7 +24,7 @@ public class ToolsRegistry {
     public static final RegistryObject<PickaxeItem> RUBY_PICKAXE =
             ItemsRegistry.ITEMS.register("ruby_pickaxe", () ->
                     new PickaxeItem(RubyItemTier.RUBY,
-                            0,
+                            1,
                             -2.8f,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
 
