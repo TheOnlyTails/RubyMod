@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "www",
+    "ppp"
+  ],
+  "key": {
+    "w": {
+      "tag": "minecraft:wool/ruby_wool"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": "minecraft:red_bed"
+}

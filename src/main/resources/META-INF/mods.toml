@@ -39,7 +39,7 @@ This mod adds rubies. They don't do anything yet, but at least they're there!
 
     mandatory=true
 
-    versionRange="[31,)"
+    versionRange="[32,)"
 
     ordering="NONE"
 

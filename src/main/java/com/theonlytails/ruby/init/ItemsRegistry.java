@@ -3,15 +3,14 @@ package com.theonlytails.ruby.init;
 import com.theonlytails.ruby.TheOnlyTails;
 import com.theonlytails.ruby.blocks.BlockItemBase;
 import com.theonlytails.ruby.items.CustomSpawnEgg;
-import com.theonlytails.ruby.items.ItemBase;
 import com.theonlytails.ruby.items.PoisonedApple;
+import com.theonlytails.ruby.items.Ruby;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@SuppressWarnings("unused")
 public class ItemsRegistry {
     // A registry to hold all of the custom items
     public static final DeferredRegister<Item> ITEMS =
@@ -24,7 +23,7 @@ public class ItemsRegistry {
     public static final RegistryObject<CustomSpawnEgg> RUBY_SHEEP_SPAWN_EGG = ITEMS.register("ruby_sheep_spawn_egg", () -> new CustomSpawnEgg(RubyEntityTypes.RUBY_SHEEP, 0xE3E6E7, 0xFD0D0D, new Item.Properties().group(TheOnlyTails.RUBY)));
 
     // A custom item "Ruby"
-    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", Ruby::new);
 
     // A block item (inventory form of a block) for the Ruby Block
     public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block",
