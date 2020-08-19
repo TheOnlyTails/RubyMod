@@ -1,6 +1,7 @@
 package com.theonlytails.ruby.init;
 
 import com.theonlytails.ruby.TheOnlyTails;
+
 import com.theonlytails.ruby.items.RubyArmorItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
