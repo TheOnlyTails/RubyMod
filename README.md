@@ -44,7 +44,7 @@ Has 2 more health points than a regular sheep;
 Drops special ruby wool and mutton on death;
 Drops ruby wool when sheared;
 Cannot be bred and has no baby form (yet!);
-Cannot be dyed (yet!);
+Can be dyed with a ruby;
 Has a spawn egg (Creative Mode only!);
 
 Ruby Wool:
