@@ -12,6 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ToolsRegistry {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
+  
     public static final RegistryObject<PickaxeItem> RUBY_PICKAXE =
             // A custom pickaxe made out of ruby
             ItemsRegistry.ITEMS.register("ruby_pickaxe", () ->
@@ -27,7 +28,6 @@ public class ToolsRegistry {
                             2,
                             -2.4f,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
-
 
     // A custom axe made out of ruby
     public static final RegistryObject<AxeItem> RUBY_AXE =
