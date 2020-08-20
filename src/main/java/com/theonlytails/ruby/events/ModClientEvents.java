@@ -1,9 +1,9 @@
 package com.theonlytails.ruby.events;
 
 import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.entities.RubySheepEntity;
 import com.theonlytails.ruby.init.ItemsRegistry;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -17,19 +17,19 @@ import net.minecraftforge.fml.common.Mod;
 public class ModClientEvents {
 
     @SubscribeEvent
-    public static void onDamagePig(AttackEntityEvent event) {
+    public static void onAttackRubySheep(AttackEntityEvent event) {
         PlayerEntity player = event.getPlayer();
 
         if (player.getHeldItemMainhand().getItem()
                 == ItemsRegistry.POISONED_APPLE.get()) {
             if (event.getTarget().isAlive()) {
                 LivingEntity target = (LivingEntity) event.getTarget();
-                if (target instanceof PigEntity) {
+                if (target instanceof RubySheepEntity) {
                     target.addPotionEffect(new EffectInstance(Effects.POISON, 9 * 20, 1));
                     target.setGlowing(true);
                     
                     if (!player.getEntityWorld().isRemote) {
-                        String msg = "I don't think that pig is feeling so well...";
+                        String msg = "I don't think that sheep is feeling so well...";
                         player.sendMessage(new StringTextComponent(msg), player.getUniqueID());
                     }
                 }

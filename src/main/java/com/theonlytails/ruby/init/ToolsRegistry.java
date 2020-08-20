@@ -8,9 +8,18 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class ToolsRegistry {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
+  
+    public static final RegistryObject<PickaxeItem> RUBY_PICKAXE =
+            // A custom pickaxe made out of ruby
+            ItemsRegistry.ITEMS.register("ruby_pickaxe", () ->
+                    new PickaxeItem(RubyItemTier.RUBY,
+                            1,
+                            -2.8f,
+                            new Item.Properties().group(TheOnlyTails.RUBY)));
 
     // A custom sword made out of ruby
     public static final RegistryObject<SwordItem> RUBY_SWORD =
@@ -18,14 +27,6 @@ public class ToolsRegistry {
                     new SwordItem(RubyItemTier.RUBY,
                             2,
                             -2.4f,
-                            new Item.Properties().group(TheOnlyTails.RUBY)));
-
-    // A custom pickaxe made out of ruby
-    public static final RegistryObject<PickaxeItem> RUBY_PICKAXE =
-            ItemsRegistry.ITEMS.register("ruby_pickaxe", () ->
-                    new PickaxeItem(RubyItemTier.RUBY,
-                            1,
-                            -2.8f,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
 
     // A custom axe made out of ruby
@@ -48,8 +49,8 @@ public class ToolsRegistry {
     public static final RegistryObject<HoeItem> RUBY_HOE =
             ItemsRegistry.ITEMS.register("ruby_hoe", () ->
                     new HoeItem(RubyItemTier.RUBY,
-                            1,
-                            -3f,
+                            -2,
+                            -0.5f,
                             new Item.Properties().group(TheOnlyTails.RUBY)));
 
     public static void init() {

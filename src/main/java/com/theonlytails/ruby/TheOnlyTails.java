@@ -14,7 +14,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "RedundantSuppression", "unused"})
 @Mod("ruby")
 public class TheOnlyTails {
     public static final String MOD_ID = "ruby";
@@ -26,7 +26,6 @@ public class TheOnlyTails {
         }
     };
 
-    @SuppressWarnings("unused")
     private static final Logger LOGGER = LogManager.getLogger();
 
     public TheOnlyTails() {

@@ -11,6 +11,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class ItemsRegistry {
     // A registry to hold all of the custom items
     public static final DeferredRegister<Item> ITEMS =

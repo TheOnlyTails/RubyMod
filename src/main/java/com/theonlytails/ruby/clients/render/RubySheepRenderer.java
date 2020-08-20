@@ -4,9 +4,6 @@ import com.theonlytails.ruby.clients.model.RubySheepModel;
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.SheepRenderer;
-import net.minecraft.client.renderer.entity.layers.SheepWoolLayer;
-import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
