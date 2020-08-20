@@ -2,6 +2,8 @@
 
 # RubyMod
 -----------------------
+## What is RubyMod?
+
 RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support coming soon!);
 
 Its purpose is for me to learn the Forge Modding API (using mainly the modding tutorial series by TechnoVision on YT);
@@ -82,7 +84,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Drops ruby wool when sheared;
 
-- Cannot be bred and has no baby form (yet!);
+- Cannot be bred and has no baby form (_yet!_);
 
 - Can be dyed with a ruby;
 
@@ -104,4 +106,13 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Crafted from 8 white carpets and 1 ruby or 2 ruby wool;
 
+---
+
+## Planned Features
+
+- [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple -> apple);
+
+- [ ] **Ruby Biome (Name Not Final):** A custom biome that will spawn ruby sheep (maybe ruby trees?);
+
+- **And More To Come!** 
 ---
