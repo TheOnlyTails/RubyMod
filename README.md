@@ -6,8 +6,10 @@ RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support comin
 
 Its purpose is for me to learn the Forge Modding API (using mainly the modding tutorial series by TechnoVision on YT);
 
-## Features       
 ---
+
+## Features       
+
 ### Ruby:
 - The ruby is a new gem with multiple purposes:
 
@@ -52,15 +54,15 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Effects you with these effects - 
 
-  - Nausea 2 for 7 seconds (100%)
+  - Nausea 2 for 7 seconds (100%);
 
-  - Poison 2 for 9 seconds (100%)
+  - Poison 2 for 9 seconds (100%);
 
-  - Glowing 1 for 10 seconds (100%)
+  - Glowing 1 for 10 seconds (100%);
 
-  - Hunger 3 for 3 seconds (10%)
+  - Hunger 3 for 3 seconds (10%);
 
-  - Blindness 3 for 5 seconds (5%)
+  - Blindness 3 for 5 seconds (5%);
 
   - Luck (!) 1 for 1 second (50%);
 
