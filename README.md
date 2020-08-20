@@ -1,15 +1,15 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
 
-RubyMod
+# RubyMod
 -----------------------
 RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support coming soon!);
 
 Its purpose is for me to learn the Forge Modding API (using mainly the modding tutorial series by TechnoVision on YT);
 
-Features       
------------------------
-Ruby:
-The ruby is a new gem with multiple purposes:
+## Features       
+---
+### Ruby:
+- The ruby is a new gem with multiple purposes:
 
 - Can be used to craft poisoned apples;
 
@@ -22,23 +22,23 @@ The ruby is a new gem with multiple purposes:
 
 ---
 
-Ruby Ore:
+### Ruby Ore:
 
-Found in the nether, at the lava lakes' floor;
+- Found in the nether, at the lava lakes' floor;
 
-Drops a ruby when broken (effected by fortune), or the ore itself with silk touch;
+- Drops a ruby when broken (effected by fortune), or the ore itself with silk touch;
 
-Can be smelted (or blasted in a blast furnace) to get 1 ruby;
+- Can be smelted (or blasted in a blast furnace) to get 1 ruby;
 
 ---
 
-Ruby Tools:
+### Ruby Tools:
 
 - Better than iron but worse than diamond;
 
 ---
 
-Ruby Armor:
+### Ruby Armor:
 
 - Give the same amount of armor points as iron armor, but also give +5 knockback resistance (5 times more than netherite!);
 
@@ -46,7 +46,7 @@ Ruby Armor:
 
 ---
 
-Poisoned Apple:
+### Poisoned Apple:
 
 - Gives you 7 points of hunger and 14.4 saturation points (as much as a golden carrot);
 
@@ -68,7 +68,7 @@ Poisoned Apple:
 
 ---
 
-Ruby Sheep:
+### Ruby Sheep:
 
 - A special type of sheep;
 
@@ -88,7 +88,7 @@ Ruby Sheep:
 
 ---
 
-Ruby Wool:
+### Ruby Wool:
 
 - Drops from ruby sheep;
 
@@ -98,7 +98,7 @@ Ruby Wool:
 
 ---
 
-Ruby Carpet:
+### Ruby Carpet:
 
 - Crafted from 8 white carpets and 1 ruby or 2 ruby wool;
 
