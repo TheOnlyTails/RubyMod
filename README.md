@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
+
 RubyMod
 -----------------------
 RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support coming soon!);
