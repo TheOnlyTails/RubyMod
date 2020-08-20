@@ -19,7 +19,7 @@ public class ClientEventBusSubscriber {
     public static void onClientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(RubyEntityTypes.RUBY_SHEEP.get(), RubySheepRenderer::new);
     }
-  
+
     @SubscribeEvent
     public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
         CustomSpawnEgg.initSpawnEggs();

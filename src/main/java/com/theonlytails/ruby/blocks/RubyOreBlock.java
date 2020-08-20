@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.ToolType;
+import org.jetbrains.annotations.NotNull;
 
 public class RubyOreBlock extends OreBlock {
 
@@ -21,7 +22,7 @@ public class RubyOreBlock extends OreBlock {
     }
 
     @Override
-    public int getExpDrop(BlockState state, IWorldReader reader, BlockPos pos, int fortune, int silktouch) {
+    public int getExpDrop(@NotNull BlockState state, @NotNull IWorldReader reader, @NotNull BlockPos pos, int fortune, int silktouch) {
         return 3;
     }
 }

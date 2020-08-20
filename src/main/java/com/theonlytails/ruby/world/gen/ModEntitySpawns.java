@@ -17,9 +17,11 @@ public class ModEntitySpawns {
     public static void spawnRubySheep(FMLLoadCompleteEvent event) {
         for (Biome biome : ForgeRegistries.BIOMES) {
             Biome.Category category = biome.getCategory();
+
             if (category != Biome.Category.NETHER &&
                     category != Biome.Category.THEEND &&
                     category != Biome.Category.OCEAN) {
+
                 if (biome != Biomes.WOODED_BADLANDS_PLATEAU && biome != Biomes.SNOWY_TUNDRA) {
                     biome.getSpawns(EntityClassification.CREATURE)
                             .add(new Biome.SpawnListEntry(RubyEntityTypes.RUBY_SHEEP.get(),

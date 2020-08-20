@@ -3,8 +3,6 @@ package com.theonlytails.ruby.world.gen;
 import com.theonlytails.ruby.TheOnlyTails;
 import com.theonlytails.ruby.init.BlocksRegistry;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.pattern.BlockMatcher;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -19,8 +17,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = TheOnlyTails.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RubyOreGen {
-    public static OreFeatureConfig.FillerBlockType END_STONE =
-            OreFeatureConfig.FillerBlockType.create("END_STONE", "end_stone", new BlockMatcher(Blocks.END_STONE));
 
     @SubscribeEvent
     public static void genOres(FMLLoadCompleteEvent event) {
@@ -32,6 +28,7 @@ public class RubyOreGen {
         }
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static void genOre(Biome biome, int count, int bottomOffset, int topOffset, int max,
                                OreFeatureConfig.FillerBlockType fillerBlockType,
                                BlockState defaultBlockState, int size) {

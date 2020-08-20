@@ -4,12 +4,10 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import net.minecraft.client.renderer.entity.model.SheepModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
 
 import javax.annotation.Nonnull;
 
 public class RubySheepModel<T extends RubySheepEntity> extends SheepModel<T> {
-    private float headRotationAngleX;
 
     public RubySheepModel() {
         super();
