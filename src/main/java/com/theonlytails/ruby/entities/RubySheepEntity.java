@@ -25,7 +25,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.List;
 
 import static net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
