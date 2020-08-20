@@ -84,7 +84,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Drops ruby wool when sheared;
 
-- Cannot be bred and has no baby form (_yet!_);
+- Cannot be bred (_yet!_);
 
 - Can be dyed with a ruby;
 
