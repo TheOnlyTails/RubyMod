@@ -84,8 +84,6 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Drops ruby wool when sheared;
 
-- Cannot be bred (_yet!_);
-
 - Can be dyed with a ruby;
 
 - Has a spawn egg (Creative Mode only!);
