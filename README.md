@@ -116,3 +116,9 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - **And More To Come!** 
 ---
+
+## Credits
+
+I would like to thank the forge team for creating the Forge API, TechnoVision for inspiring the mod with your tutorial series, and Jelly Dash, for helping a lot with your beautiful textures for this mod.
+
+---
