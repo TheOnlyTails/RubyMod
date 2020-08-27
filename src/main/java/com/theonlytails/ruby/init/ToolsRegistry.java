@@ -1,6 +1,7 @@
 package com.theonlytails.ruby.init;
 
 import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.items.RubyHoe;
 import com.theonlytails.ruby.util.enums.RubyItemTier;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -47,11 +48,7 @@ public class ToolsRegistry {
 
     // A custom hoe made out of ruby
     public static final RegistryObject<HoeItem> RUBY_HOE =
-            ItemsRegistry.ITEMS.register("ruby_hoe", () ->
-                    new HoeItem(RubyItemTier.RUBY,
-                            -2,
-                            -0.5f,
-                            new Item.Properties().group(TheOnlyTails.RUBY)));
+            ItemsRegistry.ITEMS.register("ruby_hoe", RubyHoe::new);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

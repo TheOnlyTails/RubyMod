@@ -8,12 +8,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = TheOnlyTails.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = TheOnlyTails.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModClientEvents {
 
     @SubscribeEvent
@@ -27,10 +26,11 @@ public class ModClientEvents {
                 if (target instanceof RubySheepEntity) {
                     target.addPotionEffect(new EffectInstance(Effects.POISON, 9 * 20, 1));
                     target.setGlowing(true);
-                    
+
                     if (!player.getEntityWorld().isRemote) {
                         String msg = "I don't think that sheep is feeling so well...";
-                        player.sendMessage(new StringTextComponent(msg), player.getUniqueID());
+                        player.sendMessage(
+                                new StringTextComponent(msg), player.getUniqueID());
                     }
                 }
             }
