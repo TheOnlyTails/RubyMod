@@ -23,7 +23,10 @@ public class RubyOreGen {
         for (Biome biome : ForgeRegistries.BIOMES) {
             // Nether
             if (biome.getCategory() == Biome.Category.NETHER) {
-                genOre(biome, 5, 10, 5, 30, OreFeatureConfig.FillerBlockType.NETHERRACK, BlocksRegistry.RUBY_ORE_BLOCK.get().getDefaultState(), 3);
+                genOre(biome,
+                        5, 10, 5,
+                        30, OreFeatureConfig.FillerBlockType.NETHERRACK,
+                        BlocksRegistry.RUBY_ORE_BLOCK.get().getDefaultState(), 3);
             }
         }
     }
@@ -34,8 +37,11 @@ public class RubyOreGen {
                                BlockState defaultBlockState, int size) {
         CountRangeConfig range = new CountRangeConfig(count, bottomOffset,
                 topOffset, max);
+
         OreFeatureConfig feature = new OreFeatureConfig(fillerBlockType, defaultBlockState, size);
+
         ConfiguredPlacement<CountRangeConfig> config = Placement.COUNT_RANGE.configure(range);
+
         biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
                 Feature.ORE.withConfiguration(feature)
                         .withPlacement(config));

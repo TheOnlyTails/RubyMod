@@ -7,6 +7,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeColor;
@@ -25,7 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.List;
+import java.util.Collections;
 
 import static net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 
@@ -51,13 +52,14 @@ public class RubySheepEntity extends SheepEntity {
         super.registerGoals();
         eatGrassGoal = new EatGrassGoal(this);
         this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.1D, TEMPTATION_ITEMS, false));
-        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25f));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0f));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0f, SheepEntity.class));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.1f, TEMPTATION_ITEMS, false));
+        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1f));
         this.goalSelector.addGoal(5, this.eatGrassGoal);
-        this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0f));
+        this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
     }
 
@@ -147,7 +149,7 @@ public class RubySheepEntity extends SheepEntity {
             }
             return items;
         }
-        return java.util.Collections.emptyList();
+        return Collections.emptyList();
     }
 
     @Nullable
@@ -161,5 +163,10 @@ public class RubySheepEntity extends SheepEntity {
     @Override
     public @NotNull ResourceLocation getLootTable() {
         return new ResourceLocation("ruby", "entities/ruby_sheep");
+    }
+
+    @Override
+    public boolean canMateWith(@NotNull AnimalEntity otherAnimal) {
+        return otherAnimal instanceof SheepEntity && otherAnimal.isInLove();
     }
 }

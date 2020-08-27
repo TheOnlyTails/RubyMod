@@ -27,16 +27,26 @@ public class Ruby extends Item {
             SheepEntity sheepentity = (SheepEntity)target;
             if (sheepentity.isAlive() && !sheepentity.getSheared() && !(sheepentity instanceof RubySheepEntity)) {
                 if (!playerIn.world.isRemote) {
+
                     RubySheepEntity rubySheepEntity = RubyEntityTypes.RUBY_SHEEP.get().create(playerIn.world);
+
                     if (rubySheepEntity != null) {
-                        rubySheepEntity.setLocationAndAngles(sheepentity.getPosX(), sheepentity.getPosY(), sheepentity.getPosZ(), sheepentity.rotationYaw, sheepentity.rotationPitch);
-                        rubySheepEntity.onInitialSpawn(playerIn.world, playerIn.world.getDifficultyForLocation(rubySheepEntity.getPosition()), SpawnReason.CONVERSION, null, null);
+
+                        rubySheepEntity.setLocationAndAngles(sheepentity.getPosX(), sheepentity.getPosY(),
+                                sheepentity.getPosZ(), sheepentity.rotationYaw, sheepentity.rotationPitch);
+
+                        rubySheepEntity.onInitialSpawn(
+                                playerIn.world,
+                                playerIn.world.getDifficultyForLocation(
+                                        rubySheepEntity.getPosition()), SpawnReason.CONVERSION, null, null);
+
                         playerIn.world.addEntity(rubySheepEntity);
+
                         sheepentity.remove();
                     }
-
                 }
 
+                // func_233537_a_ -> resultSuccessClient()
                 return ActionResultType.func_233537_a_(playerIn.world.isRemote);
             }
         }

@@ -2,6 +2,7 @@ package com.theonlytails.ruby;
 
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import com.theonlytails.ruby.init.*;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -44,6 +45,7 @@ public class TheOnlyTails {
 
     private void setup(final FMLCommonSetupEvent event) {
         DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(RubyEntityTypes.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create()));
+        ComposterBlock.CHANCES.put(ItemsRegistry.POISONED_APPLE.get().asItem(), 0.3f);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
