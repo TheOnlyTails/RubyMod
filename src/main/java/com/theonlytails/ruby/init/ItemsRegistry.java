@@ -5,11 +5,14 @@ import com.theonlytails.ruby.blocks.BlockItemBase;
 import com.theonlytails.ruby.items.CustomSpawnEgg;
 import com.theonlytails.ruby.items.PoisonedApple;
 import com.theonlytails.ruby.items.Ruby;
+import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import static net.minecraft.item.Items.BUCKET;
 
 @SuppressWarnings({"unused", "RedundantSuppression"})
 public class ItemsRegistry {
@@ -17,6 +20,15 @@ public class ItemsRegistry {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
 
+
+    public static final RegistryObject<Item> RUBY_WATER_BUCKET =
+            ITEMS.register("ruby_water_bucket", () ->
+                    new BucketItem(FluidsRegistry.RUBY_WATER_FLUID,
+                            new Item.Properties()
+                                    .containerItem(BUCKET)
+                                    .maxStackSize(1)
+                                    .group(TheOnlyTails.RUBY)
+                    ));
 
     // A custom food item named Poisoned Apple
     public static final RegistryObject<PoisonedApple> POISONED_APPLE = ITEMS.register("poisoned_apple", PoisonedApple::new);

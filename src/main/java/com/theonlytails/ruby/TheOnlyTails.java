@@ -34,6 +34,7 @@ public class TheOnlyTails {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
+        FluidsRegistry.init();
         RubyEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
         BlocksRegistry.init();
         ItemsRegistry.init();
