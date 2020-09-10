@@ -1,4 +1,4 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
+![License](https://img.shields.io/badge/License-MIT-brightgreen) ![Language](https://img.shields.io/badge/language-java-blue?logo=java) ![GitHub stars](https://img.shields.io/github/stars/TheOnlyTails/RubyMod?style=social) ![GitHub last commit](https://img.shields.io/github/last-commit/TheOnlyTails/RubyMod) [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
 
 # RubyMod
 -----------------------
