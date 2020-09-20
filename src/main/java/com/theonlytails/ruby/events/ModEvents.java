@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = TheOnlyTails.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ModClientEvents {
+public class ModEvents {
 
     @SubscribeEvent
     public static void onAttackRubySheep(AttackEntityEvent event) {

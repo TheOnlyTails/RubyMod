@@ -18,8 +18,7 @@ public enum RubyArmorMaterial implements IArmorMaterial {
             new int[]{2, 5, 6, 2},
             18, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
             0f,
-            () -> Ingredient.fromItems(
-                    ItemsRegistry.RUBY.get()), 0.5f);
+            () ->  Ingredient.fromItems(ItemsRegistry.RUBY.get()), 0.5f);
 
     private static final int[] MAX_DAMAGE = {11, 16, 15, 13};
     private final String name;

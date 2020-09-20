@@ -21,6 +21,8 @@
 
   "block.ruby.centrifuge": "Centrifuge",
 
+  "item.ruby.ruby_water_bucket": "Ruby Water Bucket",
+
   "entity.ruby.ruby_sheep": "Ruby Sheep",
 
   "itemGroup.rubyTab": "Ruby"
