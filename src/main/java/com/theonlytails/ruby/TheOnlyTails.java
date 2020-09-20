@@ -3,11 +3,15 @@ package com.theonlytails.ruby;
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import com.theonlytails.ruby.init.*;
 import net.minecraft.block.ComposterBlock;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DeferredWorkQueue;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -46,7 +50,12 @@ public class TheOnlyTails {
 
     private void setup(final FMLCommonSetupEvent event) {
         DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(RubyEntityTypes.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create()));
+
         ComposterBlock.CHANCES.put(ItemsRegistry.POISONED_APPLE.get().asItem(), 0.3f);
+
+        for (RegistryObject<Fluid> fluid : FluidsRegistry.FLUIDS.getEntries()) {
+            RenderTypeLookup.setRenderLayer(fluid.get(), RenderType.getTranslucent());
+        }
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

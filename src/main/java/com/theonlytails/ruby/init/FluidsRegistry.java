@@ -6,17 +6,17 @@ import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.item.Items;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.awt.*;
 
 public class FluidsRegistry {
     public static final DeferredRegister<Fluid> FLUIDS =
@@ -53,13 +53,12 @@ public class FluidsRegistry {
             new ForgeFlowingFluid.Properties(
                     FluidsRegistry.RUBY_WATER_FLUID,
                     FluidsRegistry.RUBY_WATER_FLOW,
-
                     FluidAttributes.builder(
                             STILL_RUBY_WATER,
                             FLOW_RUBY_WATER)
                             .rarity(Rarity.RARE)
                             .sound(SoundEvents.BLOCK_WATER_AMBIENT)
-                            .color(0xE4503F)
+                            .color(new Color(228, 80, 63, 255).getRGB())
                             .overlay(OVERLAY_RUBY_WATER))
                     .block(FluidsRegistry.RUBY_WATER_BLOCK)
                     .bucket(ItemsRegistry.RUBY_WATER_BUCKET);
