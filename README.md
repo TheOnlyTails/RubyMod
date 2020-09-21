@@ -117,8 +117,6 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Will turn to water when it interacts with it;
 
-- Contains magical properties, that somehow cause kelp to turn ruby water into regular water;
-
 - Can be picked up in a bucket!
 
 - Crafting recipe: Water bucket + ruby -> Ruby water bucket
