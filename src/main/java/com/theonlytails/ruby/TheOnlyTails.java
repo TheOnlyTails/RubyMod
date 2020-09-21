@@ -1,5 +1,6 @@
 package com.theonlytails.ruby;
 
+import com.theonlytails.ruby.clients.render.RubySheepRenderer;
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import com.theonlytails.ruby.init.*;
 import net.minecraft.block.ComposterBlock;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -59,5 +61,6 @@ public class TheOnlyTails {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(RubyEntityTypes.RUBY_SHEEP.get(), RubySheepRenderer::new);
     }
 }
