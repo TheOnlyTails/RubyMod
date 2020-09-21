@@ -22,6 +22,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 - Can be used to make ruby tools and armor (pickaxe, sword, axe, shovel, hoe, helmet, chestplate, leggings and boots);
 
 - Craft 9 rubies together to get a ruby block, which can be later uncrafted back into 9 rubies;
+
 - Obtained from mining or smelting ruby ore;
 
 ---
@@ -70,6 +71,8 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Can always be eaten (even at full hunger);
 
+- Crafting recipe: Apple + ruby -> poisoned apple
+
 ---
 
 ### Ruby Sheep:
@@ -94,7 +97,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Drops from ruby sheep;
 
-- Can be crafted from any wool;
+- Crafting recipe: Wool + ruby -> ruby wool
 
 - Can be used to craft red beds and paintings;
 
@@ -103,6 +106,22 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 ### Ruby Carpet:
 
 - Crafted from 8 white carpets and 1 ruby or 2 ruby wool;
+
+---
+
+### Ruby Water:
+
+- Water, but red;
+
+- When you dive in it, it's completely see-through, but from the outside, it's not;
+
+- Will turn to water when it interacts with it;
+
+- Contains magical properties, that somehow cause kelp to turn ruby water into regular water;
+
+- Can be picked up in a bucket!
+
+- Crafting recipe: Water bucket + ruby -> Ruby water bucket
 
 ---
 
