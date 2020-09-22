@@ -9,7 +9,7 @@ public class RubyWool extends Block {
     public RubyWool() {
         super(Block.Properties
                 .create(Material.WOOL, MaterialColor.CRIMSON_HYPHAE)
-                .hardnessAndResistance(1f)
+                .hardnessAndResistance(0.8f)
                 .sound(SoundType.CLOTH));
     }
 }

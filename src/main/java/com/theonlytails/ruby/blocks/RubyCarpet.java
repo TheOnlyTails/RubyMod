@@ -19,7 +19,7 @@ public class RubyCarpet extends Block {
     public RubyCarpet() {
         super(AbstractBlock.Properties
                 .create(Material.CARPET, MaterialColor.CRIMSON_HYPHAE)
-                .hardnessAndResistance(0.3f)
+                .hardnessAndResistance(0.1f)
                 .sound(SoundType.CLOTH)
         );
     }
