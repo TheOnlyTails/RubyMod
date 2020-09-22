@@ -1,10 +1,14 @@
 {
   "item.ruby.ruby": "Ruby",
+  "item.ruby.poisoned_apple": "Poisoned Apple",
+  "item.ruby.ruby_water_bucket": "Ruby Water Bucket",
+  "item.ruby.ruby_sheep_spawn_egg": "Ruby Sheep Spawn Egg",
+
   "block.ruby.ruby_block": "Ruby Block",
   "block.ruby.ruby_ore": "Ruby Ore",
   "block.ruby.ruby_wool": "Ruby Wool",
-  "item.ruby.ruby_sheep_spawn_egg": "Ruby Sheep Spawn Egg",
   "block.ruby.ruby_carpet": "Ruby Carpet",
+  "block.ruby.centrifuge": "Centrifuge",
 
   "item.ruby.ruby_sword": "Ruby Sword",
   "item.ruby.ruby_pickaxe": "Ruby Pickaxe",
@@ -17,13 +21,9 @@
   "item.ruby.ruby_leggings": "Ruby Leggings",
   "item.ruby.ruby_boots": "Ruby Boots",
 
-  "item.ruby.poisoned_apple": "Poisoned Apple",
-
-  "block.ruby.centrifuge": "Centrifuge",
-
-  "item.ruby.ruby_water_bucket": "Ruby Water Bucket",
-
   "entity.ruby.ruby_sheep": "Ruby Sheep",
+
+  "enchantment.ruby.stinger": "Stinger",
 
   "itemGroup.rubyTab": "Ruby"
 }

@@ -42,6 +42,7 @@ public class TheOnlyTails {
 
         FluidsRegistry.init();
         RubyEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        EnchantRegistry.init();
         BlocksRegistry.init();
         ItemsRegistry.init();
         ToolsRegistry.init();
