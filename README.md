@@ -99,8 +99,6 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Crafting recipe: Wool + ruby -> ruby wool
 
-- Can be used to craft red beds and paintings;
-
 ---
 
 ### Ruby Carpet:

@@ -3,6 +3,7 @@ package com.theonlytails.ruby.init;
 import com.theonlytails.ruby.TheOnlyTails;
 import com.theonlytails.ruby.blocks.BlockItemBase;
 import com.theonlytails.ruby.items.CustomSpawnEgg;
+import com.theonlytails.ruby.items.FuelBlockItem;
 import com.theonlytails.ruby.items.PoisonedApple;
 import com.theonlytails.ruby.items.Ruby;
 import net.minecraft.item.BucketItem;
@@ -51,10 +52,10 @@ public class ItemsRegistry {
             () -> new BlockItemBase(BlocksRegistry.CENTRIFUGE_BLOCK.get()));
 
     public static final RegistryObject<Item> RUBY_WOOL_ITEM = ITEMS.register("ruby_wool",
-            () -> new BlockItemBase(BlocksRegistry.RUBY_WOOL.get()));
+            () -> new FuelBlockItem(BlocksRegistry.RUBY_WOOL.get(), 100));
 
     public static final RegistryObject<Item> RUBY_CARPET_ITEM = ITEMS.register("ruby_carpet",
-            () -> new BlockItemBase(BlocksRegistry.RUBY_CARPET.get()));
+            () -> new FuelBlockItem(BlocksRegistry.RUBY_CARPET.get(), 67));
 
 
     public static void init() {
