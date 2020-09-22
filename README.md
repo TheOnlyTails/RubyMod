@@ -121,13 +121,28 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
+### Stinger Enchantment:
+
+- When you enchant your sword with this enchantment, it will cause the sword to be poisonous, and every mob you hit will
+  be poisoned for 5 seconds;
+
+- Comes in 2 levels;
+
+- Mutually exclusive with Mending and Sharpness;
+
+- Can't be obtained from villagers;
+
+---
+
 ## Planned Features
 
-- [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple -> apple);
+- [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple ->
+  apple);
 
 - [ ] **Ruby Biome (Name Not Final):** A custom biome that will spawn ruby sheep (maybe ruby trees?);
 
-- **And More To Come!** 
+- **And More To Come!**
+
 ---
 
 ## Credits
