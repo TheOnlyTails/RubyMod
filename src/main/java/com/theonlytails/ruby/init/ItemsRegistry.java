@@ -34,7 +34,7 @@ public class ItemsRegistry {
     // A custom food item named Poisoned Apple
     public static final RegistryObject<PoisonedApple> POISONED_APPLE = ITEMS.register("poisoned_apple", PoisonedApple::new);
 
-    public static final RegistryObject<CustomSpawnEgg> RUBY_SHEEP_SPAWN_EGG = ITEMS.register("ruby_sheep_spawn_egg", () -> new CustomSpawnEgg(RubyEntityTypes.RUBY_SHEEP, 0xE3E6E7, 0xFD0D0D, new Item.Properties().group(TheOnlyTails.RUBY)));
+    public static final RegistryObject<CustomSpawnEgg> RUBY_SHEEP_SPAWN_EGG = ITEMS.register("ruby_sheep_spawn_egg", () -> new CustomSpawnEgg(EntityTypesRegistry.RUBY_SHEEP, 0xE3E6E7, 0xFD0D0D, new Item.Properties().group(TheOnlyTails.RUBY)));
 
     // A custom item "Ruby"
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", Ruby::new);
@@ -56,7 +56,6 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> RUBY_CARPET_ITEM = ITEMS.register("ruby_carpet",
             () -> new FuelBlockItem(BlocksRegistry.RUBY_CARPET.get(), 67));
-
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

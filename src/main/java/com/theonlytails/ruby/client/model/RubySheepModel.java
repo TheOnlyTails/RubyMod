@@ -1,4 +1,4 @@
-package com.theonlytails.ruby.clients.model;
+package com.theonlytails.ruby.client.model;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

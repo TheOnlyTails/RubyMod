@@ -2,7 +2,7 @@ package com.theonlytails.ruby.items;
 
 import com.theonlytails.ruby.TheOnlyTails;
 import com.theonlytails.ruby.entities.RubySheepEntity;
-import com.theonlytails.ruby.init.RubyEntityTypes;
+import com.theonlytails.ruby.init.EntityTypesRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.passive.SheepEntity;
@@ -28,7 +28,7 @@ public class Ruby extends Item {
             if (sheepentity.isAlive() && !sheepentity.getSheared() && !(sheepentity instanceof RubySheepEntity)) {
                 if (!playerIn.world.isRemote) {
 
-                    RubySheepEntity rubySheepEntity = RubyEntityTypes.RUBY_SHEEP.get().create(playerIn.world);
+                    RubySheepEntity rubySheepEntity = EntityTypesRegistry.RUBY_SHEEP.get().create(playerIn.world);
 
                     if (rubySheepEntity != null) {
 
