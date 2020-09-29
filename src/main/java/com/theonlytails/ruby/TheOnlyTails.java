@@ -1,6 +1,6 @@
 package com.theonlytails.ruby;
 
-import com.theonlytails.ruby.clients.render.RubySheepRenderer;
+import com.theonlytails.ruby.client.render.RubySheepRenderer;
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import com.theonlytails.ruby.init.*;
 import net.minecraft.block.ComposterBlock;
@@ -41,7 +41,8 @@ public class TheOnlyTails {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         FluidsRegistry.init();
-        RubyEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        EntityTypesRegistry.init();
+        EnchantRegistry.init();
         BlocksRegistry.init();
         ItemsRegistry.init();
         ToolsRegistry.init();
@@ -51,7 +52,7 @@ public class TheOnlyTails {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(RubyEntityTypes.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create()));
+        DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(EntityTypesRegistry.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create()));
 
         ComposterBlock.CHANCES.put(ItemsRegistry.POISONED_APPLE.get().asItem(), 0.3f);
 
@@ -61,6 +62,6 @@ public class TheOnlyTails {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        RenderingRegistry.registerEntityRenderingHandler(RubyEntityTypes.RUBY_SHEEP.get(), RubySheepRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypesRegistry.RUBY_SHEEP.get(), RubySheepRenderer::new);
     }
 }

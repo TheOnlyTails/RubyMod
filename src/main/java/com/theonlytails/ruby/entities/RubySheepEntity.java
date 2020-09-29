@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.entities;
 
+import com.theonlytails.ruby.init.EntityTypesRegistry;
 import com.theonlytails.ruby.init.ItemsRegistry;
-import com.theonlytails.ruby.init.RubyEntityTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -72,7 +72,7 @@ public class RubySheepEntity extends SheepEntity {
     @Nullable
     @Override
     public RubySheepEntity createChild(@Nonnull AgeableEntity ageable) {
-        return RubyEntityTypes.RUBY_SHEEP.get().create(world);
+        return EntityTypesRegistry.RUBY_SHEEP.get().create(world);
     }
 
     @Nullable
