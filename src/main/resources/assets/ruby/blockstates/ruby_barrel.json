@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "ruby:block/ruby_barrel"
+    },
+    "open=true": {
+      "model": "ruby:block/ruby_barrel_open"
+    }
+  }
+}

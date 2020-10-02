@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "brb",
+    "bcb",
+    "brb"
+  ],
+  "key": {
+    "b": {
+      "item": "ruby:ruby_block"
+    },
+    "r": {
+      "tag": "forge:gems/ruby"
+    },
+    "c": {
+      "item": "minecraft:barrel"
+    }
+  },
+  "result": {
+    "item": "ruby:ruby_barrel"
+  }
+}
