@@ -18,10 +18,8 @@
   "item.ruby.ruby_chestplate": "Ruby Chestplate",
   "item.ruby.ruby_leggings": "Ruby Leggings",
   "item.ruby.ruby_boots": "Ruby Boots",
-
   "entity.ruby.ruby_sheep": "Ruby Sheep",
-
   "enchantment.ruby.stinger": "Stinger",
-
+  "biome.ruby.ruby_hills": "Ruby Hills",
   "itemGroup.rubyTab": "Ruby"
 }

@@ -1,6 +1,7 @@
 package com.theonlytails.ruby.world.gen;
 
 import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.init.BiomesRegistry;
 import com.theonlytails.ruby.init.BlocksRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
@@ -26,6 +27,13 @@ public class RubyOreGen {
                 genOre(biome,
                         5, 10, 5,
                         30, OreFeatureConfig.FillerBlockType.NETHERRACK,
+                        BlocksRegistry.RUBY_ORE_BLOCK.get().getDefaultState(), 3);
+            }
+
+            if (biome == BiomesRegistry.RUBY_HILLS.get()) {
+                genOre(biome,
+                        5, 10, 5,
+                        30, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
                         BlocksRegistry.RUBY_ORE_BLOCK.get().getDefaultState(), 3);
             }
         }
