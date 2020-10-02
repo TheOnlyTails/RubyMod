@@ -3,19 +3,17 @@
   "item.ruby.poisoned_apple": "Poisoned Apple",
   "item.ruby.ruby_water_bucket": "Ruby Water Bucket",
   "item.ruby.ruby_sheep_spawn_egg": "Ruby Sheep Spawn Egg",
-
   "block.ruby.ruby_block": "Ruby Block",
   "block.ruby.ruby_ore": "Ruby Ore",
   "block.ruby.ruby_wool": "Ruby Wool",
   "block.ruby.ruby_carpet": "Ruby Carpet",
   "block.ruby.centrifuge": "Centrifuge",
-
+  "block.ruby.ruby_barrel": "Ruby Barrel",
   "item.ruby.ruby_sword": "Ruby Sword",
   "item.ruby.ruby_pickaxe": "Ruby Pickaxe",
   "item.ruby.ruby_axe": "Ruby Axe",
   "item.ruby.ruby_shovel": "Ruby Shovel",
   "item.ruby.ruby_hoe": "Ruby Hoe",
-
   "item.ruby.ruby_helmet": "Ruby Helmet",
   "item.ruby.ruby_chestplate": "Ruby Chestplate",
   "item.ruby.ruby_leggings": "Ruby Leggings",

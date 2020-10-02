@@ -32,6 +32,9 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> RUBY_CARPET =
             BLOCKS.register("ruby_carpet", RubyCarpet::new);
 
+    public static final RegistryObject<Block> RUBY_BARREL =
+            BLOCKS.register("ruby_barrel", RubyBarrelBlock::new);
+
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }

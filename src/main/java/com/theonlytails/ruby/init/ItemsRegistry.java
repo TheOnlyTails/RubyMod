@@ -57,6 +57,9 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> RUBY_CARPET_ITEM = ITEMS.register("ruby_carpet",
             () -> new FuelBlockItem(BlocksRegistry.RUBY_CARPET.get(), 67));
 
+    public static final RegistryObject<Item> RUBY_BARREL_ITEM = ITEMS.register("ruby_barrel",
+            () -> new BlockItemBase(BlocksRegistry.RUBY_BARREL.get()));
+
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }

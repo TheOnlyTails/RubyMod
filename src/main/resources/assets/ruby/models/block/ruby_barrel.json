@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "ruby:blocks/ruby_barrel_top",
+    "bottom": "ruby:blocks/ruby_barrel_bottom",
+    "side": "ruby:blocks/ruby_barrel_side"
+  }
+}

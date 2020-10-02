@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "ruby:block/ruby_block"
-        }
+  "variants": {
+    "": {
+      "model": "ruby:block/ruby_block"
     }
+  }
 }

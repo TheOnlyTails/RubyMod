@@ -1,9 +1,11 @@
 package com.theonlytails.ruby;
 
+import com.theonlytails.ruby.client.gui.RubyBarrelScreen;
 import com.theonlytails.ruby.client.render.RubySheepRenderer;
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import com.theonlytails.ruby.init.*;
 import net.minecraft.block.ComposterBlock;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
@@ -42,6 +44,8 @@ public class TheOnlyTails {
 
         FluidsRegistry.init();
         EntityTypesRegistry.init();
+        TileEntityTypesRegistry.init();
+        ContainersRegistry.init();
         EnchantRegistry.init();
         BlocksRegistry.init();
         ItemsRegistry.init();
@@ -62,6 +66,9 @@ public class TheOnlyTails {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        ScreenManager.registerFactory(
+                ContainersRegistry.RUBY_BARREL.get(), RubyBarrelScreen::new);
+
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesRegistry.RUBY_SHEEP.get(), RubySheepRenderer::new);
     }
 }

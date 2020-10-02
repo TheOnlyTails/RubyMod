@@ -1,145 +1,150 @@
 ![License](https://img.shields.io/badge/License-MIT-brightgreen) ![Language](https://img.shields.io/badge/language-java-blue?logo=java) ![GitHub stars](https://img.shields.io/github/stars/TheOnlyTails/RubyMod?style=social) ![GitHub last commit](https://img.shields.io/github/last-commit/TheOnlyTails/RubyMod) [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
 
 # RubyMod
------------------------
+
+---
+
 ## What is RubyMod?
 
-RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support coming soon!);
+RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support coming soon!).
 
-Its purpose is for me to learn the Forge Modding API (using mainly the modding tutorial series by TechnoVision on YT);
+Its purpose is for me to learn the Forge Modding API (using mainly the modding tutorial series by TechnoVision on YT).
 
 ---
 
-## Features       
+## Features
 
-### Ruby:
+### Ruby
+
 - The ruby is a new gem with multiple purposes:
 
-- Can be used to craft poisoned apples;
+- Can be used to craft poisoned apples.
 
-- Can be used to craft red dye;
+- Can be used to craft red dye.
 
-- Can be used to make ruby tools and armor (pickaxe, sword, axe, shovel, hoe, helmet, chestplate, leggings and boots);
+- Can be used to make ruby tools and armor (pickaxe, sword, axe, shovel, hoe, helmet, chestplate, leggings and boots).
 
-- Craft 9 rubies together to get a ruby block, which can be later uncrafted back into 9 rubies;
-
-- Obtained from mining or smelting ruby ore;
+- Obtained from mining or smelting ruby ore.
 
 ---
 
-### Ruby Ore:
+### Ruby Ore
 
-- Found in the nether, at the lava lakes' floor;
+- Found in the nether, at the lava lakes' floor.
 
-- Drops a ruby when broken (effected by fortune), or the ore itself with silk touch;
+- Drops a ruby when broken (effected by fortune), or the ore itself with silk touch.
 
-- Can be smelted (or blasted in a blast furnace) to get 1 ruby;
-
----
-
-### Ruby Tools:
-
-- Better than iron but worse than diamond;
+- Can be smelted (or blasted in a blast furnace) to get 1 ruby.
 
 ---
 
-### Ruby Armor:
+### Ruby Tools
 
-- Give the same amount of armor points as iron armor, but also give +5 knockback resistance (5 times more than netherite!);
-
-- When mining with a ruby pickaxe and full ruby armor, you get haste 1 (Enough to instamine stone! No need for a beacon!);
+- Better than iron but worse than diamond.
 
 ---
 
-### Poisoned Apple:
+### Ruby Armor
 
-- Gives you 7 points of hunger and 14.4 saturation points (as much as a golden carrot);
+- Give the same amount of armor points as iron armor, but also give +5 knockback resistance (5 times more than
+  netherite!).
 
-- Effects you with these effects - 
-
-  - Nausea 2 for 7 seconds (100%);
-
-  - Poison 2 for 9 seconds (100%);
-
-  - Glowing 1 for 10 seconds (100%);
-
-  - Hunger 3 for 3 seconds (10%);
-
-  - Blindness 3 for 5 seconds (5%);
-
-  - Luck (!) 1 for 1 second (50%);
-
-- Can always be eaten (even at full hunger);
-
-- Crafting recipe: Apple + ruby -> poisoned apple
+- When mining with a ruby pickaxe and full ruby armor, you get haste 1 (Enough to insta-mine stone! No need for a
+  beacon!).
 
 ---
 
-### Ruby Sheep:
+### Poisoned Apple
 
-- A special type of sheep;
+- Gives you 7 points of hunger and 14.4 saturation points (as much as a golden carrot).
 
-- Will follow a player holding wheat or rubies;
+- Effects you with these effects -
 
-- Has 2 more health points than a regular sheep;
+  - Nausea 2 for 7 seconds (100%).
 
-- Drops special ruby wool and mutton on death;
+  - Poison 2 for 9 seconds (100%).
 
-- Drops ruby wool when sheared;
+  - Glowing 1 for 10 seconds (100%).
 
-- Can be dyed with a ruby;
+  - Hunger 3 for 3 seconds (10%).
 
-- Has a spawn egg (Creative Mode only!);
+  - Blindness 3 for 5 seconds (5%).
 
----
+  - Luck (!) 1 for 1 second (50%).
 
-### Ruby Wool:
-
-- Drops from ruby sheep;
-
-- Crafting recipe: Wool + ruby -> ruby wool
+- Can always be eaten (even at full hunger).
 
 ---
 
-### Ruby Carpet:
+### Ruby Sheep
 
-- Crafted from 8 white carpets and 1 ruby or 2 ruby wool;
+- A special type of sheep.
+
+- Will follow a player holding wheat or rubies.
+
+- Has 2 more health points than a regular sheep.
+
+- Drops special ruby wool and mutton on death.
+
+- Drops ruby wool when sheared.
+
+- Can be dyed with a ruby.
+
+- Has a spawn egg (Creative Mode only!).
 
 ---
 
-### Ruby Water:
+### Ruby Wool
 
-- Water, but red;
+- Wool that comes from ruby sheep.
 
-- When you dive in it, it's completely see-through, but from the outside, it's not;
+- Drops from ruby sheep.
 
-- Will turn to water when it interacts with it;
+---
+
+### Ruby Carpet
+
+- A carpet made of ruby wool.
+
+---
+
+### Ruby Water
+
+- Water, but red.
+
+- When you dive in it, it's completely see-through, but from the outside, it's not.
+
+- Will turn to water when it interacts with it.
 
 - Can be picked up in a bucket!
 
-- Crafting recipe: Water bucket + ruby -> Ruby water bucket
+---
+
+### Stinger Enchantment
+
+- When you enchant your sword with this enchantment, it will cause the sword to be poisonous, and every mob you hit will
+  be poisoned for 5 seconds.
+
+- Comes in 2 levels.
+
+- Mutually exclusive with Mending and Sharpness.
+
+- Can't be obtained from villagers.
 
 ---
 
-### Stinger Enchantment:
+### Ruby Barrel
 
-- When you enchant your sword with this enchantment, it will cause the sword to be poisonous, and every mob you hit will
-  be poisoned for 5 seconds;
-
-- Comes in 2 levels;
-
-- Mutually exclusive with Mending and Sharpness;
-
-- Can't be obtained from villagers;
+- The ruby barrel is a barrel with 5 rows of storage space.
 
 ---
 
 ## Planned Features
 
 - [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple ->
-  apple);
+  apple).
 
-- [ ] **Ruby Biome (Name Not Final):** A custom biome that will spawn ruby sheep (maybe ruby trees?);
+- [ ] **Ruby Biome (Name Not Final):** A custom biome that will spawn ruby sheep (maybe ruby trees?).
 
 - **And More To Come!**
 
@@ -147,6 +152,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ## Credits
 
-I would like to thank the forge team for creating the Forge API, TechnoVision for inspiring the mod with your tutorial series, and Jelly Dash, for helping a lot with your beautiful textures for this mod.
+I would like to thank the forge team for creating the Forge API, TechnoVision for inspiring the mod with your tutorial
+series, and Jelly Dash, for helping a lot with your beautiful textures for this mod.
 
 ---
