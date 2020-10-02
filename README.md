@@ -139,12 +139,22 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
+### Ruby Hills
+
+- A new biome with magical red grass.
+
+- Creepers don't spawn in here!
+
+- Mules naturally spawn here. How? Good question.
+
+- The home for the lovely ruby sheep!
+
+---
+
 ## Planned Features
 
 - [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple ->
   apple).
-
-- [ ] **Ruby Biome (Name Not Final):** A custom biome that will spawn ruby sheep (maybe ruby trees?).
 
 - **And More To Come!**
 
@@ -152,7 +162,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ## Credits
 
-I would like to thank the forge team for creating the Forge API, TechnoVision for inspiring the mod with your tutorial
+I would like to thank the Forge team for creating the Forge API, TechnoVision for inspiring the mod with your tutorial
 series, and Jelly Dash, for helping a lot with your beautiful textures for this mod.
 
 ---

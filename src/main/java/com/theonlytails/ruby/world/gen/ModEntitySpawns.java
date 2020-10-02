@@ -22,7 +22,8 @@ public class ModEntitySpawns {
                     category != Biome.Category.THEEND &&
                     category != Biome.Category.OCEAN) {
 
-                if (biome != Biomes.WOODED_BADLANDS_PLATEAU && biome != Biomes.SNOWY_TUNDRA) {
+                if (biome != Biomes.WOODED_BADLANDS_PLATEAU &&
+                        biome != Biomes.SNOWY_TUNDRA) {
                     biome.getSpawns(EntityClassification.CREATURE)
                             .add(new Biome.SpawnListEntry(EntityTypesRegistry.RUBY_SHEEP.get(),
                                     12, 2, 3));

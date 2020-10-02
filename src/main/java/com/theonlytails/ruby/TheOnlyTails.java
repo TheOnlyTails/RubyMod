@@ -12,7 +12,10 @@ import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -24,6 +27,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @SuppressWarnings({"deprecation", "RedundantSuppression", "unused"})
+@Mod.EventBusSubscriber(modid = TheOnlyTails.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 @Mod("ruby")
 public class TheOnlyTails {
     public static final String MOD_ID = "ruby";
@@ -42,8 +46,9 @@ public class TheOnlyTails {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        FluidsRegistry.init();
         EntityTypesRegistry.init();
+        BiomesRegistry.init();
+        FluidsRegistry.init();
         TileEntityTypesRegistry.init();
         ContainersRegistry.init();
         EnchantRegistry.init();
@@ -53,6 +58,11 @@ public class TheOnlyTails {
         ArmorRegistry.init();
 
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
+        BiomesRegistry.registerBiomes();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
