@@ -1,18 +1,20 @@
-modLoader="javafml"
+modLoader = "javafml"
 
-loaderVersion="[31,)"
+loaderVersion = "[31,)"
 
-issueTrackerURL="https://github.com/TheOnlyTails/RubyMod/issues"
+license = "MIT License"
+
+issueTrackerURL = "https://github.com/TheOnlyTails/RubyMod/issues"
 
 [[mods]]
 
-modId="ruby"
+modId = "ruby"
 
-version="1.16.1-0.7.1"
+version = "1.16.1-0.7.1"
 
-displayName="Ruby Mod"
+displayName = "Ruby Mod"
 
-updateJSONURL="http://myurl.me/"
+updateJSONURL = "http://myurl.me/"
 
 displayURL="https://github.com/TheOnlyTails/RubyMod"
 

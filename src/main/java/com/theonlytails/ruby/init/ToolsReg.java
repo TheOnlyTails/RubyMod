@@ -10,45 +10,45 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @SuppressWarnings({"unused", "RedundantSuppression"})
-public class ToolsRegistry {
+public class ToolsReg {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TheOnlyTails.MOD_ID);
 
     public static final RegistryObject<PickaxeItem> RUBY_PICKAXE =
             // A custom pickaxe made out of ruby
-            ItemsRegistry.ITEMS.register("ruby_pickaxe", () ->
+            ItemsReg.ITEMS.register("ruby_pickaxe", () ->
                     new PickaxeItem(RubyItemTier.RUBY,
                             1,
                             -2.8f,
-                            new Item.Properties().group(TheOnlyTails.RUBY)));
+                            TheOnlyTails.RUBY_TAB_PROP));
 
     // A custom sword made out of ruby
     public static final RegistryObject<SwordItem> RUBY_SWORD =
-            ItemsRegistry.ITEMS.register("ruby_sword", () ->
+            ItemsReg.ITEMS.register("ruby_sword", () ->
                     new SwordItem(RubyItemTier.RUBY,
                             2,
                             -2.4f,
-                            new Item.Properties().group(TheOnlyTails.RUBY)));
+                            TheOnlyTails.RUBY_TAB_PROP));
 
     // A custom axe made out of ruby
     public static final RegistryObject<AxeItem> RUBY_AXE =
-            ItemsRegistry.ITEMS.register("ruby_axe", () ->
+            ItemsReg.ITEMS.register("ruby_axe", () ->
                     new AxeItem(RubyItemTier.RUBY,
                             5f,
                             -3.05f,
-                            new Item.Properties().group(TheOnlyTails.RUBY)));
+                            TheOnlyTails.RUBY_TAB_PROP));
 
     // A custom shovel made out of ruby
     public static final RegistryObject<ShovelItem> RUBY_SHOVEL =
-            ItemsRegistry.ITEMS.register("ruby_shovel", () ->
+            ItemsReg.ITEMS.register("ruby_shovel", () ->
                     new ShovelItem(RubyItemTier.RUBY,
                             1f,
                             -3f,
-                            new Item.Properties().group(TheOnlyTails.RUBY)));
+                            TheOnlyTails.RUBY_TAB_PROP));
 
     // A custom hoe made out of ruby
     public static final RegistryObject<HoeItem> RUBY_HOE =
-            ItemsRegistry.ITEMS.register("ruby_hoe", RubyHoe::new);
+            ItemsReg.ITEMS.register("ruby_hoe", RubyHoe::new);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

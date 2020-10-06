@@ -2,7 +2,7 @@ package com.theonlytails.ruby.tileentity;
 
 import com.theonlytails.ruby.blocks.RubyBarrelBlock;
 import com.theonlytails.ruby.container.RubyBarrelContainer;
-import com.theonlytails.ruby.init.TileEntityTypesRegistry;
+import com.theonlytails.ruby.init.TileEntityTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -32,7 +32,7 @@ public class TileRubyBarrel extends TileEntity implements INamedContainerProvide
     public int players = 0;
 
     public TileRubyBarrel() {
-        super(TileEntityTypesRegistry.RUBY_BARREL.get());
+        super(TileEntityTypes.RUBY_BARREL.get());
     }
 
     private ItemStackHandler createHandler(int size) {

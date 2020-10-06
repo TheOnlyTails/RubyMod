@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.awt.*;
 
-public class FluidsRegistry {
+public class FluidsReg {
     public static final DeferredRegister<Fluid> FLUIDS =
             DeferredRegister.create(ForgeRegistries.FLUIDS, TheOnlyTails.MOD_ID);
 
@@ -34,25 +34,22 @@ public class FluidsRegistry {
 
     public static final RegistryObject<FlowingFluid> RUBY_WATER_FLUID =
             FLUIDS.register("ruby_water", () ->
-                    new ForgeFlowingFluid.Source(FluidsRegistry.RUBY_WATER_PROP));
-
+                    new ForgeFlowingFluid.Source(FluidsReg.RUBY_WATER_PROP));
     public static final RegistryObject<FlowingFluid> RUBY_WATER_FLOW =
             FLUIDS.register("ruby_water_flow", () ->
-                    new ForgeFlowingFluid.Flowing(FluidsRegistry.RUBY_WATER_PROP));
-
+                    new ForgeFlowingFluid.Flowing(FluidsReg.RUBY_WATER_PROP));
     private static final RegistryObject<FlowingFluidBlock> RUBY_WATER_BLOCK =
-            BlocksRegistry.BLOCKS.register("ruby_water_block", () ->
-                    new FlowingFluidBlock(FluidsRegistry.RUBY_WATER_FLUID,
+            BlocksReg.BLOCKS.register("ruby_water_block", () ->
+                    new FlowingFluidBlock(FluidsReg.RUBY_WATER_FLUID,
                             AbstractBlock.Properties.create(Material.WATER)
                                     .doesNotBlockMovement()
                                     .hardnessAndResistance(100f)
                                     .noDrops())
             );
-
     public static final ForgeFlowingFluid.Properties RUBY_WATER_PROP =
             new ForgeFlowingFluid.Properties(
-                    FluidsRegistry.RUBY_WATER_FLUID,
-                    FluidsRegistry.RUBY_WATER_FLOW,
+                    FluidsReg.RUBY_WATER_FLUID,
+                    FluidsReg.RUBY_WATER_FLOW,
                     FluidAttributes.builder(
                             STILL_RUBY_WATER,
                             FLOW_RUBY_WATER)
@@ -60,8 +57,8 @@ public class FluidsRegistry {
                             .sound(SoundEvents.BLOCK_WATER_AMBIENT)
                             .color(new Color(228, 80, 63, 255).getRGB())
                             .overlay(OVERLAY_RUBY_WATER))
-                    .block(FluidsRegistry.RUBY_WATER_BLOCK)
-                    .bucket(ItemsRegistry.RUBY_WATER_BUCKET);
+                    .block(FluidsReg.RUBY_WATER_BLOCK)
+                    .bucket(ItemsReg.RUBY_WATER_BUCKET);
 
 
     public static void init() {

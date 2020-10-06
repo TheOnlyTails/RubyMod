@@ -8,7 +8,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class EnchantRegistry {
+public class EnchantReg {
     public static final DeferredRegister<Enchantment> ENCHANTS =
             DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, TheOnlyTails.MOD_ID);
 

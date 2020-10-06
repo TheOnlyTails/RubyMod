@@ -28,6 +28,14 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
+### Ruby Block
+
+- It's a block made out of rubies.
+
+- Comes in a slab and stair versions.
+
+---
+
 ### Ruby Ore
 
 - Found in the nether, at the lava lakes' floor.

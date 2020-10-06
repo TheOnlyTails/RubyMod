@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.items;
 
 import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.init.ToolsRegistry;
+import com.theonlytails.ruby.init.ToolsReg;
 import com.theonlytails.ruby.util.enums.RubyArmorMaterial;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class RubyArmorItem extends ArmorItem {
     public RubyArmorItem(EquipmentSlotType slot) {
-        super(RubyArmorMaterial.RUBY, slot, new Properties().group(TheOnlyTails.RUBY));
+        super(RubyArmorMaterial.RUBY, slot, TheOnlyTails.RUBY_TAB_PROP);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class RubyArmorItem extends ArmorItem {
             }
         });
 
-        if (numOfRubyArmor.get() == 4 && itemHeldMainhand == ToolsRegistry.RUBY_PICKAXE.get()) {
+        if (numOfRubyArmor.get() == 4 && itemHeldMainhand == ToolsReg.RUBY_PICKAXE.get()) {
             player.addPotionEffect(new EffectInstance(Effects.HASTE, 220, 0, true, true));
         }
     }

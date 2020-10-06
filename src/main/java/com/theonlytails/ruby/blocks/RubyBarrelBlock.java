@@ -1,6 +1,6 @@
 package com.theonlytails.ruby.blocks;
 
-import com.theonlytails.ruby.init.TileEntityTypesRegistry;
+import com.theonlytails.ruby.init.TileEntityTypes;
 import com.theonlytails.ruby.tileentity.TileRubyBarrel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -87,7 +87,7 @@ public class RubyBarrelBlock extends Block {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return TileEntityTypesRegistry.RUBY_BARREL.get().create();
+        return TileEntityTypes.RUBY_BARREL.get().create();
     }
 
     @Override

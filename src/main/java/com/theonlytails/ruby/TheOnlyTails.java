@@ -10,8 +10,12 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.potion.PotionBrewing;
+import net.minecraft.potion.Potions;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -35,9 +39,11 @@ public class TheOnlyTails {
     public static final ItemGroup RUBY = new ItemGroup("rubyTab") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ItemsRegistry.RUBY.get());
+            return new ItemStack(ItemsReg.RUBY.get());
         }
     };
+
+    public static final Item.Properties RUBY_TAB_PROP = new Item.Properties().group(RUBY);
 
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -46,39 +52,56 @@ public class TheOnlyTails {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        EntityTypesRegistry.init();
-        BiomesRegistry.init();
-        FluidsRegistry.init();
-        TileEntityTypesRegistry.init();
-        ContainersRegistry.init();
-        EnchantRegistry.init();
-        BlocksRegistry.init();
-        ItemsRegistry.init();
-        ToolsRegistry.init();
-        ArmorRegistry.init();
+        EntityTypes.init();
+        BiomesReg.init();
+        FluidsReg.init();
+        TileEntityTypes.init();
+        ContainerTypes.init();
+        EnchantReg.init();
+        BlocksReg.init();
+        ItemsReg.init();
+        ToolsReg.init();
+        ArmorReg.init();
+        PotionsReg.init();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     @SubscribeEvent
     public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
-        BiomesRegistry.registerBiomes();
+        BiomesReg.registerBiomes();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        DeferredWorkQueue.runLater(() -> GlobalEntityTypeAttributes.put(EntityTypesRegistry.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create()));
+        DeferredWorkQueue.runLater(() -> {
+            GlobalEntityTypeAttributes.put(EntityTypes.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create());
 
-        ComposterBlock.CHANCES.put(ItemsRegistry.POISONED_APPLE.get().asItem(), 0.3f);
+            PotionBrewing.addMix(
+                    Potions.WATER,
+                    ItemsReg.RUBY.get(),
+                    PotionsReg.LAZINESS.get());
 
-        for (RegistryObject<Fluid> fluid : FluidsRegistry.FLUIDS.getEntries()) {
+            PotionBrewing.addMix(
+                    PotionsReg.LAZINESS.get(),
+                    Items.GLOWSTONE_DUST,
+                    PotionsReg.STRONG_LAZINESS.get());
+
+            PotionBrewing.addMix(PotionsReg.LAZINESS.get(),
+                    Items.REDSTONE,
+                    PotionsReg.LONG_LAZINESS.get());
+        });
+
+        ComposterBlock.CHANCES.put(ItemsReg.POISONED_APPLE.get().asItem(), 0.3f);
+
+        for (RegistryObject<Fluid> fluid : FluidsReg.FLUIDS.getEntries()) {
             RenderTypeLookup.setRenderLayer(fluid.get(), RenderType.getTranslucent());
         }
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         ScreenManager.registerFactory(
-                ContainersRegistry.RUBY_BARREL.get(), RubyBarrelScreen::new);
+                ContainerTypes.RUBY_BARREL.get(), RubyBarrelScreen::new);
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityTypesRegistry.RUBY_SHEEP.get(), RubySheepRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypes.RUBY_SHEEP.get(), RubySheepRenderer::new);
     }
 }
