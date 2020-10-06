@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.entities;
 
-import com.theonlytails.ruby.init.EntityTypesRegistry;
-import com.theonlytails.ruby.init.ItemsRegistry;
+import com.theonlytails.ruby.init.EntityTypes;
+import com.theonlytails.ruby.init.ItemsReg;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -32,7 +32,7 @@ import java.util.List;
 import static net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 
 public class RubySheepEntity extends SheepEntity {
-    public static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(ItemsRegistry.RUBY.get(), Items.WHEAT);
+    public static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(ItemsReg.RUBY.get(), Items.WHEAT);
     private EatGrassGoal eatGrassGoal;
     private int rubySheepTimer;
 
@@ -72,7 +72,7 @@ public class RubySheepEntity extends SheepEntity {
     @Nullable
     @Override
     public RubySheepEntity createChild(@Nonnull AgeableEntity ageable) {
-        return EntityTypesRegistry.RUBY_SHEEP.get().create(world);
+        return EntityTypes.RUBY_SHEEP.get().create(world);
     }
 
     @Nullable
@@ -129,7 +129,7 @@ public class RubySheepEntity extends SheepEntity {
         int i = 1 + this.rand.nextInt(3);
 
         for (int j = 0; j < i; ++j) {
-            ItemEntity itementity = this.entityDropItem(ItemsRegistry.RUBY_WOOL_ITEM.get(), 1);
+            ItemEntity itementity = this.entityDropItem(ItemsReg.RUBY_WOOL_ITEM.get(), 1);
             if (itementity != null) {
                 itementity.setMotion(itementity.getMotion().add((this.rand.nextFloat() - this.rand.nextFloat()) * 0.1F, this.rand.nextFloat() * 0.05F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.1F));
             }
@@ -146,7 +146,7 @@ public class RubySheepEntity extends SheepEntity {
 
             java.util.List<ItemStack> items = new java.util.ArrayList<>();
             for (int j = 0; j < i; ++j) {
-                items.add(new ItemStack(ItemsRegistry.RUBY_WOOL_ITEM.get()));
+                items.add(new ItemStack(ItemsReg.RUBY_WOOL_ITEM.get()));
             }
             return items;
         }

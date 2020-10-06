@@ -7,6 +7,6 @@ import net.minecraft.item.HoeItem;
 public class RubyHoe extends HoeItem {
 
     public RubyHoe() {
-        super(RubyItemTier.RUBY, -2, -0.5f, new Properties().group(TheOnlyTails.RUBY));
+        super(RubyItemTier.RUBY, -2, -0.5f, TheOnlyTails.RUBY_TAB_PROP);
     }
 }

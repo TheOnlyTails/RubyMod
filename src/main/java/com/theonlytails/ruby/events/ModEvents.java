@@ -2,7 +2,7 @@ package com.theonlytails.ruby.events;
 
 import com.theonlytails.ruby.TheOnlyTails;
 import com.theonlytails.ruby.entities.RubySheepEntity;
-import com.theonlytails.ruby.init.ItemsRegistry;
+import com.theonlytails.ruby.init.ItemsReg;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
@@ -20,7 +20,7 @@ public class ModEvents {
         PlayerEntity player = event.getPlayer();
 
         if (player.getHeldItemMainhand().getItem()
-                == ItemsRegistry.POISONED_APPLE.get()) {
+                == ItemsReg.POISONED_APPLE.get()) {
             if (event.getTarget().isAlive()) {
                 LivingEntity target = (LivingEntity) event.getTarget();
                 if (target instanceof RubySheepEntity) {

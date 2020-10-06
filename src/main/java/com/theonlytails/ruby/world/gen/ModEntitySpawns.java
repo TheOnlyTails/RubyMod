@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.world.gen;
 
 import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.init.EntityTypesRegistry;
+import com.theonlytails.ruby.init.EntityTypes;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -25,7 +25,7 @@ public class ModEntitySpawns {
                 if (biome != Biomes.WOODED_BADLANDS_PLATEAU &&
                         biome != Biomes.SNOWY_TUNDRA) {
                     biome.getSpawns(EntityClassification.CREATURE)
-                            .add(new Biome.SpawnListEntry(EntityTypesRegistry.RUBY_SHEEP.get(),
+                            .add(new Biome.SpawnListEntry(EntityTypes.RUBY_SHEEP.get(),
                                     12, 2, 3));
                 }
             }

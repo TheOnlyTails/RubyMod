@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.enchants;
 
 import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.init.EnchantRegistry;
+import com.theonlytails.ruby.init.EnchantReg;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentType;
@@ -55,7 +55,7 @@ public class StingerEnchant extends Enchantment {
 
             ItemStack itemMainhand = player.getHeldItemMainhand();
 
-            Enchantment enchant = EnchantRegistry.STINGER.get();
+            Enchantment enchant = EnchantReg.STINGER.get();
 
             int enchantLevel = EnchantmentHelper.getEnchantmentLevel(enchant, itemMainhand);
 

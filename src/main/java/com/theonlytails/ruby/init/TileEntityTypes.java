@@ -8,7 +8,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class TileEntityTypesRegistry {
+public class TileEntityTypes {
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES =
             DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, TheOnlyTails.MOD_ID);
 
@@ -17,7 +17,7 @@ public class TileEntityTypesRegistry {
             TILE_ENTITIES.register("ruby_barrel",
                     () -> TileEntityType.Builder
                             .create(TileRubyBarrel::new,
-                                    BlocksRegistry.RUBY_BARREL.get())
+                                    BlocksReg.RUBY_BARREL.get())
                             .build(null)
             );
 

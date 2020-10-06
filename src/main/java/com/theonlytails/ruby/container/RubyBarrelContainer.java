@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.container;
 
-import com.theonlytails.ruby.init.BlocksRegistry;
-import com.theonlytails.ruby.init.ContainersRegistry;
+import com.theonlytails.ruby.init.BlocksReg;
+import com.theonlytails.ruby.init.ContainerTypes;
 import com.theonlytails.ruby.tileentity.TileRubyBarrel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -21,7 +21,7 @@ public class RubyBarrelContainer extends Container {
     private final IWorldPosCallable canInteractWithCallable;
 
     public RubyBarrelContainer(int id, PlayerInventory playerInventory, final TileRubyBarrel tileEntity) {
-        super(ContainersRegistry.RUBY_BARREL.get(), id);
+        super(ContainerTypes.RUBY_BARREL.get(), id);
         this.tileEntity = tileEntity;
         this.canInteractWithCallable = IWorldPosCallable.of(
                 Objects.requireNonNull(tileEntity.getWorld()), tileEntity.getPos());
@@ -88,7 +88,7 @@ public class RubyBarrelContainer extends Container {
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
         return isWithinUsableDistance(
-                canInteractWithCallable, playerIn, BlocksRegistry.RUBY_BARREL.get());
+                canInteractWithCallable, playerIn, BlocksReg.RUBY_BARREL.get());
     }
 
     @Override

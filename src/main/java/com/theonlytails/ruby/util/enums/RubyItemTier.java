@@ -1,6 +1,6 @@
 package com.theonlytails.ruby.util.enums;
 
-import com.theonlytails.ruby.init.ItemsRegistry;
+import com.theonlytails.ruby.init.ItemsReg;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -11,7 +11,7 @@ public enum RubyItemTier implements IItemTier {
     RUBY(3, 850, 7f,
             3f, 12,
             () -> {
-                return Ingredient.fromItems(ItemsRegistry.RUBY.get());
+                return Ingredient.fromItems(ItemsReg.RUBY.get());
             });
 
     private final int harvestLevel;
