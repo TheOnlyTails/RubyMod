@@ -38,6 +38,12 @@ public class ItemsReg {
     public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block",
             () -> new BlockItem(BlocksReg.RUBY_BLOCK.get(), TheOnlyTails.RUBY_TAB_PROP));
 
+    public static final RegistryObject<Item> RUBY_SLAB_ITEM = ITEMS.register("ruby_slab",
+            () -> new BlockItem(BlocksReg.RUBY_SLAB.get(), TheOnlyTails.RUBY_TAB_PROP));
+
+    public static final RegistryObject<Item> RUBY_STAIRS_ITEM = ITEMS.register("ruby_stairs",
+            () -> new BlockItem(BlocksReg.RUBY_STAIRS.get(), TheOnlyTails.RUBY_TAB_PROP));
+
     public static final RegistryObject<Item> RUBY_ORE_BLOCK_ITEM = ITEMS.register("ruby_ore",
             () -> new BlockItem(BlocksReg.RUBY_ORE_BLOCK.get(), TheOnlyTails.RUBY_TAB_PROP));
 
