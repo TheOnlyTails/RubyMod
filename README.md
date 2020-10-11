@@ -159,6 +159,14 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
+### Potion of Motivation and Laziness
+
+- The Potion of Motivation can be brewed with a ruby, and it will give you a boost of speed and jump height.
+
+- The Potion of Laziness is an inverted Potion of Motivation, and it will affect you with slowness and nausea.
+
+---
+
 ## Planned Features
 
 - [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple ->

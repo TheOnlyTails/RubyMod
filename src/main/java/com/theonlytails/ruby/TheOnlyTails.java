@@ -75,10 +75,23 @@ public class TheOnlyTails {
     private void setup(final FMLCommonSetupEvent event) {
         DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(EntityTypes.RUBY_SHEEP.get(), RubySheepEntity.setCustomAttributes().create());
-
             PotionBrewing.addMix(
                     Potions.WATER,
                     ItemsReg.RUBY.get(),
+                    PotionsReg.MOTIVATION.get());
+
+            PotionBrewing.addMix(
+                    PotionsReg.MOTIVATION.get(),
+                    Items.GLOWSTONE_DUST,
+                    PotionsReg.STRONG_MOTIVATION.get());
+
+            PotionBrewing.addMix(PotionsReg.MOTIVATION.get(),
+                    Items.REDSTONE,
+                    PotionsReg.LONG_MOTIVATION.get());
+
+            PotionBrewing.addMix(
+                    PotionsReg.MOTIVATION.get(),
+                    Items.FERMENTED_SPIDER_EYE,
                     PotionsReg.LAZINESS.get());
 
             PotionBrewing.addMix(
