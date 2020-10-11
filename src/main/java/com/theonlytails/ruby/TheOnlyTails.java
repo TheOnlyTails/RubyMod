@@ -79,6 +79,20 @@ public class TheOnlyTails {
             PotionBrewing.addMix(
                     Potions.WATER,
                     ItemsReg.RUBY.get(),
+                    PotionsReg.MOTIVATION.get());
+
+            PotionBrewing.addMix(
+                    PotionsReg.MOTIVATION.get(),
+                    Items.GLOWSTONE_DUST,
+                    PotionsReg.STRONG_MOTIVATION.get());
+
+            PotionBrewing.addMix(PotionsReg.MOTIVATION.get(),
+                    Items.REDSTONE,
+                    PotionsReg.LONG_MOTIVATION.get());
+
+            PotionBrewing.addMix(
+                    PotionsReg.MOTIVATION.get(),
+                    Items.FERMENTED_SPIDER_EYE,
                     PotionsReg.LAZINESS.get());
 
             PotionBrewing.addMix(

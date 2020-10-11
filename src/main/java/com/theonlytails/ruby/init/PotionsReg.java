@@ -13,6 +13,26 @@ public class PotionsReg {
     public static final DeferredRegister<Potion> POTIONS =
             DeferredRegister.create(ForgeRegistries.POTION_TYPES, TheOnlyTails.MOD_ID);
 
+    public static final RegistryObject<Potion> MOTIVATION =
+            POTIONS.register("motivation", () ->
+                    new Potion("motivation",
+                            new EffectInstance(Effects.SPEED, 90 * 20),
+                            new EffectInstance(Effects.JUMP_BOOST, 90 * 20)
+                    ));
+
+    public static final RegistryObject<Potion> LONG_MOTIVATION =
+            POTIONS.register("long_motivation", () ->
+                    new Potion("motivation",
+                            new EffectInstance(Effects.SPEED, 240 * 20),
+                            new EffectInstance(Effects.JUMP_BOOST, 240 * 20)));
+
+    public static final RegistryObject<Potion> STRONG_MOTIVATION =
+            POTIONS.register("strong_motivation", () ->
+                    new Potion("motivation",
+                            new EffectInstance(Effects.SPEED, 90 * 20, 1),
+                            new EffectInstance(Effects.JUMP_BOOST, 90 * 20, 1)
+                    ));
+
     public static final RegistryObject<Potion> LAZINESS =
             POTIONS.register("laziness", () ->
                     new Potion("laziness",
