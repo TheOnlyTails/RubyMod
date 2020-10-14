@@ -104,7 +104,8 @@ public class RubyMod {
                     PotionRegistry.STRONG_LAZINESS.get()
             );
 
-            PotionBrewing.addMix(PotionRegistry.LAZINESS.get(),
+            PotionBrewing.addMix(
+                    PotionRegistry.LAZINESS.get(),
                     Items.REDSTONE,
                     PotionRegistry.LONG_LAZINESS.get()
             );
