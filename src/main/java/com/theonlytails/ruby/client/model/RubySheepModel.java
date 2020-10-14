@@ -24,7 +24,7 @@ public class RubySheepModel<T extends RubySheepEntity> extends SheepModel<T> {
     }
 
     @Override
-    public void render(@Nonnull MatrixStack matrixStackIn,@Nonnull IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
+    public void render(@Nonnull MatrixStack matrixStackIn, @Nonnull IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
         super.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
     }
 }

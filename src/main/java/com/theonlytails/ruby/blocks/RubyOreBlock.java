@@ -11,7 +11,6 @@ import net.minecraftforge.common.ToolType;
 import org.jetbrains.annotations.NotNull;
 
 public class RubyOreBlock extends OreBlock {
-
     public RubyOreBlock() {
         super(Block.Properties.create(Material.ROCK)
                 .hardnessAndResistance(3.0f, 3.0f)

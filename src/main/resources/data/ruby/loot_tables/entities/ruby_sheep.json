@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ruby:ruby_wool"
+          "name": "rubymod:ruby_wool"
         }
       ]
     },

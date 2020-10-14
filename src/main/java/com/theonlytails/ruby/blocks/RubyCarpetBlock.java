@@ -13,15 +13,14 @@ import net.minecraft.world.IWorldReader;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
-public class RubyCarpet extends Block {
+public class RubyCarpetBlock extends Block {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
-    public RubyCarpet() {
+    public RubyCarpetBlock() {
         super(AbstractBlock.Properties
                 .create(Material.CARPET, MaterialColor.CRIMSON_HYPHAE)
                 .hardnessAndResistance(0.1f)
-                .sound(SoundType.CLOTH)
-        );
+                .sound(SoundType.CLOTH));
     }
 
     @Override
@@ -37,7 +36,9 @@ public class RubyCarpet extends Block {
      */
     @Override
     public @NotNull BlockState updatePostPlacement(BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull IWorld worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
-        return !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return !stateIn.isValidPosition(worldIn, currentPos)
+                ? Blocks.AIR.getDefaultState()
+                : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
     @Override

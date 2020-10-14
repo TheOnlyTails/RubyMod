@@ -21,12 +21,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class CustomSpawnEgg extends SpawnEggItem {
-    private static final List<CustomSpawnEgg> UNADDED_EGGS = new ArrayList<>();
+public class CustomSpawnEggItem extends SpawnEggItem {
+    private static final List<CustomSpawnEggItem> UNADDED_EGGS = new ArrayList<>();
     private final Lazy<? extends EntityType<?>> entityTypeSupplier;
 
-    public CustomSpawnEgg(final RegistryObject<? extends EntityType<?>> entityTypeSupplier, int primaryColorIn, int secondaryColorIn,
-                          Item.Properties builder) {
+    public CustomSpawnEggItem(final RegistryObject<? extends EntityType<?>> entityTypeSupplier, int primaryColorIn, int secondaryColorIn, Item.Properties builder) {
         //noinspection ConstantConditions
         super(null, primaryColorIn, secondaryColorIn, builder);
         this.entityTypeSupplier = Lazy.of(entityTypeSupplier);
@@ -35,7 +34,7 @@ public class CustomSpawnEgg extends SpawnEggItem {
     }
 
     public static void initSpawnEggs() {
-        final @NotNull Map<EntityType<?>, CustomSpawnEgg> EGGS = Objects.requireNonNull(
+        final @NotNull Map<EntityType<?>, CustomSpawnEggItem> EGGS = Objects.requireNonNull(
                 ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class, null, "field_195987_b"));
 
         DefaultDispenseItemBehavior dispenserBehavior = new DefaultDispenseItemBehavior() {
@@ -51,7 +50,7 @@ public class CustomSpawnEgg extends SpawnEggItem {
         };
 
         for (final SpawnEggItem spawnEgg : UNADDED_EGGS) {
-            EGGS.put(spawnEgg.getType(null), (CustomSpawnEgg) spawnEgg);
+            EGGS.put(spawnEgg.getType(null), (CustomSpawnEggItem) spawnEgg);
             DispenserBlock.registerDispenseBehavior(spawnEgg, dispenserBehavior);
         }
 

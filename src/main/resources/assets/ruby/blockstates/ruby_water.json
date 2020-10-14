@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ruby:block/ruby_water"
+      "model": "rubymod:block/ruby_water"
     }
   }
 }

@@ -1,6 +1,7 @@
 package com.theonlytails.ruby.client.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.theonlytails.ruby.RubyMod;
 import com.theonlytails.ruby.client.model.RubySheepModel;
 import com.theonlytails.ruby.entities.RubySheepEntity;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -15,7 +16,10 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 
 public class RubySheepWoolLayer extends LayerRenderer<RubySheepEntity, RubySheepModel<RubySheepEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("ruby", "textures/entity/ruby_sheep/ruby_sheep_fur.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(
+            RubyMod.MOD_ID,
+            "textures/entity/ruby_sheep/ruby_sheep_fur.png"
+    );
 
     private final SheepWoolModel<RubySheepEntity> sheepModel = new SheepWoolModel<>();
 
@@ -30,22 +34,21 @@ public class RubySheepWoolLayer extends LayerRenderer<RubySheepEntity, RubySheep
             float f1;
             float f2;
             if (entitylivingbaseIn.hasCustomName() && "jeb_".equals(entitylivingbaseIn.getName().getUnformattedComponentText())) {
-                int i1 = 25;
                 int i = entitylivingbaseIn.ticksExisted / 25 + entitylivingbaseIn.getEntityId();
                 int j = DyeColor.values().length;
                 int k = i % j;
                 int l = (i + 1) % j;
                 float f3 = ((float) (entitylivingbaseIn.ticksExisted % 25) + partialTicks) / 25.0F;
-                float[] afloat1 = SheepEntity.getDyeRgb(DyeColor.byId(k));
-                float[] afloat2 = SheepEntity.getDyeRgb(DyeColor.byId(l));
-                f = afloat1[0] * (1.0F - f3) + afloat2[0] * f3;
-                f1 = afloat1[1] * (1.0F - f3) + afloat2[1] * f3;
-                f2 = afloat1[2] * (1.0F - f3) + afloat2[2] * f3;
+                float[] dyeRgbOfK = SheepEntity.getDyeRgb(DyeColor.byId(k));
+                float[] dyeRgbOfL = SheepEntity.getDyeRgb(DyeColor.byId(l));
+                f = dyeRgbOfK[0] * (1.0F - f3) + dyeRgbOfL[0] * f3;
+                f1 = dyeRgbOfK[1] * (1.0F - f3) + dyeRgbOfL[1] * f3;
+                f2 = dyeRgbOfK[2] * (1.0F - f3) + dyeRgbOfL[2] * f3;
             } else {
-                float[] afloat = SheepEntity.getDyeRgb(entitylivingbaseIn.getFleeceColor());
-                f = afloat[0];
-                f1 = afloat[1];
-                f2 = afloat[2];
+                float[] dyeRgb = SheepEntity.getDyeRgb(entitylivingbaseIn.getFleeceColor());
+                f = dyeRgb[0];
+                f1 = dyeRgb[1];
+                f2 = dyeRgb[2];
             }
 
             renderCopyCutoutModel(this.getEntityModel(), this.sheepModel, TEXTURE, matrixStackIn, bufferIn, packedLightIn, entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, partialTicks, f, f1, f2);

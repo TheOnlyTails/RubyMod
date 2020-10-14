@@ -2,7 +2,8 @@ package com.theonlytails.ruby.client.gui;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.theonlytails.ruby.container.RubyBarrelContainer;
+import com.theonlytails.ruby.RubyMod;
+import com.theonlytails.ruby.containers.RubyBarrelContainer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -12,8 +13,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class RubyBarrelScreen extends ContainerScreen<RubyBarrelContainer> {
-    private static final ResourceLocation BACKGROUND_TEXTURE =
-            new ResourceLocation("ruby", "textures/gui/ruby_barrel/ruby_barrel.png");
+    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(
+            RubyMod.MOD_ID,
+            "textures/gui/ruby_barrel/ruby_barrel.png"
+    );
 
     public RubyBarrelScreen(RubyBarrelContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
@@ -37,11 +40,14 @@ public class RubyBarrelScreen extends ContainerScreen<RubyBarrelContainer> {
     @Override
     protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
         super.drawGuiContainerForegroundLayer(matrixStack, x, y);
-        this.font.drawString(matrixStack,
-                this.title.getString(), titleX, titleY, 4210752);
-        this.font.drawString(matrixStack,
+        this.font.drawString(matrixStack, this.title.getString(), titleX, titleY, 4210752);
+        this.font.drawString(
+                matrixStack,
                 this.playerInventory.getDisplayName().getString(),
-                playerInventoryTitleX, playerInventoryTitleY, 4210752);
+                playerInventoryTitleX,
+                playerInventoryTitleY,
+                4210752
+        );
     }
 
     @SuppressWarnings("deprecation")

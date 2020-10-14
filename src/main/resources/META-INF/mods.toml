@@ -4,52 +4,44 @@ loaderVersion = "[31,)"
 
 license = "MIT License"
 
-issueTrackerURL = "https://github.com/TheOnlyTails/RubyMod/issues"
+issueTrackerURL = "https://github.com/TheOnlyTails/RubyMod/issues/"
 
 [[mods]]
+modId = "rubymod"
 
-modId = "ruby"
-
-version = "1.16.1-0.7.1"
+version = "${version}"
 
 displayName = "Ruby Mod"
 
-updateJSONURL = "http://myurl.me/"
+displayURL = "https://github.com/TheOnlyTails/RubyMod/"
 
-displayURL="https://github.com/TheOnlyTails/RubyMod"
+logoFile = "logo.png"
 
-logoFile="logo.png"
-
-credits="""
-Thanks for this mod goes to Forge, for providing the modding framework,
- TechnoVision, for creating the tutorial series that helped me create it,
- BlockBench, for giving me the tools to create the custom block models,
- and much more people.
-
- Credit to Jelly Dash for creating the beautiful textures for the Ruby sheep and the ruby wool.
+credits = """
+Thanks to:
+- Forge, for providing the modding framework
+- TechnoVision, for creating the tutorial series that helped me create it
+- BlockBench, for giving me the tools to create the custom block models
+- Jelly Dash, for creating the beautiful textures for the Ruby sheep and the ruby wool
+and much more people.
 """
 
-authors="TheOnlyTails"
+authors = "TheOnlyTails"
 
-description='''
+description = '''
 This mod adds rubies and some other stuff. Look at the description in Github to find out more.
 '''
 
-[[dependencies.examplemod]]
+[[dependencies.rubymod]]
+modId = "forge"
+mandatory = true
+versionRange = "[32,)"
+ordering = "NONE"
+side = "BOTH"
 
-    modId="forge"
-
-    mandatory=true
-
-    versionRange="[32,)"
-
-    ordering="NONE"
-
-    side="BOTH"
-
-[[dependencies.examplemod]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.16.1]"
-    ordering="NONE"
-    side="BOTH"
+[[dependencies.rubymod]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.1]"
+ordering = "NONE"
+side = "BOTH"

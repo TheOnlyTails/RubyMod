@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.blocks;
 
-import com.theonlytails.ruby.init.TileEntityTypes;
-import com.theonlytails.ruby.tileentity.TileRubyBarrel;
+import com.theonlytails.ruby.registries.TileEntityTypes;
+import com.theonlytails.ruby.tileentities.RubyBarrelTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.items.ItemHandlerHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.IntStream;
@@ -45,21 +46,19 @@ public class RubyBarrelBlock extends Block {
         this.setDefaultState(this.getStateContainer().getBaseState().with(PROPERTY_OPEN, false));
     }
 
-    private static void dropItems(TileRubyBarrel rubyBarrel, World world, BlockPos pos) {
+    private static void dropItems(RubyBarrelTileEntity rubyBarrel, World world, BlockPos pos) {
         IntStream.range(0, rubyBarrel.itemHandler.getSlots())
                 .mapToObj(rubyBarrel.itemHandler::getStackInSlot)
                 .filter(stack -> !stack.isEmpty())
-                .forEach(stack ->
-                        InventoryHelper.spawnItemStack(
-                                world, pos.getX(), pos.getY(), pos.getZ(), stack));
+                .forEach(stack -> InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack));
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public @NotNull ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (!worldIn.isRemote()) {
             INamedContainerProvider tileEntity = (INamedContainerProvider) worldIn.getTileEntity(pos);
 
-            if (tileEntity instanceof TileRubyBarrel) {
+            if (tileEntity instanceof RubyBarrelTileEntity) {
                 NetworkHooks.openGui((ServerPlayerEntity) player, tileEntity, pos);
                 player.addStat(Stats.OPEN_BARREL);
             }
@@ -73,8 +72,8 @@ public class RubyBarrelBlock extends Block {
         if (state.getBlock() != newState.getBlock()) {
             TileEntity tileEntity = worldIn.getTileEntity(pos);
 
-            if (tileEntity instanceof TileRubyBarrel) {
-                TileRubyBarrel rubyBarrelTile = (TileRubyBarrel) tileEntity;
+            if (tileEntity instanceof RubyBarrelTileEntity) {
+                RubyBarrelTileEntity rubyBarrelTile = (RubyBarrelTileEntity) tileEntity;
 
                 dropItems(rubyBarrelTile, worldIn, pos);
                 worldIn.updateComparatorOutputLevel(pos, this);
@@ -98,8 +97,8 @@ public class RubyBarrelBlock extends Block {
     @Override
     public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos) {
         TileEntity rubyBarrel = worldIn.getTileEntity(pos);
-        return rubyBarrel instanceof TileRubyBarrel ?
-                ItemHandlerHelper.calcRedstoneFromInventory(((TileRubyBarrel) rubyBarrel).itemHandler) : 0;
+        return rubyBarrel instanceof RubyBarrelTileEntity ?
+                ItemHandlerHelper.calcRedstoneFromInventory(((RubyBarrelTileEntity) rubyBarrel).itemHandler) : 0;
     }
 
     @Override

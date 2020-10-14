@@ -1,8 +1,8 @@
 package com.theonlytails.ruby.events;
 
-import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.RubyMod;
 import com.theonlytails.ruby.entities.RubySheepEntity;
-import com.theonlytails.ruby.init.ItemsReg;
+import com.theonlytails.ruby.registries.ItemRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
@@ -12,15 +12,13 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = TheOnlyTails.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ModEvents {
-
+@Mod.EventBusSubscriber(modid = RubyMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+public class ForgeEventBusSubscriber {
     @SubscribeEvent
     public static void onAttackRubySheep(AttackEntityEvent event) {
         PlayerEntity player = event.getPlayer();
 
-        if (player.getHeldItemMainhand().getItem()
-                == ItemsReg.POISONED_APPLE.get()) {
+        if (player.getHeldItemMainhand().getItem() == ItemRegistry.POISONED_APPLE.get()) {
             if (event.getTarget().isAlive()) {
                 LivingEntity target = (LivingEntity) event.getTarget();
                 if (target instanceof RubySheepEntity) {
@@ -28,9 +26,7 @@ public class ModEvents {
                     target.setGlowing(true);
 
                     if (!player.getEntityWorld().isRemote) {
-                        String msg = "I don't think that sheep is feeling so well...";
-                        player.sendMessage(
-                                new StringTextComponent(msg), player.getUniqueID());
+                        player.sendMessage(new StringTextComponent("I don't think that sheep is feeling so well..."), player.getUniqueID());
                     }
                 }
             }

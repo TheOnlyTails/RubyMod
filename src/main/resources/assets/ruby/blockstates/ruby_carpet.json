@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ruby:block/ruby_carpet"
+      "model": "rubymod:block/ruby_carpet"
     }
   }
 }

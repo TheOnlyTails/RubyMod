@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ruby:ruby_block"
+          "name": "rubymod:ruby_block"
         }
       ],
       "conditions": [

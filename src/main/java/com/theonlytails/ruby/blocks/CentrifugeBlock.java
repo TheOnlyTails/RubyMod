@@ -19,8 +19,7 @@ import javax.annotation.Nullable;
 import java.util.stream.Stream;
 
 @SuppressWarnings("deprecation")
-public class Centrifuge extends DirectionalBlock {
-
+public class CentrifugeBlock extends DirectionalBlock {
     public static final VoxelShape SHAPE_N = Stream.of(
             Block.makeCuboidShape(0, 0, 0, 1, 3, 1),
             Block.makeCuboidShape(0, 0, 15, 1, 3, 16),
@@ -30,8 +29,9 @@ public class Centrifuge extends DirectionalBlock {
             Block.makeCuboidShape(0, 13, 0, 1, 15, 16),
             Block.makeCuboidShape(15, 13, 0, 16, 15, 16),
             Block.makeCuboidShape(1, 13, 15, 15, 15, 16),
-            Block.makeCuboidShape(1, 13, 0, 15, 15, 1))
-            .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+            Block.makeCuboidShape(1, 13, 0, 15, 15, 1)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+
     public static final VoxelShape SHAPE_E = Stream.of(
             Block.makeCuboidShape(15, 0, 0, 16, 3, 1),
             Block.makeCuboidShape(0, 0, 0, 1, 3, 1),
@@ -41,8 +41,9 @@ public class Centrifuge extends DirectionalBlock {
             Block.makeCuboidShape(0, 13, 0, 16, 15, 1),
             Block.makeCuboidShape(0, 13, 15, 16, 15, 16),
             Block.makeCuboidShape(0, 13, 1, 1, 15, 15),
-            Block.makeCuboidShape(15, 13, 1, 16, 15, 15)).
-            reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+            Block.makeCuboidShape(15, 13, 1, 16, 15, 15)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+
     public static final VoxelShape SHAPE_S = Stream.of(
             Block.makeCuboidShape(15, 0, 15, 16, 3, 16),
             Block.makeCuboidShape(15, 0, 0, 16, 3, 1),
@@ -52,8 +53,9 @@ public class Centrifuge extends DirectionalBlock {
             Block.makeCuboidShape(15, 13, 0, 16, 15, 16),
             Block.makeCuboidShape(0, 13, 0, 1, 15, 16),
             Block.makeCuboidShape(1, 13, 0, 15, 15, 1),
-            Block.makeCuboidShape(1, 13, 15, 15, 15, 16))
-            .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+            Block.makeCuboidShape(1, 13, 15, 15, 15, 16)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+
     public static final VoxelShape SHAPE_W = Stream.of(
             Block.makeCuboidShape(0, 0, 15, 1, 3, 16),
             Block.makeCuboidShape(15, 0, 15, 16, 3, 16),
@@ -63,10 +65,10 @@ public class Centrifuge extends DirectionalBlock {
             Block.makeCuboidShape(0, 13, 15, 16, 15, 16),
             Block.makeCuboidShape(0, 13, 0, 16, 15, 1),
             Block.makeCuboidShape(15, 13, 1, 16, 15, 15),
-            Block.makeCuboidShape(0, 13, 1, 1, 15, 15))
-            .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+            Block.makeCuboidShape(0, 13, 1, 1, 15, 15)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
-    public Centrifuge() {
+    public CentrifugeBlock() {
         super(AbstractBlock.Properties.create(Material.IRON)
                 .hardnessAndResistance(3.5f, 5f)
                 .sound(SoundType.ANVIL)

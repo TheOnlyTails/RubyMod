@@ -3,7 +3,7 @@
   "ingredient": {
     "tag": "forge:gems/emerald"
   },
-  "result": "ruby:ruby",
+  "result": "rubymod:ruby",
   "experience": 2.0,
   "cookingtime": 100
 }

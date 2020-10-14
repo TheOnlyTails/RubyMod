@@ -1,6 +1,6 @@
 package com.theonlytails.ruby.util.enums;
 
-import com.theonlytails.ruby.init.ItemsReg;
+import com.theonlytails.ruby.registries.ItemRegistry;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -8,11 +8,12 @@ import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public enum RubyItemTier implements IItemTier {
-    RUBY(3, 850, 7f,
-            3f, 12,
-            () -> {
-                return Ingredient.fromItems(ItemsReg.RUBY.get());
-            });
+    RUBY(3,
+            850,
+            7f,
+            3f,
+            12,
+            () -> Ingredient.fromItems(ItemRegistry.RUBY.get()));
 
     private final int harvestLevel;
     private final int maxUses;

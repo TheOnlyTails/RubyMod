@@ -1,7 +1,7 @@
 package com.theonlytails.ruby.util.enums;
 
-import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.init.ItemsReg;
+import com.theonlytails.ruby.RubyMod;
+import com.theonlytails.ruby.registries.ItemRegistry;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -14,11 +14,14 @@ import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public enum RubyArmorMaterial implements IArmorMaterial {
-    RUBY(TheOnlyTails.MOD_ID + ":ruby", 24,
-            new int[]{2, 5, 6, 2},
-            18, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+    RUBY(RubyMod.MOD_ID + ":ruby",
+            24,
+            new int[] {2, 5, 6, 2},
+            18,
+            SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
             0f,
-            () -> Ingredient.fromItems(ItemsReg.RUBY.get()), 0.5f);
+            () -> Ingredient.fromItems(ItemRegistry.RUBY.get()),
+            0.5f);
 
     private static final int[] MAX_DAMAGE = {11, 16, 15, 13};
     private final String name;

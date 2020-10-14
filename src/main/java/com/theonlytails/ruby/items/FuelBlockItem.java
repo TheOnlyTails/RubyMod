@@ -1,15 +1,15 @@
 package com.theonlytails.ruby.items;
 
-import com.theonlytails.ruby.TheOnlyTails;
+import com.theonlytails.ruby.RubyMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 
 public class FuelBlockItem extends BlockItem {
-    protected int burnTime;
+    private final int burnTime;
 
     public FuelBlockItem(Block blockIn, int burnTime) {
-        super(blockIn, TheOnlyTails.RUBY_TAB_PROP);
+        super(blockIn, RubyMod.RUBY_TAB_PROPERTY);
 
         this.burnTime = burnTime;
     }

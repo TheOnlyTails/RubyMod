@@ -5,11 +5,11 @@
   ],
   "key": {
     "w": {
-      "item": "ruby:ruby_wool"
+      "item": "rubymod:ruby_wool"
     }
   },
   "result": {
-    "item": "ruby:ruby_carpet",
+    "item": "rubymod:ruby_carpet",
     "count": 3
   }
 }

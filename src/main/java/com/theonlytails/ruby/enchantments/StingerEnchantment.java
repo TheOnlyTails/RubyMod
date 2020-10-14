@@ -1,7 +1,7 @@
-package com.theonlytails.ruby.enchants;
+package com.theonlytails.ruby.enchantments;
 
-import com.theonlytails.ruby.TheOnlyTails;
-import com.theonlytails.ruby.init.EnchantReg;
+import com.theonlytails.ruby.RubyMod;
+import com.theonlytails.ruby.registries.EnchantmentRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentType;
@@ -18,11 +18,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 
-public class StingerEnchant extends Enchantment {
-    public StingerEnchant() {
+public class StingerEnchantment extends Enchantment {
+    public StingerEnchantment() {
         super(Rarity.VERY_RARE,
                 EnchantmentType.WEAPON,
-                new EquipmentSlotType[]{EquipmentSlotType.MAINHAND});
+                new EquipmentSlotType[] {EquipmentSlotType.MAINHAND});
     }
 
     @Override
@@ -43,30 +43,27 @@ public class StingerEnchant extends Enchantment {
     @Override
     public boolean canApplyTogether(@NotNull Enchantment enchant) {
         return super.canApplyTogether(enchant) &&
-                enchant != Enchantments.SHARPNESS &&
-                enchant != Enchantments.MENDING;
+               enchant != Enchantments.SHARPNESS &&
+               enchant != Enchantments.MENDING;
     }
 
-    @Mod.EventBusSubscriber(modid = TheOnlyTails.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+    @Mod.EventBusSubscriber(modid = RubyMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
     private static class PoisonedBladeEquipped {
         @SubscribeEvent
         public static void damageWithEnchant(AttackEntityEvent event) {
             PlayerEntity player = event.getPlayer();
 
-            ItemStack itemMainhand = player.getHeldItemMainhand();
+            ItemStack heldItemMainhand = player.getHeldItemMainhand();
 
-            Enchantment enchant = EnchantReg.STINGER.get();
+            Enchantment enchant = EnchantmentRegistry.STINGER.get();
 
-            int enchantLevel = EnchantmentHelper.getEnchantmentLevel(enchant, itemMainhand);
+            int enchantLevel = EnchantmentHelper.getEnchantmentLevel(enchant, heldItemMainhand);
 
-            if (EnchantmentHelper.getEnchantments(itemMainhand).containsKey(enchant)) {
+            if (EnchantmentHelper.getEnchantments(heldItemMainhand).containsKey(enchant)) {
                 if (event.getTarget() instanceof LivingEntity) {
                     LivingEntity target = (LivingEntity) event.getTarget();
 
-                    target.addPotionEffect(
-                            new EffectInstance(Effects.POISON,
-                                    100,
-                                    enchantLevel));
+                    target.addPotionEffect(new EffectInstance(Effects.POISON, 100, enchantLevel));
                 }
             }
         }

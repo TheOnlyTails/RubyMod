@@ -7,7 +7,7 @@
   ],
   "key": {
     "b": {
-      "item": "ruby:ruby_block"
+      "item": "rubymod:ruby_block"
     },
     "r": {
       "tag": "forge:gems/ruby"
@@ -17,6 +17,6 @@
     }
   },
   "result": {
-    "item": "ruby:ruby_barrel"
+    "item": "rubymod:ruby_barrel"
   }
 }

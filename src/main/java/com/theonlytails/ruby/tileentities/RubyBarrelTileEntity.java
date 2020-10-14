@@ -1,8 +1,8 @@
-package com.theonlytails.ruby.tileentity;
+package com.theonlytails.ruby.tileentities;
 
 import com.theonlytails.ruby.blocks.RubyBarrelBlock;
-import com.theonlytails.ruby.container.RubyBarrelContainer;
-import com.theonlytails.ruby.init.TileEntityTypes;
+import com.theonlytails.ruby.containers.RubyBarrelContainer;
+import com.theonlytails.ruby.registries.TileEntityTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -25,13 +25,13 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class TileRubyBarrel extends TileEntity implements INamedContainerProvider {
+public class RubyBarrelTileEntity extends TileEntity implements INamedContainerProvider {
     private final LazyOptional<ItemStackHandler> optional = LazyOptional.of(() -> this.itemHandler);
     public int size = 45;
     public final ItemStackHandler itemHandler = createHandler(size);
     public int players = 0;
 
-    public TileRubyBarrel() {
+    public RubyBarrelTileEntity() {
         super(TileEntityTypes.RUBY_BARREL.get());
     }
 
@@ -79,14 +79,14 @@ public class TileRubyBarrel extends TileEntity implements INamedContainerProvide
 
     @Override
     public CompoundNBT write(CompoundNBT nbt) {
-        optional.ifPresent(h -> nbt.put("inv", h.serializeNBT()));
+        optional.ifPresent(handler -> nbt.put("inv", handler.serializeNBT()));
         itemHandler.serializeNBT();
         return super.write(nbt);
     }
 
     @Override
     public void read(BlockState state, CompoundNBT nbt) {
-        optional.ifPresent(h -> h.deserializeNBT(nbt.getCompound("inv")));
+        optional.ifPresent(handler -> handler.deserializeNBT(nbt.getCompound("inv")));
         itemHandler.deserializeNBT(nbt.getCompound("inv"));
         super.read(state, nbt);
     }

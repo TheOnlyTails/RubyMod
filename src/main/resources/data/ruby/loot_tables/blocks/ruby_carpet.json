@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ruby:ruby_carpet"
+          "name": "rubymod:ruby_carpet"
         }
       ],
       "conditions": [

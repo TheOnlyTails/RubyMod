@@ -17,11 +17,10 @@ import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
-public class RubyHills extends Biome {
-    public RubyHills() {
+public class RubyHillsBiome extends Biome {
+    public RubyHillsBiome() {
         super(new Builder()
-                .surfaceBuilder(SurfaceBuilder.DEFAULT,
-                        SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+                .surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
                 .precipitation(RainType.NONE)
                 .category(Category.EXTREME_HILLS)
                 .depth(0.13f)
@@ -52,18 +51,15 @@ public class RubyHills extends Biome {
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addHugeMushrooms(this);
 
-        this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+        this.addFeature(
+                GenerationStage.Decoration.VEGETAL_DECORATION,
                 Feature.RANDOM_PATCH.withConfiguration(
                         new BlockClusterFeatureConfig.Builder(
-                                new WeightedBlockStateProvider()
-                                        .addWeightedBlockstate(
-                                                Blocks.POPPY.getDefaultState(), 2),
-                                SimpleBlockPlacer.field_236447_c_)
-                                .tries(64)
-                                .build())
-
-                        .withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE
-                                .configure(new ChanceConfig(8))));
+                                new WeightedBlockStateProvider().addWeightedBlockstate(Blocks.POPPY.getDefaultState(), 2),
+                                SimpleBlockPlacer.field_236447_c_
+                        ).tries(64).build()
+                ).withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(8)))
+        );
 
 
         this.addSpawn(EntityClassification.CREATURE,

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ruby:block/ruby_wool"
+      "model": "rubymod:block/ruby_wool"
     }
   }
 }
