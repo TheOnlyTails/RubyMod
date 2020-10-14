@@ -25,14 +25,6 @@ public class FluidRegistry {
     public static final ResourceLocation FLOW_RUBY_WATER = new ResourceLocation(RubyMod.MOD_ID, "blocks/ruby_water_flow");
 
     public static final ResourceLocation OVERLAY_RUBY_WATER = new ResourceLocation(RubyMod.MOD_ID, "blocks/ruby_water_overlay");
-    public static final RegistryObject<FlowingFluid> RUBY_WATER_FLUID = FLUIDS.register(
-            "ruby_water",
-            () -> new ForgeFlowingFluid.Source(FluidRegistry.RUBY_WATER_PROP)
-    );
-    public static final RegistryObject<FlowingFluid> RUBY_WATER_FLOW = FLUIDS.register(
-            "ruby_water_flow",
-            () -> new ForgeFlowingFluid.Flowing(FluidRegistry.RUBY_WATER_PROP)
-    );
     private static final RegistryObject<FlowingFluidBlock> RUBY_WATER_BLOCK = BlockRegistry.BLOCKS.register(
             "ruby_water_block",
             () -> new FlowingFluidBlock(FluidRegistry.RUBY_WATER_FLUID,
@@ -52,4 +44,12 @@ public class FluidRegistry {
                     .color(new Color(228, 80, 63, 255).getRGB())
                     .overlay(OVERLAY_RUBY_WATER)
     ).block(FluidRegistry.RUBY_WATER_BLOCK).bucket(ItemRegistry.RUBY_WATER_BUCKET);
+    public static final RegistryObject<FlowingFluid> RUBY_WATER_FLUID = FLUIDS.register(
+            "ruby_water",
+            () -> new ForgeFlowingFluid.Source(FluidRegistry.RUBY_WATER_PROP)
+    );
+    public static final RegistryObject<FlowingFluid> RUBY_WATER_FLOW = FLUIDS.register(
+            "ruby_water_flow",
+            () -> new ForgeFlowingFluid.Flowing(FluidRegistry.RUBY_WATER_PROP)
+    );
 }
