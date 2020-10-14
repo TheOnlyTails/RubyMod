@@ -32,7 +32,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - It's a block made out of rubies.
 
-- Comes in a slab and stair versions.
+- Comes in a slab, stair, button and pressure plate versions.
 
 ---
 
