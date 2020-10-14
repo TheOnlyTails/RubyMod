@@ -3,7 +3,7 @@
   "ingredient": {
     "tag": "forge:ores/ruby"
   },
-  "result": "ruby:ruby",
+  "result": "rubymod:ruby",
   "experience": 1,
   "cookingtime": 100
 }

@@ -24,11 +24,11 @@
                   }
                 }
               ],
-              "name": "ruby:centrifuge"
+              "name": "rubymod:centrifuge"
             },
             {
               "type": "minecraft:item",
-              "name": "ruby:ruby"
+              "name": "rubymod:ruby"
             }
           ]
         }

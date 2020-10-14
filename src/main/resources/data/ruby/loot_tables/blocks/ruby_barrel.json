@@ -12,7 +12,7 @@
               "source": "block_entity"
             }
           ],
-          "name": "ruby:ruby_barrel"
+          "name": "rubymod:ruby_barrel"
         }
       ],
       "conditions": [
