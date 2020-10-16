@@ -1,6 +1,6 @@
-modLoader = "javafml"
+modLoader = "kotlinforforge"
 
-loaderVersion = "[31,)"
+loaderVersion = "[1,)"
 
 license = "MIT License"
 
