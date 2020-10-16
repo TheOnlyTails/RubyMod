@@ -17,12 +17,15 @@ import java.util.Objects
 class RubyBarrelContainer(id: Int, playerInventory: PlayerInventory, private val tileEntity: RubyBarrelTileEntity) :
 	Container(ContainerTypeRegistry.RUBY_BARREL, id) {
 
-	private val canInteractWithCallable: IWorldPosCallable = IWorldPosCallable.of(
-		tileEntity.world,
-		tileEntity.pos
-	)
+	private val canInteractWithCallable: IWorldPosCallable
 
 	init {
+		val world = tileEntity.world ?: throw NullPointerException("The world was null, for some reason.")
+		canInteractWithCallable = IWorldPosCallable.of(
+			world,
+			tileEntity.pos,
+		)
+
 		tileEntity.players++
 		tileEntity.playSound(SoundEvents.BLOCK_BARREL_OPEN)
 		tileEntity.changeState(tileEntity.blockState, true)

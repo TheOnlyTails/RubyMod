@@ -17,7 +17,6 @@ import net.minecraft.util.SoundCategory
 import net.minecraft.util.SoundEvent
 import net.minecraft.util.text.ITextComponent
 import net.minecraft.util.text.TranslationTextComponent
-import net.minecraft.world.World
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.util.LazyOptional
 import net.minecraftforge.items.CapabilityItemHandler
@@ -103,9 +102,5 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 	override fun remove() {
 		super.remove()
 		optional.invalidate()
-	}
-
-	override fun getWorld(): World {
-		return this.getWorld()
 	}
 }
