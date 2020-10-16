@@ -69,43 +69,42 @@ object RubyMod {
 
 	@Suppress("UNUSED_PARAMETER")
 	private fun setup(event: FMLCommonSetupEvent) {
-		DeferredWorkQueue.runLater {
-			GlobalEntityTypeAttributes.put(
-				EntityTypeRegistry.RUBY_SHEEP,
-				RubySheepEntity.setCustomAttributes().create())
 
-			PotionBrewing.addMix(
-				Potions.WATER,
-				ItemRegistry.RUBY,
-				PotionRegistry.MOTIVATION)
+		GlobalEntityTypeAttributes.put(
+			EntityTypeRegistry.RUBY_SHEEP,
+			RubySheepEntity.setCustomAttributes().create())
 
-			PotionBrewing.addMix(
-				PotionRegistry.MOTIVATION,
-				Items.GLOWSTONE_DUST,
-				PotionRegistry.STRONG_MOTIVATION)
+		PotionBrewing.addMix(
+			Potions.WATER,
+			ItemRegistry.RUBY,
+			PotionRegistry.MOTIVATION)
 
-			PotionBrewing.addMix(
-				PotionRegistry.MOTIVATION,
-				Items.REDSTONE,
-				PotionRegistry.LONG_MOTIVATION)
+		PotionBrewing.addMix(
+			PotionRegistry.MOTIVATION,
+			Items.GLOWSTONE_DUST,
+			PotionRegistry.STRONG_MOTIVATION)
 
-			PotionBrewing.addMix(
-				PotionRegistry.MOTIVATION,
-				Items.FERMENTED_SPIDER_EYE,
-				PotionRegistry.LAZINESS)
+		PotionBrewing.addMix(
+			PotionRegistry.MOTIVATION,
+			Items.REDSTONE,
+			PotionRegistry.LONG_MOTIVATION)
 
-			PotionBrewing.addMix(
-				PotionRegistry.LAZINESS,
-				Items.GLOWSTONE_DUST,
-				PotionRegistry.STRONG_LAZINESS)
+		PotionBrewing.addMix(
+			PotionRegistry.MOTIVATION,
+			Items.FERMENTED_SPIDER_EYE,
+			PotionRegistry.LAZINESS)
 
-			PotionBrewing.addMix(
-				PotionRegistry.LAZINESS,
-				Items.REDSTONE,
-				PotionRegistry.LONG_LAZINESS)
+		PotionBrewing.addMix(
+			PotionRegistry.LAZINESS,
+			Items.GLOWSTONE_DUST,
+			PotionRegistry.STRONG_LAZINESS)
 
-			ComposterBlock.CHANCES[ItemRegistry.POISONED_APPLE.asItem()] = 0.3f
-		}
+		PotionBrewing.addMix(
+			PotionRegistry.LAZINESS,
+			Items.REDSTONE,
+			PotionRegistry.LONG_LAZINESS)
+
+		ComposterBlock.CHANCES[ItemRegistry.POISONED_APPLE.asItem()] = 0.3f
 
 		FluidRegistry.FLUIDS.registry.entries.forEach {
 			RenderTypeLookup.setRenderLayer(it.value, RenderType.getTranslucent())
