@@ -11,6 +11,10 @@ import javax.annotation.Nonnull
 class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 	MobRenderer<RubySheepEntity, RubySheepModel>(renderManagerIn, RubySheepModel(), 0.7f) {
 
+	init {
+		addLayer(RubySheepWoolLayer(this))
+	}
+
 	@Nonnull
 	override fun getEntityTexture(entity: RubySheepEntity): ResourceLocation {
 		return SHEARED_SHEEP_TEXTURES
@@ -21,9 +25,5 @@ class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 			RubyMod.MOD_ID,
 			"textures/entity/ruby_sheep/ruby_sheep.png"
 		)
-	}
-
-	init {
-		addLayer(RubySheepWoolLayer(this))
 	}
 }

@@ -26,15 +26,13 @@ object BlockRegistry {
 	}
 
 	val RUBY_STAIRS by BLOCKS.register("ruby_stairs") {
-		StairsBlock({
-			RUBY_BLOCK.defaultState
-		},
+		StairsBlock({ RUBY_BLOCK.defaultState },
 			AbstractBlock.Properties.from(RUBY_BLOCK))
 	}
 
-	val RUBY_ORE_BLOCK by BLOCKS.register("ruby_ore") { RubyOreBlock() }
+	val RUBY_ORE_BLOCK by BLOCKS.register("ruby_ore", ::RubyOreBlock)
 
-	val CENTRIFUGE_BLOCK by BLOCKS.register("centrifuge") { CentrifugeBlock() }
+	val CENTRIFUGE_BLOCK by BLOCKS.register("centrifuge", ::CentrifugeBlock)
 
 	val RUBY_WOOL by BLOCKS.register("ruby_wool") {
 		Block(AbstractBlock.Properties
@@ -43,7 +41,7 @@ object BlockRegistry {
 			.sound(SoundType.CLOTH))
 	}
 
-	val RUBY_CARPET by BLOCKS.register("ruby_carpet") { RubyCarpetBlock() }
+	val RUBY_CARPET by BLOCKS.register("ruby_carpet", ::RubyCarpetBlock)
 
-	val RUBY_BARREL by BLOCKS.register("ruby_barrel") { RubyBarrelBlock() }
+	val RUBY_BARREL by BLOCKS.register("ruby_barrel", ::RubyBarrelBlock)
 }

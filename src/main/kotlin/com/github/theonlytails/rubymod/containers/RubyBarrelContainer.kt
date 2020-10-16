@@ -16,10 +16,56 @@ import java.util.Objects
 
 class RubyBarrelContainer(id: Int, playerInventory: PlayerInventory, private val tileEntity: RubyBarrelTileEntity) :
 	Container(ContainerTypeRegistry.RUBY_BARREL, id) {
+
 	private val canInteractWithCallable: IWorldPosCallable = IWorldPosCallable.of(
 		tileEntity.world,
 		tileEntity.pos
 	)
+
+	init {
+		tileEntity.players++
+		tileEntity.playSound(SoundEvents.BLOCK_BARREL_OPEN)
+		tileEntity.changeState(tileEntity.blockState, true)
+
+		// Main barrel inventory
+		val startX = 8
+		val startY = 18
+		val slotSizePlus2 = 18
+		for (row in 0..4) {
+			for (column in 0..8) {
+				addSlot(SlotItemHandler(
+					tileEntity.itemHandler,
+					row * 9 + column,
+					startX + column * slotSizePlus2,
+					startY + row * slotSizePlus2
+				))
+			}
+		}
+
+		// Main Player inventory
+		val playerInvStartY = startY * 5 + 32
+		for (row in 0..2) {
+			for (column in 0..8) {
+				addSlot(Slot(
+					playerInventory,
+					9 + row * 9 + column,
+					startX + column * slotSizePlus2,
+					playerInvStartY + row * slotSizePlus2
+				))
+			}
+		}
+
+		// Hotbar
+		val hotbarY = playerInvStartY + playerInvStartY / 2 - 3
+		for (column in 0..8) {
+			addSlot(Slot(
+				playerInventory,
+				column,
+				startX + column * slotSizePlus2,
+				hotbarY
+			))
+		}
+	}
 
 	constructor(windowId: Int, playerInventory: PlayerInventory, data: PacketBuffer) :
 			this(windowId, playerInventory, getTileEntity(playerInventory, data))
@@ -67,51 +113,6 @@ class RubyBarrelContainer(id: Int, playerInventory: PlayerInventory, private val
 				return tileAtPos
 			}
 			throw IllegalStateException("Tile entity is not correct! $tileAtPos")
-		}
-	}
-
-	init {
-		tileEntity.players++
-		tileEntity.playSound(SoundEvents.BLOCK_BARREL_OPEN)
-		tileEntity.changeState(tileEntity.blockState, true)
-
-		// Main barrel inventory
-		val startX = 8
-		val startY = 18
-		val slotSizePlus2 = 18
-		for (row in 0..4) {
-			for (column in 0..8) {
-				addSlot(SlotItemHandler(
-					tileEntity.itemHandler,
-					row * 9 + column,
-					startX + column * slotSizePlus2,
-					startY + row * slotSizePlus2
-				))
-			}
-		}
-
-		// Main Player inventory
-		val playerInvStartY = startY * 5 + 32
-		for (row in 0..2) {
-			for (column in 0..8) {
-				addSlot(Slot(
-					playerInventory,
-					9 + row * 9 + column,
-					startX + column * slotSizePlus2,
-					playerInvStartY + row * slotSizePlus2
-				))
-			}
-		}
-
-		// Hotbar
-		val hotbarY = playerInvStartY + playerInvStartY / 2 - 3
-		for (column in 0..8) {
-			addSlot(Slot(
-				playerInventory,
-				column,
-				startX + column * slotSizePlus2,
-				hotbarY
-			))
 		}
 	}
 

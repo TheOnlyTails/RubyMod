@@ -36,6 +36,10 @@ class RubyBarrelBlock : Block(Properties.create(
 	.harvestLevel(2)
 	.setRequiresTool()) {
 
+	init {
+		defaultState = getStateContainer().baseState.with(PROPERTY_OPEN, false)
+	}
+
 	override fun onBlockActivated(
 		state: BlockState,
 		worldIn: World,
@@ -101,9 +105,5 @@ class RubyBarrelBlock : Block(Properties.create(
 						stack)
 				}
 		}
-	}
-
-	init {
-		defaultState = getStateContainer().baseState.with(PROPERTY_OPEN, false)
 	}
 }

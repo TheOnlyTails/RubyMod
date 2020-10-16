@@ -11,7 +11,7 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 object BiomeRegistry {
 	val BIOMES = KDeferredRegister(ForgeRegistries.BIOMES, RubyMod.MOD_ID)
 
-	val RUBY_HILLS by BIOMES.register("ruby_hills") { RubyHillsBiome() }
+	val RUBY_HILLS by BIOMES.register("ruby_hills", ::RubyHillsBiome)
 
 	fun registerBiomes() {
 		registerBiome(RUBY_HILLS, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.OVERWORLD)

@@ -12,8 +12,7 @@ object TileEntityTypes {
 	val RUBY_BARREL: TileEntityType<RubyBarrelTileEntity> by TILE_ENTITIES.register("ruby_barrel") {
 		@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 		TileEntityType.Builder
-			.create({ RubyBarrelTileEntity() },
-				BlockRegistry.RUBY_BARREL)
+			.create(::RubyBarrelTileEntity, BlockRegistry.RUBY_BARREL)
 			.build(null)
 	}
 }

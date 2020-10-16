@@ -13,30 +13,25 @@ import net.minecraftforge.common.util.Lazy
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper
 import java.util.ArrayList
 import java.util.Objects
+import java.util.function.Supplier
 
 class CustomSpawnEggItem(
-	entityTypeSupplier: EntityType<*>,
+	entityTypeSupplier: Supplier<out EntityType<*>>,
 	primaryColorIn: Int,
 	secondaryColorIn: Int,
 	builder: Properties,
-) : SpawnEggItem(entityTypeSupplier, primaryColorIn, secondaryColorIn, builder) {
-
-	private val entityTypeSupplier: Lazy<out EntityType<*>> = Lazy.of { entityTypeSupplier }
-
-	init {
-		UNADDED_EGGS.add(this)
-	}
-
+) :
+	SpawnEggItem(null, primaryColorIn, secondaryColorIn, builder) {
+	private val entityTypeSupplier: Lazy<out EntityType<*>> = Lazy.of(entityTypeSupplier::get)
 	override fun getType(nbt: CompoundNBT?): EntityType<*> {
 		return entityTypeSupplier.get()
 	}
 
 	companion object {
 		private val UNADDED_EGGS: MutableList<CustomSpawnEggItem> = ArrayList()
-
 		fun initSpawnEggs() {
-			val eggs: MutableMap<EntityType<*>, SpawnEggItem>? = Objects.requireNonNull(
-				ObfuscationReflectionHelper.getPrivateValue<MutableMap<EntityType<*>, SpawnEggItem>, SpawnEggItem>(
+			val eggs: MutableMap<EntityType<*>, CustomSpawnEggItem>? = Objects.requireNonNull(
+				ObfuscationReflectionHelper.getPrivateValue<MutableMap<EntityType<*>, CustomSpawnEggItem>, SpawnEggItem>(
 					SpawnEggItem::class.java, null, "field_195987_b"))
 
 			val dispenserBehavior: DefaultDispenseItemBehavior = object : DefaultDispenseItemBehavior() {
@@ -55,5 +50,9 @@ class CustomSpawnEggItem(
 			}
 			UNADDED_EGGS.clear()
 		}
+	}
+
+	init {
+		UNADDED_EGGS.add(this)
 	}
 }

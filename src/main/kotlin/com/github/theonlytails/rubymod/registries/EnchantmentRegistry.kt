@@ -11,5 +11,5 @@ object EnchantmentRegistry {
 	val ENCHANTMENTS =
 		KDeferredRegister(ForgeRegistries.ENCHANTMENTS, RubyMod.MOD_ID)
 
-	val STINGER by ENCHANTMENTS.register("stinger") { StingerEnchantment() }
+	val STINGER by ENCHANTMENTS.register("stinger", ::StingerEnchantment)
 }

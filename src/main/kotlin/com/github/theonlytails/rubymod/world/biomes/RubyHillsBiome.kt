@@ -33,10 +33,6 @@ class RubyHillsBiome : Biome(Builder()
 		Attributes(
 			0.0f, 0.0f, 0.0f, 0.0f, 1.0f)))) {
 
-	override fun getGrassColor(posX: Double, posZ: Double): Int {
-		return 0xe80a0a
-	}
-
 	init {
 		func_235063_a_(DefaultBiomeFeatures.VILLAGE_PLAINS)
 		func_235063_a_(DefaultBiomeFeatures.PILLAGER_OUTPOST)
@@ -103,5 +99,9 @@ class RubyHillsBiome : Biome(Builder()
 		addSpawn(EntityClassification.MONSTER,
 			SpawnListEntry(
 				EntityType.WITCH, 5, 1, 1))
+	}
+
+	override fun getGrassColor(posX: Double, posZ: Double): Int {
+		return 0xe80a0a
 	}
 }

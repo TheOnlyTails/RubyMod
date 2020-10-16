@@ -21,7 +21,7 @@ object FluidRegistry {
 	private val OVERLAY_RUBY_WATER = ResourceLocation(RubyMod.MOD_ID, "blocks/ruby_water_overlay")
 
 	private val RUBY_WATER_BLOCK by BlockRegistry.BLOCKS.register("ruby_water_block") {
-		FlowingFluidBlock({ RUBY_WATER_FLUID },
+		FlowingFluidBlock(::RUBY_WATER_FLUID,
 			AbstractBlock.Properties.create(Material.WATER)
 				.doesNotBlockMovement()
 				.hardnessAndResistance(100f)
@@ -38,7 +38,7 @@ object FluidRegistry {
 
 	private val RUBY_WATER_PROP: ForgeFlowingFluid.Properties = ForgeFlowingFluid.Properties(
 		{ RUBY_WATER_FLUID.fluid },
-		{ RUBY_WATER_FLOW },
+		::RUBY_WATER_FLOW,
 		FluidAttributes.builder(
 			STILL_RUBY_WATER,
 			FLOW_RUBY_WATER
@@ -46,5 +46,5 @@ object FluidRegistry {
 			.sound(SoundEvents.BLOCK_WATER_AMBIENT)
 			.color(Color(228, 80, 63, 255).rgb)
 			.overlay(OVERLAY_RUBY_WATER)
-	).block { RUBY_WATER_BLOCK }.bucket { ItemRegistry.RUBY_WATER_BUCKET }
+	).block(::RUBY_WATER_BLOCK).bucket(ItemRegistry::RUBY_WATER_BUCKET)
 }
