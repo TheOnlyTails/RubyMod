@@ -159,6 +159,11 @@ processResources {
     }
 }
 
+// add generated models to resources
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
