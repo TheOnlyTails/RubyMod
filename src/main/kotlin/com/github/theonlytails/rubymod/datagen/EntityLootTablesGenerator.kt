@@ -13,10 +13,10 @@ import net.minecraft.loot.LootTableManager
 import net.minecraft.util.ResourceLocation
 import java.util.HashMap
 
-class EntityLootTablesDataGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
+class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
 	private val tables = hashMapOf<EntityType<*>, LootTable.Builder>()
 
-	private fun addLootTables(loot: EntityLootTablesDataGenerator) {
+	private fun addLootTables(loot: EntityLootTablesGenerator) {
 		// Ruby Sheep
 		loot.addLoot(
 			EntityTypeRegistry.RUBY_SHEEP,

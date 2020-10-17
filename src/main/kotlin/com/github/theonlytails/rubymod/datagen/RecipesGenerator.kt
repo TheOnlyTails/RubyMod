@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.registries.ForgeRegistries
 import java.util.function.Consumer
 
-class RecipesDataGenerator(generator: DataGenerator) : RecipeProvider(generator) {
+class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 	override fun registerRecipes(consumer: Consumer<IFinishedRecipe>) {
 		// Centrifuge
 		consumer

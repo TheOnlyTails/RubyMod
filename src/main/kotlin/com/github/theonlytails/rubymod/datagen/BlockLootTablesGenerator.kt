@@ -17,10 +17,10 @@ import net.minecraft.loot.functions.*
 import net.minecraft.state.properties.SlabType
 import net.minecraft.util.ResourceLocation
 
-class BlockLootTablesDataGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
+class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
 	private val tables = hashMapOf<Block, LootTable.Builder>()
 
-	private fun addLootTables(loot: BlockLootTablesDataGenerator) {
+	private fun addLootTables(loot: BlockLootTablesGenerator) {
 		// Centrifuge
 		loot.addLoot(BlockRegistry.CENTRIFUGE_BLOCK, LootTable.builder()
 			.addLootPool(
