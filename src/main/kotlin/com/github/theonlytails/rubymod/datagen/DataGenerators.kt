@@ -14,6 +14,8 @@ object DataGenerators {
 
 		if (event.includeServer()) {
 			generator.addProvider(RecipesDataGenerator(generator))
+			generator.addProvider(BlockLootTablesDataGenerator(generator))
+			generator.addProvider(EntityLootTablesDataGenerator(generator))
 		}
 	}
 }
