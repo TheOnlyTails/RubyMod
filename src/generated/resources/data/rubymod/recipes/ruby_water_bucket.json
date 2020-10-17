@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rubymod",
+  "ingredients": [
+    {
+      "item": "rubymod:ruby"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "rubymod:ruby_water_bucket"
+  }
+}

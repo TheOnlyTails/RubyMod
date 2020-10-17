@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rubymod",
+  "pattern": [
+    "brb",
+    "bcb",
+    "brb"
+  ],
+  "key": {
+    "r": {
+      "item": "rubymod:ruby"
+    },
+    "b": {
+      "item": "rubymod:ruby_block"
+    },
+    "c": {
+      "item": "minecraft:barrel"
+    }
+  },
+  "result": {
+    "item": "rubymod:ruby_barrel"
+  }
+}

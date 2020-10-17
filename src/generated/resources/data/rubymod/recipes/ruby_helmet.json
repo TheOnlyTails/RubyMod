@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rubymod",
+  "pattern": [
+    "rrr",
+    "r r"
+  ],
+  "key": {
+    "r": {
+      "item": "rubymod:ruby"
+    }
+  },
+  "result": {
+    "item": "rubymod:ruby_helmet"
+  }
+}

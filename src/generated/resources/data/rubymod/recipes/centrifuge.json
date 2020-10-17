@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rubymod",
+  "pattern": [
+    "iri",
+    "ici",
+    "idi"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "r": {
+      "item": "rubymod:ruby"
+    },
+    "c": {
+      "item": "minecraft:cauldron"
+    },
+    "d": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "rubymod:centrifuge"
+  }
+}

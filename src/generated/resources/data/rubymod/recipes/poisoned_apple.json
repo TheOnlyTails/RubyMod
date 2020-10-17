@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "rubymod",
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "rubymod:ruby"
+    }
+  ],
+  "result": {
+    "item": "rubymod:poisoned_apple"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rubymod",
+  "pattern": [
+    " rr",
+    " sr",
+    " s "
+  ],
+  "key": {
+    "r": {
+      "item": "rubymod:ruby"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "rubymod:ruby_axe"
+  }
+}

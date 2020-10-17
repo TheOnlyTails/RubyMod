@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rubymod",
+  "pattern": [
+    "ccc",
+    "crc",
+    "ccc"
+  ],
+  "key": {
+    "r": {
+      "item": "rubymod:ruby"
+    },
+    "c": {
+      "item": "minecraft:white_carpet"
+    }
+  },
+  "result": {
+    "item": "rubymod:ruby_carpet",
+    "count": 8
+  }
+}
