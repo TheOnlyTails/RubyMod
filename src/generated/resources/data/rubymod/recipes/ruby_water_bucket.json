@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "rubymod",
   "ingredients": [
     {
       "item": "rubymod:ruby"

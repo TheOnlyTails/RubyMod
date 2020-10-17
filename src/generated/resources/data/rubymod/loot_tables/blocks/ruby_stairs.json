@@ -6,13 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:copy_name",
-              "source": "block_entity"
-            }
-          ],
-          "name": "rubymod:ruby_barrel"
+          "name": "rubymod:ruby_stairs"
         }
       ],
       "conditions": [

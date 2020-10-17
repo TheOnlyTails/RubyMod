@@ -1,8 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "rrr",
-    "r r"
+    "rrr"
   ],
   "key": {
     "r": {
@@ -10,6 +9,7 @@
     }
   },
   "result": {
-    "item": "rubymod:ruby_helmet"
+    "item": "rubymod:ruby_slab",
+    "count": 6
   }
 }

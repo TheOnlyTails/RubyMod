@@ -46,7 +46,7 @@ object RubyMod {
 	val RUBY_TAB_PROPERTY: Item.Properties = Item.Properties().group(RUBY_TAB)
 
 	@Suppress("unused")
-	private val LOGGER = LogManager.getLogger()
+	val LOGGER = LogManager.getLogger()
 
 	init {
 		val modEventBus = get().getKEventBus()
