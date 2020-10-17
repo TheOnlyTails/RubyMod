@@ -1,3 +1,6 @@
+8deb163fde36f654bbc15d8d1b3d7cbead1ea8fe data/forge/tags/blocks/ores.json
+21e7373036d3ff14d6a7a553206d467db934b67e data/forge/tags/items/gems.json
+8deb163fde36f654bbc15d8d1b3d7cbead1ea8fe data/forge/tags/items/ores.json
 c0dde28eaa5db374793b8c94e1c3a7aa85299ca7 data/minecraft/advancements/recipes/misc/red_dye.json
 df0f92ae03024879c393390d12b2d02515473afd data/minecraft/recipes/red_dye.json
 2882ec1d7ed793643a83f7ae2bb55eb26e21c93d data/rubymod/advancements/recipes/food/poisoned_apple.json
