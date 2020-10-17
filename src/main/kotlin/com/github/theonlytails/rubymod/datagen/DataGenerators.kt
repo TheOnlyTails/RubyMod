@@ -11,14 +11,18 @@ object DataGenerators {
 	fun gatherData(event: GatherDataEvent) {
 		val generator = event.generator
 
+		if (event.includeClient()) {
+			generator.addProvider(Lang.English(generator))
+		}
+
 		if (event.includeServer()) {
 			val blockTags = BlockTagDataGenerator(generator)
 
-			generator.addProvider(RecipesDataGenerator(generator))
-			generator.addProvider(BlockLootTablesDataGenerator(generator))
-			generator.addProvider(EntityLootTablesDataGenerator(generator))
+			generator.addProvider(RecipesGenerator(generator))
+			generator.addProvider(BlockLootTablesGenerator(generator))
+			generator.addProvider(EntityLootTablesGenerator(generator))
 			generator.addProvider(blockTags)
-			generator.addProvider(ItemTagDataGenerator(generator, blockTags))
+			generator.addProvider(ItemTagGenerator(generator, blockTags))
 		}
 	}
 }

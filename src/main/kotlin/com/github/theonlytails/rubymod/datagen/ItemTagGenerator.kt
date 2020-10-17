@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.Tags
 import java.nio.file.Path
 
-class ItemTagDataGenerator(
+class ItemTagGenerator(
 	generator: DataGenerator,
 	blockTags: BlockTagDataGenerator,
 ) : ItemTagsProvider(
