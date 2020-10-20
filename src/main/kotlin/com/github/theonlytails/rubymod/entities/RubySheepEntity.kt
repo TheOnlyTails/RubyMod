@@ -1,5 +1,6 @@
 package com.github.theonlytails.rubymod.entities
 
+import com.github.theonlytails.rubymod.RubyMod
 import com.github.theonlytails.rubymod.registries.EntityTypeRegistry
 import com.github.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.block.BlockState
@@ -26,11 +27,14 @@ import java.util.ArrayList
 import javax.annotation.Nonnull
 
 class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : SheepEntity(type, worldIn) {
-	private val eatGrassGoal = EatGrassGoal(this)
+	private lateinit var eatGrassGoal: EatGrassGoal
 	private var rubySheepTimer = 0
 
 	override fun registerGoals() {
 		super.registerGoals()
+
+		eatGrassGoal = EatGrassGoal(this)
+
 		goalSelector.addGoal(0, SwimGoal(this))
 		goalSelector.addGoal(1, PanicGoal(this, 1.25))
 		goalSelector.addGoal(2, BreedGoal(this, 1.0))
@@ -136,7 +140,7 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 	}
 
 	override fun getLootTable(): ResourceLocation {
-		return ResourceLocation("ruby", "entities/ruby_sheep")
+		return ResourceLocation(RubyMod.MOD_ID, "entities/ruby_sheep")
 	}
 
 	override fun canMateWith(otherAnimal: AnimalEntity): Boolean {

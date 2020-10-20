@@ -33,7 +33,7 @@ class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTabl
 		val namespacedTables = hashMapOf<ResourceLocation, LootTable>()
 
 		for (entry in tables) {
-			namespacedTables[entry.key.lootTable] = entry.value.setParameterSet(LootParameterSets.BLOCK).build()
+			namespacedTables[entry.key.lootTable] = entry.value.setParameterSet(LootParameterSets.ENTITY).build()
 		}
 
 		writeLootTables(namespacedTables, cache)
