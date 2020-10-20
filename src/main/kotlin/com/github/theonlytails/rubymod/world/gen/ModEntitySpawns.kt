@@ -1,4 +1,4 @@
-package com.github.theonlytails.rubymod.events
+package com.github.theonlytails.rubymod.world.gen
 
 import com.github.theonlytails.rubymod.RubyMod
 import com.github.theonlytails.rubymod.registries.EntityTypeRegistry

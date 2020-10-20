@@ -14,9 +14,9 @@ import net.minecraft.client.renderer.RenderTypeLookup
 import net.minecraft.client.renderer.entity.EntityRendererManager
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes
 import net.minecraft.entity.player.PlayerInventory
-import net.minecraft.item.*
-import net.minecraft.potion.PotionBrewing
-import net.minecraft.potion.Potions
+import net.minecraft.item.Item
+import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
 import net.minecraft.util.text.ITextComponent
 import net.minecraft.world.biome.Biome
 import net.minecraftforge.common.MinecraftForge
@@ -29,8 +29,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import thedarkcolour.kotlinforforge.KotlinModLoadingContext.Companion.get
-import thedarkcolour.kotlinforforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.forge.MOD_BUS
 
 @EventBusSubscriber(modid = RubyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -46,12 +46,12 @@ object RubyMod {
 	val RUBY_TAB_PROPERTY: Item.Properties = Item.Properties().group(RUBY_TAB)
 
 	@Suppress("unused")
-	val LOGGER = LogManager.getLogger()
+	val LOGGER: Logger = LogManager.getLogger()
 
 	init {
 		val modEventBus = get().getKEventBus()
 
-		FORGE_BUS.addListener(::setup)
+		MOD_BUS.addListener(::setup)
 		MOD_BUS.addListener(::doClientStuff)
 
 		EntityTypeRegistry.ENTITY_TYPES.register(modEventBus)
@@ -69,40 +69,9 @@ object RubyMod {
 
 	@Suppress("UNUSED_PARAMETER")
 	private fun setup(event: FMLCommonSetupEvent) {
-
 		GlobalEntityTypeAttributes.put(
 			EntityTypeRegistry.RUBY_SHEEP,
 			RubySheepEntity.setCustomAttributes().create())
-
-		PotionBrewing.addMix(
-			Potions.WATER,
-			ItemRegistry.RUBY,
-			PotionRegistry.MOTIVATION)
-
-		PotionBrewing.addMix(
-			PotionRegistry.MOTIVATION,
-			Items.GLOWSTONE_DUST,
-			PotionRegistry.STRONG_MOTIVATION)
-
-		PotionBrewing.addMix(
-			PotionRegistry.MOTIVATION,
-			Items.REDSTONE,
-			PotionRegistry.LONG_MOTIVATION)
-
-		PotionBrewing.addMix(
-			PotionRegistry.MOTIVATION,
-			Items.FERMENTED_SPIDER_EYE,
-			PotionRegistry.LAZINESS)
-
-		PotionBrewing.addMix(
-			PotionRegistry.LAZINESS,
-			Items.GLOWSTONE_DUST,
-			PotionRegistry.STRONG_LAZINESS)
-
-		PotionBrewing.addMix(
-			PotionRegistry.LAZINESS,
-			Items.REDSTONE,
-			PotionRegistry.LONG_LAZINESS)
 
 		ComposterBlock.CHANCES[ItemRegistry.POISONED_APPLE.asItem()] = 0.3f
 
@@ -129,7 +98,7 @@ object RubyMod {
 	}
 
 	@SubscribeEvent
-	fun onRegisterBiomes(event: Register<Biome>?) {
+	fun onRegisterBiomes(event: Register<Biome>) {
 		BiomeRegistry.registerBiomes()
 	}
 }

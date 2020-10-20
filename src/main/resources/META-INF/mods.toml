@@ -19,10 +19,11 @@ logoFile = "logo.png"
 
 credits = """
 Thanks to:
-- Forge, for providing the modding framework
-- TechnoVision, for creating the tutorial series that helped me create it
-- BlockBench, for giving me the tools to create the custom block models
-- Jelly Dash, for creating the beautiful textures for the Ruby sheep and the ruby wool
+- The Forge Team, for providing the modding framework,
+- thedarkcolor, for creating the KotlinForForge library for Forge modding in Kotlin,
+- TechnoVision and TurtyWurty, for creating the tutorial series that helped me create it,
+- Jelly Dash, for creating the beautiful textures for the Ruby sheep and the ruby wool,
+- xf8b, for helping a lot with the mod,
 and much more people.
 """
 
