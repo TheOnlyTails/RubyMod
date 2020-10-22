@@ -1,5 +1,6 @@
 package com.github.theonlytails.rubymod.datagen
 
+import com.github.theonlytails.rubymod.RubyMod
 import com.github.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.ItemTagsProvider
@@ -7,16 +8,20 @@ import net.minecraft.tags.ITag
 import net.minecraft.tags.ItemTags
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.Tags
+import net.minecraftforge.common.data.ExistingFileHelper
 import java.nio.file.Path
 
 class ItemTagGenerator(
 	generator: DataGenerator,
 	blockTags: BlockTagDataGenerator,
+	helper: ExistingFileHelper,
 ) : ItemTagsProvider(
 	generator,
 	blockTags,
+	RubyMod.MOD_ID,
+	helper
 ) {
-	var filter: Set<ResourceLocation>? = null
+	private var filter: Set<ResourceLocation>? = null
 
 	/**
 	 * Register tags for each block.
@@ -29,8 +34,7 @@ class ItemTagGenerator(
 		// Vanilla tags
 		getOrCreateBuilder(ItemTags.CARPETS).add(ItemRegistry.RUBY_CARPET_ITEM)
 		getOrCreateBuilder(ItemTags.WOOL).add(ItemRegistry.RUBY_WOOL_ITEM)
-		// field_232908_Z_ -> BEACON_PAYMENT_ITEMS
-		getOrCreateBuilder(ItemTags.field_232908_Z_).add(ItemRegistry.RUBY)
+		getOrCreateBuilder(ItemTags.BEACON_PAYMENT_ITEMS).add(ItemRegistry.RUBY)
 
 		// Forge tags
 		getOrCreateBuilder(Tags.Items.ORES).add(ItemRegistry.RUBY_ORE_BLOCK_ITEM)

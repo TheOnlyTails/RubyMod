@@ -91,7 +91,7 @@ class RubyBarrelContainer(id: Int, playerInventory: PlayerInventory, private val
 		if (slot != null && slot.hasStack) {
 			val itemStack1 = slot.stack
 			itemStack = itemStack1.copy()
-			if (index < 5 * 9) {
+			if (index < tileEntity.size) {
 				if (!mergeItemStack(itemStack1, 5 * 9, inventorySlots.size, true)) {
 					return ItemStack.EMPTY
 				}

@@ -36,13 +36,13 @@ This mod adds rubies and some other stuff. Look at the description in Github to 
 [[dependencies.rubymod]]
 modId = "forge"
 mandatory = true
-versionRange = "[32,)"
+versionRange = "[34,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.rubymod]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.16.1]"
+versionRange = "[1.16.3]"
 ordering = "NONE"
 side = "BOTH"
