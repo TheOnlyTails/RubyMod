@@ -7,6 +7,7 @@ import com.github.theonlytails.rubymod.client.render.RubySheepRenderer
 import com.github.theonlytails.rubymod.containers.RubyBarrelContainer
 import com.github.theonlytails.rubymod.entities.RubySheepEntity
 import com.github.theonlytails.rubymod.registries.*
+import com.github.theonlytails.rubymod.world.FeatureGen
 import net.minecraft.block.ComposterBlock
 import net.minecraft.client.gui.ScreenManager
 import net.minecraft.client.renderer.RenderType
@@ -18,10 +19,8 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
 import net.minecraft.util.text.ITextComponent
-import net.minecraft.world.biome.Biome
 import net.minecraftforge.common.MinecraftForge
-import net.minecraftforge.event.RegistryEvent.Register
-import net.minecraftforge.eventbus.api.SubscribeEvent
+import net.minecraftforge.eventbus.api.EventPriority
 import net.minecraftforge.fml.DeferredWorkQueue
 import net.minecraftforge.fml.client.registry.RenderingRegistry
 import net.minecraftforge.fml.common.Mod
@@ -31,6 +30,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import thedarkcolour.kotlinforforge.KotlinModLoadingContext.Companion.get
+import thedarkcolour.kotlinforforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.forge.MOD_BUS
 
 @EventBusSubscriber(modid = RubyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -54,6 +54,9 @@ object RubyMod {
 		MOD_BUS.addListener(::setup)
 		MOD_BUS.addListener(::doClientStuff)
 
+		FORGE_BUS.addListener(EventPriority.HIGH, BiomeRegistry::biomeLoading)
+		FORGE_BUS.addListener(EventPriority.HIGH, FeatureGen::addFeaturesToBiomes)
+
 		EntityTypeRegistry.ENTITY_TYPES.register(modEventBus)
 		BiomeRegistry.BIOMES.register(modEventBus)
 		FluidRegistry.FLUIDS.register(modEventBus)
@@ -69,14 +72,18 @@ object RubyMod {
 
 	@Suppress("UNUSED_PARAMETER")
 	private fun setup(event: FMLCommonSetupEvent) {
-		GlobalEntityTypeAttributes.put(
-			EntityTypeRegistry.RUBY_SHEEP,
-			RubySheepEntity.setCustomAttributes().create())
+		event.enqueueWork {
+			GlobalEntityTypeAttributes.put(
+				EntityTypeRegistry.RUBY_SHEEP,
+				RubySheepEntity.setCustomAttributes().create())
 
-		ComposterBlock.CHANCES[ItemRegistry.POISONED_APPLE.asItem()] = 0.3f
+			FeatureGen.registerConfiguredFeatures(event)
 
-		FluidRegistry.FLUIDS.registry.entries.forEach {
-			RenderTypeLookup.setRenderLayer(it.value, RenderType.getTranslucent())
+			ComposterBlock.CHANCES[ItemRegistry.POISONED_APPLE.asItem()] = 0.3f
+
+			FluidRegistry.FLUIDS.registry.entries.forEach {
+				RenderTypeLookup.setRenderLayer(it.value, RenderType.getTranslucent())
+			}
 		}
 	}
 
@@ -95,10 +102,5 @@ object RubyMod {
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypeRegistry.RUBY_SHEEP) { renderManagerIn: EntityRendererManager ->
 			RubySheepRenderer(renderManagerIn)
 		}
-	}
-
-	@SubscribeEvent
-	fun onRegisterBiomes(event: Register<Biome>) {
-		BiomeRegistry.registerBiomes()
 	}
 }

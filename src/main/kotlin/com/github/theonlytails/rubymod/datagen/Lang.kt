@@ -55,7 +55,7 @@ abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider
 			add(EnchantmentRegistry.STINGER, "Stinger")
 
 			// Biomes
-			add(BiomeRegistry.RUBY_HILLS, "Ruby Hills")
+			add("biome.rubymod.ruby_hills", "Ruby Hills")
 
 			// Creative tabs
 			add("itemGroup.ruby_tab", "RubyMod")
