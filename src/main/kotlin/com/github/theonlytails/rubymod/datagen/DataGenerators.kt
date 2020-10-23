@@ -10,19 +10,20 @@ object DataGenerators {
 	@SubscribeEvent
 	fun gatherData(event: GatherDataEvent) {
 		val generator = event.generator
+		val helper = event.existingFileHelper
 
 		if (event.includeClient()) {
 			generator.addProvider(Lang.English(generator))
 		}
 
 		if (event.includeServer()) {
-			val blockTags = BlockTagDataGenerator(generator)
+			val blockTags = BlockTagDataGenerator(generator, helper)
 
 			generator.addProvider(RecipesGenerator(generator))
 			generator.addProvider(BlockLootTablesGenerator(generator))
 			generator.addProvider(EntityLootTablesGenerator(generator))
 			generator.addProvider(blockTags)
-			generator.addProvider(ItemTagGenerator(generator, blockTags))
+			generator.addProvider(ItemTagGenerator(generator, blockTags, helper))
 		}
 	}
 }

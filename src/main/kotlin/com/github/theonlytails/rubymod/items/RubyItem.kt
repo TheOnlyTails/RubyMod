@@ -11,6 +11,7 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ActionResultType
 import net.minecraft.util.Hand
+import net.minecraft.world.IServerWorld
 
 class RubyItem : Item(RubyMod.RUBY_TAB_PROPERTY) {
 	override fun itemInteractionForEntity(
@@ -33,7 +34,7 @@ class RubyItem : Item(RubyMod.RUBY_TAB_PROPERTY) {
 							target.rotationPitch
 						)
 						rubySheepEntity.onInitialSpawn(
-							playerIn.world,
+							playerIn.world as IServerWorld,
 							playerIn.world.getDifficultyForLocation(rubySheepEntity.position),
 							SpawnReason.CONVERSION,
 							null,

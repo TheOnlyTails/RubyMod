@@ -1,10 +1,11 @@
 package com.github.theonlytails.rubymod.entities
 
 import com.github.theonlytails.rubymod.RubyMod
-import com.github.theonlytails.rubymod.registries.EntityTypeRegistry
 import com.github.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.block.BlockState
-import net.minecraft.entity.*
+import net.minecraft.entity.EntityType
+import net.minecraft.entity.ILivingEntityData
+import net.minecraft.entity.SpawnReason
 import net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute
 import net.minecraft.entity.ai.attributes.Attributes
 import net.minecraft.entity.ai.goal.*
@@ -19,7 +20,7 @@ import net.minecraft.nbt.CompoundNBT
 import net.minecraft.util.*
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.DifficultyInstance
-import net.minecraft.world.IWorld
+import net.minecraft.world.IServerWorld
 import net.minecraft.world.World
 import net.minecraftforge.api.distmarker.Dist
 import net.minecraftforge.api.distmarker.OnlyIn
@@ -45,10 +46,6 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		goalSelector.addGoal(6, WaterAvoidingRandomWalkingGoal(this, 1.0))
 		goalSelector.addGoal(7, LookAtGoal(this, PlayerEntity::class.java, 6.0f))
 		goalSelector.addGoal(8, LookRandomlyGoal(this))
-	}
-
-	override fun createChild(@Nonnull ageable: AgeableEntity): RubySheepEntity? {
-		return EntityTypeRegistry.RUBY_SHEEP.create(world)
 	}
 
 	override fun getAmbientSound(): SoundEvent? {
@@ -128,7 +125,7 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 	}
 
 	override fun onInitialSpawn(
-		worldIn: IWorld,
+		worldIn: IServerWorld,
 		difficultyIn: DifficultyInstance,
 		reason: SpawnReason,
 		spawnDataIn: ILivingEntityData?,
