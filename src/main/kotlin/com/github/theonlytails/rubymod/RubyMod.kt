@@ -20,7 +20,6 @@ import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
 import net.minecraft.util.text.ITextComponent
 import net.minecraftforge.common.MinecraftForge
-import net.minecraftforge.event.world.BiomeLoadingEvent
 import net.minecraftforge.eventbus.api.EventPriority
 import net.minecraftforge.fml.DeferredWorkQueue
 import net.minecraftforge.fml.client.registry.RenderingRegistry
@@ -55,8 +54,8 @@ object RubyMod {
 		MOD_BUS.addListener(::setup)
 		MOD_BUS.addListener(::doClientStuff)
 
-		FORGE_BUS.register(FeatureGen)
-		FORGE_BUS.addListener(EventPriority.HIGH, ::biomeLoading)
+		FORGE_BUS.addListener(EventPriority.HIGH, BiomeRegistry::biomeLoading)
+		FORGE_BUS.addListener(EventPriority.HIGH, FeatureGen::addFeaturesToBiomes)
 
 		EntityTypeRegistry.ENTITY_TYPES.register(modEventBus)
 		BiomeRegistry.BIOMES.register(modEventBus)
@@ -78,7 +77,7 @@ object RubyMod {
 				EntityTypeRegistry.RUBY_SHEEP,
 				RubySheepEntity.setCustomAttributes().create())
 
-			FeatureGen.registerFeatures(event)
+			FeatureGen.registerConfiguredFeatures(event)
 
 			ComposterBlock.CHANCES[ItemRegistry.POISONED_APPLE.asItem()] = 0.3f
 
@@ -103,10 +102,5 @@ object RubyMod {
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypeRegistry.RUBY_SHEEP) { renderManagerIn: EntityRendererManager ->
 			RubySheepRenderer(renderManagerIn)
 		}
-	}
-
-	private fun biomeLoading(event: BiomeLoadingEvent) {
-		FeatureGen.onBiomeLoading(event)
-		BiomeRegistry.biomeLoading(event)
 	}
 }

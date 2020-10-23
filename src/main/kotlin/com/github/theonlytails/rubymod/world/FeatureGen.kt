@@ -1,41 +1,45 @@
 package com.github.theonlytails.rubymod.world
 
-import com.github.theonlytails.rubymod.registries.BiomeRegistry
+import com.github.theonlytails.rubymod.RubyMod
 import com.github.theonlytails.rubymod.registries.BlockRegistry
 import net.minecraft.util.registry.Registry
 import net.minecraft.util.registry.WorldGenRegistries
+import net.minecraft.world.biome.Biome
 import net.minecraft.world.gen.GenerationStage
 import net.minecraft.world.gen.feature.ConfiguredFeature
 import net.minecraft.world.gen.feature.Feature
 import net.minecraft.world.gen.feature.OreFeatureConfig
+import net.minecraft.world.gen.placement.Placement
+import net.minecraft.world.gen.placement.TopSolidRangeConfig
 import net.minecraftforge.event.world.BiomeLoadingEvent
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 import net.minecraft.util.ResourceLocation as RL
 
 object FeatureGen {
-	private lateinit var rubyOreFeature: ConfiguredFeature<*, *>
+	private lateinit var ORE_RUBY: ConfiguredFeature<*, *>
 
-	@Suppress("UNUSED_PARAMETER")
-	fun registerFeatures(event: FMLCommonSetupEvent) {
-		val registry = WorldGenRegistries.CONFIGURED_FEATURE
+	private const val veinSize = 2
+	private const val maxHeight = 30
+	private const val minHeight = 23
+	private const val veinsPerChunk = 10
 
-		val veinSize = 2
-		val maxHeight = 10
-		val veinsPerChunk = 10
+	fun registerConfiguredFeatures(event: FMLCommonSetupEvent) {
+		val registry: Registry<ConfiguredFeature<*, *>> = WorldGenRegistries.CONFIGURED_FEATURE
 
-		rubyOreFeature = Feature.ORE
-			.withConfiguration(OreFeatureConfig(
-				OreFeatureConfig.FillerBlockType.field_241882_a,
+		ORE_RUBY = Feature.NO_SURFACE_ORE.withConfiguration(
+			OreFeatureConfig(
+				OreFeatureConfig.FillerBlockType.field_241883_b,
 				BlockRegistry.RUBY_ORE_BLOCK.defaultState,
-				veinSize
-			)).func_242733_d(maxHeight).func_242728_a().func_242731_b(veinsPerChunk)
+				veinSize))
+			.withPlacement(Placement.field_242907_l.configure(TopSolidRangeConfig(minHeight, 0, maxHeight)))
+			.func_242728_a().func_242731_b(veinsPerChunk)
 
-		Registry.register(registry, RL("ruby_ore_feature"), rubyOreFeature)
+		Registry.register(registry, RL(RubyMod.MOD_ID, "ore_ruby"), ORE_RUBY)
 	}
 
-	fun onBiomeLoading(event: BiomeLoadingEvent) {
-		if (event.name == BiomeRegistry.RUBY_HILLS.registryName) {
-			event.generation.getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).add(::rubyOreFeature)
+	fun addFeaturesToBiomes(event: BiomeLoadingEvent) {
+		if (event.category == Biome.Category.NETHER) {
+			event.generation.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, ORE_RUBY)
 		}
 	}
 }
