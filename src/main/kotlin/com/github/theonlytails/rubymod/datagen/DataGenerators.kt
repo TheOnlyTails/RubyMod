@@ -14,7 +14,6 @@ object DataGenerators {
 
 		if (event.includeClient()) {
 			generator.addProvider(Lang.English(generator))
-			generator.addProvider(ModelsGenerator(generator, helper))
 		}
 
 		if (event.includeServer()) {
