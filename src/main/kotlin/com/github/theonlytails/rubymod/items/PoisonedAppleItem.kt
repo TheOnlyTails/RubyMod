@@ -51,6 +51,8 @@ class PoisonedAppleItem : Item(Properties()
 				if (!player.world.isRemote) {
 					player.sendMessage(StringTextComponent("I don't think that sheep is feeling so well..."),
 						player.uniqueID)
+
+					stack.shrink(1)
 				}
 			}
 

@@ -54,11 +54,15 @@ object ItemRegistry {
 	}
 
 	val RUBY_WOOL_ITEM by ITEMS.register("ruby_wool") {
-		FuelBlockItem(BlockRegistry.RUBY_WOOL, 100)
+		object : BlockItem(BlockRegistry.RUBY_WOOL, RubyMod.RUBY_TAB_PROPERTY) {
+			override fun getBurnTime(itemStack: ItemStack) = 100
+		}
 	}
 
 	val RUBY_CARPET_ITEM by ITEMS.register("ruby_carpet") {
-		FuelBlockItem(BlockRegistry.RUBY_CARPET, 67)
+		object : BlockItem(BlockRegistry.RUBY_CARPET, RubyMod.RUBY_TAB_PROPERTY) {
+			override fun getBurnTime(itemStack: ItemStack) = 67
+		}
 	}
 
 	val RUBY_BARREL_ITEM by ITEMS.register("ruby_barrel") {
