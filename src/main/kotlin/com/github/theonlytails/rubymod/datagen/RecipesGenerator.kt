@@ -35,13 +35,6 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
 			}
 
-		// Red dye (from ruby)
-		consumer
-			.shapeless(Items.RED_DYE, 2) {
-				it.addIngredient(ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
-			}
-
 		// Ruby (uncrafting from ruby block)
 		consumer
 			.shapeless(ItemRegistry.RUBY, 9) {
@@ -169,7 +162,7 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 		consumer
 			.shaped(ItemRegistry.RUBY_SLAB_ITEM, 6) {
 				it.patternLine("rrr")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
 				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
 			}
 
@@ -179,7 +172,22 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 				it.patternLine("r  ")
 				it.patternLine("rr ")
 				it.patternLine("rrr")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+			}
+
+		// Ruby Button
+		consumer
+			.shapeless(ItemRegistry.RUBY_BUTTON_ITEM) {
+				it.addIngredient(ItemRegistry.RUBY)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+			}
+
+		// Ruby Button
+		consumer
+			.shaped(ItemRegistry.RUBY_PRESSURE_PLATE_ITEM) {
+				it.patternLine("rr")
+				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
 				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
 			}
 

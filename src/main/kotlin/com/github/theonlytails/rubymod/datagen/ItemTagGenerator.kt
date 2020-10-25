@@ -35,10 +35,12 @@ class ItemTagGenerator(
 		getOrCreateBuilder(ItemTags.CARPETS).add(ItemRegistry.RUBY_CARPET_ITEM)
 		getOrCreateBuilder(ItemTags.WOOL).add(ItemRegistry.RUBY_WOOL_ITEM)
 		getOrCreateBuilder(ItemTags.BEACON_PAYMENT_ITEMS).add(ItemRegistry.RUBY)
+		getOrCreateBuilder(ItemTags.BUTTONS).add(ItemRegistry.RUBY_BUTTON_ITEM)
 
 		// Forge tags
 		getOrCreateBuilder(Tags.Items.ORES).add(ItemRegistry.RUBY_ORE_BLOCK_ITEM)
 		getOrCreateBuilder(Tags.Items.GEMS).add(ItemRegistry.RUBY)
+		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(ItemRegistry.RUBY_BLOCK_ITEM)
 	}
 
 	/**

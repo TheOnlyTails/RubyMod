@@ -42,6 +42,8 @@ class RubyItem : Item(RubyMod.RUBY_TAB_PROPERTY) {
 						)
 						playerIn.world.addEntity(rubySheepEntity)
 						target.remove()
+
+						stack.shrink(1)
 					}
 				}
 

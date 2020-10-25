@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "rrr"
+    "rr"
   ],
   "key": {
     "r": {
@@ -9,7 +9,6 @@
     }
   },
   "result": {
-    "item": "rubymod:ruby_slab",
-    "count": 6
+    "item": "rubymod:ruby_pressure_plate"
   }
 }

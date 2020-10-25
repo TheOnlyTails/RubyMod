@@ -29,6 +29,8 @@ abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider
 			add(BlockRegistry.RUBY_BLOCK, "Ruby Block")
 			add(BlockRegistry.RUBY_SLAB, "Ruby Slab")
 			add(BlockRegistry.RUBY_STAIRS, "Ruby Stairs")
+			add(BlockRegistry.RUBY_PRESSURE_PLATE, "Ruby Pressure Plate")
+			add(BlockRegistry.RUBY_BUTTON, "Ruby Button")
 			add(BlockRegistry.RUBY_ORE_BLOCK, "Ruby Ore")
 			add(BlockRegistry.RUBY_WOOL, "Ruby Wool")
 			add(BlockRegistry.RUBY_CARPET, "Ruby Carpet")
