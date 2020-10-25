@@ -45,6 +45,14 @@ object ItemRegistry {
 		BlockItem(BlockRegistry.RUBY_STAIRS, RubyMod.RUBY_TAB_PROPERTY)
 	}
 
+	val RUBY_PRESSURE_PLATE_ITEM by ITEMS.register("ruby_pressure_plate") {
+		BlockItem(BlockRegistry.RUBY_PRESSURE_PLATE, RubyMod.RUBY_TAB_PROPERTY)
+	}
+
+	val RUBY_BUTTON_ITEM by ITEMS.register("ruby_button") {
+		BlockItem(BlockRegistry.RUBY_BUTTON, RubyMod.RUBY_TAB_PROPERTY)
+	}
+
 	val RUBY_ORE_BLOCK_ITEM by ITEMS.register("ruby_ore") {
 		BlockItem(BlockRegistry.RUBY_ORE_BLOCK, RubyMod.RUBY_TAB_PROPERTY)
 	}

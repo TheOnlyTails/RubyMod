@@ -5,6 +5,7 @@ import com.github.theonlytails.rubymod.blocks.CentrifugeBlock
 import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
 import com.github.theonlytails.rubymod.blocks.RubyCarpetBlock
 import net.minecraft.block.*
+import net.minecraft.block.PressurePlateBlock.Sensitivity
 import net.minecraft.block.material.Material
 import net.minecraft.block.material.MaterialColor
 import net.minecraft.util.math.BlockPos
@@ -27,6 +28,14 @@ object BlockRegistry {
 
 	val RUBY_SLAB by BLOCKS.register("ruby_slab") {
 		SlabBlock(AbstractBlock.Properties.from(RUBY_BLOCK))
+	}
+
+	val RUBY_PRESSURE_PLATE by BLOCKS.register("ruby_pressure_plate") {
+		PressurePlateBlock(Sensitivity.MOBS, AbstractBlock.Properties.from(RUBY_BLOCK))
+	}
+
+	val RUBY_BUTTON by BLOCKS.register("ruby_button") {
+		StoneButtonBlock(AbstractBlock.Properties.from(RUBY_BLOCK))
 	}
 
 	val RUBY_STAIRS by BLOCKS.register("ruby_stairs") {

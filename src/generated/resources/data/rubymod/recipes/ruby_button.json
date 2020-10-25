@@ -6,7 +6,6 @@
     }
   ],
   "result": {
-    "item": "minecraft:red_dye",
-    "count": 2
+    "item": "rubymod:ruby_button"
   }
 }

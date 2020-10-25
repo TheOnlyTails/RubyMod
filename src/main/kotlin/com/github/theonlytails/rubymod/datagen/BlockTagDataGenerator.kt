@@ -35,9 +35,12 @@ class BlockTagDataGenerator(generator: DataGenerator, helper: ExistingFileHelper
 		getOrCreateBuilder(BlockTags.BEACON_BASE_BLOCKS).add(BlockRegistry.RUBY_BLOCK)
 		getOrCreateBuilder(BlockTags.CARPETS).add(BlockRegistry.RUBY_CARPET)
 		getOrCreateBuilder(BlockTags.WOOL).add(BlockRegistry.RUBY_WOOL)
+		getOrCreateBuilder(BlockTags.PRESSURE_PLATES).add(BlockRegistry.RUBY_PRESSURE_PLATE)
+		getOrCreateBuilder(BlockTags.BUTTONS).add(BlockRegistry.RUBY_BUTTON)
 
 		// Forge Tags
 		getOrCreateBuilder(Tags.Blocks.ORES).add(BlockRegistry.RUBY_ORE_BLOCK)
+		getOrCreateBuilder(Tags.Blocks.STORAGE_BLOCKS).add(BlockRegistry.RUBY_BLOCK)
 	}
 
 	/**

@@ -53,6 +53,12 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 		// Ruby Stairs
 		loot.dropSelf(BlockRegistry.RUBY_STAIRS)
 
+		// Ruby Pressure Plate
+		loot.dropSelf(BlockRegistry.RUBY_PRESSURE_PLATE)
+
+		// Ruby Button
+		loot.dropSelf(BlockRegistry.RUBY_BUTTON)
+
 		// Ruby Carpet
 		loot.dropSelf(BlockRegistry.RUBY_CARPET)
 
