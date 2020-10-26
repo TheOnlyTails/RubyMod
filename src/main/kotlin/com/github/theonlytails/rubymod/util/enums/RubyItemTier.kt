@@ -3,20 +3,20 @@ package com.github.theonlytails.rubymod.util.enums
 import com.github.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.item.IItemTier
 import net.minecraft.item.crafting.Ingredient
-import java.util.function.Supplier
+import net.minecraftforge.common.util.Lazy
 import javax.annotation.Nonnull
 
 enum class RubyItemTier(
 	private val harvestLevel: Int, private val maxUses: Int, private val efficiency: Float,
 	private val attackDamage: Float, private val enchantability: Int,
-	private val repairMaterial: Supplier<Ingredient>,
+	private val repairMaterial: Lazy<Ingredient>,
 ) : IItemTier {
 	RUBY(3,
 		850,
 		7f,
 		3f,
 		12,
-		Supplier<Ingredient> { Ingredient.fromItems(ItemRegistry.RUBY) });
+		Lazy.of { Ingredient.fromItems(ItemRegistry.RUBY) });
 
 	override fun getMaxUses(): Int {
 		return maxUses

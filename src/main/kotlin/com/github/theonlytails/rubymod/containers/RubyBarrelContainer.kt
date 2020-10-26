@@ -14,7 +14,11 @@ import net.minecraft.util.SoundEvents
 import net.minecraftforge.items.SlotItemHandler
 import java.util.Objects
 
-class RubyBarrelContainer(id: Int, playerInventory: PlayerInventory, private val tileEntity: RubyBarrelTileEntity) :
+class RubyBarrelContainer(
+	id: Int,
+	playerInventory: PlayerInventory,
+	private val tileEntity: RubyBarrelTileEntity,
+) :
 	Container(ContainerTypeRegistry.RUBY_BARREL, id) {
 
 	private val canInteractWithCallable: IWorldPosCallable

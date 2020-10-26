@@ -5,6 +5,7 @@ import com.github.theonlytails.rubymod.blocks.CentrifugeBlock
 import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
 import com.github.theonlytails.rubymod.blocks.RubyCarpetBlock
 import net.minecraft.block.*
+import net.minecraft.block.AbstractBlock.Properties
 import net.minecraft.block.PressurePlateBlock.Sensitivity
 import net.minecraft.block.material.Material
 import net.minecraft.block.material.MaterialColor
@@ -18,7 +19,7 @@ object BlockRegistry {
 	val BLOCKS = KDeferredRegister(ForgeRegistries.BLOCKS, RubyMod.MOD_ID)
 
 	val RUBY_BLOCK by BLOCKS.register("ruby_block") {
-		Block(AbstractBlock.Properties.create(Material.IRON)
+		Block(Properties.create(Material.IRON)
 			.hardnessAndResistance(5.0f, 6.0f)
 			.sound(SoundType.METAL)
 			.harvestTool(ToolType.PICKAXE)
@@ -27,20 +28,20 @@ object BlockRegistry {
 	}
 
 	val RUBY_SLAB by BLOCKS.register("ruby_slab") {
-		SlabBlock(AbstractBlock.Properties.from(RUBY_BLOCK))
+		SlabBlock(Properties.from(RUBY_BLOCK))
 	}
 
 	val RUBY_PRESSURE_PLATE by BLOCKS.register("ruby_pressure_plate") {
-		PressurePlateBlock(Sensitivity.MOBS, AbstractBlock.Properties.from(RUBY_BLOCK))
+		PressurePlateBlock(Sensitivity.MOBS, Properties.from(RUBY_BLOCK))
 	}
 
 	val RUBY_BUTTON by BLOCKS.register("ruby_button") {
-		StoneButtonBlock(AbstractBlock.Properties.from(RUBY_BLOCK))
+		StoneButtonBlock(Properties.from(RUBY_BLOCK))
 	}
 
 	val RUBY_STAIRS by BLOCKS.register("ruby_stairs") {
 		StairsBlock({ RUBY_BLOCK.defaultState },
-			AbstractBlock.Properties.from(RUBY_BLOCK))
+			Properties.from(RUBY_BLOCK))
 	}
 
 	val RUBY_ORE_BLOCK by BLOCKS.register("ruby_ore") {
@@ -63,7 +64,7 @@ object BlockRegistry {
 	val CENTRIFUGE_BLOCK by BLOCKS.register("centrifuge", ::CentrifugeBlock)
 
 	val RUBY_WOOL by BLOCKS.register("ruby_wool") {
-		Block(AbstractBlock.Properties
+		Block(Properties
 			.create(Material.WOOL, MaterialColor.CRIMSON_HYPHAE)
 			.hardnessAndResistance(0.8f)
 			.sound(SoundType.CLOTH))
