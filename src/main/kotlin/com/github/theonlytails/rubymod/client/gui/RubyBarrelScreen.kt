@@ -23,7 +23,7 @@ class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventor
 		titleX = 8
 		titleY = 6
 		playerInventoryTitleX = 8
-		playerInventoryTitleY = 109
+		playerInventoryTitleY = 110
 	}
 
 	override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {

@@ -16,17 +16,13 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber
 class StingerEnchantment : Enchantment(Rarity.VERY_RARE,
 	EnchantmentType.WEAPON, arrayOf(EquipmentSlotType.MAINHAND)) {
 
-	override fun getMaxLevel(): Int {
-		return 2
-	}
+	override fun getMaxLevel() = 2
 
 	override fun canApply(stack: ItemStack): Boolean {
 		return stack.item === Items.SHEARS || super.canApply(stack)
 	}
 
-	override fun canVillagerTrade(): Boolean {
-		return false
-	}
+	override fun canVillagerTrade() = false
 
 	public override fun canApplyTogether(enchant: Enchantment): Boolean {
 		return super.canApplyTogether(enchant) && enchant !== Enchantments.SHARPNESS && enchant !== Enchantments.MENDING

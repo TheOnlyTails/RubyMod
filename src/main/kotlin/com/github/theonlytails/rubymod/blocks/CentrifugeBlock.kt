@@ -20,19 +20,16 @@ class CentrifugeBlock : DirectionalBlock(Properties.create(Material.IRON)
 	.harvestLevel(2)
 	.harvestTool(ToolType.PICKAXE)
 	.setRequiresTool()) {
-	override fun getStateForPlacement(context: BlockItemUseContext): BlockState? {
-		return defaultState.with(FACING, context.placementHorizontalFacing.opposite)
-	}
+	override fun getStateForPlacement(context: BlockItemUseContext): BlockState? =
+		defaultState.with(FACING, context.placementHorizontalFacing.opposite)
 
 	@Nonnull
-	override fun rotate(state: BlockState, rot: Rotation): BlockState {
-		return state.with(FACING, rot.rotate(state.get(FACING)))
-	}
+	override fun rotate(state: BlockState, rot: Rotation): BlockState =
+		state.with(FACING, rot.rotate(state.get(FACING)))
 
 	@Nonnull
-	override fun mirror(state: BlockState, mirrorIn: Mirror): BlockState {
-		return state.rotate(mirrorIn.toRotation(state.get(FACING)))
-	}
+	override fun mirror(state: BlockState, mirrorIn: Mirror): BlockState =
+		state.rotate(mirrorIn.toRotation(state.get(FACING)))
 
 	override fun fillStateContainer(builder: StateContainer.Builder<Block, BlockState>) {
 		builder.add(FACING)
@@ -69,6 +66,7 @@ class CentrifugeBlock : DirectionalBlock(Properties.create(Material.IRON)
 				v2,
 				IBooleanFunction.OR)
 		}.get()
+
 		val SHAPE_E = Stream.of(
 			makeCuboidShape(15.0, 0.0, 0.0, 16.0, 3.0, 1.0),
 			makeCuboidShape(0.0, 0.0, 0.0, 1.0, 3.0, 1.0),
@@ -84,6 +82,7 @@ class CentrifugeBlock : DirectionalBlock(Properties.create(Material.IRON)
 				v2,
 				IBooleanFunction.OR)
 		}.get()
+
 		val SHAPE_S = Stream.of(
 			makeCuboidShape(15.0, 0.0, 15.0, 16.0, 3.0, 16.0),
 			makeCuboidShape(15.0, 0.0, 0.0, 16.0, 3.0, 1.0),
@@ -99,6 +98,7 @@ class CentrifugeBlock : DirectionalBlock(Properties.create(Material.IRON)
 				v2,
 				IBooleanFunction.OR)
 		}.get()
+
 		val SHAPE_W = Stream.of(
 			makeCuboidShape(0.0, 0.0, 15.0, 1.0, 3.0, 16.0),
 			makeCuboidShape(15.0, 0.0, 15.0, 16.0, 3.0, 16.0),

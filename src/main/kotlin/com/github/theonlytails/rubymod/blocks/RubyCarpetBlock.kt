@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockReader
 import net.minecraft.world.IWorld
 import net.minecraft.world.IWorldReader
 
-open class RubyCarpetBlock : Block(Properties
+class RubyCarpetBlock : Block(Properties
 	.create(Material.CARPET, MaterialColor.CRIMSON_HYPHAE)
 	.hardnessAndResistance(0.1f)
 	.sound(SoundType.CLOTH)) {
@@ -21,9 +21,7 @@ open class RubyCarpetBlock : Block(Properties
 		worldIn: IBlockReader,
 		pos: BlockPos,
 		context: ISelectionContext,
-	): VoxelShape {
-		return SHAPE
-	}
+	): VoxelShape = SHAPE
 
 	/**
 	 * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.
@@ -49,11 +47,10 @@ open class RubyCarpetBlock : Block(Properties
 			facingPos)
 	}
 
-	override fun isValidPosition(state: BlockState, worldIn: IWorldReader, pos: BlockPos): Boolean {
-		return !worldIn.isAirBlock(pos.down())
-	}
+	override fun isValidPosition(state: BlockState, worldIn: IWorldReader, pos: BlockPos) =
+		!worldIn.isAirBlock(pos.down())
 
 	companion object {
-		protected val SHAPE: VoxelShape = makeCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0)
+		val SHAPE: VoxelShape = makeCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0)
 	}
 }

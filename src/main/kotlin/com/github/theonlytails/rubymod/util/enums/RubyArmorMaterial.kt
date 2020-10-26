@@ -7,21 +7,21 @@ import net.minecraft.item.IArmorMaterial
 import net.minecraft.item.crafting.Ingredient
 import net.minecraft.util.SoundEvent
 import net.minecraft.util.SoundEvents
-import java.util.function.Supplier
+import net.minecraftforge.common.util.Lazy
 import javax.annotation.Nonnull
 
 enum class RubyArmorMaterial(
 	private val materialName: String, private val maxDamageFactor: Int,
 	private val damageReductionAmount: IntArray, private val enchantability: Int,
 	private val soundEvent: SoundEvent, private val toughness: Float,
-	private val repairMaterial: Supplier<Ingredient>, private val knockbackResistance: Float,
+	private val repairMaterial: Lazy<Ingredient>, private val knockbackResistance: Float,
 ) : IArmorMaterial {
 	RUBY(RubyMod.MOD_ID + ":ruby",
 		24, intArrayOf(2, 5, 6, 2),
 		18,
 		SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
 		0f,
-		Supplier<Ingredient> { Ingredient.fromItems(ItemRegistry.RUBY) },
+		Lazy.of { Ingredient.fromItems(ItemRegistry.RUBY) },
 		0.5f);
 
 	override fun getDurability(slotIn: EquipmentSlotType): Int {

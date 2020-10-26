@@ -73,18 +73,14 @@ class RubyBarrelBlock : Block(Properties.create(
 		return TileEntityTypes.RUBY_BARREL.create()
 	}
 
-	override fun hasTileEntity(state: BlockState): Boolean {
-		return true
-	}
+	override fun hasTileEntity(state: BlockState) = true
 
 	override fun getComparatorInputOverride(blockState: BlockState, worldIn: World, pos: BlockPos): Int {
 		val rubyBarrel = worldIn.getTileEntity(pos)
 		return if (rubyBarrel is RubyBarrelTileEntity) ItemHandlerHelper.calcRedstoneFromInventory(rubyBarrel.itemHandler) else 0
 	}
 
-	override fun hasComparatorInputOverride(state: BlockState): Boolean {
-		return true
-	}
+	override fun hasComparatorInputOverride(state: BlockState) = true
 
 	override fun fillStateContainer(builder: StateContainer.Builder<Block, BlockState>) {
 		builder.add(PROPERTY_OPEN)

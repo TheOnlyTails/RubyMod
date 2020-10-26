@@ -29,6 +29,7 @@ class CustomSpawnEggItem(
 
 	companion object {
 		private val UNADDED_EGGS: MutableList<CustomSpawnEggItem> = ArrayList()
+
 		fun initSpawnEggs() {
 			val eggs: MutableMap<EntityType<*>, CustomSpawnEggItem>? = Objects.requireNonNull(
 				ObfuscationReflectionHelper.getPrivateValue<MutableMap<EntityType<*>, CustomSpawnEggItem>, SpawnEggItem>(
@@ -44,10 +45,12 @@ class CustomSpawnEggItem(
 					return stack
 				}
 			}
+
 			for (spawnEgg in UNADDED_EGGS) {
 				eggs?.set(spawnEgg.getType(null), spawnEgg)
 				DispenserBlock.registerDispenseBehavior(spawnEgg, dispenserBehavior)
 			}
+
 			UNADDED_EGGS.clear()
 		}
 	}

@@ -26,6 +26,10 @@ object FeatureGen {
 	fun registerConfiguredFeatures(event: FMLCommonSetupEvent) {
 		val registry: Registry<ConfiguredFeature<*, *>> = WorldGenRegistries.CONFIGURED_FEATURE
 
+		// field_241883_b -> NETHERRACK
+		// field_242907_l -> RANGE
+		// func_242728_a -> square
+		// func_242731_b -> spreadBase
 		ORE_RUBY = Feature.NO_SURFACE_ORE.withConfiguration(
 			OreFeatureConfig(
 				OreFeatureConfig.FillerBlockType.field_241883_b,

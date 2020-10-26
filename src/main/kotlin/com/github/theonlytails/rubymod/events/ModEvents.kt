@@ -1,19 +1,14 @@
 package com.github.theonlytails.rubymod.events
 
-import com.github.theonlytails.rubymod.RubyMod
 import com.github.theonlytails.rubymod.registries.ItemRegistry
 import com.github.theonlytails.rubymod.registries.PotionRegistry
 import net.minecraft.item.Items
 import net.minecraft.potion.Potion
 import net.minecraft.potion.PotionBrewing
 import net.minecraft.potion.Potions
-import net.minecraftforge.eventbus.api.SubscribeEvent
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 
-@EventBusSubscriber(modid = RubyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
-object ModEventBusSubscriber {
-	@SubscribeEvent
+object ModEvents {
 	fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
 		PotionBrewing.addMix(
 			Potions.WATER,

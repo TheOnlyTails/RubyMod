@@ -6,7 +6,6 @@ import com.github.theonlytails.rubymod.registries.TileEntityTypes
 import net.minecraft.block.BlockState
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
-import net.minecraft.inventory.container.Container
 import net.minecraft.inventory.container.INamedContainerProvider
 import net.minecraft.nbt.CompoundNBT
 import net.minecraft.network.NetworkManager
@@ -15,7 +14,6 @@ import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.Direction
 import net.minecraft.util.SoundCategory
 import net.minecraft.util.SoundEvent
-import net.minecraft.util.text.ITextComponent
 import net.minecraft.util.text.TranslationTextComponent
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.util.LazyOptional
@@ -37,13 +35,10 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 		}
 	}
 
-	override fun getDisplayName(): ITextComponent {
-		return TranslationTextComponent(this.blockState.block.translationKey)
-	}
+	override fun getDisplayName() = TranslationTextComponent(blockState.block.translationKey)
 
-	override fun createMenu(id: Int, playerInventory: PlayerInventory, player: PlayerEntity): Container {
-		return RubyBarrelContainer(id, playerInventory, this)
-	}
+	override fun createMenu(id: Int, playerInventory: PlayerInventory, player: PlayerEntity) =
+		RubyBarrelContainer(id, playerInventory, this)
 
 	fun changeState(blockState: BlockState, value: Boolean) {
 		if (blockState.block is RubyBarrelBlock) {
@@ -67,6 +62,7 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 			nbt.put("inv",
 				handler.serializeNBT())
 		}
+
 		itemHandler.serializeNBT()
 		return super.write(nbt)
 	}
@@ -79,9 +75,7 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 		super.read(state, nbt)
 	}
 
-	override fun getUpdateTag(): CompoundNBT {
-		return super.write(CompoundNBT())
-	}
+	override fun getUpdateTag(): CompoundNBT = super.write(CompoundNBT())
 
 	override fun getUpdatePacket(): SUpdateTileEntityPacket {
 		val nbt = CompoundNBT()
@@ -89,9 +83,8 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 		return SUpdateTileEntityPacket(pos, 0, nbt)
 	}
 
-	override fun onDataPacket(net: NetworkManager, pkt: SUpdateTileEntityPacket) {
+	override fun onDataPacket(net: NetworkManager, pkt: SUpdateTileEntityPacket) =
 		read(this.blockState, pkt.nbtCompound)
-	}
 
 	override fun <T> getCapability(cap: Capability<T>, side: Direction?): LazyOptional<T> {
 		return if (cap === CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
