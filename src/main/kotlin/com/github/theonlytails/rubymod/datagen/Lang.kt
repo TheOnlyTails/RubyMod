@@ -59,6 +59,9 @@ abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider
 			// Biomes
 			add("biome.rubymod.ruby_hills", "Ruby Hills")
 
+			// Villager Professions
+			add("entity.minecraft.villager.${RubyMod.MOD_ID}.jeweler", "Jeweler")
+
 			// Creative tabs
 			add("itemGroup.ruby_tab", "RubyMod")
 		}

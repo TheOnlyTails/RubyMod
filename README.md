@@ -2,8 +2,6 @@
 
 # RubyMod
 
----
-
 ## What is RubyMod?
 
 RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support coming soon!).
@@ -118,9 +116,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ### Ruby Water
 
-- Water, but red.
-
-- When you dive in it, it's completely see-through, but from the outside, it's not.
+- Water, but red. It's almost like it isn't there!
 
 - Will turn to water when it interacts with it.
 
@@ -167,6 +163,14 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
+### Jeweler
+
+- This villager will trade you some valuable stuff for some rubies. Definitely worth a check.
+
+- Works at a ruby barrel.
+
+---
+
 ## Planned Features
 
 - [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple ->
@@ -178,7 +182,12 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ## Credits
 
-I would like to thank the Forge team for creating the Forge API, TechnoVision for inspiring the mod with your tutorial
-series, and Jelly Dash, for helping a lot with your beautiful textures for this mod.
+Thanks to:
+
+- The Forge Team, for providing the modding framework,
+- thedarkcolor, for creating the KotlinForForge library for Forge modding in Kotlin,
+- TechnoVision and TurtyWurty, for creating the tutorial series that helped me create it,
+- Jelly Dash, for creating the beautiful textures for the Ruby sheep and the ruby wool,
+- xf8b, for helping a lot with the mod, and much more people.
 
 ---
