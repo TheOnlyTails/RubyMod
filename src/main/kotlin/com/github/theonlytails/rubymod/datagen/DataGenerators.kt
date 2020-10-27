@@ -22,6 +22,7 @@ object DataGenerators {
 			generator.addProvider(RecipesGenerator(generator))
 			generator.addProvider(BlockLootTablesGenerator(generator))
 			generator.addProvider(EntityLootTablesGenerator(generator))
+			generator.addProvider(GiftLootTablesGenerator(generator))
 			generator.addProvider(blockTags)
 			generator.addProvider(ItemTagGenerator(generator, blockTags, helper))
 		}
