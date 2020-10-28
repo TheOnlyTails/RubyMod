@@ -11,6 +11,11 @@ import net.minecraft.world.IBlockReader
 import net.minecraft.world.IWorld
 import net.minecraft.world.IWorldReader
 
+/**
+ * The block class for the ruby carpet.
+ *
+ * @author TheOnlyTails
+ */
 class RubyCarpetBlock : Block(Properties
 	.create(Material.CARPET, MaterialColor.CRIMSON_HYPHAE)
 	.hardnessAndResistance(0.1f)

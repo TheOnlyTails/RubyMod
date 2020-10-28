@@ -4,6 +4,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent
 
+/**
+ * Calls all of the data generators to regenerate their files.
+ *
+ * @author TheOnlyTails
+ */
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 object DataGenerators {
 

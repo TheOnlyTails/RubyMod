@@ -7,6 +7,11 @@ import com.github.theonlytails.rubymod.enchantments.StingerEnchantment
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom enchantments.
+ *
+ * @author TheOnlyTails
+ */
 object EnchantmentRegistry {
 	val ENCHANTMENTS = KDeferredRegister(ForgeRegistries.ENCHANTMENTS, RubyMod.MOD_ID)
 

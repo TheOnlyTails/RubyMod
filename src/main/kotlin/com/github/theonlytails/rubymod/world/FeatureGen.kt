@@ -15,6 +15,11 @@ import net.minecraftforge.event.world.BiomeLoadingEvent
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 import net.minecraft.util.ResourceLocation as RL
 
+/**
+ * Adds features to existing biomes.
+ *
+ * @author TheOnlyTails
+ */
 object FeatureGen {
 	private lateinit var ORE_RUBY: ConfiguredFeature<*, *>
 
@@ -43,7 +48,14 @@ object FeatureGen {
 
 	fun addFeaturesToBiomes(event: BiomeLoadingEvent) {
 		if (event.category == Biome.Category.NETHER) {
-			event.generation.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, ORE_RUBY)
+			event.generation.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION,
+				Feature.NO_SURFACE_ORE.withConfiguration(
+					OreFeatureConfig(
+						OreFeatureConfig.FillerBlockType.field_241883_b,
+						BlockRegistry.RUBY_ORE_BLOCK.defaultState,
+						veinSize))
+					.withPlacement(Placement.field_242907_l.configure(TopSolidRangeConfig(minHeight, 0, maxHeight)))
+					.func_242728_a().func_242731_b(veinsPerChunk))
 		}
 	}
 }

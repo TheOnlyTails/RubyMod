@@ -10,6 +10,11 @@ import net.minecraftforge.event.world.BiomeLoadingEvent
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers and adds custom biomes to the world.
+ *
+ * @author TheOnlyTails
+ */
 object BiomeRegistry {
 	val BIOMES = KDeferredRegister(ForgeRegistries.BIOMES, RubyMod.MOD_ID)
 

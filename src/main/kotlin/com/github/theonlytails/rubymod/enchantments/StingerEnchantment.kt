@@ -13,6 +13,11 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent
 import net.minecraftforge.eventbus.api.SubscribeEvent
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber
 
+/**
+ * Holds the properties of the stinger enchantment.
+ *
+ * @author TheOnlyTails
+ */
 class StingerEnchantment : Enchantment(Rarity.VERY_RARE,
 	EnchantmentType.WEAPON, arrayOf(EquipmentSlotType.MAINHAND)) {
 
@@ -28,6 +33,11 @@ class StingerEnchantment : Enchantment(Rarity.VERY_RARE,
 		return super.canApplyTogether(enchant) && enchant !== Enchantments.SHARPNESS && enchant !== Enchantments.MENDING
 	}
 
+	/**
+	 * Holds the functionality of the stinger enchantment.
+	 *
+	 * @author TheOnlyTails
+	 */
 	@EventBusSubscriber(modid = RubyMod.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
 	private object PoisonedBladeEquipped {
 		@SubscribeEvent

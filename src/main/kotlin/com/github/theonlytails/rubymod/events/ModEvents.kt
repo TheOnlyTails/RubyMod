@@ -8,6 +8,12 @@ import net.minecraft.potion.PotionBrewing
 import net.minecraft.potion.Potions
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 
+/**
+ * Holds generic events that run on the mod bus.
+ *
+ * @author TheOnlyTails
+ */
+
 object ModEvents {
 	fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
 		PotionBrewing.addMix(

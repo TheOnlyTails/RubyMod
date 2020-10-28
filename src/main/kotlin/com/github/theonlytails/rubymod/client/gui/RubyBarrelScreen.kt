@@ -1,6 +1,7 @@
 package com.github.theonlytails.rubymod.client.gui
 
 import com.github.theonlytails.rubymod.RubyMod
+import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
 import com.github.theonlytails.rubymod.containers.RubyBarrelContainer
 import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.systems.RenderSystem
@@ -11,6 +12,11 @@ import net.minecraft.util.text.ITextComponent
 import net.minecraftforge.api.distmarker.Dist
 import net.minecraftforge.api.distmarker.OnlyIn
 
+/**
+ * The GUI/screen class for [RubyBarrelBlock].
+ *
+ * @author TheOnlyTails
+ */
 @OnlyIn(Dist.CLIENT)
 class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventory, titleIn: ITextComponent) :
 	ContainerScreen<RubyBarrelContainer>(screenContainer, inv, titleIn) {

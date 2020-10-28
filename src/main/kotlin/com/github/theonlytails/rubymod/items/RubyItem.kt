@@ -13,6 +13,11 @@ import net.minecraft.util.ActionResultType
 import net.minecraft.util.Hand
 import net.minecraft.world.IServerWorld
 
+/**
+ * Holds the custom functionality of rubies.
+ *
+ * @author TheOnlyTails
+ */
 class RubyItem : Item(RubyMod.RUBY_TAB_PROPERTY) {
 	override fun itemInteractionForEntity(
 		stack: ItemStack,

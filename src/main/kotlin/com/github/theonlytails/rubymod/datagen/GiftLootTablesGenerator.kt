@@ -8,6 +8,11 @@ import net.minecraft.loot.*
 import java.util.HashMap
 import net.minecraft.util.ResourceLocation as RL
 
+/**
+ * Generates loot tables for hero of the village gifts.
+ *
+ * @author TheOnlyTails
+ */
 class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
 	private val jewelerGiftLootTable = RL(RubyMod.MOD_ID, "gameplay/hero_of_the_village/jeweler_gift")
 

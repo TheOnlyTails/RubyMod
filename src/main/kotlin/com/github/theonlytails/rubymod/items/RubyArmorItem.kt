@@ -12,6 +12,11 @@ import net.minecraft.potion.Effects
 import net.minecraft.world.World
 import java.util.stream.StreamSupport
 
+/**
+ * Holds the custom functionality of ruby armor.
+ *
+ * @author TheOnlyTails
+ */
 class RubyArmorItem(slot: EquipmentSlotType) :
 	ArmorItem(RubyArmorMaterial.RUBY, slot, RubyMod.RUBY_TAB_PROPERTY) {
 

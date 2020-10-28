@@ -28,6 +28,11 @@ import net.minecraftforge.fml.network.NetworkHooks
 import net.minecraftforge.items.ItemHandlerHelper
 import java.util.stream.IntStream
 
+/**
+ * The block class for the ruby barrel.
+ *
+ * @author TheOnlyTails
+ */
 class RubyBarrelBlock : Block(Properties.create(
 	Material.IRON, MaterialColor.RED)
 	.hardnessAndResistance(3.5f)

@@ -17,6 +17,11 @@ import net.minecraft.loot.functions.*
 import net.minecraft.state.properties.SlabType
 import net.minecraft.util.ResourceLocation
 
+/**
+ * Generates loot tables for blocks.
+ *
+ * @author TheOnlyTails
+ */
 class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
 	private val tables = hashMapOf<Block, LootTable.Builder>()
 

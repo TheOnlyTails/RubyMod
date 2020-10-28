@@ -10,6 +10,20 @@ import net.minecraft.util.SoundEvents
 import net.minecraftforge.common.util.Lazy
 import javax.annotation.Nonnull
 
+/**
+ * Holds the properties of any ruby armor piece.
+ *
+ * @author TheOnlyTails
+ *
+ * @property materialName The name of this armor material.
+ * @property maxDamageFactor Determines the durability of each piece.
+ * @property damageReductionAmount Determines how much each piece can block damage.
+ * @property enchantability Determines how good the enchantments will be when enchanting this armor in an enchanting table.
+ * @property soundEvent The sound this armor makes.
+ * @property toughness How much this armor protects against powerful hits.
+ * @property repairMaterial What item is used to repair this armor.
+ * @property knockbackResistance How resistant this armor is to knockback.
+ */
 enum class RubyArmorMaterial(
 	private val materialName: String, private val maxDamageFactor: Int,
 	private val damageReductionAmount: IntArray, private val enchantability: Int,

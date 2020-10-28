@@ -13,6 +13,11 @@ import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 import java.awt.Color
 
+/**
+ * Registers custom fluids.
+ *
+ * @author TheOnlyTails
+ */
 object FluidRegistry {
 	val FLUIDS = KDeferredRegister(ForgeRegistries.FLUIDS, RubyMod.MOD_ID)
 

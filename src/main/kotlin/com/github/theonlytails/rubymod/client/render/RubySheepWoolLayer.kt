@@ -13,6 +13,11 @@ import net.minecraft.item.DyeColor
 import net.minecraft.util.ResourceLocation
 import javax.annotation.Nonnull
 
+/**
+ * The renderer class for the wool layer of [RubySheepEntity].
+ *
+ * @author TheOnlyTails
+ */
 class RubySheepWoolLayer(rendererIn: IEntityRenderer<RubySheepEntity, RubySheepModel>) :
 	LayerRenderer<RubySheepEntity, RubySheepModel>(rendererIn) {
 	private val sheepModel = SheepWoolModel<RubySheepEntity>()

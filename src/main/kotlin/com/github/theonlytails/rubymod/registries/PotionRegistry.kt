@@ -7,6 +7,11 @@ import net.minecraft.potion.Potion
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom potions.
+ *
+ * @author TheOnlyTails
+ */
 object PotionRegistry {
 	val POTIONS = KDeferredRegister(ForgeRegistries.POTION_TYPES, RubyMod.MOD_ID)
 

@@ -1,5 +1,6 @@
 package com.github.theonlytails.rubymod.containers
 
+import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
 import com.github.theonlytails.rubymod.registries.BlockRegistry
 import com.github.theonlytails.rubymod.registries.ContainerTypeRegistry
 import com.github.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
@@ -14,6 +15,11 @@ import net.minecraft.util.SoundEvents
 import net.minecraftforge.items.SlotItemHandler
 import java.util.Objects
 
+/**
+ * The container class for [RubyBarrelBlock].
+ *
+ * @author TheOnlyTails
+ */
 class RubyBarrelContainer(
 	id: Int,
 	playerInventory: PlayerInventory,

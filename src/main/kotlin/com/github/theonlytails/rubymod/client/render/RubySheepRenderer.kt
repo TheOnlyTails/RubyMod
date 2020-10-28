@@ -8,6 +8,11 @@ import net.minecraft.client.renderer.entity.MobRenderer
 import net.minecraft.util.ResourceLocation
 import javax.annotation.Nonnull
 
+/**
+ * The renderer class for [RubySheepEntity].
+ *
+ * @author TheOnlyTails
+ */
 class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 	MobRenderer<RubySheepEntity, RubySheepModel>(renderManagerIn, RubySheepModel(), 0.7f) {
 

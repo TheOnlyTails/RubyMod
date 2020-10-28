@@ -5,6 +5,11 @@ import com.github.theonlytails.rubymod.registries.*
 import net.minecraft.data.DataGenerator
 import net.minecraftforge.common.data.LanguageProvider
 
+/**
+ * Generates language files.
+ *
+ * @author TheOnlyTails
+ */
 abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider(generator, RubyMod.MOD_ID, locale) {
 
 	class English(generator: DataGenerator) : Lang(generator, "en_us") {

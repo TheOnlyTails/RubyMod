@@ -14,6 +14,11 @@ import net.minecraftforge.common.ToolType
 import java.util.stream.Stream
 import javax.annotation.Nonnull
 
+/**
+ * The block class for the centrifuge block.
+ *
+ * @author TheOnlyTails
+ */
 class CentrifugeBlock : DirectionalBlock(Properties.create(Material.IRON)
 	.hardnessAndResistance(3.5f, 5f)
 	.sound(SoundType.ANVIL)

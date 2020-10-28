@@ -20,6 +20,11 @@ import net.minecraftforge.common.util.LazyOptional
 import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.ItemStackHandler
 
+/**
+ * The tile entity for [RubyBarrelBlock].
+ *
+ * @author TheOnlyTails
+ */
 class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedContainerProvider {
 	private val optional = LazyOptional.of { itemHandler }
 	var size = 45
