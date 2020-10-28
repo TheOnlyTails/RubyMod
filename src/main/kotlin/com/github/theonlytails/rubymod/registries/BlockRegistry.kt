@@ -15,6 +15,11 @@ import net.minecraftforge.common.ToolType
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom blocks.
+ *
+ * @author TheOnlyTails
+ */
 object BlockRegistry {
 	val BLOCKS = KDeferredRegister(ForgeRegistries.BLOCKS, RubyMod.MOD_ID)
 

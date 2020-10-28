@@ -6,6 +6,11 @@ import net.minecraft.tileentity.TileEntityType
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom tile entities.
+ *
+ * @author TheOnlyTails
+ */
 object TileEntityTypes {
 	val TILE_ENTITIES = KDeferredRegister(ForgeRegistries.TILE_ENTITIES, RubyMod.MOD_ID)
 

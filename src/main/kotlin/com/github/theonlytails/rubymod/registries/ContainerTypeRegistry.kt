@@ -9,6 +9,11 @@ import net.minecraftforge.common.extensions.IForgeContainerType
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom containers.
+ *
+ * @author TheOnlyTails
+ */
 object ContainerTypeRegistry {
 	val CONTAINER_TYPES = KDeferredRegister(ForgeRegistries.CONTAINERS, RubyMod.MOD_ID)
 

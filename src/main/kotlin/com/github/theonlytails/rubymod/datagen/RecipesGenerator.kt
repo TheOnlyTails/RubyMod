@@ -12,6 +12,11 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.registries.ForgeRegistries
 import java.util.function.Consumer
 
+/**
+ * Generates recipes of all types.
+ *
+ * @author TheOnlyTails
+ */
 class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 	override fun registerRecipes(consumer: Consumer<IFinishedRecipe>) {
 		// Centrifuge

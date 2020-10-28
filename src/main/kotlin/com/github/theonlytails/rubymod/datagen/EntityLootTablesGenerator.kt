@@ -13,6 +13,11 @@ import net.minecraft.loot.LootTableManager
 import net.minecraft.util.ResourceLocation
 import java.util.HashMap
 
+/**
+ * Generates loot tables for entities.
+ *
+ * @author TheOnlyTails
+ */
 class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
 	private val tables = hashMapOf<EntityType<*>, LootTable.Builder>()
 

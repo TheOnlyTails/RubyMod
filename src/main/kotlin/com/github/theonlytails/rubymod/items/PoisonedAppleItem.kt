@@ -11,6 +11,11 @@ import net.minecraft.util.ActionResultType
 import net.minecraft.util.Hand
 import net.minecraft.util.text.StringTextComponent
 
+/**
+ * The poisoned apple class.
+ *
+ * @author TheOnlyTails
+ */
 class PoisonedAppleItem : Item(Properties()
 	.group(ItemGroup.FOOD)
 	.food(Food.Builder()

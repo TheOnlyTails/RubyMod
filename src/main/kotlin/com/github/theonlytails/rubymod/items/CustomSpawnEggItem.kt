@@ -15,6 +15,11 @@ import java.util.ArrayList
 import java.util.Objects
 import java.util.function.Supplier
 
+/**
+ * A custom spawn egg.
+ *
+ * @author TheOnlyTails
+ */
 class CustomSpawnEggItem(
 	entityTypeSupplier: Supplier<out EntityType<*>>,
 	primaryColorIn: Int,

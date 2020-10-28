@@ -27,6 +27,11 @@ import net.minecraftforge.api.distmarker.OnlyIn
 import java.util.ArrayList
 import javax.annotation.Nonnull
 
+/**
+ * The ruby sheep entity class.
+ *
+ * @author TheOnlyTails
+ */
 class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : SheepEntity(type, worldIn) {
 	private lateinit var eatGrassGoal: EatGrassGoal
 	private var rubySheepTimer = 0

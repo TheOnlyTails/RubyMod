@@ -8,6 +8,11 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom entities, i.e. mobs.
+ *
+ * @author TheOnlyTails
+ */
 object EntityTypeRegistry {
 	val ENTITY_TYPES =
 		KDeferredRegister(ForgeRegistries.ENTITIES, RubyMod.MOD_ID)

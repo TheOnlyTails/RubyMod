@@ -11,6 +11,11 @@ import net.minecraftforge.common.Tags
 import net.minecraftforge.common.data.ExistingFileHelper
 import java.nio.file.Path
 
+/**
+ * Generates item tags.
+ *
+ * @author TheOnlyTails
+ */
 class ItemTagGenerator(
 	generator: DataGenerator,
 	blockTags: BlockTagDataGenerator,

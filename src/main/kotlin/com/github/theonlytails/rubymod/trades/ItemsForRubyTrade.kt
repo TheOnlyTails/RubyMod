@@ -8,6 +8,17 @@ import net.minecraft.item.MerchantOffer
 import java.util.Random
 import net.minecraft.item.ItemStack as IS
 
+/**
+ * A trade that takes rubies, and returns items.
+ *
+ * @author TheOnlyTails
+ *
+ * @property rubyCount The number of rubies taken.
+ * @property sellingItem The item being returned.
+ * @property sellingItemCount The number of items being returned.
+ * @property maxUses The number of times this trade can be used before restocking is required.
+ * @property xpValue The number of XP the villager receives when the trade is done.
+ */
 class ItemsForRubyTrade(
 	private val sellingItem: Item,
 	private val sellingItemCount: Int = 1,

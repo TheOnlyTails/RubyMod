@@ -6,6 +6,18 @@ import net.minecraft.item.crafting.Ingredient
 import net.minecraftforge.common.util.Lazy
 import javax.annotation.Nonnull
 
+/**
+ * Holds the properties of any ruby tool.
+ *
+ * @author TheOnlyTails
+ *
+ * @property harvestLevel Determines which blocks can or cannot be mined with a tool of this tier.
+ * @property maxUses The base durability of a tool of this tier (adjusted later per tool).
+ * @property efficiency How fast a tool of this tier can break blocks.
+ * @property attackDamage How much damage a tool of this tier does when fully loaded.
+ * @property enchantability Determines how good the enchantments will be when enchanting a tool of this tier in an enchanting table.
+ * @property repairMaterial What item is used to repair tools of this tier.
+ */
 enum class RubyItemTier(
 	private val harvestLevel: Int, private val maxUses: Int, private val efficiency: Float,
 	private val attackDamage: Float, private val enchantability: Int,

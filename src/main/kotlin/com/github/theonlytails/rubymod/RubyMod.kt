@@ -33,15 +33,19 @@ import thedarkcolour.kotlinforforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.forge.MOD_BUS
 import kotlin.collections.set
 
+/**
+ * The main mod class.
+ *
+ * @author TheOnlyTails
+ */
 @Mod("rubymod")
 object RubyMod {
-
 	const val MOD_ID = "rubymod"
+
 	val RUBY_TAB: ItemGroup = object : ItemGroup("ruby_tab") {
-		override fun createIcon(): ItemStack {
-			return ItemStack(ItemRegistry.RUBY)
-		}
+		override fun createIcon() = ItemStack(ItemRegistry.RUBY)
 	}
+
 	val RUBY_TAB_PROPERTY: Item.Properties = Item.Properties().group(RUBY_TAB)
 
 	@Suppress("unused")
@@ -118,26 +122,31 @@ object RubyMod {
 				Items.IRON_PICKAXE,
 				sellingItem = ItemRegistry.RUBY_PICKAXE,
 				maxUses = 1,
+				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_SWORD,
 				sellingItem = ItemRegistry.RUBY_SWORD,
 				maxUses = 1,
+				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_AXE,
 				sellingItem = ItemRegistry.RUBY_AXE,
 				maxUses = 1,
+				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_SHOVEL,
 				sellingItem = ItemRegistry.RUBY_SHOVEL,
 				maxUses = 1,
+				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_HOE,
 				sellingItem = ItemRegistry.RUBY_HOE,
 				maxUses = 1,
+				xpValue = 5,
 			))
 
 			// Level 3 trades

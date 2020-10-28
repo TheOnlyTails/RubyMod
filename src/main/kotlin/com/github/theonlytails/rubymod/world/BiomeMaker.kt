@@ -11,6 +11,11 @@ import net.minecraft.world.gen.feature.structure.StructureFeatures
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder
 
+/**
+ * Creates the biomes for registration.
+ *
+ * @author TheOnlyTails
+ */
 object BiomeMaker {
 	fun makeRubyHills(): Biome {
 		val genSettings = genSettings(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)

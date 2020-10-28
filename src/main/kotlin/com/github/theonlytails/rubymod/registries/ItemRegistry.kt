@@ -10,6 +10,11 @@ import net.minecraft.item.*
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom items.
+ *
+ * @author TheOnlyTails
+ */
 object ItemRegistry {
 	val ITEMS = KDeferredRegister(ForgeRegistries.ITEMS, RubyMod.MOD_ID)
 

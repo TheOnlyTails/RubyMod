@@ -10,6 +10,11 @@ import net.minecraft.village.PointOfInterestType
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 
+/**
+ * Registers custom villager professions and points of interest.
+ *
+ * @author TheOnlyTails
+ */
 object VillagerProfessionsRegistry {
 	val PROFESSIONS = KDeferredRegister(ForgeRegistries.PROFESSIONS, RubyMod.MOD_ID)
 	val POINTS_OF_INTEREST = KDeferredRegister(ForgeRegistries.POI_TYPES, RubyMod.MOD_ID)
