@@ -4,7 +4,6 @@ import com.github.theonlytails.rubymod.RubyMod
 import com.github.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.ItemTagsProvider
-import net.minecraft.tags.ITag
 import net.minecraft.tags.ItemTags
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.Tags
@@ -26,21 +25,17 @@ class ItemTagGenerator(
 	RubyMod.MOD_ID,
 	helper
 ) {
-	private var filter: Set<ResourceLocation>? = null
 
 	/**
 	 * Register tags for each block.
 	 */
 	override fun registerTags() {
-		super.registerTags()
-
-		filter = tagToBuilder.entries.map(Map.Entry<ResourceLocation, ITag.Builder>::key).toHashSet()
-
 		// Vanilla tags
 		getOrCreateBuilder(ItemTags.CARPETS).add(ItemRegistry.RUBY_CARPET_ITEM)
 		getOrCreateBuilder(ItemTags.WOOL).add(ItemRegistry.RUBY_WOOL_ITEM)
 		getOrCreateBuilder(ItemTags.BEACON_PAYMENT_ITEMS).add(ItemRegistry.RUBY)
 		getOrCreateBuilder(ItemTags.BUTTONS).add(ItemRegistry.RUBY_BUTTON_ITEM)
+		getOrCreateBuilder(ItemTags.WALLS).add(ItemRegistry.RUBY_WALL_ITEM)
 
 		// Forge tags
 		getOrCreateBuilder(Tags.Items.ORES).add(ItemRegistry.RUBY_ORE_BLOCK_ITEM)
@@ -51,7 +46,5 @@ class ItemTagGenerator(
 	/**
 	 * Resolves a Path for the location to save the given tag.
 	 */
-	override fun makePath(id: ResourceLocation): Path? {
-		return if (filter?.contains(id) == true) null else super.makePath(id)
-	}
+	override fun makePath(id: ResourceLocation): Path? = super.makePath(id)
 }

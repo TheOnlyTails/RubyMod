@@ -49,6 +49,10 @@ object BlockRegistry {
 			Properties.from(RUBY_BLOCK))
 	}
 
+	val RUBY_WALL by BLOCKS.register("ruby_wall") {
+		WallBlock(Properties.from(RUBY_BLOCK))
+	}
+
 	val RUBY_ORE_BLOCK by BLOCKS.register("ruby_ore") {
 		object : OreBlock(Properties.create(Material.ROCK)
 			.hardnessAndResistance(3.0f, 3.0f)

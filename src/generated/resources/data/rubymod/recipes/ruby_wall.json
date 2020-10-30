@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rrr",
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "rubymod:ruby_block"
+    }
+  },
+  "result": {
+    "item": "rubymod:ruby_wall",
+    "count": 6
+  }
+}

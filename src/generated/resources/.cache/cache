@@ -1,9 +1,20 @@
-d7739fb572614779128595e36992b6d49bc6a269 assets/rubymod/lang/en_us.json
+1019cb3ab870d0b2aba8d2226a5f858cc0aef2db assets/rubymod/lang/en_us.json
 8deb163fde36f654bbc15d8d1b3d7cbead1ea8fe data/forge/tags/blocks/ores.json
 713afb1c1a54a81933e3a90c4dfb6905e1880f90 data/forge/tags/blocks/storage_blocks.json
 21e7373036d3ff14d6a7a553206d467db934b67e data/forge/tags/items/gems.json
 8deb163fde36f654bbc15d8d1b3d7cbead1ea8fe data/forge/tags/items/ores.json
 713afb1c1a54a81933e3a90c4dfb6905e1880f90 data/forge/tags/items/storage_blocks.json
+713afb1c1a54a81933e3a90c4dfb6905e1880f90 data/minecraft/tags/blocks/beacon_base_blocks.json
+c9660534d7b0abc74869aa687f54d7f8c77085ad data/minecraft/tags/blocks/buttons.json
+4675f5df6e5becd6b9be6d9c4a14c1181e1915d7 data/minecraft/tags/blocks/carpets.json
+91b84b167c7b93664becc8378cd000a972a7b001 data/minecraft/tags/blocks/pressure_plates.json
+e6b00555bf89ac7ba441f0b39daa2aa618e25254 data/minecraft/tags/blocks/walls.json
+9ee3f76023c1b19b05d359f32197cd7eb97fb98c data/minecraft/tags/blocks/wool.json
+21e7373036d3ff14d6a7a553206d467db934b67e data/minecraft/tags/items/beacon_payment_items.json
+c9660534d7b0abc74869aa687f54d7f8c77085ad data/minecraft/tags/items/buttons.json
+4675f5df6e5becd6b9be6d9c4a14c1181e1915d7 data/minecraft/tags/items/carpets.json
+e6b00555bf89ac7ba441f0b39daa2aa618e25254 data/minecraft/tags/items/walls.json
+9ee3f76023c1b19b05d359f32197cd7eb97fb98c data/minecraft/tags/items/wool.json
 2882ec1d7ed793643a83f7ae2bb55eb26e21c93d data/rubymod/advancements/recipes/food/poisoned_apple.json
 7ff18f513576ffc17191fa3b8209b3a0e407e281 data/rubymod/advancements/recipes/ruby_tab/centrifuge.json
 e661bd016cb63eeb199e245dbe37c74aa2de4a73 data/rubymod/advancements/recipes/ruby_tab/ruby.json
@@ -26,6 +37,7 @@ dc925b82b5d653c43e37e17159c7b6fdca57af67 data/rubymod/advancements/recipes/ruby_
 82eabd01868dc736feae948bc37f8e90f9ada188 data/rubymod/advancements/recipes/ruby_tab/ruby_slab.json
 796846688ef23a1f760c205b68a367364a4b1905 data/rubymod/advancements/recipes/ruby_tab/ruby_stairs.json
 b44e2e445a197f83bac7327ca0a89bb60484e8c1 data/rubymod/advancements/recipes/ruby_tab/ruby_sword.json
+252b41e605396ef06585e3e16c1e4d8fa55e2b27 data/rubymod/advancements/recipes/ruby_tab/ruby_wall.json
 1602d66fb0af4c0745a57c68c22e264a962c5a4f data/rubymod/advancements/recipes/ruby_tab/ruby_water_bucket.json
 3570b940d07fb6fe2820c275f0d94b09786d31e2 data/rubymod/advancements/recipes/ruby_tab/ruby_wool.json
 bcd3960f6c95a05eec33d9284a4d503342bd6c2f data/rubymod/loot_tables/blocks/centrifuge.json
@@ -37,6 +49,7 @@ c00bc193070b3df28c8538c782e997525d9951b0 data/rubymod/loot_tables/blocks/ruby_ca
 b21b49a88bad0b25cd132e562dd01f0326d3387f data/rubymod/loot_tables/blocks/ruby_pressure_plate.json
 c3577909f957e72fe9e980942185a153b0f5f276 data/rubymod/loot_tables/blocks/ruby_slab.json
 40665c1c93e59142a38e0d7ec34a369273892053 data/rubymod/loot_tables/blocks/ruby_stairs.json
+1e451450d057261fc576d8773636ac2f48a099c0 data/rubymod/loot_tables/blocks/ruby_wall.json
 e817ef66a24c2d87af8b89530938a3f7fb14aaa1 data/rubymod/loot_tables/blocks/ruby_wool.json
 9374942fdd4e598b0370e8953b2be2dd4bbcd200 data/rubymod/loot_tables/entities/ruby_sheep.json
 38d8fa500601fa18609f7ae3f44cb873fd76daf9 data/rubymod/loot_tables/gameplay/hero_of_the_village/jeweler_gift.json
@@ -62,5 +75,6 @@ f764ae08fd696eee7cd1d056bc42103c2956c1ee data/rubymod/recipes/ruby_carpet_from_w
 d23d35b5585b08459c3d5dd1848b9170ff929341 data/rubymod/recipes/ruby_slab.json
 c2fa40036aef7594894f487b70eace6acae2c489 data/rubymod/recipes/ruby_stairs.json
 f0cda9c8a0b46e37758ba509a63cfeec09936ba9 data/rubymod/recipes/ruby_sword.json
+49f5a1354f53f3224f1e20eb5cea7f90b0657c92 data/rubymod/recipes/ruby_wall.json
 da48a4dd36eca6a56ca2f8176f064e904e70ba06 data/rubymod/recipes/ruby_water_bucket.json
 6850036ff05a985aebc823b671b43ba3154171bf data/rubymod/recipes/ruby_wool.json

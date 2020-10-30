@@ -188,10 +188,19 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
 			}
 
-		// Ruby Button
+		// Ruby Pressure Plate
 		consumer
 			.shaped(ItemRegistry.RUBY_PRESSURE_PLATE_ITEM) {
 				it.patternLine("rr")
+				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+			}
+
+		// Ruby Wall
+		consumer
+			.shaped(ItemRegistry.RUBY_WALL_ITEM, 6) {
+				it.patternLine("rrr")
+				it.patternLine("rrr")
 				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
 				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
 			}

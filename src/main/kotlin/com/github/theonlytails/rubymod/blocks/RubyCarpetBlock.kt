@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.theonlytails.rubymod.blocks
 
 import net.minecraft.block.*

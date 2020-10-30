@@ -64,6 +64,9 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 		// Ruby Button
 		loot.dropSelf(BlockRegistry.RUBY_BUTTON)
 
+		// Ruby Wall
+		loot.dropSelf(BlockRegistry.RUBY_WALL)
+
 		// Ruby Carpet
 		loot.dropSelf(BlockRegistry.RUBY_CARPET)
 
