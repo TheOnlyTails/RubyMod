@@ -58,6 +58,10 @@ object ItemRegistry {
 		BlockItem(BlockRegistry.RUBY_BUTTON, RubyMod.RUBY_TAB_PROPERTY)
 	}
 
+	val RUBY_WALL_ITEM by ITEMS.register("ruby_wall") {
+		BlockItem(BlockRegistry.RUBY_WALL, RubyMod.RUBY_TAB_PROPERTY)
+	}
+
 	val RUBY_ORE_BLOCK_ITEM by ITEMS.register("ruby_ore") {
 		BlockItem(BlockRegistry.RUBY_ORE_BLOCK, RubyMod.RUBY_TAB_PROPERTY)
 	}
@@ -69,12 +73,14 @@ object ItemRegistry {
 	val RUBY_WOOL_ITEM by ITEMS.register("ruby_wool") {
 		object : BlockItem(BlockRegistry.RUBY_WOOL, RubyMod.RUBY_TAB_PROPERTY) {
 			override fun getBurnTime(itemStack: ItemStack) = 100
+			override fun hasEffect(itemStack: ItemStack) = true
 		}
 	}
 
 	val RUBY_CARPET_ITEM by ITEMS.register("ruby_carpet") {
 		object : BlockItem(BlockRegistry.RUBY_CARPET, RubyMod.RUBY_TAB_PROPERTY) {
 			override fun getBurnTime(itemStack: ItemStack) = 67
+			override fun hasEffect(itemStack: ItemStack) = true
 		}
 	}
 

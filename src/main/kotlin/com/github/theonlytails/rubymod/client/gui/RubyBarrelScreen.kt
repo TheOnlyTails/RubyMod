@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.theonlytails.rubymod.client.gui
 
 import com.github.theonlytails.rubymod.RubyMod

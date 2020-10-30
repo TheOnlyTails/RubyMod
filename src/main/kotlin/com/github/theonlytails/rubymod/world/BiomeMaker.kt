@@ -22,12 +22,9 @@ object BiomeMaker {
 
 		WorldGenRegistries.init()
 
-		// field_244135_a -> PILLAGER_OUTPOST
-		genSettings.withStructure(StructureFeatures.field_244135_a)
-		// field_244154_t -> VILLAGE_PLAINS
-		genSettings.withStructure(StructureFeatures.field_244154_t)
-		// field_244159_y -> RUINED_PORTAL
-		genSettings.withStructure(StructureFeatures.field_244159_y)
+		genSettings.withStructure(StructureFeatures.PILLAGER_OUTPOST)
+		genSettings.withStructure(StructureFeatures.VILLAGE_PLAINS)
+		genSettings.withStructure(StructureFeatures.RUINED_PORTAL)
 
 		DefaultBiomeFeatures.withCavesAndCanyons(genSettings)
 		DefaultBiomeFeatures.withStrongholdAndMineshaft(genSettings)

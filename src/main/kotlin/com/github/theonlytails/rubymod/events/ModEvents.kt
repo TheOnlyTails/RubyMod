@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
  */
 
 object ModEvents {
+	@Suppress("UNUSED_PARAMETER")
 	fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
 		PotionBrewing.addMix(
 			Potions.WATER,

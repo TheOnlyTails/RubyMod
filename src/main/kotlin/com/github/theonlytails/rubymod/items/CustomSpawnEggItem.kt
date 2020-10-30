@@ -20,6 +20,7 @@ import java.util.function.Supplier
  *
  * @author TheOnlyTails
  */
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class CustomSpawnEggItem(
 	entityTypeSupplier: Supplier<out EntityType<*>>,
 	primaryColorIn: Int,

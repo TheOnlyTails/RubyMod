@@ -81,7 +81,7 @@ object RubyMod {
 				EntityTypeRegistry.RUBY_SHEEP,
 				RubySheepEntity.setCustomAttributes().create())
 
-			FeatureGen.registerConfiguredFeatures(event)
+			// FeatureGen.registerConfiguredFeatures(event)
 
 			PointOfInterestType.registerBlockStates(VillagerProfessionsRegistry.JEWELER_POI)
 
@@ -114,10 +114,11 @@ object RubyMod {
 			event.trades[1].add(ItemsForRubyTrade(Items.COAL, 45, maxUses = 12))
 			event.trades[1].add(ItemsForRubyTrade(Items.IRON_NUGGET, 16, maxUses = 9))
 			event.trades[1].add(ItemsForRubyTrade(Items.IRON_INGOT, 3, maxUses = 8))
-			event.trades[1].add(ItemsForRubyTrade(Items.GOLD_NUGGET, 16, maxUses = 9))
+			event.trades[1].add(ItemsForRubyTrade(Items.GOLD_NUGGET, 16, maxUses = 10))
 
 			// Level 2 trades
-			event.trades[2].add(ItemsForRubyTrade(Items.GOLD_INGOT, 4, maxUses = 10))
+			event.trades[2].add(ItemsForRubyTrade(Items.GOLD_INGOT, 4, maxUses = 9))
+			event.trades[2].add(ItemsForRubyTrade(Items.LAPIS_LAZULI, 25, maxUses = 10))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_PICKAXE,
 				sellingItem = ItemRegistry.RUBY_PICKAXE,
