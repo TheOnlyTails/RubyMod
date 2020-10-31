@@ -88,6 +88,10 @@ object ItemRegistry {
 		BlockItem(BlockRegistry.RUBY_BARREL, RubyMod.RUBY_TAB_PROPERTY)
 	}
 
+	val LOGIC_GATE_ITEM by ITEMS.register("logic_gate") {
+		BlockItem(BlockRegistry.LOGIC_GATE, RubyMod.RUBY_TAB_PROPERTY)
+	}
+
 	//armor
 	val RUBY_HELMET by ITEMS.register("ruby_helmet") { RubyArmorItem(EquipmentSlotType.HEAD) }
 

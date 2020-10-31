@@ -273,6 +273,17 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 				it.addIngredient(ItemTags.WOOL)
 				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
 			}
+
+		// Logic Gate
+		consumer
+			.shaped(ItemRegistry.LOGIC_GATE_ITEM) {
+				it.patternLine("t t")
+				it.patternLine("srs")
+				it.key('t', Items.REDSTONE_TORCH)
+				it.key('s', ItemTags.STONE_CRAFTING_MATERIALS)
+				it.key('r', ItemRegistry.RUBY)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+			}
 	}
 
 	private fun Consumer<IFinishedRecipe>.shaped(

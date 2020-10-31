@@ -81,8 +81,6 @@ object RubyMod {
 				EntityTypeRegistry.RUBY_SHEEP,
 				RubySheepEntity.setCustomAttributes().create())
 
-			// FeatureGen.registerConfiguredFeatures(event)
-
 			PointOfInterestType.registerBlockStates(VillagerProfessionsRegistry.JEWELER_POI)
 
 			ModEvents.registerBrewingRecipes(event)
