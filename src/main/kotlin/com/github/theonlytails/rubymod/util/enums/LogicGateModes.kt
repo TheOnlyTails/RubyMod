@@ -2,11 +2,11 @@ package com.github.theonlytails.rubymod.util.enums
 
 import net.minecraft.util.IStringSerializable
 
-enum class LogicGateModes(name: String) : IStringSerializable {
-	AND("and"),
-	OR("or");
+enum class LogicGateModes(val type: String, val function: (Boolean, Boolean) -> Int) : IStringSerializable {
+	OR("or", { firstInput, secondInput -> if (firstInput || secondInput) 15 else 0 }),
+	AND("and", { firstInput, secondInput -> if (firstInput && secondInput) 15 else 0 });
 
-	override fun toString() = this.name
+	override fun getString() = this.type
 
-	override fun getString() = this.name
+	operator fun invoke(firstInput: Boolean, secondInput: Boolean) = this.function(firstInput, secondInput)
 }

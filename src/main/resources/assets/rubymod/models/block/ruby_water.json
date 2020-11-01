@@ -1,5 +1,5 @@
 {
   "textures": {
-    "particle": "block/ruby_water_still"
+    "particle": "rubymod:block/ruby_water_still"
   }
 }

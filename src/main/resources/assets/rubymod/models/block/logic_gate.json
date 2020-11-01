@@ -3,7 +3,7 @@
   "textures": {
     "particle": "rubymod:blocks/logic_gate",
     "slab": "minecraft:block/smooth_stone",
-    "top": "blocks/logic_gate",
+    "top": "rubymod:blocks/logic_gate",
     "unlit": "minecraft:block/redstone_torch_off",
     "lit": "minecraft:block/redstone_torch"
   },
