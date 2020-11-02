@@ -82,6 +82,6 @@ object BlockRegistry {
 	val RUBY_BARREL by BLOCKS.register("ruby_barrel", ::RubyBarrelBlock)
 
 	val LOGIC_GATE by BLOCKS.register("logic_gate") {
-		LogicGateBlock(Properties.from(RUBY_BLOCK))
+		LogicGateBlock(Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().sound(SoundType.METAL))
 	}
 }

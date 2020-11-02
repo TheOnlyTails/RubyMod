@@ -101,6 +101,8 @@ object RubyMod {
 			}
 		}
 
+		RenderTypeLookup.setRenderLayer(BlockRegistry.LOGIC_GATE, RenderType.getCutout())
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypeRegistry.RUBY_SHEEP) {
 			RubySheepRenderer(it)
 		}
