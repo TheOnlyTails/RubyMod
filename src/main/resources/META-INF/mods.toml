@@ -26,13 +26,13 @@ description = 'This mod adds rubies and some other stuff. Look at the descriptio
 [[dependencies.rubymod]]
 modId = "forge"
 mandatory = true
-versionRange = "[34,)"
+versionRange = "[35,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.rubymod]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.16.3]"
+versionRange = "[1.16.4]"
 ordering = "NONE"
 side = "BOTH"
