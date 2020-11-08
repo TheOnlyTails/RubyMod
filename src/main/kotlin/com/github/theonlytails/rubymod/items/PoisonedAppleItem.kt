@@ -20,25 +20,19 @@ class PoisonedAppleItem : Item(Properties()
 	.group(ItemGroup.FOOD)
 	.food(Food.Builder()
 		.hunger(7)
-		.saturation(1.2f) // Gives you Nausea 2 for 7 seconds 100% of the time;
-		.effect({ EffectInstance(Effects.NAUSEA, 7 * 20, 1) },
-			1f) // Gives you Poison 2 for 9 seconds 100% of the time;
-		.effect({ EffectInstance(Effects.POISON, 9 * 20, 1) },
-			1f) // Gives you Glowing 1 for 10 seconds 100% of the time;
-		.effect({
-			EffectInstance(Effects.GLOWING,
-				10 * 20,
-				0)
-		}, 1f) // Gives you Hunger 3 for 3 seconds 10% of the time;
-		.effect({ EffectInstance(Effects.HUNGER, 3 * 20, 2) },
-			0.1f) // Gives you Blindness (!) 3 for 5 seconds 5% of the time;
-		.effect({
-			EffectInstance(Effects.BLINDNESS,
-				5 * 20,
-				2)
-		}, 0.05f) // Gives you Luck (!) 1 for 1 seconds 50% of the time;
-		.effect({ EffectInstance(Effects.LUCK, 20, 0) },
-			0.5f) // You can eat it even if you're not hungry;
+		.saturation(1.2f)
+		// Gives you Nausea 2 for 7 seconds 100% of the time;
+		.effect({ EffectInstance(Effects.NAUSEA, 7 * 20, 1) }, 1f)
+		// Gives you Poison 2 for 9 seconds 100% of the time;
+		.effect({ EffectInstance(Effects.POISON, 9 * 20, 1) }, 1f)
+		// Gives you Glowing 1 for 10 seconds 100% of the time;
+		.effect({ EffectInstance(Effects.GLOWING, 10 * 20, 0) }, 1f)
+		// Gives you Hunger 3 for 3 seconds 10% of the time;
+		.effect({ EffectInstance(Effects.HUNGER, 3 * 20, 2) }, 0.1f)
+		// Gives you Blindness (!) 3 for 5 seconds 5% of the time;
+		.effect({ EffectInstance(Effects.BLINDNESS, 5 * 20, 2) }, 0.05f)
+		// Gives you Luck (!) 1 for 1 seconds 50% of the time;
+		.effect({ EffectInstance(Effects.LUCK, 20, 0) }, 0.5f)
 		.setAlwaysEdible()
 		.build())) {
 
