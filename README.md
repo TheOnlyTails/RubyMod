@@ -171,6 +171,18 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
+### Logic Gate
+
+- A redstone component that acts as 2 logic gates in 1!
+
+- Has 2 modes: "And" mode and "Or" mode.
+
+- When in Or mode, the logic gates takes 2 inputs from its sides and outputs a signal if one of the inputs is on.
+
+- When in And mode, the logic gates takes 2 inputs from its sides and outputs a signal if both are on.
+
+---
+
 ## Planned Features
 
 - [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple ->

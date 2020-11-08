@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "t t",
+    "srs"
+  ],
+  "key": {
+    "t": {
+      "item": "minecraft:redstone_torch"
+    },
+    "s": {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    "r": {
+      "item": "rubymod:ruby"
+    }
+  },
+  "result": {
+    "item": "rubymod:logic_gate"
+  }
+}

@@ -9,7 +9,7 @@ issueTrackerURL = "https://github.com/TheOnlyTails/RubyMod/issues/"
 [[mods]]
 modId = "rubymod"
 
-version = "${version}"
+version = "0.9.0"
 
 displayName = "Ruby Mod"
 
@@ -17,32 +17,22 @@ displayURL = "https://github.com/TheOnlyTails/RubyMod/"
 
 logoFile = "logo.png"
 
-credits = """
-Thanks to:
-- The Forge Team, for providing the modding framework,
-- thedarkcolor, for creating the KotlinForForge library for Forge modding in Kotlin,
-- TechnoVision and TurtyWurty, for creating the tutorial series that helped me create it,
-- Jelly Dash, for creating the beautiful textures for the Ruby sheep and the ruby wool,
-- xf8b, for helping a lot with the mod,
-and much more people.
-"""
+credits = "Thanks to, The Forge Team, for providing the modding framework, thedarkcolor, for creating the KotlinForForge library for Forge modding in Kotlin, TechnoVision and TurtyWurty, for creating the tutorial series that helped me create it, Jelly Dash, for creating the beautiful textures for the Ruby sheep and the ruby wool, xf8b, for helping a lot with the mod, and much more people."
 
 authors = "TheOnlyTails"
 
-description = '''
-This mod adds rubies and some other stuff. Look at the description in Github to find out more.
-'''
+description = 'This mod adds rubies and some other stuff. Look at the description in Github to find out more.'
 
 [[dependencies.rubymod]]
 modId = "forge"
 mandatory = true
-versionRange = "[34,)"
+versionRange = "[35,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.rubymod]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.16.3]"
+versionRange = "[1.16.4]"
 ordering = "NONE"
 side = "BOTH"

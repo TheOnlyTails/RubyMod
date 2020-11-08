@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,logic_gate_mode=or,powered=false": {
+      "y": 270,
+      "model": "rubymod:block/logic_gate"
+    },
+    "facing=east,logic_gate_mode=or,powered=true": {
+      "y": 270,
+      "model": "rubymod:block/logic_gate_on"
+    },
+    "facing=east,logic_gate_mode=and,powered=false": {
+      "y": 270,
+      "model": "rubymod:block/logic_gate_and"
+    },
+    "facing=east,logic_gate_mode=and,powered=true": {
+      "y": 270,
+      "model": "rubymod:block/logic_gate_on_and"
+    },
+    "facing=north,logic_gate_mode=or,powered=false": {
+      "y": 180,
+      "model": "rubymod:block/logic_gate"
+    },
+    "facing=north,logic_gate_mode=or,powered=true": {
+      "y": 180,
+      "model": "rubymod:block/logic_gate_on"
+    },
+    "facing=north,logic_gate_mode=and,powered=false": {
+      "y": 180,
+      "model": "rubymod:block/logic_gate_and"
+    },
+    "facing=north,logic_gate_mode=and,powered=true": {
+      "y": 180,
+      "model": "rubymod:block/logic_gate_on_and"
+    },
+    "facing=south,logic_gate_mode=or,powered=false": {
+      "model": "rubymod:block/logic_gate"
+    },
+    "facing=south,logic_gate_mode=or,powered=true": {
+      "model": "rubymod:block/logic_gate_on"
+    },
+    "facing=south,logic_gate_mode=and,powered=false": {
+      "model": "rubymod:block/logic_gate_and"
+    },
+    "facing=south,logic_gate_mode=and,powered=true": {
+      "model": "rubymod:block/logic_gate_on_and"
+    },
+    "facing=west,logic_gate_mode=or,powered=false": {
+      "y": 90,
+      "model": "rubymod:block/logic_gate"
+    },
+    "facing=west,logic_gate_mode=or,powered=true": {
+      "y": 90,
+      "model": "rubymod:block/logic_gate_on"
+    },
+    "facing=west,logic_gate_mode=and,powered=false": {
+      "y": 90,
+      "model": "rubymod:block/logic_gate_and"
+    },
+    "facing=west,logic_gate_mode=and,powered=true": {
+      "y": 90,
+      "model": "rubymod:block/logic_gate_on_and"
+    }
+  }
+}

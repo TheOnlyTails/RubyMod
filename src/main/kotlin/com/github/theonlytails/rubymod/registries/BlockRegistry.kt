@@ -1,9 +1,7 @@
 package com.github.theonlytails.rubymod.registries
 
 import com.github.theonlytails.rubymod.RubyMod
-import com.github.theonlytails.rubymod.blocks.CentrifugeBlock
-import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
-import com.github.theonlytails.rubymod.blocks.RubyCarpetBlock
+import com.github.theonlytails.rubymod.blocks.*
 import net.minecraft.block.*
 import net.minecraft.block.AbstractBlock.Properties
 import net.minecraft.block.PressurePlateBlock.Sensitivity
@@ -82,4 +80,8 @@ object BlockRegistry {
 	val RUBY_CARPET by BLOCKS.register("ruby_carpet", ::RubyCarpetBlock)
 
 	val RUBY_BARREL by BLOCKS.register("ruby_barrel", ::RubyBarrelBlock)
+
+	val LOGIC_GATE by BLOCKS.register("logic_gate") {
+		LogicGateBlock(Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().sound(SoundType.METAL))
+	}
 }

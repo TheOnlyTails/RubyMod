@@ -70,6 +70,9 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 		// Ruby Carpet
 		loot.dropSelf(BlockRegistry.RUBY_CARPET)
 
+		// Logic Gate
+		loot.dropSelf(BlockRegistry.LOGIC_GATE)
+
 		// Ruby Ore
 		loot.addLoot(BlockRegistry.RUBY_ORE_BLOCK, LootTable.builder()
 			.addLootPool(

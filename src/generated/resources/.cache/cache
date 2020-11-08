@@ -1,4 +1,4 @@
-1019cb3ab870d0b2aba8d2226a5f858cc0aef2db assets/rubymod/lang/en_us.json
+e70543df8828ce0e5fefa66165b30669758b5c04 assets/rubymod/lang/en_us.json
 8deb163fde36f654bbc15d8d1b3d7cbead1ea8fe data/forge/tags/blocks/ores.json
 713afb1c1a54a81933e3a90c4dfb6905e1880f90 data/forge/tags/blocks/storage_blocks.json
 21e7373036d3ff14d6a7a553206d467db934b67e data/forge/tags/items/gems.json
@@ -17,6 +17,7 @@ e6b00555bf89ac7ba441f0b39daa2aa618e25254 data/minecraft/tags/items/walls.json
 9ee3f76023c1b19b05d359f32197cd7eb97fb98c data/minecraft/tags/items/wool.json
 2882ec1d7ed793643a83f7ae2bb55eb26e21c93d data/rubymod/advancements/recipes/food/poisoned_apple.json
 7ff18f513576ffc17191fa3b8209b3a0e407e281 data/rubymod/advancements/recipes/ruby_tab/centrifuge.json
+58d2468cc46f8292263f8f7dc80a444e4523edd8 data/rubymod/advancements/recipes/ruby_tab/logic_gate.json
 e661bd016cb63eeb199e245dbe37c74aa2de4a73 data/rubymod/advancements/recipes/ruby_tab/ruby.json
 bf88285e13cdf407d1d48bcb3d068fe9f9f9ad35 data/rubymod/advancements/recipes/ruby_tab/ruby_axe.json
 cc1116091203efc192dcc496f2bb2497150d3c15 data/rubymod/advancements/recipes/ruby_tab/ruby_barrel.json
@@ -41,6 +42,7 @@ b44e2e445a197f83bac7327ca0a89bb60484e8c1 data/rubymod/advancements/recipes/ruby_
 1602d66fb0af4c0745a57c68c22e264a962c5a4f data/rubymod/advancements/recipes/ruby_tab/ruby_water_bucket.json
 3570b940d07fb6fe2820c275f0d94b09786d31e2 data/rubymod/advancements/recipes/ruby_tab/ruby_wool.json
 bcd3960f6c95a05eec33d9284a4d503342bd6c2f data/rubymod/loot_tables/blocks/centrifuge.json
+189fb2d29b2edac1d1556ae3de94d8f64ba623a7 data/rubymod/loot_tables/blocks/logic_gate.json
 4146b48d1f3fe2b0ae16b88e4718fea1c41fb9dc data/rubymod/loot_tables/blocks/ruby_barrel.json
 9d5c2878691226a2d7a028e307aafb399364db7f data/rubymod/loot_tables/blocks/ruby_block.json
 a120c795abb9e5651d418d2139a14c35f9e26651 data/rubymod/loot_tables/blocks/ruby_button.json
@@ -54,6 +56,7 @@ e817ef66a24c2d87af8b89530938a3f7fb14aaa1 data/rubymod/loot_tables/blocks/ruby_wo
 9374942fdd4e598b0370e8953b2be2dd4bbcd200 data/rubymod/loot_tables/entities/ruby_sheep.json
 38d8fa500601fa18609f7ae3f44cb873fd76daf9 data/rubymod/loot_tables/gameplay/hero_of_the_village/jeweler_gift.json
 9d9f0d4073653c8a93d4fb525288534df44fb895 data/rubymod/recipes/centrifuge.json
+b08054936cb74c6c82e0200fefe9c54a9eb2c27a data/rubymod/recipes/logic_gate.json
 cb0f7ef8603ea9c23c5d61745d96b499d18c452d data/rubymod/recipes/poisoned_apple.json
 5f5cdcf16854680d4a076de0335288e8d5eace79 data/rubymod/recipes/ruby.json
 24cd529cb7245e63e30b007219773821b4d8471b data/rubymod/recipes/ruby_axe.json

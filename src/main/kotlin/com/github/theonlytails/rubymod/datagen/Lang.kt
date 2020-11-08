@@ -42,6 +42,7 @@ abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider
 			add(BlockRegistry.RUBY_CARPET, "Ruby Carpet")
 			add(BlockRegistry.CENTRIFUGE_BLOCK, "Centrifuge")
 			add(BlockRegistry.RUBY_BARREL, "Ruby Barrel")
+			add(BlockRegistry.LOGIC_GATE, "Logic Gate")
 
 			// Tools
 			add(ItemRegistry.RUBY_SWORD, "Ruby Sword")
