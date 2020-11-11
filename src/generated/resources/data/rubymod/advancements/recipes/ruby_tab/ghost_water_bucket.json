@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "rubymod:ruby_water_bucket"
+      "rubymod:ghost_water_bucket"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "rubymod:ruby_water_bucket"
+        "recipe": "rubymod:ghost_water_bucket"
       }
     }
   },

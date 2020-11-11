@@ -114,9 +114,9 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### Ruby Water
+### Ghost Water
 
-- Water, but red. It's almost like it isn't there!
+- Water, but red. It's like it isn't even there!
 
 - Will turn to water when it interacts with it.
 

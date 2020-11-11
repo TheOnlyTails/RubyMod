@@ -260,7 +260,7 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 
 		// Ruby Water Bucket
 		consumer
-			.shapeless(ItemRegistry.RUBY_WATER_BUCKET) {
+			.shapeless(ItemRegistry.GHOST_WATER_BUCKET) {
 				it.addIngredient(ItemRegistry.RUBY)
 				it.addIngredient(Items.WATER_BUCKET)
 				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))

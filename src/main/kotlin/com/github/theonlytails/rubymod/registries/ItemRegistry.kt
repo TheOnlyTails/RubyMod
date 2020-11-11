@@ -18,8 +18,8 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 object ItemRegistry {
 	val ITEMS = KDeferredRegister(ForgeRegistries.ITEMS, RubyMod.MOD_ID)
 
-	val RUBY_WATER_BUCKET by ITEMS.register("ruby_water_bucket") {
-		BucketItem(FluidRegistry::RUBY_WATER_FLUID,
+	val GHOST_WATER_BUCKET by ITEMS.register("ghost_water_bucket") {
+		BucketItem(FluidRegistry::RUBY_GHOST_FLUID,
 			Item.Properties()
 				.containerItem(Items.BUCKET)
 				.maxStackSize(1)
