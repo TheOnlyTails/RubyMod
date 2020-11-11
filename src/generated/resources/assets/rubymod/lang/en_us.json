@@ -23,6 +23,7 @@
   "item.minecraft.splash_potion.effect.motivation": "Splash Potion of Motivation",
   "item.minecraft.tipped_arrow.effect.laziness": "Tipped Arrow of Laziness",
   "item.minecraft.tipped_arrow.effect.motivation": "Tipped Arrow of Motivation",
+  "item.rubymod.ghost_water_bucket": "Ghost Water Bucket",
   "item.rubymod.poisoned_apple": "Poisoned Apple",
   "item.rubymod.ruby": "Ruby",
   "item.rubymod.ruby_axe": "Ruby Axe",
@@ -35,6 +36,5 @@
   "item.rubymod.ruby_sheep_spawn_egg": "Ruby Sheep Spawn Egg",
   "item.rubymod.ruby_shovel": "Ruby Shovel",
   "item.rubymod.ruby_sword": "Ruby Sword",
-  "item.rubymod.ruby_water_bucket": "Ruby Water Bucket",
   "itemGroup.ruby_tab": "RubyMod"
 }

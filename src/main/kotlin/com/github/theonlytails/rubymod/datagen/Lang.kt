@@ -17,7 +17,7 @@ abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider
 			// Items
 			add("item.rubymod.ruby", "Ruby")
 			add(ItemRegistry.POISONED_APPLE, "Poisoned Apple")
-			add(ItemRegistry.RUBY_WATER_BUCKET, "Ruby Water Bucket")
+			add(ItemRegistry.GHOST_WATER_BUCKET, "Ghost Water Bucket")
 			add(ItemRegistry.RUBY_SHEEP_SPAWN_EGG, "Ruby Sheep Spawn Egg")
 
 			// Effects and Potions
