@@ -1,0 +1,15 @@
+# add "dependencies" tag to any PR that changes gradle.properties, mods.toml, or build.gradle.
+dependencies:
+  - ./gradle.properties
+  - ./build.gradle
+  - ./src/main/resources/META-INF/mods.toml
+  
+repo-managment:
+  - ./.github/*
+  - ./CODE_OF_CONDUCT.md
+  - ./CONTRIBUTING.md
+  - ./LICENSE
+  - ./README.md
+  
+features-and-bug-fixes:
+  ./src/main/*
