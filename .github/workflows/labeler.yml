@@ -10,21 +10,21 @@ on: [pull_request]
 
 jobs:
   dependencies:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: action/labeler@main
         with:
           repo-token: "{{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/labeler.yml
   repo-management:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: action/labeler@main
         with:
           repo-token: "{{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/labeler.yml
   features-and-bug-fixes:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: action/labeler@main
         with:
