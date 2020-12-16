@@ -23,3 +23,10 @@ jobs:
         with:
           repo-token: "{{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/labeler.yml
+  features-and-bug-fixes:
+    runs-on: ubunto-latest
+    steps:
+      - uses: action/labeler@main
+        with:
+          repo-token: "{{ secrets.GITHUB_TOKEN }}"
+          configuration-path: .github/labeler.yml
