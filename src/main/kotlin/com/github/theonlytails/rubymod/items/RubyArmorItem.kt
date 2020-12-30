@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack
 import net.minecraft.potion.EffectInstance
 import net.minecraft.potion.Effects
 import net.minecraft.world.World
-import java.util.stream.StreamSupport
 
 /**
  * Holds the custom functionality of ruby armor.
@@ -24,8 +23,7 @@ class RubyArmorItem(slot: EquipmentSlotType) :
 		val heldItemMainhand = player.heldItemMainhand.item
 		val armor = player.armorInventoryList
 
-		val wearingAllRubyArmor = StreamSupport.stream(armor.spliterator(), false)
-			.allMatch { itemStack: ItemStack -> itemStack.item is RubyArmorItem }
+		val wearingAllRubyArmor = armor.all { itemStack: ItemStack -> itemStack.item is RubyArmorItem }
 
 		if (wearingAllRubyArmor && heldItemMainhand === ItemRegistry.RUBY_PICKAXE) {
 			player.addPotionEffect(EffectInstance(Effects.HASTE, 220, 0, true, true))
