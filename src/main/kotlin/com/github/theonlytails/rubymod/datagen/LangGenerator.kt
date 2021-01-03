@@ -10,12 +10,13 @@ import net.minecraftforge.common.data.LanguageProvider
  *
  * @author TheOnlyTails
  */
-abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider(generator, RubyMod.MOD_ID, locale) {
+abstract class LangGenerator(generator: DataGenerator, locale: String) :
+	LanguageProvider(generator, RubyMod.MOD_ID, locale) {
 
-	class English(generator: DataGenerator) : Lang(generator, "en_us") {
+	class English(generator: DataGenerator) : LangGenerator(generator, "en_us") {
 		override fun addTranslations() {
 			// Items
-			add("item.rubymod.ruby", "Ruby")
+			add(ItemRegistry.RUBY, "Ruby")
 			add(ItemRegistry.POISONED_APPLE, "Poisoned Apple")
 			add(ItemRegistry.GHOST_WATER_BUCKET, "Ghost Water Bucket")
 			add(ItemRegistry.RUBY_SHEEP_SPAWN_EGG, "Ruby Sheep Spawn Egg")
@@ -64,7 +65,7 @@ abstract class Lang(generator: DataGenerator, locale: String) : LanguageProvider
 			add(EnchantmentRegistry.STINGER, "Stinger")
 
 			// Biomes
-			add("biome.rubymod.ruby_hills", "Ruby Hills")
+			add("biome.${RubyMod.MOD_ID}.ruby_hills", "Ruby Hills")
 
 			// Villager Professions
 			add("entity.minecraft.villager.${RubyMod.MOD_ID}.jeweler", "Jeweler")

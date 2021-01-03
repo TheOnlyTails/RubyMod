@@ -1,11 +1,11 @@
 package com.github.theonlytails.rubymod.registries
 
 import com.github.theonlytails.rubymod.RubyMod
+import com.github.theonlytails.rubymod.RubyMod.id
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.FlowingFluidBlock
 import net.minecraft.block.material.Material
 import net.minecraft.item.Rarity
-import net.minecraft.util.ResourceLocation
 import net.minecraft.util.SoundEvents
 import net.minecraftforge.fluids.FluidAttributes
 import net.minecraftforge.fluids.ForgeFlowingFluid
@@ -21,9 +21,9 @@ import java.awt.Color
 object FluidRegistry {
 	val FLUIDS = KDeferredRegister(ForgeRegistries.FLUIDS, RubyMod.MOD_ID)
 
-	private val STILL_GHOST_WATER = ResourceLocation(RubyMod.MOD_ID, "blocks/ghost_water_still")
-	private val FLOW_GHOST_WATER = ResourceLocation(RubyMod.MOD_ID, "blocks/ghost_water_flow")
-	private val OVERLAY_GHOST_WATER = ResourceLocation(RubyMod.MOD_ID, "blocks/ghost_water_overlay")
+	private val STILL_GHOST_WATER = id("blocks/ghost_water_still")
+	private val FLOW_GHOST_WATER = id("blocks/ghost_water_flow")
+	private val OVERLAY_GHOST_WATER = id("blocks/ghost_water_overlay")
 
 	private val RUBY_GHOST_BLOCK by BlockRegistry.BLOCKS.register("ghost_water_block") {
 		FlowingFluidBlock(::RUBY_GHOST_FLUID,

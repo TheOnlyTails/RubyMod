@@ -141,9 +141,7 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		return onInitialSpawnResult
 	}
 
-	override fun getLootTable(): ResourceLocation {
-		return ResourceLocation(RubyMod.MOD_ID, "entities/ruby_sheep")
-	}
+	override fun getLootTable() = RubyMod.id("entities/ruby_sheep")
 
 	override fun canMateWith(otherAnimal: AnimalEntity): Boolean {
 		return otherAnimal is SheepEntity && otherAnimal.isInLove()

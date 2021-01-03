@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation as RL
  * @author TheOnlyTails
  */
 class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
-	private val jewelerGiftLootTable = RL(RubyMod.MOD_ID, "gameplay/hero_of_the_village/jeweler_gift")
+	private val jewelerGiftLootTable = RubyMod.id("gameplay/hero_of_the_village/jeweler_gift")
 
 	private val tables = hashMapOf<RL, LootTable>(
 		jewelerGiftLootTable to

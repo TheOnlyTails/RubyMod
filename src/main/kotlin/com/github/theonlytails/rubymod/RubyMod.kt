@@ -19,6 +19,7 @@ import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
+import net.minecraft.util.ResourceLocation
 import net.minecraft.village.PointOfInterestType
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.eventbus.api.EventPriority
@@ -112,4 +113,6 @@ object RubyMod {
 	private fun onRegisterEntities(event: RegistryEvent.Register<EntityType<*>>) {
 		CustomSpawnEggItem.initSpawnEggs()
 	}
+
+	fun id(path: String): ResourceLocation = ResourceLocation(MOD_ID, path)
 }

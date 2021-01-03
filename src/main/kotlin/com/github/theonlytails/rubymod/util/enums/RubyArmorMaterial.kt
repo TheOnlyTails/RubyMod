@@ -1,6 +1,6 @@
 package com.github.theonlytails.rubymod.util.enums
 
-import com.github.theonlytails.rubymod.RubyMod
+import com.github.theonlytails.rubymod.RubyMod.id
 import com.github.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.IArmorMaterial
@@ -30,7 +30,7 @@ enum class RubyArmorMaterial(
 	private val soundEvent: SoundEvent, private val toughness: Float,
 	private val repairMaterial: Lazy<Ingredient>, private val knockbackResistance: Float,
 ) : IArmorMaterial {
-	RUBY(RubyMod.MOD_ID + ":ruby",
+	RUBY(id("ruby").toString(),
 		24, intArrayOf(2, 5, 6, 2),
 		18,
 		SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
@@ -38,39 +38,23 @@ enum class RubyArmorMaterial(
 		Lazy.of { Ingredient.fromItems(ItemRegistry.RUBY) },
 		0.5f);
 
-	override fun getDurability(slotIn: EquipmentSlotType): Int {
-		return MAX_DAMAGE[slotIn.index] * maxDamageFactor
-	}
+	override fun getDurability(slotIn: EquipmentSlotType) = MAX_DAMAGE[slotIn.index] * maxDamageFactor
 
-	override fun getDamageReductionAmount(slotIn: EquipmentSlotType): Int {
-		return damageReductionAmount[slotIn.index]
-	}
+	override fun getDamageReductionAmount(slotIn: EquipmentSlotType) = damageReductionAmount[slotIn.index]
 
-	override fun getEnchantability(): Int {
-		return enchantability
-	}
+	override fun getEnchantability() = enchantability
 
 	@Nonnull
-	override fun getSoundEvent(): SoundEvent {
-		return soundEvent
-	}
+	override fun getSoundEvent(): SoundEvent = soundEvent
 
 	@Nonnull
-	override fun getRepairMaterial(): Ingredient {
-		return repairMaterial.get()
-	}
+	override fun getRepairMaterial(): Ingredient = repairMaterial.get()
 
-	override fun getToughness(): Float {
-		return toughness
-	}
+	override fun getToughness() = toughness
 
-	override fun getName(): String {
-		return materialName
-	}
+	override fun getName() = materialName
 
-	override fun getKnockbackResistance(): Float {
-		return knockbackResistance
-	}
+	override fun getKnockbackResistance() = knockbackResistance
 
 	companion object {
 		private val MAX_DAMAGE = intArrayOf(11, 16, 15, 13)

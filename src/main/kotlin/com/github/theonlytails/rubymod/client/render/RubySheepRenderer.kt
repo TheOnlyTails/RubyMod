@@ -26,9 +26,6 @@ class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 	}
 
 	companion object {
-		private val SHEARED_SHEEP_TEXTURES = ResourceLocation(
-			RubyMod.MOD_ID,
-			"textures/entity/ruby_sheep/ruby_sheep.png"
-		)
+		private val SHEARED_SHEEP_TEXTURES = RubyMod.id("textures/entity/ruby_sheep/ruby_sheep.png")
 	}
 }

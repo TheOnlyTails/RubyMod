@@ -18,11 +18,12 @@ object DataGenerators {
 		val helper = event.existingFileHelper
 
 		if (event.includeClient()) {
-			generator.addProvider(Lang.English(generator))
+			generator.addProvider(LangGenerator.English(generator))
 		}
 
 		if (event.includeServer()) {
 			val blockTags = BlockTagDataGenerator(generator, helper)
+			val itemModels = ItemModelsGenerator(generator, helper)
 
 			generator.addProvider(RecipesGenerator(generator))
 			generator.addProvider(BlockLootTablesGenerator(generator))
@@ -30,6 +31,7 @@ object DataGenerators {
 			generator.addProvider(GiftLootTablesGenerator(generator))
 			generator.addProvider(blockTags)
 			generator.addProvider(ItemTagGenerator(generator, blockTags, helper))
+			generator.addProvider(itemModels)
 		}
 	}
 }
