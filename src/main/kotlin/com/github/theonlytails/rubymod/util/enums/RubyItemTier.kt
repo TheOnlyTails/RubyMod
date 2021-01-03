@@ -30,28 +30,16 @@ enum class RubyItemTier(
 		12,
 		Lazy.of { Ingredient.fromItems(ItemRegistry.RUBY) });
 
-	override fun getMaxUses(): Int {
-		return maxUses
-	}
+	override fun getMaxUses() = maxUses
 
-	override fun getEfficiency(): Float {
-		return efficiency
-	}
+	override fun getEfficiency() = efficiency
 
-	override fun getAttackDamage(): Float {
-		return attackDamage
-	}
+	override fun getAttackDamage() = attackDamage
 
-	override fun getHarvestLevel(): Int {
-		return harvestLevel
-	}
+	override fun getHarvestLevel() = harvestLevel
 
-	override fun getEnchantability(): Int {
-		return enchantability
-	}
+	override fun getEnchantability() = enchantability
 
 	@Nonnull
-	override fun getRepairMaterial(): Ingredient {
-		return repairMaterial.get()
-	}
+	override fun getRepairMaterial(): Ingredient = repairMaterial.get()
 }

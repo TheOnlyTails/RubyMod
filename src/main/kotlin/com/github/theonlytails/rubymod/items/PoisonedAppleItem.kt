@@ -1,6 +1,7 @@
 package com.github.theonlytails.rubymod.items
 
 import com.github.theonlytails.rubymod.entities.RubySheepEntity
+import com.github.theonlytails.rubymod.util.effect
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.passive.SheepEntity
 import net.minecraft.entity.player.PlayerEntity
@@ -22,17 +23,17 @@ class PoisonedAppleItem : Item(Properties()
 		.hunger(7)
 		.saturation(1.2f)
 		// Gives you Nausea 2 for 7 seconds 100% of the time;
-		.effect({ EffectInstance(Effects.NAUSEA, 7 * 20, 1) }, 1f)
+		.effect(1f) { EffectInstance(Effects.NAUSEA, 7 * 20, 1) }
 		// Gives you Poison 2 for 9 seconds 100% of the time;
-		.effect({ EffectInstance(Effects.POISON, 9 * 20, 1) }, 1f)
+		.effect(1f) { EffectInstance(Effects.POISON, 9 * 20, 1) }
 		// Gives you Glowing 1 for 10 seconds 100% of the time;
-		.effect({ EffectInstance(Effects.GLOWING, 10 * 20, 0) }, 1f)
+		.effect(1f) { EffectInstance(Effects.GLOWING, 10 * 20, 0) }
 		// Gives you Hunger 3 for 3 seconds 10% of the time;
-		.effect({ EffectInstance(Effects.HUNGER, 3 * 20, 2) }, 0.1f)
+		.effect(0.1f) { EffectInstance(Effects.HUNGER, 3 * 20, 2) }
 		// Gives you Blindness (!) 3 for 5 seconds 5% of the time;
-		.effect({ EffectInstance(Effects.BLINDNESS, 5 * 20, 2) }, 0.05f)
+		.effect(0.05f) { EffectInstance(Effects.BLINDNESS, 5 * 20, 2) }
 		// Gives you Luck (!) 1 for 1 seconds 50% of the time;
-		.effect({ EffectInstance(Effects.LUCK, 20, 0) }, 0.5f)
+		.effect(0.5f) { EffectInstance(Effects.LUCK, 20, 0) }
 		.setAlwaysEdible()
 		.build())) {
 
@@ -61,4 +62,3 @@ class PoisonedAppleItem : Item(Properties()
 		return ActionResultType.PASS
 	}
 }
-

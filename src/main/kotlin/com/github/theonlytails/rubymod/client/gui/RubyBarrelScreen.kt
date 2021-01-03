@@ -9,7 +9,6 @@ import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.gui.screen.inventory.ContainerScreen
 import net.minecraft.entity.player.PlayerInventory
-import net.minecraft.util.ResourceLocation
 import net.minecraft.util.text.ITextComponent
 import net.minecraftforge.api.distmarker.Dist
 import net.minecraftforge.api.distmarker.OnlyIn
@@ -68,9 +67,6 @@ class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventor
 	}
 
 	companion object {
-		private val BACKGROUND_TEXTURE = ResourceLocation(
-			RubyMod.MOD_ID,
-			"textures/gui/ruby_barrel/ruby_barrel.png"
-		)
+		private val BACKGROUND_TEXTURE = RubyMod.id("textures/gui/ruby_barrel/ruby_barrel.png")
 	}
 }
