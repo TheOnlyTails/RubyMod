@@ -38,7 +38,7 @@ val archivesBaseName: String by extra
 // Plugins
 plugins {
 	`java-library`
-	kotlin("jvm") version ("1.4.21")
+	kotlin("jvm") version ("1.4.21-2")
 }
 
 apply(plugin = "net.minecraftforge.gradle")
