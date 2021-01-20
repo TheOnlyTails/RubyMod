@@ -19,7 +19,7 @@ object VillagerProfessionsRegistry {
 	val PROFESSIONS = KDeferredRegister(ForgeRegistries.PROFESSIONS, RubyMod.MOD_ID)
 	val POINTS_OF_INTEREST = KDeferredRegister(ForgeRegistries.POI_TYPES, RubyMod.MOD_ID)
 
-	val JEWELER by PROFESSIONS.register("jeweler") {
+	val JEWELER by PROFESSIONS.registerObject("jeweler") {
 		VillagerProfession(
 			"jeweler",
 			JEWELER_POI,
@@ -29,7 +29,7 @@ object VillagerProfessionsRegistry {
 		)
 	}
 
-	val JEWELER_POI by POINTS_OF_INTEREST.register("jeweler") {
+	val JEWELER_POI by POINTS_OF_INTEREST.registerObject("jeweler") {
 		PointOfInterestType(
 			"jeweler",
 			getAllStates(BlockRegistry.RUBY_BARREL),

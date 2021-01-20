@@ -25,7 +25,7 @@ object FluidRegistry {
 	private val FLOW_GHOST_WATER = id("blocks/ghost_water_flow")
 	private val OVERLAY_GHOST_WATER = id("blocks/ghost_water_overlay")
 
-	private val RUBY_GHOST_BLOCK by BlockRegistry.BLOCKS.register("ghost_water_block") {
+	private val RUBY_GHOST_BLOCK by BlockRegistry.BLOCKS.registerObject("ghost_water_block") {
 		FlowingFluidBlock(::RUBY_GHOST_FLUID,
 			AbstractBlock.Properties.create(Material.WATER)
 				.doesNotBlockMovement()
@@ -33,11 +33,11 @@ object FluidRegistry {
 				.noDrops())
 	}
 
-	val RUBY_GHOST_FLUID by FLUIDS.register("ghost_water") {
+	val RUBY_GHOST_FLUID by FLUIDS.registerObject("ghost_water") {
 		ForgeFlowingFluid.Source(RUBY_WATER_PROP)
 	}
 
-	private val RUBY_GHOST_FLOW by FLUIDS.register("ghost_water_flow") {
+	private val RUBY_GHOST_FLOW by FLUIDS.registerObject("ghost_water_flow") {
 		ForgeFlowingFluid.Flowing(RUBY_WATER_PROP)
 	}
 
