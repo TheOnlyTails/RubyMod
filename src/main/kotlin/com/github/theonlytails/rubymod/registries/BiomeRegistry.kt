@@ -17,7 +17,7 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 object BiomeRegistry {
 	val BIOMES = KDeferredRegister(ForgeRegistries.BIOMES, RubyMod.MOD_ID)
 
-	private val RUBY_HILLS by BIOMES.register("ruby_hills", BiomeMaker::makeRubyHills)
+	private val RUBY_HILLS by BIOMES.registerObject("ruby_hills", BiomeMaker::makeRubyHills)
 	private val rubyHillsRegistryKey = RegistryKey.getOrCreateKey(
 		Registry.BIOME_KEY, RubyMod.id("ruby_hills"))
 

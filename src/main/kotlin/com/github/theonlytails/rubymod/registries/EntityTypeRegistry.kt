@@ -16,7 +16,7 @@ object EntityTypeRegistry {
 	val ENTITY_TYPES =
 		KDeferredRegister(ForgeRegistries.ENTITIES, RubyMod.MOD_ID)
 
-	val RUBY_SHEEP: EntityType<RubySheepEntity> by ENTITY_TYPES.register("ruby_sheep") {
+	val RUBY_SHEEP: EntityType<RubySheepEntity> by ENTITY_TYPES.registerObject("ruby_sheep") {
 		EntityType.Builder.create(::RubySheepEntity,
 			EntityClassification.CREATURE).size(0.625f, 1.25f)
 			.build(RubyMod.id("ruby_sheep").toString())
