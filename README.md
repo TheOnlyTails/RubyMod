@@ -98,7 +98,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Has a spawn egg (Creative Mode only!).
 
-- [Model](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/client/model/RubySheepModel.kt), [Renderer](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/client/render/RubySheepRenderer.kt)
+- [Model](https://github.com/TheOnlyTails/RubyMod/blob/reorganization/src/main/kotlin/com/github/theonlytails/rubymod/client/render/RubySheepRenderer.kt#L16), [Renderer](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/client/render/RubySheepRenderer.kt)
 
 ---
 
