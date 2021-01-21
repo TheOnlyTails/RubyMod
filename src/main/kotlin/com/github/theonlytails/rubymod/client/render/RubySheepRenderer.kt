@@ -1,12 +1,19 @@
 package com.github.theonlytails.rubymod.client.render
 
 import com.github.theonlytails.rubymod.RubyMod
-import com.github.theonlytails.rubymod.client.model.RubySheepModel
 import com.github.theonlytails.rubymod.entities.RubySheepEntity
 import net.minecraft.client.renderer.entity.EntityRendererManager
 import net.minecraft.client.renderer.entity.MobRenderer
+import net.minecraft.client.renderer.entity.model.SheepModel
 import net.minecraft.util.ResourceLocation
 import javax.annotation.Nonnull
+
+/**
+ * The model class for [RubySheepEntity].
+ *
+ * @author TheOnlyTails
+ */
+class RubySheepModel : SheepModel<RubySheepEntity>()
 
 /**
  * The renderer class for [RubySheepEntity].
