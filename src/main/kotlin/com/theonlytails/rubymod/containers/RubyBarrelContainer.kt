@@ -128,5 +128,4 @@ class RubyBarrelContainer(
 			throw IllegalStateException("Tile entity is not correct! $tileAtPos")
 		}
 	}
-
 }

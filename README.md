@@ -5,7 +5,6 @@
 ![GitHub stars](https://img.shields.io/github/stars/TheOnlyTails/RubyMod?style=social)
 ![GitHub last commit](https://img.shields.io/github/last-commit/TheOnlyTails/RubyMod)
 [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
-[![GitHub Super-Linter](https://github.com/theonlytails/rubymod/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 ## What is RubyMod?
 

@@ -47,18 +47,18 @@ object RubyMod {
 		override fun createIcon() = ItemStack(ItemRegistry.RUBY)
 	}
 
-	val RUBY_TAB_PROPERTY: Item.Properties = Item.Properties().group(com.theonlytails.rubymod.RubyMod.RUBY_TAB)
+	val RUBY_TAB_PROPERTY: Item.Properties = Item.Properties().group(RUBY_TAB)
 
 	@Suppress("unused")
 	val LOGGER: Logger = LogManager.getLogger()
 
 	init {
-		MOD_BUS.addListener(com.theonlytails.rubymod.RubyMod::setup)
-		MOD_BUS.addListener(com.theonlytails.rubymod.RubyMod::doClientStuff)
+		MOD_BUS.addListener(RubyMod::setup)
+		MOD_BUS.addListener(RubyMod::doClientStuff)
 
 		FORGE_BUS.register(this)
 		FORGE_BUS.addListener(TradesRegisterer::addVillagerTrades)
-		FORGE_BUS.addGenericListener(com.theonlytails.rubymod.RubyMod::onRegisterEntities)
+		FORGE_BUS.addGenericListener(RubyMod::onRegisterEntities)
 		FORGE_BUS.addListener(EventPriority.HIGH, BiomeRegistry::biomeLoading)
 		FORGE_BUS.addListener(EventPriority.HIGH, FeatureGen::addFeaturesToBiomes)
 
@@ -114,5 +114,5 @@ object RubyMod {
 		CustomSpawnEggItem.initSpawnEggs()
 	}
 
-	fun id(path: String): ResourceLocation = ResourceLocation(com.theonlytails.rubymod.RubyMod.MOD_ID, path)
+	fun id(path: String): ResourceLocation = ResourceLocation(MOD_ID, path)
 }
