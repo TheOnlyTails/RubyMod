@@ -77,5 +77,4 @@ object TradesRegisterer {
 			))
 		}
 	}
-
 }
