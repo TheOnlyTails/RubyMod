@@ -1,11 +1,11 @@
+# RubyMod
+
 ![License](https://img.shields.io/badge/License-MIT-brightgreen)
 ![Language](https://img.shields.io/badge/language-java-blue?logo=java)
 ![GitHub stars](https://img.shields.io/github/stars/TheOnlyTails/RubyMod?style=social)
 ![GitHub last commit](https://img.shields.io/github/last-commit/TheOnlyTails/RubyMod)
 [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
 [![GitHub Super-Linter](https://github.com/theonlytails/rubymod/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
-# RubyMod
 
 ## What is RubyMod?
 
@@ -194,7 +194,11 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ### [Data Generators](https://github.com/TheOnlyTails/RubyMod/tree/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen)
 
-- [Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/BlockLootTablesGenerator.kt), [Entity](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/EntityLootTablesGenerator.kt), and [Villager Gifts](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/GiftLootTablesGenerator.kt) loot tables.
+- [Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/BlockLootTablesGenerator.kt) loot tables.
+
+- [Entity](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/EntityLootTablesGenerator.kt) loot tables.
+
+- [Villager Gifts](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/GiftLootTablesGenerator.kt) loot tables.
 
 - [Item](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/ItemTagGenerator.kt) and [Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/BlockTagDataGenerator.kt) Tags.
 
