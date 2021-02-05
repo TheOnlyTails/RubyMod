@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.util.enums
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
 import com.theonlytails.rubymod.RubyMod.id
+import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.IArmorMaterial
 import net.minecraft.item.crafting.Ingredient

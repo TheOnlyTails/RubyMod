@@ -2,7 +2,7 @@
 
 package com.theonlytails.rubymod.registries
 
-import com.github.theonlytails.rubymod.enchantments.StingerEnchantment
+import com.theonlytails.rubymod.enchantments.StingerEnchantment
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
 

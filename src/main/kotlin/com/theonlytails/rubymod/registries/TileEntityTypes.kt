@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.registries
 
-import com.github.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
+import com.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
 import net.minecraft.tileentity.TileEntityType
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister

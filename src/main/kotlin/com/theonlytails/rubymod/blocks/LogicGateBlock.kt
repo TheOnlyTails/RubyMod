@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.blocks
 
-import com.github.theonlytails.rubymod.util.enums.LogicGateModes
+import com.theonlytails.rubymod.util.enums.LogicGateModes
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.RedstoneDiodeBlock

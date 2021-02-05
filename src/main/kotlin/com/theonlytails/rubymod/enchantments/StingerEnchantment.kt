@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.enchantments
 
-import com.github.theonlytails.rubymod.registries.EnchantmentRegistry
+import com.theonlytails.rubymod.registries.EnchantmentRegistry
 import net.minecraft.enchantment.*
 import net.minecraft.entity.LivingEntity
 import net.minecraft.inventory.EquipmentSlotType

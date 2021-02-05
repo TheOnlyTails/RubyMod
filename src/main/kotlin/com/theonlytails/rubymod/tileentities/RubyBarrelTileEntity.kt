@@ -1,8 +1,8 @@
 package com.theonlytails.rubymod.tileentities
 
-import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
-import com.github.theonlytails.rubymod.containers.RubyBarrelContainer
-import com.github.theonlytails.rubymod.registries.TileEntityTypes
+import com.theonlytails.rubymod.blocks.RubyBarrelBlock
+import com.theonlytails.rubymod.containers.RubyBarrelContainer
+import com.theonlytails.rubymod.registries.TileEntityTypes
 import net.minecraft.block.BlockState
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory

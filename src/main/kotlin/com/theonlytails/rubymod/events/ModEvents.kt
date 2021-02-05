@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.events
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
-import com.github.theonlytails.rubymod.registries.PotionRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.registries.PotionRegistry
 import net.minecraft.item.Items
 import net.minecraft.potion.Potion
 import net.minecraft.potion.PotionBrewing

@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.items
 
-import com.github.theonlytails.rubymod.entities.RubySheepEntity
-import com.github.theonlytails.rubymod.util.effect
+import com.theonlytails.rubymod.entities.RubySheepEntity
+import com.theonlytails.rubymod.util.effect
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.passive.SheepEntity
 import net.minecraft.entity.player.PlayerEntity

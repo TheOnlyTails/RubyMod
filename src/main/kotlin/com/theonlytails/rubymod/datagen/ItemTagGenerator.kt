@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.ItemTagsProvider
 import net.minecraft.tags.ItemTags

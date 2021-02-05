@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.trades
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.merchant.villager.VillagerTrades
 import net.minecraft.item.Item

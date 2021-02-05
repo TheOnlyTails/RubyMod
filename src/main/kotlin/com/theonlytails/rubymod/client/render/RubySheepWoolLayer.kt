@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.client.render
 
-import com.github.theonlytails.rubymod.entities.RubySheepEntity
 import com.mojang.blaze3d.matrix.MatrixStack
+import com.theonlytails.rubymod.entities.RubySheepEntity
 import net.minecraft.client.renderer.IRenderTypeBuffer
 import net.minecraft.client.renderer.entity.IEntityRenderer
 import net.minecraft.client.renderer.entity.layers.LayerRenderer

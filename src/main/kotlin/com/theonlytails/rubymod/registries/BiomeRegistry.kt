@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.registries
 
-import com.github.theonlytails.rubymod.world.BiomeMaker
+import com.theonlytails.rubymod.world.BiomeMaker
 import net.minecraft.util.RegistryKey
 import net.minecraft.util.registry.Registry
 import net.minecraftforge.common.BiomeManager

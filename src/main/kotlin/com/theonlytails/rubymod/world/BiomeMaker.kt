@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.world
 
-import com.github.theonlytails.rubymod.registries.EntityTypeRegistry
+import com.theonlytails.rubymod.registries.EntityTypeRegistry
 import net.minecraft.entity.EntityClassification
 import net.minecraft.entity.EntityType
 import net.minecraft.util.math.MathHelper

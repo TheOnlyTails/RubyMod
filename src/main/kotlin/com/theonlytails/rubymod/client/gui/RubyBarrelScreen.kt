@@ -2,10 +2,10 @@
 
 package com.theonlytails.rubymod.client.gui
 
-import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
-import com.github.theonlytails.rubymod.containers.RubyBarrelContainer
 import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.systems.RenderSystem
+import com.theonlytails.rubymod.blocks.RubyBarrelBlock
+import com.theonlytails.rubymod.containers.RubyBarrelContainer
 import net.minecraft.client.gui.screen.inventory.ContainerScreen
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.util.text.ITextComponent

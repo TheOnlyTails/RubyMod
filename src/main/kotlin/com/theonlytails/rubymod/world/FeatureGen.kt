@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.world
 
-import com.github.theonlytails.rubymod.registries.BlockRegistry
+import com.theonlytails.rubymod.registries.BlockRegistry
 import net.minecraft.world.biome.Biome
 import net.minecraft.world.gen.GenerationStage
 import net.minecraft.world.gen.feature.Feature

@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.items
 
-import com.github.theonlytails.rubymod.entities.RubySheepEntity
-import com.github.theonlytails.rubymod.registries.EntityTypeRegistry
+import com.theonlytails.rubymod.entities.RubySheepEntity
+import com.theonlytails.rubymod.registries.EntityTypeRegistry
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.SpawnReason
 import net.minecraft.entity.passive.SheepEntity

@@ -2,8 +2,8 @@
 
 package com.theonlytails.rubymod.registries
 
-import com.github.theonlytails.rubymod.items.*
-import com.github.theonlytails.rubymod.util.enums.RubyItemTier
+import com.theonlytails.rubymod.items.*
+import com.theonlytails.rubymod.util.enums.RubyItemTier
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.*
 import net.minecraftforge.registries.ForgeRegistries

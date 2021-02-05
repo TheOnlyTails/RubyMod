@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
-import com.github.theonlytails.rubymod.registries.*
+import com.theonlytails.rubymod.registries.*
 import net.minecraft.data.DataGenerator
 import net.minecraftforge.common.data.LanguageProvider
 

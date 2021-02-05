@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.registries
 
-import com.github.theonlytails.rubymod.blocks.*
+import com.theonlytails.rubymod.blocks.*
 import net.minecraft.block.*
 import net.minecraft.block.AbstractBlock.Properties
 import net.minecraft.block.PressurePlateBlock.Sensitivity

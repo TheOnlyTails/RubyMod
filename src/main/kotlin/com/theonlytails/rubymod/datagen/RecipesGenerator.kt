@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.advancements.criterion.InventoryChangeTrigger
 import net.minecraft.data.*
 import net.minecraft.item.Items

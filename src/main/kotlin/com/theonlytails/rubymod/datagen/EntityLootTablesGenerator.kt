@@ -1,8 +1,8 @@
 package com.theonlytails.rubymod.datagen
 
-import com.github.theonlytails.rubymod.registries.EntityTypeRegistry
-import com.github.theonlytails.rubymod.registries.ItemRegistry
 import com.google.gson.GsonBuilder
+import com.theonlytails.rubymod.registries.EntityTypeRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.*
 import net.minecraft.data.loot.EntityLootTables
 import net.minecraft.entity.EntityType

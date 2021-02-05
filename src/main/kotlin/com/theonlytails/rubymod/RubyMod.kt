@@ -2,14 +2,14 @@
 
 package com.theonlytails.rubymod
 
-import com.github.theonlytails.rubymod.client.gui.RubyBarrelScreen
-import com.github.theonlytails.rubymod.client.render.RubySheepRenderer
-import com.github.theonlytails.rubymod.entities.RubySheepEntity
-import com.github.theonlytails.rubymod.events.ModEvents
-import com.github.theonlytails.rubymod.items.CustomSpawnEggItem
-import com.github.theonlytails.rubymod.registries.*
-import com.github.theonlytails.rubymod.trades.TradesRegisterer
-import com.github.theonlytails.rubymod.world.FeatureGen
+import com.theonlytails.rubymod.client.gui.RubyBarrelScreen
+import com.theonlytails.rubymod.client.render.RubySheepRenderer
+import com.theonlytails.rubymod.entities.RubySheepEntity
+import com.theonlytails.rubymod.events.ModEvents
+import com.theonlytails.rubymod.items.CustomSpawnEggItem
+import com.theonlytails.rubymod.registries.*
+import com.theonlytails.rubymod.trades.TradesRegisterer
+import com.theonlytails.rubymod.world.FeatureGen
 import net.minecraft.block.ComposterBlock
 import net.minecraft.client.gui.ScreenManager
 import net.minecraft.client.renderer.RenderType

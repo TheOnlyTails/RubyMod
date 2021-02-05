@@ -2,8 +2,8 @@
 
 package com.theonlytails.rubymod.blocks
 
-import com.github.theonlytails.rubymod.registries.TileEntityTypes
-import com.github.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
+import com.theonlytails.rubymod.registries.TileEntityTypes
+import com.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.SoundType

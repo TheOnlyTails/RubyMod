@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.util.enums
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.item.IItemTier
 import net.minecraft.item.crafting.Ingredient
 import net.minecraftforge.common.util.Lazy

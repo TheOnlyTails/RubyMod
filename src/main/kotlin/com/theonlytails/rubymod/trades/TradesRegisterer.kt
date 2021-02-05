@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.trades
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
-import com.github.theonlytails.rubymod.registries.VillagerProfessionsRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.registries.VillagerProfessionsRegistry
 import net.minecraft.item.Items
 import net.minecraftforge.event.village.VillagerTradesEvent
 

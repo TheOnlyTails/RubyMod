@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.registries
 
-import com.github.theonlytails.rubymod.containers.RubyBarrelContainer
+import com.theonlytails.rubymod.containers.RubyBarrelContainer
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.container.ContainerType
 import net.minecraft.network.PacketBuffer

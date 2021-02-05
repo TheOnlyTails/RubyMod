@@ -1,9 +1,9 @@
 package com.theonlytails.rubymod.containers
 
-import com.github.theonlytails.rubymod.blocks.RubyBarrelBlock
-import com.github.theonlytails.rubymod.registries.BlockRegistry
-import com.github.theonlytails.rubymod.registries.ContainerTypeRegistry
-import com.github.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
+import com.theonlytails.rubymod.blocks.RubyBarrelBlock
+import com.theonlytails.rubymod.registries.BlockRegistry
+import com.theonlytails.rubymod.registries.ContainerTypeRegistry
+import com.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.container.Container

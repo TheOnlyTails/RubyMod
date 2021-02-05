@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.client.render
 
-import com.github.theonlytails.rubymod.entities.RubySheepEntity
+import com.theonlytails.rubymod.entities.RubySheepEntity
 import net.minecraft.client.renderer.entity.EntityRendererManager
 import net.minecraft.client.renderer.entity.MobRenderer
 import net.minecraft.client.renderer.entity.model.SheepModel

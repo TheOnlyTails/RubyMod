@@ -1,8 +1,8 @@
 package com.theonlytails.rubymod.datagen
 
-import com.github.theonlytails.rubymod.registries.BlockRegistry
-import com.github.theonlytails.rubymod.registries.ItemRegistry
 import com.google.gson.GsonBuilder
+import com.theonlytails.rubymod.registries.BlockRegistry
+import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.advancements.criterion.*
 import net.minecraft.block.Block
 import net.minecraft.block.SlabBlock

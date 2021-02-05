@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.items
 
-import com.github.theonlytails.rubymod.registries.ItemRegistry
-import com.github.theonlytails.rubymod.util.enums.RubyArmorMaterial
+import com.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.util.enums.RubyArmorMaterial
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.ArmorItem

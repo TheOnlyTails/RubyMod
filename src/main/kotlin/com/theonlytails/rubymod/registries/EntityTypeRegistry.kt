@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.registries
 
-import com.github.theonlytails.rubymod.entities.RubySheepEntity
+import com.theonlytails.rubymod.entities.RubySheepEntity
 import net.minecraft.entity.EntityClassification
 import net.minecraft.entity.EntityType
 import net.minecraftforge.registries.ForgeRegistries
