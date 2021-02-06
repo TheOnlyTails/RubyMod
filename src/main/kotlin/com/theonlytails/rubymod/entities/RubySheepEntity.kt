@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.entities
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.block.BlockState
 import net.minecraft.entity.EntityType
@@ -139,7 +140,7 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		return onInitialSpawnResult
 	}
 
-	override fun getLootTable() = com.theonlytails.rubymod.RubyMod.id("entities/ruby_sheep")
+	override fun getLootTable() = RubyMod.id("entities/ruby_sheep")
 
 	override fun canMateWith(otherAnimal: AnimalEntity): Boolean {
 		return otherAnimal is SheepEntity && otherAnimal.isInLove()

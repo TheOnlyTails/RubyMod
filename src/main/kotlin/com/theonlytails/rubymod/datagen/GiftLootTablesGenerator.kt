@@ -1,6 +1,7 @@
 package com.theonlytails.rubymod.datagen
 
 import com.google.gson.GsonBuilder
+import com.theonlytails.rubymod.RubyMod
 import net.minecraft.data.*
 import net.minecraft.item.Items
 import net.minecraft.loot.*
@@ -12,7 +13,7 @@ import net.minecraft.util.ResourceLocation as RL
  * @author TheOnlyTails
  */
 class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
-	private val jewelerGiftLootTable = com.theonlytails.rubymod.RubyMod.id("gameplay/hero_of_the_village/jeweler_gift")
+	private val jewelerGiftLootTable = RubyMod.id("gameplay/hero_of_the_village/jeweler_gift")
 
 	private val tables = hashMapOf<RL, LootTable>(
 		jewelerGiftLootTable to
@@ -42,7 +43,7 @@ class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableP
 			try {
 				IDataProvider.save(GSON, cache, LootTableManager.toJson(table), path)
 			} catch (e: Exception) {
-				com.theonlytails.rubymod.RubyMod.LOGGER.error("Couldn't write loot table $path", e)
+				RubyMod.LOGGER.error("Couldn't write loot table $path", e)
 			}
 		}
 	}

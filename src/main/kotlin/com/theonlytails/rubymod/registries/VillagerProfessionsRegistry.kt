@@ -1,6 +1,7 @@
 package com.theonlytails.rubymod.registries
 
 import com.google.common.collect.ImmutableSet
+import com.theonlytails.rubymod.RubyMod
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.entity.merchant.villager.VillagerProfession
@@ -15,8 +16,8 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  * @author TheOnlyTails
  */
 object VillagerProfessionsRegistry {
-	val PROFESSIONS = KDeferredRegister(ForgeRegistries.PROFESSIONS, com.theonlytails.rubymod.RubyMod.MOD_ID)
-	val POINTS_OF_INTEREST = KDeferredRegister(ForgeRegistries.POI_TYPES, com.theonlytails.rubymod.RubyMod.MOD_ID)
+	val PROFESSIONS = KDeferredRegister(ForgeRegistries.PROFESSIONS, RubyMod.MOD_ID)
+	val POINTS_OF_INTEREST = KDeferredRegister(ForgeRegistries.POI_TYPES, RubyMod.MOD_ID)
 
 	val JEWELER by PROFESSIONS.registerObject("jeweler") {
 		VillagerProfession(

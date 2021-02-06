@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.ItemTagsProvider
@@ -21,7 +22,7 @@ class ItemTagGenerator(
 ) : ItemTagsProvider(
 	generator,
 	blockTags,
-	com.theonlytails.rubymod.RubyMod.MOD_ID,
+	RubyMod.MOD_ID,
 	helper
 ) {
 

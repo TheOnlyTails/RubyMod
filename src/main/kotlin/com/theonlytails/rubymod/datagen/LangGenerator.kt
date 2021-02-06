@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.*
 import net.minecraft.data.DataGenerator
 import net.minecraftforge.common.data.LanguageProvider
@@ -10,7 +11,7 @@ import net.minecraftforge.common.data.LanguageProvider
  * @author TheOnlyTails
  */
 abstract class LangGenerator(generator: DataGenerator, locale: String) :
-	LanguageProvider(generator, com.theonlytails.rubymod.RubyMod.MOD_ID, locale) {
+	LanguageProvider(generator, RubyMod.MOD_ID, locale) {
 
 	class English(generator: DataGenerator) : LangGenerator(generator, "en_us") {
 		override fun addTranslations() {
@@ -64,10 +65,10 @@ abstract class LangGenerator(generator: DataGenerator, locale: String) :
 			add(EnchantmentRegistry.STINGER, "Stinger")
 
 			// Biomes
-			add("biome.${com.theonlytails.rubymod.RubyMod.MOD_ID}.ruby_hills", "Ruby Hills")
+			add("biome.${RubyMod.MOD_ID}.ruby_hills", "Ruby Hills")
 
 			// Villager Professions
-			add("entity.minecraft.villager.${com.theonlytails.rubymod.RubyMod.MOD_ID}.jeweler", "Jeweler")
+			add("entity.minecraft.villager.${RubyMod.MOD_ID}.jeweler", "Jeweler")
 
 			// Creative tabs
 			add("itemGroup.ruby_tab", "RubyMod")

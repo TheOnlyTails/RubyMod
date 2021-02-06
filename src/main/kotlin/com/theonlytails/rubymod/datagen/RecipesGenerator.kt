@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.advancements.criterion.InventoryChangeTrigger
 import net.minecraft.data.*
@@ -209,7 +210,7 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 			.shaped(
 				ItemRegistry.RUBY_CARPET_ITEM,
 				8,
-				ResourceLocation(com.theonlytails.rubymod.RubyMod.MOD_ID, "ruby_carpet_from_carpet"),
+				ResourceLocation(RubyMod.MOD_ID, "ruby_carpet_from_carpet"),
 			) {
 				it.patternLine("ccc")
 				it.patternLine("crc")
@@ -225,7 +226,7 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 			.shaped(
 				ItemRegistry.RUBY_CARPET_ITEM,
 				8,
-				ResourceLocation(com.theonlytails.rubymod.RubyMod.MOD_ID, "ruby_carpet_from_wool"),
+				ResourceLocation(RubyMod.MOD_ID, "ruby_carpet_from_wool"),
 			) {
 				it.patternLine("ww")
 				it.key('w', ItemRegistry.RUBY_WOOL_ITEM)
@@ -240,7 +241,7 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 				Ingredient.fromItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM),
 				1f,
 				100,
-				ResourceLocation(com.theonlytails.rubymod.RubyMod.MOD_ID, "ruby_ore_smelt"),
+				ResourceLocation(RubyMod.MOD_ID, "ruby_ore_smelt"),
 			) {
 				it.addCriterion("ruby_ore", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM))
 			}
@@ -252,7 +253,7 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 				Ingredient.fromItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM),
 				1f,
 				100,
-				ResourceLocation(com.theonlytails.rubymod.RubyMod.MOD_ID, "ruby_ore_blast"),
+				ResourceLocation(RubyMod.MOD_ID, "ruby_ore_blast"),
 			) {
 				it.addCriterion("ruby_ore", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM))
 			}

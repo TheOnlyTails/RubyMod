@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.registries
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.RubyMod.id
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.FlowingFluidBlock
@@ -18,7 +19,7 @@ import java.awt.Color
  * @author TheOnlyTails
  */
 object FluidRegistry {
-	val FLUIDS = KDeferredRegister(ForgeRegistries.FLUIDS, com.theonlytails.rubymod.RubyMod.MOD_ID)
+	val FLUIDS = KDeferredRegister(ForgeRegistries.FLUIDS, RubyMod.MOD_ID)
 
 	private val STILL_GHOST_WATER = id("blocks/ghost_water_still")
 	private val FLOW_GHOST_WATER = id("blocks/ghost_water_flow")

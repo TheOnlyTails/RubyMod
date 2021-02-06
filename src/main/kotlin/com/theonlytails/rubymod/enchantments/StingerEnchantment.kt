@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.enchantments
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.EnchantmentRegistry
 import net.minecraft.enchantment.*
 import net.minecraft.entity.LivingEntity
@@ -37,7 +38,7 @@ class StingerEnchantment : Enchantment(Rarity.VERY_RARE,
 	 *
 	 * @author TheOnlyTails
 	 */
-	@EventBusSubscriber(modid = com.theonlytails.rubymod.RubyMod.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
+	@EventBusSubscriber(modid = RubyMod.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
 	private object PoisonedBladeEquipped {
 		@SubscribeEvent
 		fun damageWithEnchant(event: AttackEntityEvent) {

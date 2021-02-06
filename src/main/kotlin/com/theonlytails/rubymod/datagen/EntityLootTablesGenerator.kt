@@ -1,6 +1,7 @@
 package com.theonlytails.rubymod.datagen
 
 import com.google.gson.GsonBuilder
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.EntityTypeRegistry
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.*
@@ -51,7 +52,7 @@ class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTabl
 			try {
 				IDataProvider.save(GSON, cache, LootTableManager.toJson(table), path)
 			} catch (e: Exception) {
-				com.theonlytails.rubymod.RubyMod.LOGGER.error("Couldn't write loot table $path", e)
+				RubyMod.LOGGER.error("Couldn't write loot table $path", e)
 			}
 		}
 	}

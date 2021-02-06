@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.items
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.entities.RubySheepEntity
 import com.theonlytails.rubymod.registries.EntityTypeRegistry
 import net.minecraft.entity.LivingEntity
@@ -17,7 +18,7 @@ import net.minecraft.world.IServerWorld
  *
  * @author TheOnlyTails
  */
-class RubyItem : Item(com.theonlytails.rubymod.RubyMod.RUBY_TAB_PROPERTY) {
+class RubyItem : Item(RubyMod.RUBY_TAB_PROPERTY) {
 	override fun itemInteractionForEntity(
 		stack: ItemStack,
 		playerIn: PlayerEntity,
