@@ -16,7 +16,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ## Features
 
-### [Ruby](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/ItemRegistry.kt#L39)
+### [Ruby](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/ItemRegistry.kt#L39)
 
 - The ruby is a new gem with multiple purposes:
 
@@ -30,7 +30,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Ruby Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/BlockRegistry.kt#L24)
+### [Ruby Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/BlockRegistry.kt#L24)
 
 - It's a block made out of rubies.
 
@@ -38,7 +38,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Ruby Ore](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/BlockRegistry.kt#L54)
+### [Ruby Ore](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/BlockRegistry.kt#L54)
 
 - Found in the nether, at the lava lakes' floor.
 
@@ -48,13 +48,13 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Ruby Tools](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/util/enums/RubyItemTier.kt)
+### [Ruby Tools](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/util/enums/RubyItemTier.kt)
 
 - Better than iron but worse than diamond.
 
 ---
 
-### [Ruby Armor](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/util/enums/RubyArmorMaterial.kt)
+### [Ruby Armor](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/util/enums/RubyArmorMaterial.kt)
 
 - Give the same amount of armor points as iron armor, but also give +5 knockback resistance (5 times more than
   netherite!).
@@ -64,7 +64,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Poisoned Apple](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/items/PoisonedAppleItem.kt)
+### [Poisoned Apple](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/items/PoisonedAppleItem.kt)
 
 - Gives you 7 points of hunger and 14.4 saturation points (as much as a golden carrot).
 
@@ -86,7 +86,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Ruby Sheep](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/entities/RubySheepEntity.kt)
+### [Ruby Sheep](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/entities/RubySheepEntity.kt)
 
 - A special type of sheep.
 
@@ -102,11 +102,11 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - Has a spawn egg (Creative Mode only!).
 
-- [Model](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/client/render/RubySheepRenderer.kt#L16), [Renderer](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/client/render/RubySheepRenderer.kt)
+- [Model](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/client/render/RubySheepRenderer.kt#L16), [Renderer](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/client/render/RubySheepRenderer.kt)
 
 ---
 
-### [Ruby Wool](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/BlockRegistry.kt#L73)
+### [Ruby Wool](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/BlockRegistry.kt#L73)
 
 - Wool that comes from ruby sheep.
 
@@ -114,13 +114,13 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Ruby Carpet](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/BlockRegistry.kt#L80)
+### [Ruby Carpet](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/BlockRegistry.kt#L80)
 
 - A carpet made of ruby wool.
 
 ---
 
-### [Ghost Water](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/FluidRegistry.kt#L36)
+### [Ghost Water](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/FluidRegistry.kt#L36)
 
 - Water, but red. It's like it isn't even there!
 
@@ -130,7 +130,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Stinger Enchantment](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/enchantments/StingerEnchantment.kt)
+### [Stinger Enchantment](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/enchantments/StingerEnchantment.kt)
 
 - When you enchant your sword with this enchantment, it will cause the sword to be poisonous, and every mob you hit will
   be poisoned for 5 seconds.
@@ -143,15 +143,15 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Ruby Barrel](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/blocks/RubyBarrelBlock.kt)
+### [Ruby Barrel](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/blocks/RubyBarrelBlock.kt)
 
 - The ruby barrel is a barrel with 5 rows of storage space.
 
-- [Tile Entity](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/tileentities/RubyBarrelTileEntity.kt), [Container](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/containers/RubyBarrelContainer.kt), [Screen](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/client/gui/RubyBarrelScreen.kt)
+- [Tile Entity](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/tileentities/RubyBarrelTileEntity.kt), [Container](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/containers/RubyBarrelContainer.kt), [Screen](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/client/gui/RubyBarrelScreen.kt)
 
 ---
 
-### [Ruby Hills](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/world/BiomeMaker.kt#L20)
+### [Ruby Hills](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/world/BiomeMaker.kt#L20)
 
 - A new biome with magical red grass.
 
@@ -163,7 +163,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Potion of Motivation and Laziness](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/PotionRegistry.kt)
+### [Potion of Motivation and Laziness](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/PotionRegistry.kt)
 
 - The Potion of Motivation can be brewed with a ruby, and it will give you a boost of speed and jump height.
 
@@ -171,7 +171,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Jeweler](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/registries/VillagerProfessionsRegistry.kt)
+### [Jeweler](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/registries/VillagerProfessionsRegistry.kt)
 
 - This villager will trade you some valuable stuff for some rubies. Definitely worth a check.
 
@@ -179,7 +179,7 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Logic Gate](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/blocks/LogicGateBlock.kt)
+### [Logic Gate](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/blocks/LogicGateBlock.kt)
 
 - A redstone component that acts as 2 logic gates in 1!
 
@@ -191,21 +191,21 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 ---
 
-### [Data Generators](https://github.com/TheOnlyTails/RubyMod/tree/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen)
+### [Data Generators](https://github.com/TheOnlyTails/RubyMod/tree/master/src/main/kotlin/com/theonlytails/rubymod/datagen)
 
-- [Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/BlockLootTablesGenerator.kt) loot tables.
+- [Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/BlockLootTablesGenerator.kt) loot tables.
 
-- [Entity](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/EntityLootTablesGenerator.kt) loot tables.
+- [Entity](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/EntityLootTablesGenerator.kt) loot tables.
 
-- [Villager Gifts](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/GiftLootTablesGenerator.kt) loot tables.
+- [Villager Gifts](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/GiftLootTablesGenerator.kt) loot tables.
 
-- [Item](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/ItemTagGenerator.kt) and [Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/BlockTagDataGenerator.kt) Tags.
+- [Item](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/ItemTagGenerator.kt) and [Block](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/BlockTagDataGenerator.kt) Tags.
 
-- [Item Models](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/ItemModelsGenerator.kt)
+- [Item Models](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/ItemModelsGenerator.kt)
 
-- [Lang Files](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/LangGenerator.kt)
+- [Lang Files](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/LangGenerator.kt)
 
-- [Recipes of all kinds](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/github/theonlytails/rubymod/datagen/RecipesGenerator.kt)
+- [Recipes of all kinds](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/RecipesGenerator.kt)
 
 ## Planned Features
 
