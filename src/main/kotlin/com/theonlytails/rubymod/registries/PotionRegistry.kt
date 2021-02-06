@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.registries
 
+import com.theonlytails.rubymod.RubyMod
 import net.minecraft.potion.EffectInstance
 import net.minecraft.potion.Effects
 import net.minecraft.potion.Potion
@@ -12,7 +13,7 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  * @author TheOnlyTails
  */
 object PotionRegistry {
-	val POTIONS = KDeferredRegister(ForgeRegistries.POTION_TYPES, com.theonlytails.rubymod.RubyMod.MOD_ID)
+	val POTIONS = KDeferredRegister(ForgeRegistries.POTION_TYPES, RubyMod.MOD_ID)
 
 	val MOTIVATION by POTIONS.registerObject("motivation") {
 		Potion("motivation",

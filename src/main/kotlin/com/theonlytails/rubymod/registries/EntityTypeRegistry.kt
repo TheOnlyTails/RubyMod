@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.registries
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.entities.RubySheepEntity
 import net.minecraft.entity.EntityClassification
 import net.minecraft.entity.EntityType
@@ -13,11 +14,11 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  */
 object EntityTypeRegistry {
 	val ENTITY_TYPES =
-		KDeferredRegister(ForgeRegistries.ENTITIES, com.theonlytails.rubymod.RubyMod.MOD_ID)
+		KDeferredRegister(ForgeRegistries.ENTITIES, RubyMod.MOD_ID)
 
 	val RUBY_SHEEP: EntityType<RubySheepEntity> by ENTITY_TYPES.registerObject("ruby_sheep") {
 		EntityType.Builder.create(::RubySheepEntity,
 			EntityClassification.CREATURE).size(0.625f, 1.25f)
-			.build(com.theonlytails.rubymod.RubyMod.id("ruby_sheep").toString())
+			.build(RubyMod.id("ruby_sheep").toString())
 	}
 }

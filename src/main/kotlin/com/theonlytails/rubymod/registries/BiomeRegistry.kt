@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.registries
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.world.BiomeMaker
 import net.minecraft.util.RegistryKey
 import net.minecraft.util.registry.Registry
@@ -14,11 +15,11 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  * @author TheOnlyTails
  */
 object BiomeRegistry {
-	val BIOMES = KDeferredRegister(ForgeRegistries.BIOMES, com.theonlytails.rubymod.RubyMod.MOD_ID)
+	val BIOMES = KDeferredRegister(ForgeRegistries.BIOMES, RubyMod.MOD_ID)
 
 	private val RUBY_HILLS by BIOMES.registerObject("ruby_hills", BiomeMaker::makeRubyHills)
 	private val rubyHillsRegistryKey = RegistryKey.getOrCreateKey(
-		Registry.BIOME_KEY, com.theonlytails.rubymod.RubyMod.id("ruby_hills"))
+		Registry.BIOME_KEY, RubyMod.id("ruby_hills"))
 
 	fun biomeLoading(event: BiomeLoadingEvent) {
 		if (event.name == RUBY_HILLS.registryName) {

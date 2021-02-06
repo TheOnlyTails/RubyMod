@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.registries
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.blocks.*
 import net.minecraft.block.*
 import net.minecraft.block.AbstractBlock.Properties
@@ -18,7 +19,7 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  * @author TheOnlyTails
  */
 object BlockRegistry {
-	val BLOCKS = KDeferredRegister(ForgeRegistries.BLOCKS, com.theonlytails.rubymod.RubyMod.MOD_ID)
+	val BLOCKS = KDeferredRegister(ForgeRegistries.BLOCKS, RubyMod.MOD_ID)
 
 	val RUBY_BLOCK by BLOCKS.registerObject("ruby_block") {
 		Block(Properties.create(Material.IRON)

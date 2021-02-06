@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.client.render
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.entities.RubySheepEntity
 import net.minecraft.client.renderer.entity.EntityRendererManager
 import net.minecraft.client.renderer.entity.MobRenderer
@@ -32,6 +33,6 @@ class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 	}
 
 	companion object {
-		private val SHEARED_SHEEP_TEXTURES = com.theonlytails.rubymod.RubyMod.id("textures/entity/ruby_sheep/ruby_sheep.png")
+		private val SHEARED_SHEEP_TEXTURES = RubyMod.id("textures/entity/ruby_sheep/ruby_sheep.png")
 	}
 }

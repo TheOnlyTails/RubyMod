@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.items
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.ItemRegistry
 import com.theonlytails.rubymod.util.enums.RubyArmorMaterial
 import net.minecraft.entity.player.PlayerEntity
@@ -16,7 +17,7 @@ import net.minecraft.world.World
  * @author TheOnlyTails
  */
 class RubyArmorItem(slot: EquipmentSlotType) :
-	ArmorItem(RubyArmorMaterial.RUBY, slot, com.theonlytails.rubymod.RubyMod.RUBY_TAB_PROPERTY) {
+	ArmorItem(RubyArmorMaterial.RUBY, slot, RubyMod.RUBY_TAB_PROPERTY) {
 
 	override fun onArmorTick(stack: ItemStack, world: World, player: PlayerEntity) {
 		val heldItemMainhand = player.heldItemMainhand.item

@@ -1,6 +1,7 @@
 package com.theonlytails.rubymod.client.render
 
 import com.mojang.blaze3d.matrix.MatrixStack
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.entities.RubySheepEntity
 import net.minecraft.client.renderer.IRenderTypeBuffer
 import net.minecraft.client.renderer.entity.IEntityRenderer
@@ -72,6 +73,6 @@ class RubySheepWoolLayer(rendererIn: IEntityRenderer<RubySheepEntity, RubySheepM
 	}
 
 	companion object {
-		private val TEXTURE = com.theonlytails.rubymod.RubyMod.id("textures/entity/ruby_sheep/ruby_sheep_fur.png")
+		private val TEXTURE = RubyMod.id("textures/entity/ruby_sheep/ruby_sheep_fur.png")
 	}
 }

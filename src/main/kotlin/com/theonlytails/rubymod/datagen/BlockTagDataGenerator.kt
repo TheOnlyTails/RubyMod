@@ -1,5 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.BlockRegistry
 import net.minecraft.data.BlockTagsProvider
 import net.minecraft.data.DataGenerator
@@ -17,7 +18,7 @@ import java.nio.file.Path
 class BlockTagDataGenerator(generator: DataGenerator, helper: ExistingFileHelper) :
 	BlockTagsProvider(
 		generator,
-		com.theonlytails.rubymod.RubyMod.MOD_ID,
+		RubyMod.MOD_ID,
 		helper) {
 	/**
 	 * Register tags for each block.

@@ -4,6 +4,7 @@ package com.theonlytails.rubymod.client.gui
 
 import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.systems.RenderSystem
+import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.blocks.RubyBarrelBlock
 import com.theonlytails.rubymod.containers.RubyBarrelContainer
 import net.minecraft.client.gui.screen.inventory.ContainerScreen
@@ -66,6 +67,6 @@ class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventor
 	}
 
 	companion object {
-		private val BACKGROUND_TEXTURE = com.theonlytails.rubymod.RubyMod.id("textures/gui/ruby_barrel/ruby_barrel.png")
+		private val BACKGROUND_TEXTURE = RubyMod.id("textures/gui/ruby_barrel/ruby_barrel.png")
 	}
 }
