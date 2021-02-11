@@ -207,13 +207,6 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 - [Recipes of all kinds](https://github.com/TheOnlyTails/RubyMod/blob/master/src/main/kotlin/com/theonlytails/rubymod/datagen/RecipesGenerator.kt)
 
-## Planned Features
-
-- [ ] **Centrifuge Block:** Takes "Ruby Items" and returns the purified item (e.g. ruby wool -> wool, poisoned apple ->
-  apple).
-
-- **And More To Come!**
-
 ---
 
 ## Credits
