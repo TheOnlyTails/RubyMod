@@ -8,9 +8,9 @@
 
 ## What is RubyMod?
 
-RubyMod is a Minecraft Forge mod for Minecraft 1.16/1.16.1 (1.16.2 support coming soon!).
+RubyMod is a Minecraft Forge (see https://github.com/theonlytails/rubymodfabric/ for a fabric version) mod for Minecraft 1.16.4/1.16.5.
 
-Its purpose is for me to learn the Forge Modding API (using mainly the modding tutorial series by TechnoVision on YT).
+RubyMod is an open-source mod, which prioritizes sharing its code to help other modders learn.
 
 ---
 
@@ -213,10 +213,11 @@ Its purpose is for me to learn the Forge Modding API (using mainly the modding t
 
 Thanks to:
 
-- The Forge Team, for providing the modding framework,
-- thedarkcolor, for creating the KotlinForForge library for Forge modding in Kotlin,
-- TechnoVision and TurtyWurty, for creating the tutorial series that helped me create it,
+- [The Forge Team](https://github.com/minecraftforge), for providing the [modding framework](https://github.com/minecraftforge/minecraftforge),
+- [thedarkcolor](https://github.com/thedarkcolour), for creating the [KotlinForForge](https://github.com/thedarkcolour/kotlinforforge) library for Forge modding in Kotlin,
+- [TechnoVision](https://github.com/technovisiondev) and [TurtyWurty](https://github.com/darealturtywurty), for creating the tutorial series that inspired the mod,
 - Jelly Dash, for creating the beautiful textures for the Ruby sheep and the ruby wool,
-- xf8b, for helping a lot with the mod, and much more people.
+- [xf8b](https://github.com/xf8b), for helping a lot with the mod,
+- and a lot of other people.
 
 ---
