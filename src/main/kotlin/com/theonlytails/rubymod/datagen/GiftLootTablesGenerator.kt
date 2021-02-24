@@ -2,6 +2,7 @@ package com.theonlytails.rubymod.datagen
 
 import com.google.gson.GsonBuilder
 import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.id
 import net.minecraft.data.*
 import net.minecraft.item.Items
 import net.minecraft.loot.*
@@ -13,7 +14,7 @@ import net.minecraft.util.ResourceLocation as RL
  * @author TheOnlyTails
  */
 class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
-	private val jewelerGiftLootTable = RubyMod.id("gameplay/hero_of_the_village/jeweler_gift")
+	private val jewelerGiftLootTable = id("gameplay/hero_of_the_village/jeweler_gift")
 
 	private val tables = hashMapOf<RL, LootTable>(
 		jewelerGiftLootTable to

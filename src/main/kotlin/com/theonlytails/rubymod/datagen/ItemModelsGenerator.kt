@@ -1,14 +1,14 @@
 package com.theonlytails.rubymod.datagen
 
-import com.theonlytails.rubymod.RubyMod
-import com.theonlytails.rubymod.RubyMod.id
+import com.theonlytails.rubymod.MOD_ID
+import com.theonlytails.rubymod.id
 import net.minecraft.data.DataGenerator
 import net.minecraftforge.client.model.generators.ItemModelProvider
 import net.minecraftforge.client.model.generators.ModelFile
 import net.minecraftforge.common.data.ExistingFileHelper
 
 class ItemModelsGenerator(generator: DataGenerator, helper: ExistingFileHelper) :
-	ItemModelProvider(generator, RubyMod.MOD_ID, helper) {
+	ItemModelProvider(generator, MOD_ID, helper) {
 
 	override fun registerModels() {
 		// ruby

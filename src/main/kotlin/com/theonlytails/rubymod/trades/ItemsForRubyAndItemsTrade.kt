@@ -34,7 +34,7 @@ class ItemsForRubyAndItemsTrade(
 
 	override fun getOffer(p0: Entity, p1: Random) =
 		MerchantOffer(
-			IS(ItemRegistry.RUBY, rubyCount),
+			IS(ItemRegistry.ruby, rubyCount),
 			IS(buyingItem, buyingItemCount),
 			IS(sellingItem, sellingItemCount),
 			maxUses,

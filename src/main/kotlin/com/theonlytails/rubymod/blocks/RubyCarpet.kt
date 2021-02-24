@@ -18,7 +18,7 @@ import net.minecraft.world.IWorldReader
  *
  * @author TheOnlyTails
  */
-class RubyCarpetBlock : Block(Properties
+class RubyCarpet : Block(Properties
 	.create(Material.CARPET, MaterialColor.CRIMSON_HYPHAE)
 	.hardnessAndResistance(0.1f)
 	.sound(SoundType.CLOTH)) {
@@ -43,16 +43,14 @@ class RubyCarpetBlock : Block(Properties
 		worldIn: IWorld,
 		currentPos: BlockPos,
 		facingPos: BlockPos,
-	): BlockState {
-		return if (!stateIn.isValidPosition(worldIn,
-				currentPos)
-		) Blocks.AIR.defaultState else super.updatePostPlacement(stateIn,
+	): BlockState =
+		if (!stateIn.isValidPosition(worldIn, currentPos)) Blocks.AIR.defaultState
+		else super.updatePostPlacement(stateIn,
 			facing,
 			facingState,
 			worldIn,
 			currentPos,
 			facingPos)
-	}
 
 	override fun isValidPosition(state: BlockState, worldIn: IWorldReader, pos: BlockPos) =
 		!worldIn.isAirBlock(pos.down())

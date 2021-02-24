@@ -4,9 +4,9 @@ package com.theonlytails.rubymod.client.gui
 
 import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.systems.RenderSystem
-import com.theonlytails.rubymod.RubyMod
-import com.theonlytails.rubymod.blocks.RubyBarrelBlock
+import com.theonlytails.rubymod.blocks.RubyBarrel
 import com.theonlytails.rubymod.containers.RubyBarrelContainer
+import com.theonlytails.rubymod.id
 import net.minecraft.client.gui.screen.inventory.ContainerScreen
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.util.text.ITextComponent
@@ -14,7 +14,7 @@ import net.minecraftforge.api.distmarker.Dist
 import net.minecraftforge.api.distmarker.OnlyIn
 
 /**
- * The GUI/screen class for [RubyBarrelBlock].
+ * The GUI/screen class for [RubyBarrel].
  *
  * @author TheOnlyTails
  */
@@ -59,14 +59,10 @@ class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventor
 	) {
 		RenderSystem.color4f(1f, 1f, 1f, 1f)
 		if (minecraft != null) {
-			minecraft!!.getTextureManager().bindTexture(BACKGROUND_TEXTURE)
+			minecraft!!.getTextureManager().bindTexture(id("textures/gui/ruby_barrel/ruby_barrel.png"))
 			val x = (width - xSize) / 2
 			val y = (height - ySize) / 2
 			this.blit(matrixStack, x, y, 0, 0, xSize, ySize)
 		}
-	}
-
-	companion object {
-		private val BACKGROUND_TEXTURE = RubyMod.id("textures/gui/ruby_barrel/ruby_barrel.png")
 	}
 }

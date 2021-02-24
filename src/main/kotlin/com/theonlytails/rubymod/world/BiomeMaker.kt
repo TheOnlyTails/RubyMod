@@ -16,6 +16,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder
  *
  * @author TheOnlyTails
  */
+@Suppress("SameParameterValue")
 object BiomeMaker {
 	fun makeRubyHills(): Biome {
 		val genSettings = genSettings(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
@@ -37,12 +38,10 @@ object BiomeMaker {
 		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings)
 
 		val spawnSettings = spawnSettings()
-
-		spawnSettings.addSpawn(EntityClassification.CREATURE,
-			EntityTypeRegistry.RUBY_SHEEP, 12, 2, 3)
-
-		spawnSettings.addSpawn(EntityClassification.CREATURE,
-			EntityType.MULE, 5, 1, 3)
+			.addSpawn(EntityClassification.CREATURE,
+				EntityTypeRegistry.rubySheep, 12, 2, 3)
+			.addSpawn(EntityClassification.CREATURE,
+				EntityType.MULE, 5, 1, 3)
 
 		DefaultBiomeFeatures.withPassiveMobs(spawnSettings)
 		DefaultBiomeFeatures.withBatsAndHostiles(spawnSettings)
@@ -59,7 +58,7 @@ object BiomeMaker {
 				skyColor = getSkyForTemp(0.5f)
 			),
 			genSettings,
-			spawnSettings.build()
+			spawnSettings.copy()
 		)
 	}
 
@@ -77,19 +76,17 @@ object BiomeMaker {
 		effects: BiomeAmbience.Builder,
 		genSettings: BiomeGenerationSettings.Builder,
 		spawnSettings: MobSpawnInfo = MobSpawnInfo.EMPTY,
-	): Biome {
-		return Builder()
-			.precipitation(precipitation)
-			.category(category)
-			.depth(depth)
-			.scale(scale)
-			.temperature(temperature)
-			.downfall(downfall)
-			.setEffects(effects.build())
-			.withGenerationSettings(genSettings.build())
-			.withMobSpawnSettings(spawnSettings)
-			.build()
-	}
+	) = Builder()
+		.precipitation(precipitation)
+		.category(category)
+		.depth(depth)
+		.scale(scale)
+		.temperature(temperature)
+		.downfall(downfall)
+		.setEffects(effects.build())
+		.withGenerationSettings(genSettings.build())
+		.withMobSpawnSettings(spawnSettings)
+		.build()
 
 	/**
 	 * Biome ambience with default parameters and enforced the required ones.
@@ -102,33 +99,22 @@ object BiomeMaker {
 		foliageColor: Int = 0x77ab2f,
 		skyColor: Int,
 		skyFogColor: Int = 12638463,
-	): BiomeAmbience.Builder {
-		return BiomeAmbience.Builder()
-			.setWaterColor(waterColor)
-			.setWaterFogColor(waterFogColor)
-			.withGrassColor(grassColor)
-			.withFoliageColor(foliageColor)
-			.withSkyColor(skyColor)
-			.setFogColor(skyFogColor)
-	}
+	) = BiomeAmbience.Builder()
+		.setWaterColor(waterColor)
+		.setWaterFogColor(waterFogColor)
+		.withGrassColor(grassColor)
+		.withFoliageColor(foliageColor)
+		.withSkyColor(skyColor)
+		.setFogColor(skyFogColor)
 
 	/** Shortcut function and enforces surface builder */
 	private fun <C : ISurfaceBuilderConfig> genSettings(
 		surfaceBuilder: SurfaceBuilder<C>,
 		config: C,
-	): BiomeGenerationSettings.Builder {
-		return BiomeGenerationSettings.Builder().withSurfaceBuilder(surfaceBuilder.func_242929_a(config))
-	}
+	) = BiomeGenerationSettings.Builder().withSurfaceBuilder(surfaceBuilder.func_242929_a(config))
 
 	/** Shortcut function */
-	private fun spawnSettings(): MobSpawnInfo.Builder {
-		return MobSpawnInfo.Builder()
-	}
-
-	/** Just for consistency */
-	private fun MobSpawnInfo.Builder.build(): MobSpawnInfo {
-		return copy()
-	}
+	private fun spawnSettings() = MobSpawnInfo.Builder()
 
 	/** Shortcut function */
 	private fun MobSpawnInfo.Builder.addSpawn(
@@ -137,9 +123,7 @@ object BiomeMaker {
 		weight: Int,
 		min: Int,
 		max: Int,
-	): MobSpawnInfo.Builder {
-		return withSpawner(classification, MobSpawnInfo.Spawners(entityType, weight, min, max))
-	}
+	) = withSpawner(classification, MobSpawnInfo.Spawners(entityType, weight, min, max))
 
 	private fun getSkyForTemp(temperature: Float): Int {
 		val a = MathHelper.clamp(temperature / 3.0f, -1.0f, 1.0f)

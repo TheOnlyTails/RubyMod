@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.containers
 
-import com.theonlytails.rubymod.blocks.RubyBarrelBlock
+import com.theonlytails.rubymod.blocks.RubyBarrel
 import com.theonlytails.rubymod.registries.BlockRegistry
 import com.theonlytails.rubymod.registries.ContainerTypeRegistry
 import com.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
@@ -16,7 +16,7 @@ import net.minecraftforge.items.SlotItemHandler
 import java.util.Objects
 
 /**
- * The container class for [RubyBarrelBlock].
+ * The container class for [RubyBarrel].
  *
  * @author TheOnlyTails
  */
@@ -24,9 +24,7 @@ class RubyBarrelContainer(
 	id: Int,
 	playerInventory: PlayerInventory,
 	private val tileEntity: RubyBarrelTileEntity,
-) :
-	Container(ContainerTypeRegistry.RUBY_BARREL, id) {
-
+) : Container(ContainerTypeRegistry.rubyBarrel, id) {
 	private val canInteractWithCallable: IWorldPosCallable
 
 	init {
@@ -44,6 +42,7 @@ class RubyBarrelContainer(
 		val startX = 8
 		val startY = 18
 		val slotSizePlus2 = 18
+
 		for (row in 0..4) {
 			for (column in 0..8) {
 				addSlot(SlotItemHandler(
@@ -57,27 +56,24 @@ class RubyBarrelContainer(
 
 		// Main Player inventory
 		val playerInvStartY = startY * 5 + 32
-		for (row in 0..2) {
-			for (column in 0..8) {
+		for (row in 0..2)
+			for (column in 0..8)
 				addSlot(Slot(
 					playerInventory,
 					9 + row * 9 + column,
 					startX + column * slotSizePlus2,
 					playerInvStartY + row * slotSizePlus2
 				))
-			}
-		}
 
 		// Hotbar
 		val hotbarY = playerInvStartY + playerInvStartY / 2 - 3
-		for (column in 0..8) {
+		for (column in 0..8)
 			addSlot(Slot(
 				playerInventory,
 				column,
 				startX + column * slotSizePlus2,
 				hotbarY
 			))
-		}
 	}
 
 	constructor(windowId: Int, playerInventory: PlayerInventory, data: PacketBuffer) :
@@ -92,27 +88,23 @@ class RubyBarrelContainer(
 
 	override fun canInteractWith(playerIn: PlayerEntity): Boolean {
 		return isWithinUsableDistance(
-			canInteractWithCallable, playerIn, BlockRegistry.RUBY_BARREL)
+			canInteractWithCallable, playerIn, BlockRegistry.rubyBarrel)
 	}
 
 	override fun transferStackInSlot(playerIn: PlayerEntity, index: Int): ItemStack {
 		var itemStack = ItemStack.EMPTY
 		val slot = inventorySlots[index]
+
 		if (slot != null && slot.hasStack) {
 			val itemStack1 = slot.stack
 			itemStack = itemStack1.copy()
+
 			if (index < tileEntity.size) {
-				if (!mergeItemStack(itemStack1, 5 * 9, inventorySlots.size, true)) {
-					return ItemStack.EMPTY
-				}
-			} else if (!mergeItemStack(itemStack1, 0, 5 * 9, false)) {
-				return ItemStack.EMPTY
-			}
-			if (itemStack1.isEmpty) {
-				slot.putStack(ItemStack.EMPTY)
-			} else {
-				slot.onSlotChanged()
-			}
+				if (!mergeItemStack(itemStack1, 5 * 9, inventorySlots.size, true)) return ItemStack.EMPTY
+
+			} else if (!mergeItemStack(itemStack1, 0, 5 * 9, false)) return ItemStack.EMPTY
+
+			if (itemStack1.isEmpty) slot.putStack(ItemStack.EMPTY) else slot.onSlotChanged()
 		}
 		return itemStack
 	}
@@ -121,11 +113,11 @@ class RubyBarrelContainer(
 		private fun getTileEntity(playerInventory: PlayerInventory, data: PacketBuffer): RubyBarrelTileEntity {
 			Objects.requireNonNull(playerInventory, "playerInventory cannot be null")
 			Objects.requireNonNull(data, "data cannot be null")
+
 			val tileAtPos = playerInventory.player.world.getTileEntity(data.readBlockPos())
-			if (tileAtPos is RubyBarrelTileEntity) {
-				return tileAtPos
-			}
-			throw IllegalStateException("Tile entity is not correct! $tileAtPos")
+
+			if (tileAtPos is RubyBarrelTileEntity) return tileAtPos
+			else throw IllegalStateException("Tile entity is not correct! $tileAtPos")
 		}
 	}
 }

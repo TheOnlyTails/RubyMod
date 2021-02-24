@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.util.enums
 
-import com.theonlytails.rubymod.RubyMod.id
+import com.theonlytails.rubymod.id
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.IArmorMaterial
@@ -35,10 +35,10 @@ enum class RubyArmorMaterial(
 		18,
 		SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
 		0f,
-		Lazy.of { Ingredient.fromItems(ItemRegistry.RUBY) },
+		Lazy.of { Ingredient.fromItems(ItemRegistry.ruby) },
 		0.5f);
 
-	override fun getDurability(slotIn: EquipmentSlotType) = MAX_DAMAGE[slotIn.index] * maxDamageFactor
+	override fun getDurability(slotIn: EquipmentSlotType) = intArrayOf(11, 16, 15, 13)[slotIn.index] * maxDamageFactor
 
 	override fun getDamageReductionAmount(slotIn: EquipmentSlotType) = damageReductionAmount[slotIn.index]
 
@@ -55,8 +55,4 @@ enum class RubyArmorMaterial(
 	override fun getName() = materialName
 
 	override fun getKnockbackResistance() = knockbackResistance
-
-	companion object {
-		private val MAX_DAMAGE = intArrayOf(11, 16, 15, 13)
-	}
 }

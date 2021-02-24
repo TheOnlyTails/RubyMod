@@ -1,11 +1,10 @@
 package com.theonlytails.rubymod.client.render
 
-import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.entities.RubySheepEntity
+import com.theonlytails.rubymod.id
 import net.minecraft.client.renderer.entity.EntityRendererManager
 import net.minecraft.client.renderer.entity.MobRenderer
 import net.minecraft.client.renderer.entity.model.SheepModel
-import net.minecraft.util.ResourceLocation
 import javax.annotation.Nonnull
 
 /**
@@ -28,11 +27,5 @@ class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 	}
 
 	@Nonnull
-	override fun getEntityTexture(entity: RubySheepEntity): ResourceLocation {
-		return SHEARED_SHEEP_TEXTURES
-	}
-
-	companion object {
-		private val SHEARED_SHEEP_TEXTURES = RubyMod.id("textures/entity/ruby_sheep/ruby_sheep.png")
-	}
+	override fun getEntityTexture(entity: RubySheepEntity) = id("textures/entity/ruby_sheep/ruby_sheep.png")
 }

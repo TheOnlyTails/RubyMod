@@ -34,21 +34,23 @@ import thedarkcolour.kotlinforforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.forge.MOD_BUS
 import kotlin.collections.set
 
+const val MOD_ID = "rubymod"
+
+val rubyTab: ItemGroup = object : ItemGroup("ruby_tab") {
+	override fun createIcon() = ItemStack(ItemRegistry.ruby)
+}
+
+val rubyTabProperty: Item.Properties = Item.Properties().group(rubyTab)
+
+fun id(path: String): ResourceLocation = ResourceLocation(MOD_ID, path)
+
 /**
  * The main mod class.
  *
  * @author TheOnlyTails
  */
-@Mod("rubymod")
+@Mod(MOD_ID)
 object RubyMod {
-	const val MOD_ID = "rubymod"
-
-	val RUBY_TAB: ItemGroup = object : ItemGroup("ruby_tab") {
-		override fun createIcon() = ItemStack(ItemRegistry.RUBY)
-	}
-
-	val RUBY_TAB_PROPERTY: Item.Properties = Item.Properties().group(RUBY_TAB)
-
 	@Suppress("unused")
 	val LOGGER: Logger = LogManager.getLogger()
 
@@ -62,33 +64,33 @@ object RubyMod {
 		FORGE_BUS.addListener(EventPriority.HIGH, BiomeRegistry::biomeLoading)
 		FORGE_BUS.addListener(EventPriority.HIGH, FeatureGen::addFeaturesToBiomes)
 
-		EntityTypeRegistry.ENTITY_TYPES.register(MOD_BUS)
-		BiomeRegistry.BIOMES.register(MOD_BUS)
-		FluidRegistry.FLUIDS.register(MOD_BUS)
-		TileEntityTypes.TILE_ENTITIES.register(MOD_BUS)
-		ContainerTypeRegistry.CONTAINER_TYPES.register(MOD_BUS)
-		EnchantmentRegistry.ENCHANTMENTS.register(MOD_BUS)
-		BlockRegistry.BLOCKS.register(MOD_BUS)
-		ItemRegistry.ITEMS.register(MOD_BUS)
-		PotionRegistry.POTIONS.register(MOD_BUS)
-		VillagerProfessionsRegistry.PROFESSIONS.register(MOD_BUS)
-		VillagerProfessionsRegistry.POINTS_OF_INTEREST.register(MOD_BUS)
+		EntityTypeRegistry.entityTypes.register(MOD_BUS)
+		BiomeRegistry.biomes.register(MOD_BUS)
+		FluidRegistry.fluids.register(MOD_BUS)
+		TileEntityTypes.tileEntities.register(MOD_BUS)
+		ContainerTypeRegistry.containerTypes.register(MOD_BUS)
+		EnchantmentRegistry.enchantments.register(MOD_BUS)
+		BlockRegistry.blocks.register(MOD_BUS)
+		ItemRegistry.items.register(MOD_BUS)
+		PotionRegistry.potions.register(MOD_BUS)
+		VillagerProfessionsRegistry.professions.register(MOD_BUS)
+		VillagerProfessionsRegistry.pointsOfInterest.register(MOD_BUS)
 	}
 
 	@Suppress("UNUSED_PARAMETER")
 	private fun setup(event: FMLCommonSetupEvent) {
 		event.enqueueWork {
 			GlobalEntityTypeAttributes.put(
-				EntityTypeRegistry.RUBY_SHEEP,
+				EntityTypeRegistry.rubySheep,
 				RubySheepEntity.setCustomAttributes().create())
 
-			PointOfInterestType.registerBlockStates(VillagerProfessionsRegistry.JEWELER_POI)
+			PointOfInterestType.registerBlockStates(VillagerProfessionsRegistry.jewelerPOI)
 
 			ModEvents.registerBrewingRecipes(event)
 
-			ComposterBlock.CHANCES[ItemRegistry.POISONED_APPLE.asItem()] = 0.3f
+			ComposterBlock.CHANCES[ItemRegistry.poisonedApple.asItem()] = 0.3f
 
-			FluidRegistry.FLUIDS.registry.entries.forEach {
+			FluidRegistry.fluids.registry.entries.forEach {
 				RenderTypeLookup.setRenderLayer(it.value, RenderType.getTranslucent())
 			}
 		}
@@ -97,14 +99,14 @@ object RubyMod {
 	@Suppress("UNUSED_PARAMETER")
 	private fun doClientStuff(event: FMLClientSetupEvent) {
 		DeferredWorkQueue.runLater {
-			ScreenManager.registerFactory(ContainerTypeRegistry.RUBY_BARREL) { screenContainer, inv, titleIn ->
+			ScreenManager.registerFactory(ContainerTypeRegistry.rubyBarrel) { screenContainer, inv, titleIn ->
 				RubyBarrelScreen(screenContainer, inv, titleIn)
 			}
 		}
 
-		RenderTypeLookup.setRenderLayer(BlockRegistry.LOGIC_GATE, RenderType.getCutout())
+		RenderTypeLookup.setRenderLayer(BlockRegistry.logicGate, RenderType.getCutout())
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityTypeRegistry.RUBY_SHEEP) {
+		RenderingRegistry.registerEntityRenderingHandler(EntityTypeRegistry.rubySheep) {
 			RubySheepRenderer(it)
 		}
 	}
@@ -113,6 +115,4 @@ object RubyMod {
 	private fun onRegisterEntities(event: RegistryEvent.Register<EntityType<*>>) {
 		CustomSpawnEggItem.initSpawnEggs()
 	}
-
-	fun id(path: String): ResourceLocation = ResourceLocation(MOD_ID, path)
 }

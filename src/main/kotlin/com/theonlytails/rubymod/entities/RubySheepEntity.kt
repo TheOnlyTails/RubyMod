@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.entities
 
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.id
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.block.BlockState
 import net.minecraft.entity.EntityType
@@ -52,21 +52,14 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		goalSelector.addGoal(8, LookRandomlyGoal(this))
 	}
 
-	override fun getAmbientSound(): SoundEvent? {
-		return SoundEvents.ENTITY_SHEEP_AMBIENT
-	}
+	override fun getAmbientSound(): SoundEvent = SoundEvents.ENTITY_SHEEP_AMBIENT
 
-	override fun getDeathSound(): SoundEvent? {
-		return SoundEvents.ENTITY_SHEEP_DEATH
-	}
+	override fun getDeathSound(): SoundEvent = SoundEvents.ENTITY_SHEEP_DEATH
 
-	override fun getHurtSound(@Nonnull damageSourceIn: DamageSource): SoundEvent? {
-		return SoundEvents.ENTITY_SHEEP_HURT
-	}
+	override fun getHurtSound(@Nonnull damageSourceIn: DamageSource): SoundEvent = SoundEvents.ENTITY_SHEEP_HURT
 
-	override fun playStepSound(@Nonnull pos: BlockPos, @Nonnull blockIn: BlockState) {
+	override fun playStepSound(@Nonnull pos: BlockPos, @Nonnull blockIn: BlockState) =
 		playSound(SoundEvents.ENTITY_SHEEP_STEP, 0.1f, 1f)
-	}
 
 	override fun updateAITasks() {
 		rubySheepTimer = this.eatGrassGoal.eatingGrassTimer
@@ -81,12 +74,10 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 	}
 
 	@OnlyIn(Dist.CLIENT)
-	override fun handleStatusUpdate(id: Byte) {
-		if (id.toInt() == 10) {
-			rubySheepTimer = 40
-		} else {
-			super.handleStatusUpdate(id)
-		}
+	override fun handleStatusUpdate(id: Byte) = if (id.toInt() == 10) {
+		rubySheepTimer = 40
+	} else {
+		super.handleStatusUpdate(id)
 	}
 
 	override fun shear(category: SoundCategory) {
@@ -94,7 +85,7 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		this.sheared = true
 		val i = 1 + rand.nextInt(3)
 		for (j in 0 until i) {
-			val itementity = this.entityDropItem(ItemRegistry.RUBY_WOOL_ITEM, 1)
+			val itementity = this.entityDropItem(ItemRegistry.rubyWool, 1)
 			if (itementity != null) {
 				itementity.motion = itementity.motion.add(((rand.nextFloat() - rand.nextFloat()) * 0.1f).toDouble(),
 					(rand.nextFloat() * 0.05f).toDouble(),
@@ -121,7 +112,7 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 			val i = 1 + rand.nextInt(3)
 			val items: MutableList<ItemStack> = ArrayList()
 			for (j in 0 until i) {
-				items.add(ItemStack(ItemRegistry.RUBY_WOOL_ITEM))
+				items.add(ItemStack(ItemRegistry.rubyWool))
 			}
 			return items
 		}
@@ -140,14 +131,12 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		return onInitialSpawnResult
 	}
 
-	override fun getLootTable() = RubyMod.id("entities/ruby_sheep")
+	override fun getLootTable() = id("entities/ruby_sheep")
 
-	override fun canMateWith(otherAnimal: AnimalEntity): Boolean {
-		return otherAnimal is SheepEntity && otherAnimal.isInLove()
-	}
+	override fun canMateWith(otherAnimal: AnimalEntity) = otherAnimal is SheepEntity && otherAnimal.isInLove()
 
 	companion object {
-		val TEMPTATION_ITEMS: Ingredient = Ingredient.fromItems(ItemRegistry.RUBY, Items.WHEAT)
+		val TEMPTATION_ITEMS: Ingredient = Ingredient.fromItems(ItemRegistry.ruby, Items.WHEAT)
 
 		@Nonnull
 		fun setCustomAttributes(): MutableAttribute {

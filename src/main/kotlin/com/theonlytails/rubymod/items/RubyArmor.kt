@@ -1,7 +1,7 @@
 package com.theonlytails.rubymod.items
 
-import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.registries.ItemRegistry
+import com.theonlytails.rubymod.rubyTabProperty
 import com.theonlytails.rubymod.util.enums.RubyArmorMaterial
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.inventory.EquipmentSlotType
@@ -16,16 +16,16 @@ import net.minecraft.world.World
  *
  * @author TheOnlyTails
  */
-class RubyArmorItem(slot: EquipmentSlotType) :
-	ArmorItem(RubyArmorMaterial.RUBY, slot, RubyMod.RUBY_TAB_PROPERTY) {
+class RubyArmor(slot: EquipmentSlotType) :
+	ArmorItem(RubyArmorMaterial.RUBY, slot, rubyTabProperty) {
 
 	override fun onArmorTick(stack: ItemStack, world: World, player: PlayerEntity) {
 		val heldItemMainhand = player.heldItemMainhand.item
 		val armor = player.armorInventoryList
 
-		val wearingAllRubyArmor = armor.all { itemStack: ItemStack -> itemStack.item is RubyArmorItem }
+		val wearingAllRubyArmor = armor.all { it.item is RubyArmor }
 
-		if (wearingAllRubyArmor && heldItemMainhand === ItemRegistry.RUBY_PICKAXE) {
+		if (wearingAllRubyArmor && heldItemMainhand == ItemRegistry.rubyPickaxe) {
 			player.addPotionEffect(EffectInstance(Effects.HASTE, 220, 0, true, true))
 		}
 	}

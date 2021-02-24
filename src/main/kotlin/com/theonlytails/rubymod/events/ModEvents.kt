@@ -13,32 +13,22 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
  *
  * @author TheOnlyTails
  */
-
 object ModEvents {
 	@Suppress("UNUSED_PARAMETER")
 	fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
-		PotionBrewing.addMix(
-			Potions.WATER,
-			ItemRegistry.RUBY,
-			PotionRegistry.MOTIVATION)
+		PotionBrewing.addMix(Potions.WATER, ItemRegistry.ruby, PotionRegistry.motivation)
 
-		addPotency(PotionRegistry.MOTIVATION, PotionRegistry.STRONG_MOTIVATION)
-		addTime(PotionRegistry.MOTIVATION, PotionRegistry.LONG_MOTIVATION)
+		addPotency(PotionRegistry.motivation, PotionRegistry.strongMotivation)
+		addTime(PotionRegistry.motivation, PotionRegistry.longMotivation)
 
-		addInverted(PotionRegistry.MOTIVATION, PotionRegistry.LAZINESS)
-		addPotency(PotionRegistry.LAZINESS, PotionRegistry.STRONG_LAZINESS)
-		addTime(PotionRegistry.LAZINESS, PotionRegistry.LONG_LAZINESS)
-	}
-
-	private fun addPotency(input: Potion, output: Potion) {
-		PotionBrewing.addMix(input, Items.GLOWSTONE_DUST, output)
-	}
-
-	private fun addTime(input: Potion, output: Potion) {
-		PotionBrewing.addMix(input, Items.REDSTONE, output)
-	}
-
-	private fun addInverted(input: Potion, output: Potion) {
-		PotionBrewing.addMix(input, Items.FERMENTED_SPIDER_EYE, output)
+		addInverted(PotionRegistry.motivation, PotionRegistry.laziness)
+		addPotency(PotionRegistry.laziness, PotionRegistry.strongLaziness)
+		addTime(PotionRegistry.laziness, PotionRegistry.longLaziness)
 	}
 }
+
+fun addPotency(input: Potion, output: Potion) = PotionBrewing.addMix(input, Items.GLOWSTONE_DUST, output)
+
+fun addTime(input: Potion, output: Potion) = PotionBrewing.addMix(input, Items.REDSTONE, output)
+
+fun addInverted(input: Potion, output: Potion) = PotionBrewing.addMix(input, Items.FERMENTED_SPIDER_EYE, output)

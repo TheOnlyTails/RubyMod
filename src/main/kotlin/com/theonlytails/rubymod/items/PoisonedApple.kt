@@ -17,7 +17,7 @@ import net.minecraft.util.text.StringTextComponent
  *
  * @author TheOnlyTails
  */
-class PoisonedAppleItem : Item(Properties()
+class PoisonedApple : Item(Properties()
 	.group(ItemGroup.FOOD)
 	.food(Food.Builder()
 		.hunger(7)

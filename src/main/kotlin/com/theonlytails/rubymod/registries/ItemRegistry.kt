@@ -2,8 +2,10 @@
 
 package com.theonlytails.rubymod.registries
 
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.items.*
+import com.theonlytails.rubymod.rubyTab
+import com.theonlytails.rubymod.rubyTabProperty
 import com.theonlytails.rubymod.util.enums.RubyItemTier
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.*
@@ -16,107 +18,106 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  * @author TheOnlyTails
  */
 object ItemRegistry {
-	val ITEMS = KDeferredRegister(ForgeRegistries.ITEMS, RubyMod.MOD_ID)
+	val items = KDeferredRegister(ForgeRegistries.ITEMS, MOD_ID)
 
-	val GHOST_WATER_BUCKET by ITEMS.registerObject("ghost_water_bucket") {
-		BucketItem(FluidRegistry::RUBY_GHOST_FLUID,
+	val ghostWaterBucket by items.registerObject("ghost_water_bucket") {
+		BucketItem(FluidRegistry::stillGhostWater,
 			Item.Properties()
 				.containerItem(Items.BUCKET)
 				.maxStackSize(1)
-				.group(RubyMod.RUBY_TAB))
+				.group(rubyTab))
 	}
 
 	//items
-	val POISONED_APPLE by ITEMS.registerObject("poisoned_apple", ::PoisonedAppleItem)
+	val poisonedApple by items.registerObject("poisoned_apple", ::PoisonedApple)
 
-	val RUBY_SHEEP_SPAWN_EGG by ITEMS.registerObject("ruby_sheep_spawn_egg") {
-		CustomSpawnEggItem(EntityTypeRegistry::RUBY_SHEEP,
+	val rubySheepSpawnEgg by items.registerObject("ruby_sheep_spawn_egg") {
+		CustomSpawnEggItem(EntityTypeRegistry::rubySheep,
 			0xE3E6E7,
-			0xFD0D0D,
-			RubyMod.RUBY_TAB_PROPERTY)
+			0xFD0D0D)
 	}
 
-	val RUBY by ITEMS.registerObject("ruby", ::RubyItem)
+	val ruby by items.registerObject("ruby", ::Ruby)
 
-	val RUBY_BLOCK_ITEM by ITEMS.registerObject("ruby_block") {
-		BlockItem(BlockRegistry.RUBY_BLOCK, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyBlock by items.registerObject("ruby_block") {
+		BlockItem(BlockRegistry.rubyBlock, rubyTabProperty)
 	}
 
-	val RUBY_SLAB_ITEM by ITEMS.registerObject("ruby_slab") {
-		BlockItem(BlockRegistry.RUBY_SLAB, RubyMod.RUBY_TAB_PROPERTY)
+	val rubySlab by items.registerObject("ruby_slab") {
+		BlockItem(BlockRegistry.rubySlab, rubyTabProperty)
 	}
 
-	val RUBY_STAIRS_ITEM by ITEMS.registerObject("ruby_stairs") {
-		BlockItem(BlockRegistry.RUBY_STAIRS, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyStairs by items.registerObject("ruby_stairs") {
+		BlockItem(BlockRegistry.rubyStairs, rubyTabProperty)
 	}
 
-	val RUBY_PRESSURE_PLATE_ITEM by ITEMS.registerObject("ruby_pressure_plate") {
-		BlockItem(BlockRegistry.RUBY_PRESSURE_PLATE, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyPressurePlate by items.registerObject("ruby_pressure_plate") {
+		BlockItem(BlockRegistry.rubyPressurePlate, rubyTabProperty)
 	}
 
-	val RUBY_BUTTON_ITEM by ITEMS.registerObject("ruby_button") {
-		BlockItem(BlockRegistry.RUBY_BUTTON, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyButton by items.registerObject("ruby_button") {
+		BlockItem(BlockRegistry.rubyButton, rubyTabProperty)
 	}
 
-	val RUBY_WALL_ITEM by ITEMS.registerObject("ruby_wall") {
-		BlockItem(BlockRegistry.RUBY_WALL, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyWall by items.registerObject("ruby_wall") {
+		BlockItem(BlockRegistry.rubyWall, rubyTabProperty)
 	}
 
-	val RUBY_ORE_BLOCK_ITEM by ITEMS.registerObject("ruby_ore") {
-		BlockItem(BlockRegistry.RUBY_ORE_BLOCK, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyOre by items.registerObject("ruby_ore") {
+		BlockItem(BlockRegistry.rubyOre, rubyTabProperty)
 	}
 
-	val CENTRIFUGE_BLOCK_ITEM by ITEMS.registerObject("centrifuge") {
-		BlockItem(BlockRegistry.CENTRIFUGE_BLOCK, RubyMod.RUBY_TAB_PROPERTY)
+	val centrifuge by items.registerObject("centrifuge") {
+		BlockItem(BlockRegistry.centrifuge, rubyTabProperty)
 	}
 
-	val RUBY_WOOL_ITEM by ITEMS.registerObject("ruby_wool") {
-		object : BlockItem(BlockRegistry.RUBY_WOOL, RubyMod.RUBY_TAB_PROPERTY) {
+	val rubyWool by items.registerObject("ruby_wool") {
+		object : BlockItem(BlockRegistry.rubyWool, rubyTabProperty) {
 			override fun getBurnTime(itemStack: ItemStack) = 100
 		}
 	}
 
-	val RUBY_CARPET_ITEM by ITEMS.registerObject("ruby_carpet") {
-		object : BlockItem(BlockRegistry.RUBY_CARPET, RubyMod.RUBY_TAB_PROPERTY) {
+	val rubyCarpet by items.registerObject("ruby_carpet") {
+		object : BlockItem(BlockRegistry.rubyCarpet, rubyTabProperty) {
 			override fun getBurnTime(itemStack: ItemStack) = 67
 		}
 	}
 
-	val RUBY_BARREL_ITEM by ITEMS.registerObject("ruby_barrel") {
-		BlockItem(BlockRegistry.RUBY_BARREL, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyBarrel by items.registerObject("ruby_barrel") {
+		BlockItem(BlockRegistry.rubyBarrel, rubyTabProperty)
 	}
 
-	val LOGIC_GATE_ITEM by ITEMS.registerObject("logic_gate") {
-		BlockItem(BlockRegistry.LOGIC_GATE, RubyMod.RUBY_TAB_PROPERTY)
+	val logicGate by items.registerObject("logic_gate") {
+		BlockItem(BlockRegistry.logicGate, rubyTabProperty)
 	}
 
 	//armor
-	val RUBY_HELMET by ITEMS.registerObject("ruby_helmet") { RubyArmorItem(EquipmentSlotType.HEAD) }
+	val rubyHelmet by items.registerObject("ruby_helmet") { RubyArmor(EquipmentSlotType.HEAD) }
 
-	val RUBY_CHESTPLATE by ITEMS.registerObject("ruby_chestplate") { RubyArmorItem(EquipmentSlotType.CHEST) }
+	val rubyChestplate by items.registerObject("ruby_chestplate") { RubyArmor(EquipmentSlotType.CHEST) }
 
-	val RUBY_LEGGINGS by ITEMS.registerObject("ruby_leggings") { RubyArmorItem(EquipmentSlotType.LEGS) }
+	val rubyLeggings by items.registerObject("ruby_leggings") { RubyArmor(EquipmentSlotType.LEGS) }
 
-	val RUBY_BOOTS by ITEMS.registerObject("ruby_boots") { RubyArmorItem(EquipmentSlotType.FEET) }
+	val rubyBoots by items.registerObject("ruby_boots") { RubyArmor(EquipmentSlotType.FEET) }
 
 	//tools
-	val RUBY_PICKAXE by ITEMS.registerObject("ruby_pickaxe") {
-		PickaxeItem(RubyItemTier.RUBY, 1, -2.8f, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyPickaxe by items.registerObject("ruby_pickaxe") {
+		PickaxeItem(RubyItemTier.RUBY, 1, -2.8f, rubyTabProperty)
 	}
 
-	val RUBY_SWORD by ITEMS.registerObject("ruby_sword") {
-		SwordItem(RubyItemTier.RUBY, 2, -2.4f, RubyMod.RUBY_TAB_PROPERTY)
+	val rubySword by items.registerObject("ruby_sword") {
+		SwordItem(RubyItemTier.RUBY, 2, -2.4f, rubyTabProperty)
 	}
 
-	val RUBY_AXE by ITEMS.registerObject("ruby_axe") {
-		AxeItem(RubyItemTier.RUBY, 5f, -3.05f, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyAxe by items.registerObject("ruby_axe") {
+		AxeItem(RubyItemTier.RUBY, 5f, -3.05f, rubyTabProperty)
 	}
 
-	val RUBY_SHOVEL by ITEMS.registerObject("ruby_shovel") {
-		ShovelItem(RubyItemTier.RUBY, 1f, -3f, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyShovel by items.registerObject("ruby_shovel") {
+		ShovelItem(RubyItemTier.RUBY, 1f, -3f, rubyTabProperty)
 	}
 
-	val RUBY_HOE by ITEMS.registerObject("ruby_hoe") {
-		HoeItem(RubyItemTier.RUBY, -2, -0.5f, RubyMod.RUBY_TAB_PROPERTY)
+	val rubyHoe by items.registerObject("ruby_hoe") {
+		HoeItem(RubyItemTier.RUBY, -2, -0.5f, rubyTabProperty)
 	}
 }

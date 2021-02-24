@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.ItemTagsProvider
@@ -22,7 +22,7 @@ class ItemTagGenerator(
 ) : ItemTagsProvider(
 	generator,
 	blockTags,
-	RubyMod.MOD_ID,
+	MOD_ID,
 	helper
 ) {
 
@@ -31,16 +31,16 @@ class ItemTagGenerator(
 	 */
 	override fun registerTags() {
 		// Vanilla tags
-		getOrCreateBuilder(ItemTags.CARPETS).add(ItemRegistry.RUBY_CARPET_ITEM)
-		getOrCreateBuilder(ItemTags.WOOL).add(ItemRegistry.RUBY_WOOL_ITEM)
-		getOrCreateBuilder(ItemTags.BEACON_PAYMENT_ITEMS).add(ItemRegistry.RUBY)
-		getOrCreateBuilder(ItemTags.BUTTONS).add(ItemRegistry.RUBY_BUTTON_ITEM)
-		getOrCreateBuilder(ItemTags.WALLS).add(ItemRegistry.RUBY_WALL_ITEM)
+		getOrCreateBuilder(ItemTags.CARPETS).add(ItemRegistry.rubyCarpet)
+		getOrCreateBuilder(ItemTags.WOOL).add(ItemRegistry.rubyWool)
+		getOrCreateBuilder(ItemTags.BEACON_PAYMENT_ITEMS).add(ItemRegistry.ruby)
+		getOrCreateBuilder(ItemTags.BUTTONS).add(ItemRegistry.rubyButton)
+		getOrCreateBuilder(ItemTags.WALLS).add(ItemRegistry.rubyWall)
 
 		// Forge tags
-		getOrCreateBuilder(Tags.Items.ORES).add(ItemRegistry.RUBY_ORE_BLOCK_ITEM)
-		getOrCreateBuilder(Tags.Items.GEMS).add(ItemRegistry.RUBY)
-		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(ItemRegistry.RUBY_BLOCK_ITEM)
+		getOrCreateBuilder(Tags.Items.ORES).add(ItemRegistry.rubyOre)
+		getOrCreateBuilder(Tags.Items.GEMS).add(ItemRegistry.ruby)
+		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(ItemRegistry.rubyBlock)
 	}
 
 	/**

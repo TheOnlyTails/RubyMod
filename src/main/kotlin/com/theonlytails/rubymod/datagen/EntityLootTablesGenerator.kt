@@ -23,8 +23,8 @@ class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTabl
 	private fun addLootTables(loot: EntityLootTablesGenerator) {
 		// Ruby Sheep
 		loot.addLoot(
-			EntityTypeRegistry.RUBY_SHEEP,
-			EntityLootTables.sheepLootTableBuilderWithDrop(ItemRegistry.RUBY_WOOL_ITEM),
+			EntityTypeRegistry.rubySheep,
+			EntityLootTables.sheepLootTableBuilderWithDrop(ItemRegistry.rubyWool),
 		)
 	}
 
