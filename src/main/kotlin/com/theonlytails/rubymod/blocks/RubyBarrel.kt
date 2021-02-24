@@ -18,7 +18,6 @@ import net.minecraft.state.BooleanProperty
 import net.minecraft.state.StateContainer
 import net.minecraft.state.properties.BlockStateProperties
 import net.minecraft.stats.Stats
-import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.ActionResultType
 import net.minecraft.util.Hand
 import net.minecraft.util.math.BlockPos
@@ -35,7 +34,7 @@ import java.util.stream.IntStream
  *
  * @author TheOnlyTails
  */
-class RubyBarrelBlock : Block(Properties.create(
+class RubyBarrel : Block(Properties.create(
 	Material.IRON, MaterialColor.RED)
 	.hardnessAndResistance(3.5f)
 	.sound(SoundType.METAL)
@@ -44,7 +43,7 @@ class RubyBarrelBlock : Block(Properties.create(
 	.setRequiresTool()) {
 
 	init {
-		defaultState = getStateContainer().baseState.with(PROPERTY_OPEN, false)
+		defaultState = stateContainer.baseState.with(PROPERTY_OPEN, false)
 	}
 
 	override fun onBlockActivated(
@@ -76,9 +75,7 @@ class RubyBarrelBlock : Block(Properties.create(
 		super.onReplaced(state, worldIn, pos, newState, isMoving)
 	}
 
-	override fun createTileEntity(state: BlockState, world: IBlockReader): TileEntity? {
-		return TileEntityTypes.RUBY_BARREL.create()
-	}
+	override fun createTileEntity(state: BlockState, world: IBlockReader) = TileEntityTypes.rubyBarrel.create()
 
 	override fun hasTileEntity(state: BlockState) = true
 

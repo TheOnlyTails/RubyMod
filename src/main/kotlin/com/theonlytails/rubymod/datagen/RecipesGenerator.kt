@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.advancements.criterion.InventoryChangeTrigger
 import net.minecraft.data.*
@@ -21,268 +21,268 @@ class RecipesGenerator(generator: DataGenerator) : RecipeProvider(generator) {
 	override fun registerRecipes(consumer: Consumer<IFinishedRecipe>) {
 		// Centrifuge
 		consumer
-			.shaped(ItemRegistry.CENTRIFUGE_BLOCK_ITEM) {
+			.shaped(ItemRegistry.centrifuge) {
 				it.patternLine("iri")
 				it.patternLine("ici")
 				it.patternLine("idi")
 				it.key('i', Items.IRON_INGOT)
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.ruby)
 				it.key('c', Items.CAULDRON)
 				it.key('d', Items.REDSTONE)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Poisoned Apple
 		consumer
-			.shapeless(ItemRegistry.POISONED_APPLE) {
+			.shapeless(ItemRegistry.poisonedApple) {
 				it.addIngredient(Items.APPLE)
-				it.addIngredient(ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addIngredient(ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby (uncrafting from ruby block)
 		consumer
-			.shapeless(ItemRegistry.RUBY, 9) {
-				it.addIngredient(ItemRegistry.RUBY_BLOCK_ITEM)
+			.shapeless(ItemRegistry.ruby, 9) {
+				it.addIngredient(ItemRegistry.rubyBlock)
 				it.addCriterion("ruby",
-					InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY_BLOCK_ITEM))
+					InventoryChangeTrigger.Instance.forItems(ItemRegistry.rubyBlock))
 			}
 
 		// Ruby Axe
 		consumer
-			.shaped(ItemRegistry.RUBY_AXE) {
+			.shaped(ItemRegistry.rubyAxe) {
 				it.patternLine(" rr")
 				it.patternLine(" sr")
 				it.patternLine(" s ")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.ruby)
 				it.key('s', Items.STICK)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Pickaxe
 		consumer
-			.shaped(ItemRegistry.RUBY_PICKAXE) {
+			.shaped(ItemRegistry.rubyPickaxe) {
 				it.patternLine("rrr")
 				it.patternLine(" s ")
 				it.patternLine(" s ")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.ruby)
 				it.key('s', Items.STICK)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Sword
 		consumer
-			.shaped(ItemRegistry.RUBY_SWORD) {
+			.shaped(ItemRegistry.rubySword) {
 				it.patternLine(" r ")
 				it.patternLine(" r ")
 				it.patternLine(" s ")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.ruby)
 				it.key('s', Items.STICK)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Shovel
 		consumer
-			.shaped(ItemRegistry.RUBY_SHOVEL) {
+			.shaped(ItemRegistry.rubyShovel) {
 				it.patternLine(" r ")
 				it.patternLine(" s ")
 				it.patternLine(" s ")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.ruby)
 				it.key('s', Items.STICK)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Hoe
 		consumer
-			.shaped(ItemRegistry.RUBY_HOE) {
+			.shaped(ItemRegistry.rubyHoe) {
 				it.patternLine(" rr")
 				it.patternLine(" s ")
 				it.patternLine(" s ")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.ruby)
 				it.key('s', Items.STICK)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Helmet
 		consumer
-			.shaped(ItemRegistry.RUBY_HELMET) {
+			.shaped(ItemRegistry.rubyHelmet) {
 				it.patternLine("rrr")
 				it.patternLine("r r")
-				it.key('r', ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Chestplate
 		consumer
-			.shaped(ItemRegistry.RUBY_CHESTPLATE) {
+			.shaped(ItemRegistry.rubyChestplate) {
 				it.patternLine("r r")
 				it.patternLine("rrr")
 				it.patternLine("rrr")
-				it.key('r', ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Leggings
 		consumer
-			.shaped(ItemRegistry.RUBY_LEGGINGS) {
+			.shaped(ItemRegistry.rubyLeggings) {
 				it.patternLine("rrr")
 				it.patternLine("r r")
 				it.patternLine("r r")
-				it.key('r', ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Boots
 		consumer
-			.shaped(ItemRegistry.RUBY_BOOTS) {
+			.shaped(ItemRegistry.rubyBoots) {
 				it.patternLine("r r")
 				it.patternLine("r r")
-				it.key('r', ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Barrel
 		consumer
-			.shaped(ItemRegistry.RUBY_BARREL_ITEM) {
+			.shaped(ItemRegistry.rubyBarrel) {
 				it.patternLine("brb")
 				it.patternLine("bcb")
 				it.patternLine("brb")
-				it.key('r', ItemRegistry.RUBY)
-				it.key('b', ItemRegistry.RUBY_BLOCK_ITEM)
+				it.key('r', ItemRegistry.ruby)
+				it.key('b', ItemRegistry.rubyBlock)
 				it.key('c', Items.BARREL)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Block
 		consumer
-			.shaped(ItemRegistry.RUBY_BLOCK_ITEM) {
+			.shaped(ItemRegistry.rubyBlock) {
 				it.patternLine("rrr")
 				it.patternLine("rrr")
 				it.patternLine("rrr")
-				it.key('r', ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Slab
 		consumer
-			.shaped(ItemRegistry.RUBY_SLAB_ITEM, 6) {
+			.shaped(ItemRegistry.rubySlab, 6) {
 				it.patternLine("rrr")
-				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.rubyBlock)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Stairs
 		consumer
-			.shaped(ItemRegistry.RUBY_STAIRS_ITEM, 4) {
+			.shaped(ItemRegistry.rubyStairs, 4) {
 				it.patternLine("r  ")
 				it.patternLine("rr ")
 				it.patternLine("rrr")
-				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.rubyBlock)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Button
 		consumer
-			.shapeless(ItemRegistry.RUBY_BUTTON_ITEM) {
-				it.addIngredient(ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+			.shapeless(ItemRegistry.rubyButton) {
+				it.addIngredient(ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Pressure Plate
 		consumer
-			.shaped(ItemRegistry.RUBY_PRESSURE_PLATE_ITEM) {
+			.shaped(ItemRegistry.rubyPressurePlate) {
 				it.patternLine("rr")
-				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.rubyBlock)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Wall
 		consumer
-			.shaped(ItemRegistry.RUBY_WALL_ITEM, 6) {
+			.shaped(ItemRegistry.rubyWall, 6) {
 				it.patternLine("rrr")
 				it.patternLine("rrr")
-				it.key('r', ItemRegistry.RUBY_BLOCK_ITEM)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.rubyBlock)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Carpet (from carpet)
 		consumer
 			.shaped(
-				ItemRegistry.RUBY_CARPET_ITEM,
+				ItemRegistry.rubyCarpet,
 				8,
-				ResourceLocation(RubyMod.MOD_ID, "ruby_carpet_from_carpet"),
+				ResourceLocation(MOD_ID, "ruby_carpet_from_carpet"),
 			) {
 				it.patternLine("ccc")
 				it.patternLine("crc")
 				it.patternLine("ccc")
-				it.key('r', ItemRegistry.RUBY)
+				it.key('r', ItemRegistry.ruby)
 				it.key('c', Items.WHITE_CARPET)
 				it.setGroup("Ruby Carpet")
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Carpet (from wool)
 		consumer
 			.shaped(
-				ItemRegistry.RUBY_CARPET_ITEM,
+				ItemRegistry.rubyCarpet,
 				8,
-				ResourceLocation(RubyMod.MOD_ID, "ruby_carpet_from_wool"),
+				ResourceLocation(MOD_ID, "ruby_carpet_from_wool"),
 			) {
 				it.patternLine("ww")
-				it.key('w', ItemRegistry.RUBY_WOOL_ITEM)
+				it.key('w', ItemRegistry.rubyWool)
 				it.setGroup("Ruby Carpet")
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Smelt ruby ore
 		consumer
 			.smelting(
-				ItemRegistry.RUBY,
-				Ingredient.fromItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM),
+				ItemRegistry.ruby,
+				Ingredient.fromItems(ItemRegistry.rubyOre),
 				1f,
 				100,
-				ResourceLocation(RubyMod.MOD_ID, "ruby_ore_smelt"),
+				ResourceLocation(MOD_ID, "ruby_ore_smelt"),
 			) {
-				it.addCriterion("ruby_ore", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM))
+				it.addCriterion("ruby_ore", InventoryChangeTrigger.Instance.forItems(ItemRegistry.rubyOre))
 			}
 
 		// Blast ruby ore
 		consumer
 			.blasting(
-				ItemRegistry.RUBY,
-				Ingredient.fromItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM),
+				ItemRegistry.ruby,
+				Ingredient.fromItems(ItemRegistry.rubyOre),
 				1f,
 				100,
-				ResourceLocation(RubyMod.MOD_ID, "ruby_ore_blast"),
+				ResourceLocation(MOD_ID, "ruby_ore_blast"),
 			) {
-				it.addCriterion("ruby_ore", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY_ORE_BLOCK_ITEM))
+				it.addCriterion("ruby_ore", InventoryChangeTrigger.Instance.forItems(ItemRegistry.rubyOre))
 			}
 
 		// Ruby Water Bucket
 		consumer
-			.shapeless(ItemRegistry.GHOST_WATER_BUCKET) {
-				it.addIngredient(ItemRegistry.RUBY)
+			.shapeless(ItemRegistry.ghostWaterBucket) {
+				it.addIngredient(ItemRegistry.ruby)
 				it.addIngredient(Items.WATER_BUCKET)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Ruby Wool
 		consumer
-			.shapeless(ItemRegistry.RUBY_WOOL_ITEM) {
-				it.addIngredient(ItemRegistry.RUBY)
+			.shapeless(ItemRegistry.rubyWool) {
+				it.addIngredient(ItemRegistry.ruby)
 				it.addIngredient(ItemTags.WOOL)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 
 		// Logic Gate
 		consumer
-			.shaped(ItemRegistry.LOGIC_GATE_ITEM) {
+			.shaped(ItemRegistry.logicGate) {
 				it.patternLine("t t")
 				it.patternLine("srs")
 				it.key('t', Items.REDSTONE_TORCH)
 				it.key('s', ItemTags.STONE_CRAFTING_MATERIALS)
-				it.key('r', ItemRegistry.RUBY)
-				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.RUBY))
+				it.key('r', ItemRegistry.ruby)
+				it.addCriterion("ruby", InventoryChangeTrigger.Instance.forItems(ItemRegistry.ruby))
 			}
 	}
 

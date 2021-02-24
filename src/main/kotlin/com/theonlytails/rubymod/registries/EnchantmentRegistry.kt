@@ -2,7 +2,7 @@
 
 package com.theonlytails.rubymod.registries
 
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.enchantments.StingerEnchantment
 import net.minecraftforge.registries.ForgeRegistries
 import thedarkcolour.kotlinforforge.forge.KDeferredRegister
@@ -13,7 +13,7 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  * @author TheOnlyTails
  */
 object EnchantmentRegistry {
-	val ENCHANTMENTS = KDeferredRegister(ForgeRegistries.ENCHANTMENTS, RubyMod.MOD_ID)
+	val enchantments = KDeferredRegister(ForgeRegistries.ENCHANTMENTS, MOD_ID)
 
-	val STINGER by ENCHANTMENTS.registerObject("stinger", ::StingerEnchantment)
+	val stinger by enchantments.registerObject("stinger", ::StingerEnchantment)
 }

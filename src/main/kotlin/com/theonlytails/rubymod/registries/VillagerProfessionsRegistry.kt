@@ -1,9 +1,8 @@
 package com.theonlytails.rubymod.registries
 
 import com.google.common.collect.ImmutableSet
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.MOD_ID
 import net.minecraft.block.Block
-import net.minecraft.block.BlockState
 import net.minecraft.entity.merchant.villager.VillagerProfession
 import net.minecraft.util.SoundEvents
 import net.minecraft.village.PointOfInterestType
@@ -16,29 +15,27 @@ import thedarkcolour.kotlinforforge.forge.KDeferredRegister
  * @author TheOnlyTails
  */
 object VillagerProfessionsRegistry {
-	val PROFESSIONS = KDeferredRegister(ForgeRegistries.PROFESSIONS, RubyMod.MOD_ID)
-	val POINTS_OF_INTEREST = KDeferredRegister(ForgeRegistries.POI_TYPES, RubyMod.MOD_ID)
+	val professions = KDeferredRegister(ForgeRegistries.PROFESSIONS, MOD_ID)
+	val pointsOfInterest = KDeferredRegister(ForgeRegistries.POI_TYPES, MOD_ID)
 
-	val JEWELER by PROFESSIONS.registerObject("jeweler") {
+	val jeweler by professions.registerObject("jeweler") {
 		VillagerProfession(
 			"jeweler",
-			JEWELER_POI,
+			jewelerPOI,
 			ImmutableSet.of(),
 			ImmutableSet.of(),
 			SoundEvents.ENTITY_VILLAGER_WORK_TOOLSMITH
 		)
 	}
 
-	val JEWELER_POI by POINTS_OF_INTEREST.registerObject("jeweler") {
+	val jewelerPOI by pointsOfInterest.registerObject("jeweler") {
 		PointOfInterestType(
 			"jeweler",
-			getAllStates(BlockRegistry.RUBY_BARREL),
+			allBlockStates.invoke(BlockRegistry.rubyBarrel),
 			1,
 			1,
 		)
 	}
 
-	private fun getAllStates(blockIn: Block): Set<BlockState> {
-		return ImmutableSet.copyOf(blockIn.stateContainer.validStates)
-	}
+	private val allBlockStates = { it: Block -> ImmutableSet.copyOf(it.stateContainer.validStates) }
 }

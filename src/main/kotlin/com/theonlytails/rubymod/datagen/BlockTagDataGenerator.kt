@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.registries.BlockRegistry
 import net.minecraft.data.BlockTagsProvider
 import net.minecraft.data.DataGenerator
@@ -18,23 +18,23 @@ import java.nio.file.Path
 class BlockTagDataGenerator(generator: DataGenerator, helper: ExistingFileHelper) :
 	BlockTagsProvider(
 		generator,
-		RubyMod.MOD_ID,
+		MOD_ID,
 		helper) {
 	/**
 	 * Register tags for each block.
 	 */
 	override fun registerTags() {
 		// Vanilla tags
-		getOrCreateBuilder(BlockTags.BEACON_BASE_BLOCKS).add(BlockRegistry.RUBY_BLOCK)
-		getOrCreateBuilder(BlockTags.CARPETS).add(BlockRegistry.RUBY_CARPET)
-		getOrCreateBuilder(BlockTags.WOOL).add(BlockRegistry.RUBY_WOOL)
-		getOrCreateBuilder(BlockTags.PRESSURE_PLATES).add(BlockRegistry.RUBY_PRESSURE_PLATE)
-		getOrCreateBuilder(BlockTags.BUTTONS).add(BlockRegistry.RUBY_BUTTON)
-		getOrCreateBuilder(BlockTags.WALLS).add(BlockRegistry.RUBY_WALL)
+		getOrCreateBuilder(BlockTags.BEACON_BASE_BLOCKS).add(BlockRegistry.rubyBlock)
+		getOrCreateBuilder(BlockTags.CARPETS).add(BlockRegistry.rubyCarpet)
+		getOrCreateBuilder(BlockTags.WOOL).add(BlockRegistry.rubyWool)
+		getOrCreateBuilder(BlockTags.PRESSURE_PLATES).add(BlockRegistry.rubyPressurePlate)
+		getOrCreateBuilder(BlockTags.BUTTONS).add(BlockRegistry.rubyButton)
+		getOrCreateBuilder(BlockTags.WALLS).add(BlockRegistry.rubyWall)
 
 		// Forge Tags
-		getOrCreateBuilder(Tags.Blocks.ORES).add(BlockRegistry.RUBY_ORE_BLOCK)
-		getOrCreateBuilder(Tags.Blocks.STORAGE_BLOCKS).add(BlockRegistry.RUBY_BLOCK)
+		getOrCreateBuilder(Tags.Blocks.ORES).add(BlockRegistry.rubyOre)
+		getOrCreateBuilder(Tags.Blocks.STORAGE_BLOCKS).add(BlockRegistry.rubyBlock)
 	}
 
 	/**

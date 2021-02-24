@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.datagen
 
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.registries.*
 import net.minecraft.data.DataGenerator
 import net.minecraftforge.common.data.LanguageProvider
@@ -11,15 +11,15 @@ import net.minecraftforge.common.data.LanguageProvider
  * @author TheOnlyTails
  */
 abstract class LangGenerator(generator: DataGenerator, locale: String) :
-	LanguageProvider(generator, RubyMod.MOD_ID, locale) {
+	LanguageProvider(generator, MOD_ID, locale) {
 
 	class English(generator: DataGenerator) : LangGenerator(generator, "en_us") {
 		override fun addTranslations() {
 			// Items
-			add(ItemRegistry.RUBY, "Ruby")
-			add(ItemRegistry.POISONED_APPLE, "Poisoned Apple")
-			add(ItemRegistry.GHOST_WATER_BUCKET, "Ghost Water Bucket")
-			add(ItemRegistry.RUBY_SHEEP_SPAWN_EGG, "Ruby Sheep Spawn Egg")
+			add(ItemRegistry.ruby, "Ruby")
+			add(ItemRegistry.poisonedApple, "Poisoned Apple")
+			add(ItemRegistry.ghostWaterBucket, "Ghost Water Bucket")
+			add(ItemRegistry.rubySheepSpawnEgg, "Ruby Sheep Spawn Egg")
 
 			// Effects and Potions
 			add("item.minecraft.potion.effect.motivation", "Potion of Motivation")
@@ -32,43 +32,43 @@ abstract class LangGenerator(generator: DataGenerator, locale: String) :
 			add("item.minecraft.tipped_arrow.effect.laziness", "Tipped Arrow of Laziness")
 
 			// Blocks
-			add(BlockRegistry.RUBY_BLOCK, "Ruby Block")
-			add(BlockRegistry.RUBY_SLAB, "Ruby Slab")
-			add(BlockRegistry.RUBY_STAIRS, "Ruby Stairs")
-			add(BlockRegistry.RUBY_PRESSURE_PLATE, "Ruby Pressure Plate")
-			add(BlockRegistry.RUBY_BUTTON, "Ruby Button")
-			add(BlockRegistry.RUBY_WALL, "Ruby Wall")
-			add(BlockRegistry.RUBY_ORE_BLOCK, "Ruby Ore")
-			add(BlockRegistry.RUBY_WOOL, "Ruby Wool")
-			add(BlockRegistry.RUBY_CARPET, "Ruby Carpet")
-			add(BlockRegistry.CENTRIFUGE_BLOCK, "Centrifuge")
-			add(BlockRegistry.RUBY_BARREL, "Ruby Barrel")
-			add(BlockRegistry.LOGIC_GATE, "Logic Gate")
+			add(BlockRegistry.rubyBlock, "Ruby Block")
+			add(BlockRegistry.rubySlab, "Ruby Slab")
+			add(BlockRegistry.rubyStairs, "Ruby Stairs")
+			add(BlockRegistry.rubyPressurePlate, "Ruby Pressure Plate")
+			add(BlockRegistry.rubyButton, "Ruby Button")
+			add(BlockRegistry.rubyWall, "Ruby Wall")
+			add(BlockRegistry.rubyOre, "Ruby Ore")
+			add(BlockRegistry.rubyWool, "Ruby Wool")
+			add(BlockRegistry.rubyCarpet, "Ruby Carpet")
+			add(BlockRegistry.centrifuge, "Centrifuge")
+			add(BlockRegistry.rubyBarrel, "Ruby Barrel")
+			add(BlockRegistry.logicGate, "Logic Gate")
 
 			// Tools
-			add(ItemRegistry.RUBY_SWORD, "Ruby Sword")
-			add(ItemRegistry.RUBY_PICKAXE, "Ruby Pickaxe")
-			add(ItemRegistry.RUBY_AXE, "Ruby Axe")
-			add(ItemRegistry.RUBY_SHOVEL, "Ruby Shovel")
-			add(ItemRegistry.RUBY_HOE, "Ruby Hoe")
+			add(ItemRegistry.rubySword, "Ruby Sword")
+			add(ItemRegistry.rubyPickaxe, "Ruby Pickaxe")
+			add(ItemRegistry.rubyAxe, "Ruby Axe")
+			add(ItemRegistry.rubyShovel, "Ruby Shovel")
+			add(ItemRegistry.rubyHoe, "Ruby Hoe")
 
 			// Armor
-			add(ItemRegistry.RUBY_HELMET, "Ruby Helmet")
-			add(ItemRegistry.RUBY_CHESTPLATE, "Ruby Chestplate")
-			add(ItemRegistry.RUBY_LEGGINGS, "Ruby Leggings")
-			add(ItemRegistry.RUBY_BOOTS, "Ruby Boots")
+			add(ItemRegistry.rubyHelmet, "Ruby Helmet")
+			add(ItemRegistry.rubyChestplate, "Ruby Chestplate")
+			add(ItemRegistry.rubyLeggings, "Ruby Leggings")
+			add(ItemRegistry.rubyBoots, "Ruby Boots")
 
 			// Entities
-			add(EntityTypeRegistry.RUBY_SHEEP, "Ruby Sheep")
+			add(EntityTypeRegistry.rubySheep, "Ruby Sheep")
 
 			// Enchantments
-			add(EnchantmentRegistry.STINGER, "Stinger")
+			add(EnchantmentRegistry.stinger, "Stinger")
 
 			// Biomes
-			add("biome.${RubyMod.MOD_ID}.ruby_hills", "Ruby Hills")
+			add("biome.$MOD_ID.ruby_hills", "Ruby Hills")
 
 			// Villager Professions
-			add("entity.minecraft.villager.${RubyMod.MOD_ID}.jeweler", "Jeweler")
+			add("entity.minecraft.villager.$MOD_ID.jeweler", "Jeweler")
 
 			// Creative tabs
 			add("itemGroup.ruby_tab", "RubyMod")

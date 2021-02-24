@@ -1,8 +1,8 @@
 package com.theonlytails.rubymod.items
 
-import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.entities.RubySheepEntity
 import com.theonlytails.rubymod.registries.EntityTypeRegistry
+import com.theonlytails.rubymod.rubyTabProperty
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.SpawnReason
 import net.minecraft.entity.passive.SheepEntity
@@ -18,7 +18,7 @@ import net.minecraft.world.IServerWorld
  *
  * @author TheOnlyTails
  */
-class RubyItem : Item(RubyMod.RUBY_TAB_PROPERTY) {
+class Ruby : Item(rubyTabProperty) {
 	override fun itemInteractionForEntity(
 		stack: ItemStack,
 		playerIn: PlayerEntity,
@@ -29,7 +29,7 @@ class RubyItem : Item(RubyMod.RUBY_TAB_PROPERTY) {
 		if (target is SheepEntity) {
 			if (target.isAlive && !target.sheared && target !is RubySheepEntity) {
 				if (!playerIn.world.isRemote) {
-					val rubySheepEntity = EntityTypeRegistry.RUBY_SHEEP.create(playerIn.world)
+					val rubySheepEntity = EntityTypeRegistry.rubySheep.create(playerIn.world)
 					if (rubySheepEntity != null) {
 						rubySheepEntity.setLocationAndAngles(
 							target.posX,

@@ -10,7 +10,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath(group = "net.minecraftforge.gradle", name = "ForgeGradle", version = "4.0.15")
+		classpath(group = "net.minecraftforge.gradle", name = "ForgeGradle", version = "4.0.23")
 		classpath(group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version = "1.4.30")
 	}
 }

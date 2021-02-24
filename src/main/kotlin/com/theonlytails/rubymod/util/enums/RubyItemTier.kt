@@ -4,7 +4,6 @@ import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.item.IItemTier
 import net.minecraft.item.crafting.Ingredient
 import net.minecraftforge.common.util.Lazy
-import javax.annotation.Nonnull
 
 /**
  * Holds the properties of any ruby tool.
@@ -28,7 +27,7 @@ enum class RubyItemTier(
 		7f,
 		3f,
 		12,
-		Lazy.of { Ingredient.fromItems(ItemRegistry.RUBY) });
+		Lazy.of { Ingredient.fromItems(ItemRegistry.ruby) });
 
 	override fun getMaxUses() = maxUses
 
@@ -40,6 +39,5 @@ enum class RubyItemTier(
 
 	override fun getEnchantability() = enchantability
 
-	@Nonnull
 	override fun getRepairMaterial(): Ingredient = repairMaterial.get()
 }

@@ -27,22 +27,22 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 
 	private fun addLootTables(loot: BlockLootTablesGenerator) {
 		// Centrifuge
-		loot.addLoot(BlockRegistry.CENTRIFUGE_BLOCK, LootTable.builder()
+		loot.addLoot(BlockRegistry.centrifuge, LootTable.builder()
 			.addLootPool(
 				LootPool.builder()
-					.addEntry(ItemLootEntry.builder(ItemRegistry.CENTRIFUGE_BLOCK_ITEM)
+					.addEntry(ItemLootEntry.builder(ItemRegistry.centrifuge)
 						.acceptCondition(SILK_TOUCH)
-						.alternatively(ItemLootEntry.builder(ItemRegistry.RUBY))
+						.alternatively(ItemLootEntry.builder(ItemRegistry.ruby))
 					)
 					.acceptCondition(SurvivesExplosion.builder())
 			)
 		)
 
 		// Ruby Barrel
-		loot.addLoot(BlockRegistry.RUBY_BARREL, LootTable.builder()
+		loot.addLoot(BlockRegistry.rubyBarrel, LootTable.builder()
 			.addLootPool(
 				LootPool.builder()
-					.addEntry(ItemLootEntry.builder(ItemRegistry.RUBY_BARREL_ITEM)
+					.addEntry(ItemLootEntry.builder(ItemRegistry.rubyBarrel)
 						.acceptFunction(CopyName.builder(CopyName.Source.BLOCK_ENTITY))
 					)
 					.acceptCondition(SurvivesExplosion.builder())
@@ -50,37 +50,37 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 		)
 
 		// Ruby Block
-		loot.dropSelf(BlockRegistry.RUBY_BLOCK)
+		loot.dropSelf(BlockRegistry.rubyBlock)
 
 		// Ruby Slab
-		loot.dropSlabs(BlockRegistry.RUBY_SLAB)
+		loot.dropSlabs(BlockRegistry.rubySlab)
 
 		// Ruby Stairs
-		loot.dropSelf(BlockRegistry.RUBY_STAIRS)
+		loot.dropSelf(BlockRegistry.rubyStairs)
 
 		// Ruby Pressure Plate
-		loot.dropSelf(BlockRegistry.RUBY_PRESSURE_PLATE)
+		loot.dropSelf(BlockRegistry.rubyPressurePlate)
 
 		// Ruby Button
-		loot.dropSelf(BlockRegistry.RUBY_BUTTON)
+		loot.dropSelf(BlockRegistry.rubyButton)
 
 		// Ruby Wall
-		loot.dropSelf(BlockRegistry.RUBY_WALL)
+		loot.dropSelf(BlockRegistry.rubyWall)
 
 		// Ruby Carpet
-		loot.dropSelf(BlockRegistry.RUBY_CARPET)
+		loot.dropSelf(BlockRegistry.rubyCarpet)
 
 		// Logic Gate
-		loot.dropSelf(BlockRegistry.LOGIC_GATE)
+		loot.dropSelf(BlockRegistry.logicGate)
 
 		// Ruby Ore
-		loot.addLoot(BlockRegistry.RUBY_ORE_BLOCK, LootTable.builder()
+		loot.addLoot(BlockRegistry.rubyOre, LootTable.builder()
 			.addLootPool(
 				LootPool.builder()
-					.addEntry(ItemLootEntry.builder(ItemRegistry.RUBY_ORE_BLOCK_ITEM)
+					.addEntry(ItemLootEntry.builder(ItemRegistry.rubyOre)
 						.acceptCondition(SILK_TOUCH)
 						.alternatively(
-							ItemLootEntry.builder(ItemRegistry.RUBY)
+							ItemLootEntry.builder(ItemRegistry.ruby)
 								.acceptFunction(ExplosionDecay.builder())
 								.acceptFunction(ApplyBonus.oreDrops(Enchantments.FORTUNE))
 						)
@@ -90,7 +90,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 		)
 
 		// Ruby Wool
-		loot.dropSelf(BlockRegistry.RUBY_WOOL)
+		loot.dropSelf(BlockRegistry.rubyWool)
 	}
 
 	// Always drop, unless explosion

@@ -1,6 +1,6 @@
 package com.theonlytails.rubymod.tileentities
 
-import com.theonlytails.rubymod.blocks.RubyBarrelBlock
+import com.theonlytails.rubymod.blocks.RubyBarrel
 import com.theonlytails.rubymod.containers.RubyBarrelContainer
 import com.theonlytails.rubymod.registries.TileEntityTypes
 import net.minecraft.block.BlockState
@@ -21,22 +21,20 @@ import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.ItemStackHandler
 
 /**
- * The tile entity for [RubyBarrelBlock].
+ * The tile entity for [RubyBarrel].
  *
  * @author TheOnlyTails
  */
-class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedContainerProvider {
+class RubyBarrelTileEntity : TileEntity(TileEntityTypes.rubyBarrel), INamedContainerProvider {
 	private val optional = LazyOptional.of { itemHandler }
-	var size = 45
-	val itemHandler = createHandler(size)
+	val size = 45
+	val itemHandler = createHandler()
 	var players = 0
 
-	private fun createHandler(size: Int): ItemStackHandler {
-		return object : ItemStackHandler(size) {
-			override fun onContentsChanged(slot: Int) {
-				super.onContentsChanged(slot)
-				markDirty()
-			}
+	private fun createHandler() = object : ItemStackHandler(size) {
+		override fun onContentsChanged(slot: Int) {
+			super.onContentsChanged(slot)
+			markDirty()
 		}
 	}
 
@@ -46,13 +44,13 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 		RubyBarrelContainer(id, playerInventory, this)
 
 	fun changeState(blockState: BlockState, value: Boolean) {
-		if (blockState.block is RubyBarrelBlock) {
-			world?.setBlockState(pos, blockState.with(RubyBarrelBlock.PROPERTY_OPEN, value))
+		if (blockState.block is RubyBarrel) {
+			world?.setBlockState(pos, blockState.with(RubyBarrel.PROPERTY_OPEN, value))
 		}
 	}
 
 	fun playSound(soundEvent: SoundEvent) {
-		if (this.blockState.block is RubyBarrelBlock) {
+		if (this.blockState.block is RubyBarrel) {
 			val x = pos.x + 0.5
 			val y = pos.y + 0.5
 			val z = pos.z + 0.5
@@ -63,20 +61,16 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 	}
 
 	override fun write(nbt: CompoundNBT): CompoundNBT {
-		optional.ifPresent { handler: ItemStackHandler ->
-			nbt.put("inv",
-				handler.serializeNBT())
-		}
-
+		optional.ifPresent { nbt.put("inv", it.serializeNBT()) }
 		itemHandler.serializeNBT()
+
 		return super.write(nbt)
 	}
 
 	override fun read(state: BlockState, nbt: CompoundNBT) {
-		optional.ifPresent { handler: ItemStackHandler ->
-			handler.deserializeNBT(nbt.getCompound("inv"))
-		}
+		optional.ifPresent { it.deserializeNBT(nbt.getCompound("inv")) }
 		itemHandler.deserializeNBT(nbt.getCompound("inv"))
+
 		super.read(state, nbt)
 	}
 
@@ -91,11 +85,9 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.RUBY_BARREL), INamedCont
 	override fun onDataPacket(net: NetworkManager, pkt: SUpdateTileEntityPacket) =
 		read(this.blockState, pkt.nbtCompound)
 
-	override fun <T> getCapability(cap: Capability<T>, side: Direction?): LazyOptional<T> {
-		return if (cap === CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-			optional.cast()
-		} else super.getCapability(cap, side)
-	}
+	override fun <T> getCapability(cap: Capability<T>, side: Direction?): LazyOptional<T> =
+		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) optional.cast()
+		else super.getCapability(cap, side)
 
 	override fun remove() {
 		super.remove()

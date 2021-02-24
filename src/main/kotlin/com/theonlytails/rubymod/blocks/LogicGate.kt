@@ -1,9 +1,8 @@
 package com.theonlytails.rubymod.blocks
 
 import com.theonlytails.rubymod.util.enums.LogicGateModes
-import net.minecraft.block.Block
-import net.minecraft.block.BlockState
-import net.minecraft.block.RedstoneDiodeBlock
+import net.minecraft.block.*
+import net.minecraft.block.material.Material
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.state.EnumProperty
 import net.minecraft.state.StateContainer
@@ -16,7 +15,8 @@ import net.minecraft.world.IBlockReader
 import net.minecraft.world.IWorld
 import net.minecraft.world.World
 
-class LogicGateBlock(properties: Properties) : RedstoneDiodeBlock(properties) {
+class LogicGate :
+	RedstoneDiodeBlock(Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().sound(SoundType.METAL)) {
 	init {
 		this.defaultState = this.stateContainer.baseState
 			.with(HORIZONTAL_FACING, Direction.NORTH)
@@ -40,13 +40,11 @@ class LogicGateBlock(properties: Properties) : RedstoneDiodeBlock(properties) {
 		player: PlayerEntity,
 		hand: Hand,
 		result: BlockRayTraceResult,
-	): ActionResultType {
-		return if (player.abilities.allowEdit) {
-			world.setBlockState(pos, state.func_235896_a_(MODE), 3)
-			ActionResultType.func_233537_a_(world.isRemote)
-		} else {
-			ActionResultType.PASS
-		}
+	): ActionResultType = if (player.abilities.allowEdit) {
+		world.setBlockState(pos, state.func_235896_a_(MODE), 3)
+		ActionResultType.func_233537_a_(world.isRemote)
+	} else {
+		ActionResultType.PASS
 	}
 
 	override fun getDelay(state: BlockState) = 1
@@ -73,8 +71,8 @@ class LogicGateBlock(properties: Properties) : RedstoneDiodeBlock(properties) {
 		worldIn: IWorld,
 		currentPos: BlockPos,
 		facingPos: BlockPos,
-	): BlockState {
-		return if (!worldIn.isRemote && facing.axis !== stateIn.get(HORIZONTAL_FACING).axis)
+	): BlockState =
+		if (!worldIn.isRemote && facing.axis !== stateIn.get(HORIZONTAL_FACING).axis)
 			stateIn.with(MODE, stateIn.get(MODE))
 		else super.updatePostPlacement(stateIn,
 			facing,
@@ -82,7 +80,6 @@ class LogicGateBlock(properties: Properties) : RedstoneDiodeBlock(properties) {
 			worldIn,
 			currentPos,
 			facingPos)
-	}
 
 	companion object {
 		val MODE: EnumProperty<LogicGateModes> = EnumProperty

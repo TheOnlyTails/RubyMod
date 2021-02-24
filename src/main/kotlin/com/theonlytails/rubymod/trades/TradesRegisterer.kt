@@ -7,7 +7,7 @@ import net.minecraftforge.event.village.VillagerTradesEvent
 
 object TradesRegisterer {
 	fun addVillagerTrades(event: VillagerTradesEvent) {
-		if (event.type == VillagerProfessionsRegistry.JEWELER) {
+		if (event.type == VillagerProfessionsRegistry.jeweler) {
 			// Level 1 trades
 			event.trades[1].add(ItemsForRubyTrade(Items.COAL, 45, maxUses = 12))
 			event.trades[1].add(ItemsForRubyTrade(Items.IRON_NUGGET, 16, maxUses = 9))
@@ -19,31 +19,31 @@ object TradesRegisterer {
 			event.trades[2].add(ItemsForRubyTrade(Items.LAPIS_LAZULI, 25, maxUses = 10))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_PICKAXE,
-				sellingItem = ItemRegistry.RUBY_PICKAXE,
+				sellingItem = ItemRegistry.rubyPickaxe,
 				maxUses = 1,
 				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_SWORD,
-				sellingItem = ItemRegistry.RUBY_SWORD,
+				sellingItem = ItemRegistry.rubySword,
 				maxUses = 1,
 				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_AXE,
-				sellingItem = ItemRegistry.RUBY_AXE,
+				sellingItem = ItemRegistry.rubyAxe,
 				maxUses = 1,
 				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_SHOVEL,
-				sellingItem = ItemRegistry.RUBY_SHOVEL,
+				sellingItem = ItemRegistry.rubyShovel,
 				maxUses = 1,
 				xpValue = 5,
 			))
 			event.trades[2].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_HOE,
-				sellingItem = ItemRegistry.RUBY_HOE,
+				sellingItem = ItemRegistry.rubyHoe,
 				maxUses = 1,
 				xpValue = 5,
 			))
@@ -57,22 +57,22 @@ object TradesRegisterer {
 			// Level 5 trades
 			event.trades[5].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_HELMET,
-				sellingItem = ItemRegistry.RUBY_HELMET,
+				sellingItem = ItemRegistry.rubyHelmet,
 				maxUses = 1,
 			))
 			event.trades[5].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_CHESTPLATE,
-				sellingItem = ItemRegistry.RUBY_CHESTPLATE,
+				sellingItem = ItemRegistry.rubyChestplate,
 				maxUses = 1,
 			))
 			event.trades[5].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_LEGGINGS,
-				sellingItem = ItemRegistry.RUBY_LEGGINGS,
+				sellingItem = ItemRegistry.rubyLeggings,
 				maxUses = 1,
 			))
 			event.trades[5].add(ItemsForRubyAndItemsTrade(
 				Items.IRON_BOOTS,
-				sellingItem = ItemRegistry.RUBY_BOOTS,
+				sellingItem = ItemRegistry.rubyBoots,
 				maxUses = 1,
 			))
 		}

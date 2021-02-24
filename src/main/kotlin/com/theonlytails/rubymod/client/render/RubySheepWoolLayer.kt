@@ -1,8 +1,8 @@
 package com.theonlytails.rubymod.client.render
 
 import com.mojang.blaze3d.matrix.MatrixStack
-import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.entities.RubySheepEntity
+import com.theonlytails.rubymod.id
 import net.minecraft.client.renderer.IRenderTypeBuffer
 import net.minecraft.client.renderer.entity.IEntityRenderer
 import net.minecraft.client.renderer.entity.layers.LayerRenderer
@@ -55,7 +55,7 @@ class RubySheepWoolLayer(rendererIn: IEntityRenderer<RubySheepEntity, RubySheepM
 			}
 			renderCopyCutoutModel(this.entityModel,
 				sheepModel,
-				TEXTURE,
+				id("textures/entity/ruby_sheep/ruby_sheep_fur.png"),
 				matrixStackIn,
 				bufferIn,
 				packedLightIn,
@@ -70,9 +70,5 @@ class RubySheepWoolLayer(rendererIn: IEntityRenderer<RubySheepEntity, RubySheepM
 				f1,
 				f2)
 		}
-	}
-
-	companion object {
-		private val TEXTURE = RubyMod.id("textures/entity/ruby_sheep/ruby_sheep_fur.png")
 	}
 }

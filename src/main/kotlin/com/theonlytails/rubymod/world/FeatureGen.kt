@@ -15,10 +15,10 @@ import net.minecraftforge.event.world.BiomeLoadingEvent
  * @author TheOnlyTails
  */
 object FeatureGen {
-	private const val veinSize = 2
-	private const val maxHeight = 30
-	private const val minHeight = 23
-	private const val veinsPerChunk = 10
+	private const val VEIN_SIZE = 2
+	private const val MAX_HEIGHT = 30
+	private const val MIN_HEIGHT = 23
+	private const val VEINS_PER_CHUNK = 10
 
 	fun addFeaturesToBiomes(event: BiomeLoadingEvent) {
 		if (event.category == Biome.Category.NETHER) {
@@ -27,10 +27,10 @@ object FeatureGen {
 				Feature.NO_SURFACE_ORE.withConfiguration(
 					OreFeatureConfig(
 						OreFeatureConfig.FillerBlockType.NETHERRACK,
-						BlockRegistry.RUBY_ORE_BLOCK.defaultState,
-						veinSize))
-					.withPlacement(Placement.RANGE.configure(TopSolidRangeConfig(minHeight, 0, maxHeight)))
-					.square().func_242731_b(veinsPerChunk)
+						BlockRegistry.rubyOre.defaultState,
+						VEIN_SIZE))
+					.withPlacement(Placement.RANGE.configure(TopSolidRangeConfig(MIN_HEIGHT, 0, MAX_HEIGHT)))
+					.square().func_242731_b(VEINS_PER_CHUNK)
 			)
 		}
 	}

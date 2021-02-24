@@ -21,7 +21,7 @@ import javax.annotation.Nonnull
  *
  * @author TheOnlyTails
  */
-class CentrifugeBlock : DirectionalBlock(Properties.create(Material.IRON)
+class Centrifuge : DirectionalBlock(Properties.create(Material.IRON)
 	.hardnessAndResistance(3.5f, 5f)
 	.sound(SoundType.ANVIL)
 	.harvestLevel(2)
@@ -45,16 +45,14 @@ class CentrifugeBlock : DirectionalBlock(Properties.create(Material.IRON)
 	@Nonnull
 	override fun getShape(
 		state: BlockState,
-		@Nonnull worldIn: IBlockReader,
-		@Nonnull pos: BlockPos,
-		@Nonnull context: ISelectionContext,
-	): VoxelShape {
-		return when (state.get(FACING)) {
-			Direction.EAST -> SHAPE_E
-			Direction.SOUTH -> SHAPE_S
-			Direction.WEST -> SHAPE_W
-			else -> SHAPE_N
-		}
+		worldIn: IBlockReader,
+		pos: BlockPos,
+		context: ISelectionContext,
+	) = when (state.get(FACING)) {
+		Direction.EAST -> SHAPE_E
+		Direction.SOUTH -> SHAPE_S
+		Direction.WEST -> SHAPE_W
+		else -> SHAPE_N
 	}
 
 	companion object {
