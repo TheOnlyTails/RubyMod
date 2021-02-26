@@ -11,7 +11,7 @@ buildscript {
 
 	dependencies {
 		classpath(group = "net.minecraftforge.gradle", name = "ForgeGradle", version = "4.0.23")
-		classpath(group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version = "1.4.30")
+		classpath(group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version = "1.4.31")
 	}
 }
 
@@ -38,7 +38,7 @@ val archivesBaseName: String by extra
 // Plugins
 plugins {
 	`java-library`
-	kotlin("jvm") version ("1.4.30")
+	kotlin("jvm") version ("1.4.31")
 }
 
 apply(plugin = "net.minecraftforge.gradle")
@@ -98,8 +98,10 @@ tasks.withType<JavaCompile> {
 	sourceCompatibility = "1.8"
 	targetCompatibility = "1.8"
 }
+
 tasks.withType<KotlinCompile>().configureEach {
 	kotlinOptions.jvmTarget = "1.8"
+	kotlinOptions.useIR = true
 }
 
 // Finalize the jar by Reobf
