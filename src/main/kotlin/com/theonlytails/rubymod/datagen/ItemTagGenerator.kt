@@ -29,22 +29,22 @@ class ItemTagGenerator(
 	/**
 	 * Register tags for each block.
 	 */
-	override fun registerTags() {
+	override fun addTags() {
 		// Vanilla tags
-		getOrCreateBuilder(ItemTags.CARPETS).add(ItemRegistry.rubyCarpet)
-		getOrCreateBuilder(ItemTags.WOOL).add(ItemRegistry.rubyWool)
-		getOrCreateBuilder(ItemTags.BEACON_PAYMENT_ITEMS).add(ItemRegistry.ruby)
-		getOrCreateBuilder(ItemTags.BUTTONS).add(ItemRegistry.rubyButton)
-		getOrCreateBuilder(ItemTags.WALLS).add(ItemRegistry.rubyWall)
+		tag(ItemTags.CARPETS).add(ItemRegistry.rubyCarpet)
+		tag(ItemTags.WOOL).add(ItemRegistry.rubyWool)
+		tag(ItemTags.BEACON_PAYMENT_ITEMS).add(ItemRegistry.ruby)
+		tag(ItemTags.BUTTONS).add(ItemRegistry.rubyButton)
+		tag(ItemTags.WALLS).add(ItemRegistry.rubyWall)
 
 		// Forge tags
-		getOrCreateBuilder(Tags.Items.ORES).add(ItemRegistry.rubyOre)
-		getOrCreateBuilder(Tags.Items.GEMS).add(ItemRegistry.ruby)
-		getOrCreateBuilder(Tags.Items.STORAGE_BLOCKS).add(ItemRegistry.rubyBlock)
+		tag(Tags.Items.ORES).add(ItemRegistry.rubyOre)
+		tag(Tags.Items.GEMS).add(ItemRegistry.ruby)
+		tag(Tags.Items.STORAGE_BLOCKS).add(ItemRegistry.rubyBlock)
 	}
 
 	/**
 	 * Resolves a Path for the location to save the given tag.
 	 */
-	override fun makePath(id: ResourceLocation): Path? = super.makePath(id)
+	override fun getPath(id: ResourceLocation): Path = super.getPath(id)
 }

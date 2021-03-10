@@ -27,5 +27,5 @@ class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 	}
 
 	@Nonnull
-	override fun getEntityTexture(entity: RubySheepEntity) = id("textures/entity/ruby_sheep/ruby_sheep.png")
+	override fun getTextureLocation(entity: RubySheepEntity) = id("textures/entity/ruby_sheep/ruby_sheep.png")
 }

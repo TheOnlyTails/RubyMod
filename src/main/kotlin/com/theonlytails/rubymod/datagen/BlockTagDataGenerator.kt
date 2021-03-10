@@ -23,22 +23,22 @@ class BlockTagDataGenerator(generator: DataGenerator, helper: ExistingFileHelper
 	/**
 	 * Register tags for each block.
 	 */
-	override fun registerTags() {
+	override fun addTags() {
 		// Vanilla tags
-		getOrCreateBuilder(BlockTags.BEACON_BASE_BLOCKS).add(BlockRegistry.rubyBlock)
-		getOrCreateBuilder(BlockTags.CARPETS).add(BlockRegistry.rubyCarpet)
-		getOrCreateBuilder(BlockTags.WOOL).add(BlockRegistry.rubyWool)
-		getOrCreateBuilder(BlockTags.PRESSURE_PLATES).add(BlockRegistry.rubyPressurePlate)
-		getOrCreateBuilder(BlockTags.BUTTONS).add(BlockRegistry.rubyButton)
-		getOrCreateBuilder(BlockTags.WALLS).add(BlockRegistry.rubyWall)
+		tag(BlockTags.BEACON_BASE_BLOCKS).add(BlockRegistry.rubyBlock)
+		tag(BlockTags.CARPETS).add(BlockRegistry.rubyCarpet)
+		tag(BlockTags.WOOL).add(BlockRegistry.rubyWool)
+		tag(BlockTags.PRESSURE_PLATES).add(BlockRegistry.rubyPressurePlate)
+		tag(BlockTags.BUTTONS).add(BlockRegistry.rubyButton)
+		tag(BlockTags.WALLS).add(BlockRegistry.rubyWall)
 
 		// Forge Tags
-		getOrCreateBuilder(Tags.Blocks.ORES).add(BlockRegistry.rubyOre)
-		getOrCreateBuilder(Tags.Blocks.STORAGE_BLOCKS).add(BlockRegistry.rubyBlock)
+		tag(Tags.Blocks.ORES).add(BlockRegistry.rubyOre)
+		tag(Tags.Blocks.STORAGE_BLOCKS).add(BlockRegistry.rubyBlock)
 	}
 
 	/**
 	 * Resolves a Path for the location to save the given tag.
 	 */
-	override fun makePath(id: ResourceLocation): Path? = super.makePath(id)
+	override fun getPath(id: ResourceLocation): Path = super.getPath(id)
 }

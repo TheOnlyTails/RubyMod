@@ -1,8 +1,12 @@
 package com.theonlytails.rubymod.datagen
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import net.minecraftforge.eventbus.api.SubscribeEvent
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent
+
+val gson: Gson = GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
 
 /**
  * Calls all of the data generators to regenerate their files.

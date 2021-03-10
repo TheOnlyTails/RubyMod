@@ -32,28 +32,30 @@ class RubySheepWoolLayer(rendererIn: IEntityRenderer<RubySheepEntity, RubySheepM
 		netHeadYaw: Float,
 		headPitch: Float,
 	) {
-		if (!entitylivingbaseIn.sheared && !entitylivingbaseIn.isInvisible) {
+		if (!entitylivingbaseIn.isSheared && !entitylivingbaseIn.isInvisible) {
 			val f: Float
 			val f1: Float
 			val f2: Float
-			if (entitylivingbaseIn.hasCustomName() && "jeb_" == entitylivingbaseIn.name.unformattedComponentText) {
-				val i = entitylivingbaseIn.ticksExisted / 25 + entitylivingbaseIn.entityId
+			if (entitylivingbaseIn.hasCustomName() && "jeb_" == entitylivingbaseIn.name.contents) {
+				val i = entitylivingbaseIn.tickCount / 25 + entitylivingbaseIn.id
 				val j = DyeColor.values().size
 				val k = i % j
 				val l = (i + 1) % j
-				val f3 = ((entitylivingbaseIn.ticksExisted % 25).toFloat() + partialTicks) / 25.0f
-				val dyeRgbOfK = SheepEntity.getDyeRgb(DyeColor.byId(k))
-				val dyeRgbOfL = SheepEntity.getDyeRgb(DyeColor.byId(l))
+				val f3 = ((entitylivingbaseIn.tickCount % 25).toFloat() + partialTicks) / 25
+				val dyeRgbOfK = SheepEntity.getColorArray(DyeColor.byId(k))
+				val dyeRgbOfL = SheepEntity.getColorArray(DyeColor.byId(l))
 				f = dyeRgbOfK[0] * (1.0f - f3) + dyeRgbOfL[0] * f3
 				f1 = dyeRgbOfK[1] * (1.0f - f3) + dyeRgbOfL[1] * f3
 				f2 = dyeRgbOfK[2] * (1.0f - f3) + dyeRgbOfL[2] * f3
 			} else {
-				val dyeRgb = SheepEntity.getDyeRgb(entitylivingbaseIn.fleeceColor)
+				val dyeRgb = SheepEntity.getColorArray(entitylivingbaseIn.color)
 				f = dyeRgb[0]
 				f1 = dyeRgb[1]
 				f2 = dyeRgb[2]
 			}
-			renderCopyCutoutModel(this.entityModel,
+
+			coloredCutoutModelCopyLayerRender(
+				parentModel,
 				sheepModel,
 				id("textures/entity/ruby_sheep/ruby_sheep_fur.png"),
 				matrixStackIn,

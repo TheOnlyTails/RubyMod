@@ -2,7 +2,10 @@ package com.theonlytails.rubymod.enchantments
 
 import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.registries.EnchantmentRegistry
-import net.minecraft.enchantment.*
+import net.minecraft.enchantment.Enchantment
+import net.minecraft.enchantment.EnchantmentHelper
+import net.minecraft.enchantment.EnchantmentType
+import net.minecraft.enchantment.Enchantments
 import net.minecraft.entity.LivingEntity
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.ItemStack
@@ -22,12 +25,12 @@ class StingerEnchantment : Enchantment(Rarity.VERY_RARE, EnchantmentType.WEAPON,
 
 	override fun getMaxLevel() = 2
 
-	override fun canApply(stack: ItemStack) = stack.item == Items.SHEARS || super.canApply(stack)
+	override fun canEnchant(stack: ItemStack) = stack.item == Items.SHEARS || super.canEnchant(stack)
 
-	override fun canVillagerTrade() = false
+	override fun isTradeable() = false
 
-	public override fun canApplyTogether(enchant: Enchantment) =
-		super.canApplyTogether(enchant) && enchant != Enchantments.SHARPNESS && enchant != Enchantments.MENDING
+	override fun checkCompatibility(enchant: Enchantment) =
+		super.checkCompatibility(enchant) && enchant != Enchantments.SHARPNESS && enchant != Enchantments.MENDING
 
 	/**
 	 * Holds the functionality of the stinger enchantment.
@@ -38,14 +41,14 @@ class StingerEnchantment : Enchantment(Rarity.VERY_RARE, EnchantmentType.WEAPON,
 	private object PoisonedBladeEquipped {
 		@SubscribeEvent
 		fun damageWithEnchant(event: AttackEntityEvent) {
-			val heldItemMainhand = event.player.heldItemMainhand
+			val mainHandItem = event.player.mainHandItem
 			val enchant = EnchantmentRegistry.stinger
-			val enchantLevel = EnchantmentHelper.getEnchantmentLevel(enchant, heldItemMainhand)
+			val enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchant, mainHandItem)
 
-			if (EnchantmentHelper.getEnchantments(heldItemMainhand).containsKey(enchant)) {
+			if (EnchantmentHelper.getEnchantments(mainHandItem).containsKey(enchant)) {
 				val target = event.target
 				if (target is LivingEntity) {
-					target.addPotionEffect(EffectInstance(Effects.POISON, 100, enchantLevel))
+					target.addEffect(EffectInstance(Effects.POISON, 100, enchantLevel))
 				}
 			}
 		}

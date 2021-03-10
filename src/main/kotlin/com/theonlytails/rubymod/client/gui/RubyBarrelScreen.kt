@@ -23,35 +23,35 @@ class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventor
 	ContainerScreen<RubyBarrelContainer>(screenContainer, inv, titleIn) {
 
 	init {
-		guiLeft = 0
-		guiTop = 0
-		xSize = 176
-		ySize = 204
-		titleX = 8
-		titleY = 6
-		playerInventoryTitleX = 8
-		playerInventoryTitleY = 110
+		leftPos = 0
+		topPos = 0
+		imageWidth = 176
+		imageHeight = 204
+		titleLabelX = 8
+		titleLabelY = 6
+		inventoryLabelX = 8
+		inventoryLabelY = 110
 	}
 
 	override fun render(matrixStack: MatrixStack, mouseX: Int, mouseY: Int, partialTicks: Float) {
 		this.renderBackground(matrixStack)
 		super.render(matrixStack, mouseX, mouseY, partialTicks)
-		renderHoveredTooltip(matrixStack, mouseX, mouseY)
+		this.renderTooltip(matrixStack, mouseX, mouseY)
 	}
 
-	override fun drawGuiContainerForegroundLayer(matrixStack: MatrixStack, x: Int, y: Int) {
-		super.drawGuiContainerForegroundLayer(matrixStack, x, y)
-		font.drawString(matrixStack, title.string, titleX.toFloat(), titleY.toFloat(), 4210752)
-		font.drawString(
+	override fun renderLabels(matrixStack: MatrixStack, x: Int, y: Int) {
+		super.renderLabels(matrixStack, x, y)
+		font.draw(matrixStack, title.string, titleLabelX.toFloat(), titleLabelY.toFloat(), 4210752)
+		font.draw(
 			matrixStack,
-			playerInventory.displayName.string,
-			playerInventoryTitleX.toFloat(),
-			playerInventoryTitleY.toFloat(),
+			inventory.displayName.string,
+			inventoryLabelX.toFloat(),
+			inventoryLabelY.toFloat(),
 			4210752
 		)
 	}
 
-	override fun drawGuiContainerBackgroundLayer(
+	override fun renderBg(
 		matrixStack: MatrixStack,
 		partialTicks: Float,
 		mouseX: Int,
@@ -59,7 +59,7 @@ class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventor
 	) {
 		RenderSystem.color4f(1f, 1f, 1f, 1f)
 		if (minecraft != null) {
-			minecraft!!.getTextureManager().bindTexture(id("textures/gui/ruby_barrel/ruby_barrel.png"))
+			minecraft?.getTextureManager()?.bind(id("textures/gui/ruby_barrel/ruby_barrel.png"))
 			val x = (width - xSize) / 2
 			val y = (height - ySize) / 2
 			this.blit(matrixStack, x, y, 0, 0, xSize, ySize)

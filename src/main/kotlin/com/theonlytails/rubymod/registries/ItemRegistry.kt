@@ -3,7 +3,10 @@
 package com.theonlytails.rubymod.registries
 
 import com.theonlytails.rubymod.MOD_ID
-import com.theonlytails.rubymod.items.*
+import com.theonlytails.rubymod.items.CustomSpawnEggItem
+import com.theonlytails.rubymod.items.PoisonedApple
+import com.theonlytails.rubymod.items.Ruby
+import com.theonlytails.rubymod.items.RubyArmor
 import com.theonlytails.rubymod.rubyTab
 import com.theonlytails.rubymod.rubyTabProperty
 import com.theonlytails.rubymod.util.enums.RubyItemTier
@@ -21,11 +24,13 @@ object ItemRegistry {
 	val items = KDeferredRegister(ForgeRegistries.ITEMS, MOD_ID)
 
 	val ghostWaterBucket by items.registerObject("ghost_water_bucket") {
-		BucketItem(FluidRegistry::stillGhostWater,
+		BucketItem(
+			FluidRegistry::stillGhostWater,
 			Item.Properties()
-				.containerItem(Items.BUCKET)
-				.maxStackSize(1)
-				.group(rubyTab))
+				.craftRemainder(Items.BUCKET)
+				.stacksTo(1)
+				.tab(rubyTab)
+		)
 	}
 
 	//items

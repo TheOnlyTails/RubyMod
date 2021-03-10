@@ -1,9 +1,11 @@
 package com.theonlytails.rubymod.datagen
 
-import com.google.gson.GsonBuilder
-import com.theonlytails.rubymod.RubyMod
 import com.theonlytails.rubymod.id
-import net.minecraft.data.*
+import com.theonlytails.rubymod.logger
+import net.minecraft.data.DataGenerator
+import net.minecraft.data.DirectoryCache
+import net.minecraft.data.IDataProvider
+import net.minecraft.data.LootTableProvider
 import net.minecraft.item.Items
 import net.minecraft.loot.*
 import net.minecraft.util.ResourceLocation as RL
@@ -18,19 +20,20 @@ class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableP
 
 	private val tables = hashMapOf<RL, LootTable>(
 		jewelerGiftLootTable to
-				LootTable.builder().addLootPool(LootPool.builder()
-					.rolls(ConstantRange(1))
-					.addEntry(ItemLootEntry.builder(Items.IRON_NUGGET))
-					.addEntry(ItemLootEntry.builder(Items.IRON_INGOT))
-					.addEntry(ItemLootEntry.builder(Items.GOLD_NUGGET))
-					.addEntry(ItemLootEntry.builder(Items.GOLD_INGOT))
-				).setParameterSet(LootParameterSets.GIFT).build()
+				LootTable.lootTable().withPool(
+					LootPool.lootPool()
+						.setRolls(ConstantRange.exactly(1))
+						.add(ItemLootEntry.lootTableItem(Items.IRON_NUGGET))
+						.add(ItemLootEntry.lootTableItem(Items.IRON_INGOT))
+						.add(ItemLootEntry.lootTableItem(Items.GOLD_NUGGET))
+						.add(ItemLootEntry.lootTableItem(Items.GOLD_INGOT))
+				).setParamSet(LootParameterSets.GIFT).build()
 	)
 
 	/**
 	 * Performs this provider's action.
 	 */
-	override fun act(cache: DirectoryCache) {
+	override fun run(cache: DirectoryCache) {
 		writeLootTables(tables, cache)
 	}
 
@@ -42,15 +45,10 @@ class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableP
 				output.resolve("data/${key.namespace}/loot_tables/${key.path}.json")
 
 			try {
-				IDataProvider.save(GSON, cache, LootTableManager.toJson(table), path)
+				IDataProvider.save(gson, cache, LootTableManager.serialize(table), path)
 			} catch (e: Exception) {
-				RubyMod.LOGGER.error("Couldn't write loot table $path", e)
+				logger.error("Couldn't write loot table $path", e)
 			}
 		}
-	}
-
-	companion object {
-		// Internal stuff
-		private val GSON = GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
 	}
 }

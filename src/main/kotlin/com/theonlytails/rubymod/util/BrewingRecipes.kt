@@ -1,4 +1,4 @@
-package com.theonlytails.rubymod.events
+package com.theonlytails.rubymod.util
 
 import com.theonlytails.rubymod.registries.ItemRegistry
 import com.theonlytails.rubymod.registries.PotionRegistry
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
  *
  * @author TheOnlyTails
  */
-object ModEvents {
+object BrewingRecipes {
 	@Suppress("UNUSED_PARAMETER")
 	fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
 		PotionBrewing.addMix(Potions.WATER, ItemRegistry.ruby, PotionRegistry.motivation)

@@ -24,7 +24,7 @@ object VillagerProfessionsRegistry {
 			jewelerPOI,
 			ImmutableSet.of(),
 			ImmutableSet.of(),
-			SoundEvents.ENTITY_VILLAGER_WORK_TOOLSMITH
+			SoundEvents.VILLAGER_WORK_TOOLSMITH
 		)
 	}
 
@@ -37,5 +37,5 @@ object VillagerProfessionsRegistry {
 		)
 	}
 
-	private val allBlockStates = { it: Block -> ImmutableSet.copyOf(it.stateContainer.validStates) }
+	private val allBlockStates = { it: Block -> ImmutableSet.copyOf(it.stateDefinition.possibleStates) }
 }

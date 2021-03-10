@@ -20,13 +20,12 @@ class RubyArmor(slot: EquipmentSlotType) :
 	ArmorItem(RubyArmorMaterial.RUBY, slot, rubyTabProperty) {
 
 	override fun onArmorTick(stack: ItemStack, world: World, player: PlayerEntity) {
-		val heldItemMainhand = player.heldItemMainhand.item
-		val armor = player.armorInventoryList
+		val mainHandItem = player.mainHandItem.item
+		val armor = player.armorSlots
 
 		val wearingAllRubyArmor = armor.all { it.item is RubyArmor }
 
-		if (wearingAllRubyArmor && heldItemMainhand == ItemRegistry.rubyPickaxe) {
-			player.addPotionEffect(EffectInstance(Effects.HASTE, 220, 0, true, true))
-		}
+		if (wearingAllRubyArmor && mainHandItem == ItemRegistry.rubyPickaxe)
+			player.addEffect(EffectInstance(Effects.DIG_SPEED, 220, 0, true, true))
 	}
 }

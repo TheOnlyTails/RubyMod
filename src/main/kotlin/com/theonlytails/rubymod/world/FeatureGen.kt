@@ -22,15 +22,17 @@ object FeatureGen {
 
 	fun addFeaturesToBiomes(event: BiomeLoadingEvent) {
 		if (event.category == Biome.Category.NETHER) {
-			// func_242731_b -> spreadBase
-			event.generation.withFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION,
-				Feature.NO_SURFACE_ORE.withConfiguration(
+			event.generation.addFeature(
+				GenerationStage.Decoration.UNDERGROUND_DECORATION,
+				Feature.NO_SURFACE_ORE.configured(
 					OreFeatureConfig(
 						OreFeatureConfig.FillerBlockType.NETHERRACK,
-						BlockRegistry.rubyOre.defaultState,
-						VEIN_SIZE))
-					.withPlacement(Placement.RANGE.configure(TopSolidRangeConfig(MIN_HEIGHT, 0, MAX_HEIGHT)))
-					.square().func_242731_b(VEINS_PER_CHUNK)
+						BlockRegistry.rubyOre.defaultBlockState(),
+						VEIN_SIZE
+					)
+				)
+					.decorated(Placement.RANGE.configured(TopSolidRangeConfig(MIN_HEIGHT, 0, MAX_HEIGHT)))
+					.squared().count(VEINS_PER_CHUNK)
 			)
 		}
 	}
