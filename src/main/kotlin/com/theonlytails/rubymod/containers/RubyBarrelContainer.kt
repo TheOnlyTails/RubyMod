@@ -13,7 +13,7 @@ import net.minecraft.network.PacketBuffer
 import net.minecraft.util.IWorldPosCallable
 import net.minecraft.util.SoundEvents
 import net.minecraftforge.items.SlotItemHandler
-import java.util.Objects
+import java.util.*
 
 /**
  * The container class for [RubyBarrel].
@@ -28,14 +28,11 @@ class RubyBarrelContainer(
 	private val canInteractWithCallable: IWorldPosCallable
 
 	init {
-		val world = tileEntity.world ?: throw NullPointerException("The world was null, for some reason.")
-		canInteractWithCallable = IWorldPosCallable.of(
-			world,
-			tileEntity.pos,
-		)
+		val world = tileEntity.level ?: throw NullPointerException("The world was null, for some reason.")
+		canInteractWithCallable = IWorldPosCallable.create(world, tileEntity.blockPos)
 
 		tileEntity.players++
-		tileEntity.playSound(SoundEvents.BLOCK_BARREL_OPEN)
+		tileEntity.playSound(SoundEvents.BARREL_OPEN)
 		tileEntity.changeState(tileEntity.blockState, true)
 
 		// Main barrel inventory
@@ -45,12 +42,14 @@ class RubyBarrelContainer(
 
 		for (row in 0..4) {
 			for (column in 0..8) {
-				addSlot(SlotItemHandler(
-					tileEntity.itemHandler,
-					row * 9 + column,
-					startX + column * slotSizePlus2,
-					startY + row * slotSizePlus2
-				))
+				addSlot(
+					SlotItemHandler(
+						tileEntity.itemHandler,
+						row * 9 + column,
+						startX + column * slotSizePlus2,
+						startY + row * slotSizePlus2
+					)
+				)
 			}
 		}
 
@@ -58,53 +57,58 @@ class RubyBarrelContainer(
 		val playerInvStartY = startY * 5 + 32
 		for (row in 0..2)
 			for (column in 0..8)
-				addSlot(Slot(
-					playerInventory,
-					9 + row * 9 + column,
-					startX + column * slotSizePlus2,
-					playerInvStartY + row * slotSizePlus2
-				))
+				addSlot(
+					Slot(
+						playerInventory,
+						9 + row * 9 + column,
+						startX + column * slotSizePlus2,
+						playerInvStartY + row * slotSizePlus2
+					)
+				)
 
 		// Hotbar
 		val hotbarY = playerInvStartY + playerInvStartY / 2 - 3
 		for (column in 0..8)
-			addSlot(Slot(
-				playerInventory,
-				column,
-				startX + column * slotSizePlus2,
-				hotbarY
-			))
+			addSlot(
+				Slot(
+					playerInventory,
+					column,
+					startX + column * slotSizePlus2,
+					hotbarY
+				)
+			)
 	}
 
 	constructor(windowId: Int, playerInventory: PlayerInventory, data: PacketBuffer) :
 			this(windowId, playerInventory, getTileEntity(playerInventory, data))
 
-	override fun onContainerClosed(playerIn: PlayerEntity) {
-		super.onContainerClosed(playerIn)
+	override fun removed(playerIn: PlayerEntity) {
+		super.removed(playerIn)
 		tileEntity.players--
-		tileEntity.playSound(SoundEvents.BLOCK_BARREL_CLOSE)
+		tileEntity.playSound(SoundEvents.BARREL_CLOSE)
 		tileEntity.changeState(tileEntity.blockState, false)
 	}
 
-	override fun canInteractWith(playerIn: PlayerEntity): Boolean {
-		return isWithinUsableDistance(
-			canInteractWithCallable, playerIn, BlockRegistry.rubyBarrel)
+	override fun stillValid(playerIn: PlayerEntity): Boolean {
+		return stillValid(
+			canInteractWithCallable, playerIn, BlockRegistry.rubyBarrel
+		)
 	}
 
-	override fun transferStackInSlot(playerIn: PlayerEntity, index: Int): ItemStack {
+	override fun quickMoveStack(playerIn: PlayerEntity, index: Int): ItemStack {
 		var itemStack = ItemStack.EMPTY
-		val slot = inventorySlots[index]
+		val slot = slots[index]
 
-		if (slot != null && slot.hasStack) {
-			val itemStack1 = slot.stack
+		if (slot != null && slot.hasItem()) {
+			val itemStack1 = slot.item
 			itemStack = itemStack1.copy()
 
 			if (index < tileEntity.size) {
-				if (!mergeItemStack(itemStack1, 5 * 9, inventorySlots.size, true)) return ItemStack.EMPTY
+				if (!moveItemStackTo(itemStack1, 5 * 9, slots.size, true)) return ItemStack.EMPTY
 
-			} else if (!mergeItemStack(itemStack1, 0, 5 * 9, false)) return ItemStack.EMPTY
+			} else if (!moveItemStackTo(itemStack1, 0, 5 * 9, false)) return ItemStack.EMPTY
 
-			if (itemStack1.isEmpty) slot.putStack(ItemStack.EMPTY) else slot.onSlotChanged()
+			if (itemStack1.isEmpty) slot.set(ItemStack.EMPTY) else slot.setChanged()
 		}
 		return itemStack
 	}
@@ -114,7 +118,7 @@ class RubyBarrelContainer(
 			Objects.requireNonNull(playerInventory, "playerInventory cannot be null")
 			Objects.requireNonNull(data, "data cannot be null")
 
-			val tileAtPos = playerInventory.player.world.getTileEntity(data.readBlockPos())
+			val tileAtPos = playerInventory.player.level.getBlockEntity(data.readBlockPos())
 
 			if (tileAtPos is RubyBarrelTileEntity) return tileAtPos
 			else throw IllegalStateException("Tile entity is not correct! $tileAtPos")

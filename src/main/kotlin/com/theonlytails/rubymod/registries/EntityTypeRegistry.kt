@@ -17,8 +17,10 @@ object EntityTypeRegistry {
 	val entityTypes = KDeferredRegister(ForgeRegistries.ENTITIES, MOD_ID)
 
 	val rubySheep: EntityType<RubySheepEntity> by entityTypes.registerObject("ruby_sheep") {
-		EntityType.Builder.create(::RubySheepEntity,
-			EntityClassification.CREATURE).size(0.625f, 1.25f)
+		EntityType.Builder.of(
+			::RubySheepEntity,
+			EntityClassification.CREATURE
+		).sized(0.625f, 1.25f)
 			.build(id("ruby_sheep").toString())
 	}
 }

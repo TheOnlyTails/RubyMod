@@ -19,7 +19,7 @@ import net.minecraft.world.IServerWorld
  * @author TheOnlyTails
  */
 class Ruby : Item(rubyTabProperty) {
-	override fun itemInteractionForEntity(
+	override fun interactLivingEntity(
 		stack: ItemStack,
 		playerIn: PlayerEntity,
 		target: LivingEntity,
@@ -27,33 +27,32 @@ class Ruby : Item(rubyTabProperty) {
 	): ActionResultType {
 
 		if (target is SheepEntity) {
-			if (target.isAlive && !target.sheared && target !is RubySheepEntity) {
-				if (!playerIn.world.isRemote) {
-					val rubySheepEntity = EntityTypeRegistry.rubySheep.create(playerIn.world)
+			if (target.isAlive && !target.isSheared && target !is RubySheepEntity) {
+				if (!playerIn.level.isClientSide) {
+					val rubySheepEntity = EntityTypeRegistry.rubySheep.create(playerIn.level)
 					if (rubySheepEntity != null) {
-						rubySheepEntity.setLocationAndAngles(
-							target.posX,
-							target.posY,
-							target.posZ,
-							target.rotationYaw,
-							target.rotationPitch
+						rubySheepEntity.moveTo(
+							target.x,
+							target.y,
+							target.z,
+							target.yRot,
+							target.xRot
 						)
-						rubySheepEntity.onInitialSpawn(
-							playerIn.world as IServerWorld,
-							playerIn.world.getDifficultyForLocation(rubySheepEntity.position),
+						rubySheepEntity.finalizeSpawn(
+							playerIn.level as IServerWorld,
+							playerIn.level.getCurrentDifficultyAt(rubySheepEntity.blockPosition()),
 							SpawnReason.CONVERSION,
 							null,
 							null
 						)
-						playerIn.world.addEntity(rubySheepEntity)
+						playerIn.level.addFreshEntity(rubySheepEntity)
 						target.remove()
 
 						stack.shrink(1)
 					}
 				}
 
-				// func_233537_a_ -> resultSuccessClient()
-				return ActionResultType.func_233537_a_(playerIn.world.isRemote)
+				return ActionResultType.sidedSuccess(playerIn.level.isClientSide)
 			}
 		}
 		return ActionResultType.PASS

@@ -26,11 +26,13 @@ object FluidRegistry {
 	private val ghostWaterOverlay = id("blocks/ghost_water_overlay")
 
 	private val ghostWaterBlock by BlockRegistry.blocks.registerObject("ghost_water_block") {
-		FlowingFluidBlock(::stillGhostWater,
-			AbstractBlock.Properties.create(Material.WATER)
-				.doesNotBlockMovement()
-				.hardnessAndResistance(100f)
-				.noDrops())
+		FlowingFluidBlock(
+			::stillGhostWater,
+			AbstractBlock.Properties.of(Material.WATER)
+				.noCollission()
+				.strength(100f)
+				.noDrops()
+		)
 	}
 
 	val stillGhostWater by fluids.registerObject("ghost_water") {
@@ -48,7 +50,7 @@ object FluidRegistry {
 			stillGhostWaterTexture,
 			flowingGhostWaterTexture
 		).rarity(Rarity.RARE)
-			.sound(SoundEvents.BLOCK_WATER_AMBIENT)
+			.sound(SoundEvents.WATER_AMBIENT)
 			.color(Color(228, 80, 63, 255).rgb)
 			.overlay(ghostWaterOverlay)
 	).block(::ghostWaterBlock).bucket(ItemRegistry::ghostWaterBucket)

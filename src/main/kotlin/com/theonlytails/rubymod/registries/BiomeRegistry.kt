@@ -19,13 +19,11 @@ object BiomeRegistry {
 	val biomes = KDeferredRegister(ForgeRegistries.BIOMES, MOD_ID)
 
 	private val rubyHills by biomes.registerObject("ruby_hills", BiomeMaker::makeRubyHills)
-	private val rubyHillsRegistryKey = RegistryKey.getOrCreateKey(
-		Registry.BIOME_KEY, id("ruby_hills"))
+	private val rubyHillsRegistryKey = RegistryKey.create(Registry.BIOME_REGISTRY, id("ruby_hills"))
 
 	fun biomeLoading(event: BiomeLoadingEvent) {
 		if (event.name == rubyHills.registryName) {
-			BiomeManager.addBiome(BiomeManager.BiomeType.WARM,
-				BiomeManager.BiomeEntry(rubyHillsRegistryKey, 6))
+			BiomeManager.addBiome(BiomeManager.BiomeType.WARM, BiomeManager.BiomeEntry(rubyHillsRegistryKey, 6))
 		}
 	}
 }

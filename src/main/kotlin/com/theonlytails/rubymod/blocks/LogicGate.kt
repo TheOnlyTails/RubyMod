@@ -1,7 +1,10 @@
 package com.theonlytails.rubymod.blocks
 
 import com.theonlytails.rubymod.util.enums.LogicGateModes
-import net.minecraft.block.*
+import net.minecraft.block.Block
+import net.minecraft.block.BlockState
+import net.minecraft.block.RedstoneDiodeBlock
+import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.state.EnumProperty
@@ -15,79 +18,73 @@ import net.minecraft.world.IBlockReader
 import net.minecraft.world.IWorld
 import net.minecraft.world.World
 
-class LogicGate :
-	RedstoneDiodeBlock(Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().sound(SoundType.METAL)) {
-	init {
-		this.defaultState = this.stateContainer.baseState
-			.with(HORIZONTAL_FACING, Direction.NORTH)
-			.with(POWERED, false)
-			.with(MODE, LogicGateModes.OR)
-	}
+class LogicGate : RedstoneDiodeBlock(Properties.of(Material.DECORATION).instabreak().sound(SoundType.METAL)) {
+    init {
+        this.registerDefaultState(
+            this.stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(POWERED, false)
+                .setValue(MODE, LogicGateModes.OR)
+        )
+    }
 
-	override fun calculateInputStrength(world: World, pos: BlockPos, state: BlockState): Int {
-		val facing = state.get(HORIZONTAL_FACING)
+    override fun getInputSignal(world: World, pos: BlockPos, state: BlockState): Int {
+        val facing = state.getValue(FACING)
 
-		val firstInput = world.getRedstonePower(pos.offset(facing.rotateY()), facing.rotateY()) > 0
-		val secondInput = world.getRedstonePower(pos.offset(facing.rotateYCCW()), facing.rotateYCCW()) > 0
+        val firstInput = world.getSignal(pos.relative(facing.clockWise), facing.clockWise) > 0
+        val secondInput = world.getSignal(pos.relative(facing.counterClockWise), facing.counterClockWise) > 0
 
-		return state.get(MODE)(firstInput, secondInput)
-	}
+        return state.getValue(MODE)(firstInput, secondInput)
+    }
 
-	override fun onBlockActivated(
-		state: BlockState,
-		world: World,
-		pos: BlockPos,
-		player: PlayerEntity,
-		hand: Hand,
-		result: BlockRayTraceResult,
-	): ActionResultType = if (player.abilities.allowEdit) {
-		world.setBlockState(pos, state.func_235896_a_(MODE), 3)
-		ActionResultType.func_233537_a_(world.isRemote)
-	} else {
-		ActionResultType.PASS
-	}
+    override fun use(
+        state: BlockState,
+        world: World,
+        pos: BlockPos,
+        player: PlayerEntity,
+        hand: Hand,
+        result: BlockRayTraceResult,
+    ): ActionResultType = if (player.abilities.mayBuild) {
+        world.setBlock(pos, state.cycle(MODE), 3)
+        ActionResultType.sidedSuccess(world.isClientSide)
+    } else ActionResultType.PASS
 
-	override fun getDelay(state: BlockState) = 1
+    override fun getDelay(state: BlockState) = 1
 
-	override fun fillStateContainer(builder: StateContainer.Builder<Block, BlockState>) {
-		builder.add(HORIZONTAL_FACING, POWERED, MODE)
-	}
+    override fun createBlockStateDefinition(builder: StateContainer.Builder<Block, BlockState>) {
+        builder.add(FACING, POWERED, MODE)
+    }
 
-	override fun canConnectRedstone(
-		state: BlockState,
-		world: IBlockReader?,
-		pos: BlockPos?,
-		side: Direction?,
-	) = side == state[HORIZONTAL_FACING] || side == state.get(HORIZONTAL_FACING)
-		.rotateY() || side == state.get(HORIZONTAL_FACING).rotateYCCW()
+    override fun canConnectRedstone(
+        state: BlockState,
+        world: IBlockReader?,
+        pos: BlockPos?,
+        side: Direction?,
+    ) = side == state.getValue(FACING)
+            || side == state.getValue(FACING).clockWise
+            || side == state.getValue(FACING).counterClockWise
 
-	override fun isAlternateInput(state: BlockState) = isDiode(state)
+    override fun isAlternateInput(state: BlockState) = isDiode(state)
 
-	@Suppress("DEPRECATION")
-	override fun updatePostPlacement(
-		stateIn: BlockState,
-		facing: Direction,
-		facingState: BlockState,
-		worldIn: IWorld,
-		currentPos: BlockPos,
-		facingPos: BlockPos,
-	): BlockState =
-		if (!worldIn.isRemote && facing.axis !== stateIn.get(HORIZONTAL_FACING).axis)
-			stateIn.with(MODE, stateIn.get(MODE))
-		else super.updatePostPlacement(stateIn,
-			facing,
-			facingState,
-			worldIn,
-			currentPos,
-			facingPos)
+    @Suppress("DEPRECATION")
+    override fun updateShape(
+        stateIn: BlockState,
+        facing: Direction,
+        facingState: BlockState,
+        worldIn: IWorld,
+        currentPos: BlockPos,
+        facingPos: BlockPos,
+    ): BlockState =
+        if (!worldIn.isClientSide && facing.axis != stateIn.getValue(FACING).axis)
+            stateIn.setValue(MODE, stateIn.getValue(MODE))
+        else super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos)
 
-	companion object {
-		val MODE: EnumProperty<LogicGateModes> = EnumProperty
-			.create(
-				"logic_gate_mode",
-				LogicGateModes::class.java,
-				LogicGateModes.AND,
-				LogicGateModes.OR,
-			)
-	}
+    companion object {
+        val MODE: EnumProperty<LogicGateModes> = EnumProperty.create(
+            "logic_gate_mode",
+            LogicGateModes::class.java,
+            LogicGateModes.AND,
+            LogicGateModes.OR,
+        )
+    }
 }

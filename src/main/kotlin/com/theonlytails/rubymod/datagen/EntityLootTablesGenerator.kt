@@ -1,10 +1,12 @@
 package com.theonlytails.rubymod.datagen
 
-import com.google.gson.GsonBuilder
-import com.theonlytails.rubymod.RubyMod
+import com.theonlytails.rubymod.logger
 import com.theonlytails.rubymod.registries.EntityTypeRegistry
 import com.theonlytails.rubymod.registries.ItemRegistry
-import net.minecraft.data.*
+import net.minecraft.data.DataGenerator
+import net.minecraft.data.DirectoryCache
+import net.minecraft.data.IDataProvider
+import net.minecraft.data.LootTableProvider
 import net.minecraft.data.loot.EntityLootTables
 import net.minecraft.entity.EntityType
 import net.minecraft.loot.LootParameterSets
@@ -24,20 +26,20 @@ class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTabl
 		// Ruby Sheep
 		loot.addLoot(
 			EntityTypeRegistry.rubySheep,
-			EntityLootTables.sheepLootTableBuilderWithDrop(ItemRegistry.rubyWool),
+			EntityLootTables.createSheepTable { ItemRegistry.rubyWool },
 		)
 	}
 
 	/**
 	 * Performs this provider's action.
 	 */
-	override fun act(cache: DirectoryCache) {
+	override fun run(cache: DirectoryCache) {
 		addLootTables(this)
 
 		val namespacedTables = hashMapOf<ResourceLocation, LootTable>()
 
 		for (entry in tables) {
-			namespacedTables[entry.key.lootTable] = entry.value.setParameterSet(LootParameterSets.ENTITY).build()
+			namespacedTables[entry.key.defaultLootTable] = entry.value.setParamSet(LootParameterSets.ENTITY).build()
 		}
 
 		writeLootTables(namespacedTables, cache)
@@ -50,19 +52,14 @@ class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTabl
 			val path = output.resolve("data/${key.namespace}/loot_tables/${key.path}.json")
 
 			try {
-				IDataProvider.save(GSON, cache, LootTableManager.toJson(table), path)
+				IDataProvider.save(gson, cache, LootTableManager.serialize(table), path)
 			} catch (e: Exception) {
-				RubyMod.LOGGER.error("Couldn't write loot table $path", e)
+				logger.error("Couldn't write loot table $path", e)
 			}
 		}
 	}
 
 	private fun addLoot(entityType: EntityType<*>, loot: LootTable.Builder) {
 		tables[entityType] = loot
-	}
-
-	companion object {
-		// Internal stuff
-		private val GSON = GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
 	}
 }

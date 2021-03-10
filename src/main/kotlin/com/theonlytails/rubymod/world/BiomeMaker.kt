@@ -4,7 +4,6 @@ import com.theonlytails.rubymod.registries.EntityTypeRegistry
 import net.minecraft.entity.EntityClassification
 import net.minecraft.entity.EntityType
 import net.minecraft.util.math.MathHelper
-import net.minecraft.util.registry.WorldGenRegistries
 import net.minecraft.world.biome.*
 import net.minecraft.world.biome.Biome.*
 import net.minecraft.world.gen.feature.structure.StructureFeatures
@@ -19,32 +18,28 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder
 @Suppress("SameParameterValue")
 object BiomeMaker {
 	fun makeRubyHills(): Biome {
-		val genSettings = genSettings(SurfaceBuilder.DEFAULT, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+		val genSettings = genSettings(SurfaceBuilder.DEFAULT, SurfaceBuilder.CONFIG_GRASS)
 
-		WorldGenRegistries.init()
+		genSettings.addStructureStart(StructureFeatures.PILLAGER_OUTPOST)
+		genSettings.addStructureStart(StructureFeatures.VILLAGE_PLAINS)
+		genSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD)
 
-		genSettings.withStructure(StructureFeatures.PILLAGER_OUTPOST)
-		genSettings.withStructure(StructureFeatures.VILLAGE_PLAINS)
-		genSettings.withStructure(StructureFeatures.RUINED_PORTAL)
-
-		DefaultBiomeFeatures.withCavesAndCanyons(genSettings)
-		DefaultBiomeFeatures.withStrongholdAndMineshaft(genSettings)
-		DefaultBiomeFeatures.withMonsterRoom(genSettings)
-		DefaultBiomeFeatures.withCommonOverworldBlocks(genSettings)
-		DefaultBiomeFeatures.withOverworldOres(genSettings)
-		DefaultBiomeFeatures.withDisks(genSettings)
-		DefaultBiomeFeatures.withMushroomBiomeVegetation(genSettings)
-		DefaultBiomeFeatures.withLavaAndWaterSprings(genSettings)
-		DefaultBiomeFeatures.withLavaAndWaterLakes(genSettings)
+		DefaultBiomeFeatures.addDefaultCarvers(genSettings)
+		DefaultBiomeFeatures.addDefaultOverworldLandStructures(genSettings)
+		DefaultBiomeFeatures.addDefaultMonsterRoom(genSettings)
+		DefaultBiomeFeatures.addDefaultUndergroundVariety(genSettings)
+		DefaultBiomeFeatures.addDefaultOres(genSettings)
+		DefaultBiomeFeatures.addDefaultSoftDisks(genSettings)
+		DefaultBiomeFeatures.addMushroomFieldVegetation(genSettings)
+		DefaultBiomeFeatures.addDefaultSprings(genSettings)
+		DefaultBiomeFeatures.addDefaultLakes(genSettings)
 
 		val spawnSettings = spawnSettings()
-			.addSpawn(EntityClassification.CREATURE,
-				EntityTypeRegistry.rubySheep, 12, 2, 3)
-			.addSpawn(EntityClassification.CREATURE,
-				EntityType.MULE, 5, 1, 3)
+			.addSpawn(EntityClassification.CREATURE, EntityTypeRegistry.rubySheep, 12, 2, 3)
+			.addSpawn(EntityClassification.CREATURE, EntityType.MULE, 5, 1, 3)
 
-		DefaultBiomeFeatures.withPassiveMobs(spawnSettings)
-		DefaultBiomeFeatures.withBatsAndHostiles(spawnSettings)
+		DefaultBiomeFeatures.farmAnimals(spawnSettings)
+		DefaultBiomeFeatures.commonSpawns(spawnSettings)
 
 		return biome(
 			precipitation = RainType.NONE,
@@ -53,12 +48,9 @@ object BiomeMaker {
 			scale = 0.5f,
 			temperature = 0.5f,
 			downfall = 0.3f,
-			effects(
-				grassColor = 0xe80a0a,
-				skyColor = getSkyForTemp(0.5f)
-			),
+			effects(grassColor = 0xe80a0a, skyColor = getSkyForTemp(0.5f)),
 			genSettings,
-			spawnSettings.copy()
+			spawnSettings.build()
 		)
 	}
 
@@ -78,14 +70,14 @@ object BiomeMaker {
 		spawnSettings: MobSpawnInfo = MobSpawnInfo.EMPTY,
 	) = Builder()
 		.precipitation(precipitation)
-		.category(category)
+		.biomeCategory(category)
 		.depth(depth)
 		.scale(scale)
 		.temperature(temperature)
 		.downfall(downfall)
-		.setEffects(effects.build())
-		.withGenerationSettings(genSettings.build())
-		.withMobSpawnSettings(spawnSettings)
+		.specialEffects(effects.build())
+		.generationSettings(genSettings.build())
+		.mobSpawnSettings(spawnSettings)
 		.build()
 
 	/**
@@ -100,18 +92,18 @@ object BiomeMaker {
 		skyColor: Int,
 		skyFogColor: Int = 12638463,
 	) = BiomeAmbience.Builder()
-		.setWaterColor(waterColor)
-		.setWaterFogColor(waterFogColor)
-		.withGrassColor(grassColor)
-		.withFoliageColor(foliageColor)
-		.withSkyColor(skyColor)
-		.setFogColor(skyFogColor)
+		.waterColor(waterColor)
+		.waterFogColor(waterFogColor)
+		.grassColorOverride(grassColor)
+		.foliageColorOverride(foliageColor)
+		.skyColor(skyColor)
+		.fogColor(skyFogColor)
 
 	/** Shortcut function and enforces surface builder */
 	private fun <C : ISurfaceBuilderConfig> genSettings(
 		surfaceBuilder: SurfaceBuilder<C>,
 		config: C,
-	) = BiomeGenerationSettings.Builder().withSurfaceBuilder(surfaceBuilder.func_242929_a(config))
+	) = BiomeGenerationSettings.Builder().surfaceBuilder(surfaceBuilder.configured(config))
 
 	/** Shortcut function */
 	private fun spawnSettings() = MobSpawnInfo.Builder()
@@ -123,10 +115,10 @@ object BiomeMaker {
 		weight: Int,
 		min: Int,
 		max: Int,
-	) = withSpawner(classification, MobSpawnInfo.Spawners(entityType, weight, min, max))
+	) = addSpawn(classification, MobSpawnInfo.Spawners(entityType, weight, min, max))
 
 	private fun getSkyForTemp(temperature: Float): Int {
 		val a = MathHelper.clamp(temperature / 3.0f, -1.0f, 1.0f)
-		return MathHelper.hsvToRGB(0.62222224f - a * 0.05f, 0.5f + a * 0.1f, 1.0f)
+		return MathHelper.hsvToRgb(0.62222224f - a * 0.05f, 0.5f + a * 0.1f, 1.0f)
 	}
 }

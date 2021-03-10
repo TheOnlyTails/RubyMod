@@ -34,63 +34,64 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.rubyBarrel), INamedConta
 	private fun createHandler() = object : ItemStackHandler(size) {
 		override fun onContentsChanged(slot: Int) {
 			super.onContentsChanged(slot)
-			markDirty()
+			setChanged()
 		}
 	}
 
-	override fun getDisplayName() = TranslationTextComponent(blockState.block.translationKey)
+	override fun getDisplayName() = TranslationTextComponent(blockState.block.descriptionId)
 
 	override fun createMenu(id: Int, playerInventory: PlayerInventory, player: PlayerEntity) =
 		RubyBarrelContainer(id, playerInventory, this)
 
 	fun changeState(blockState: BlockState, value: Boolean) {
 		if (blockState.block is RubyBarrel) {
-			world?.setBlockState(pos, blockState.with(RubyBarrel.PROPERTY_OPEN, value))
+			level?.setBlockAndUpdate(worldPosition, blockState.setValue(RubyBarrel.PROPERTY_OPEN, value))
 		}
 	}
 
 	fun playSound(soundEvent: SoundEvent) {
 		if (this.blockState.block is RubyBarrel) {
-			val x = pos.x + 0.5
-			val y = pos.y + 0.5
-			val z = pos.z + 0.5
+			val x = worldPosition.x + 0.5
+			val y = worldPosition.y + 0.5
+			val z = worldPosition.z + 0.5
 
-			world?.playSound(null, x, y, z, soundEvent,
-				SoundCategory.BLOCKS, 0.5f, world?.rand?.nextFloat() ?: 0 * 0.1f + 0.9f)
+			level?.playSound(
+				null, x, y, z, soundEvent,
+				SoundCategory.BLOCKS, 0.5f, level?.random?.nextFloat() ?: 0 * 0.1f + 0.9f
+			)
 		}
 	}
 
-	override fun write(nbt: CompoundNBT): CompoundNBT {
+	override fun save(nbt: CompoundNBT): CompoundNBT {
 		optional.ifPresent { nbt.put("inv", it.serializeNBT()) }
 		itemHandler.serializeNBT()
 
-		return super.write(nbt)
+		return super.save(nbt)
 	}
 
-	override fun read(state: BlockState, nbt: CompoundNBT) {
+	override fun load(state: BlockState, nbt: CompoundNBT) {
 		optional.ifPresent { it.deserializeNBT(nbt.getCompound("inv")) }
 		itemHandler.deserializeNBT(nbt.getCompound("inv"))
 
-		super.read(state, nbt)
+		super.load(state, nbt)
 	}
 
-	override fun getUpdateTag(): CompoundNBT = super.write(CompoundNBT())
+	override fun getUpdateTag(): CompoundNBT = super.save(CompoundNBT())
 
 	override fun getUpdatePacket(): SUpdateTileEntityPacket {
 		val nbt = CompoundNBT()
-		write(nbt)
-		return SUpdateTileEntityPacket(pos, 0, nbt)
+		save(nbt)
+		return SUpdateTileEntityPacket(worldPosition, 0, nbt)
 	}
 
-	override fun onDataPacket(net: NetworkManager, pkt: SUpdateTileEntityPacket) =
-		read(this.blockState, pkt.nbtCompound)
+	override fun onDataPacket(net: NetworkManager, pkt: SUpdateTileEntityPacket) = load(this.blockState, pkt.tag)
 
 	override fun <T> getCapability(cap: Capability<T>, side: Direction?): LazyOptional<T> =
 		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) optional.cast()
 		else super.getCapability(cap, side)
 
-	override fun remove() {
-		super.remove()
+	override fun setRemoved() {
+		super.setRemoved()
 		optional.invalidate()
 	}
 }

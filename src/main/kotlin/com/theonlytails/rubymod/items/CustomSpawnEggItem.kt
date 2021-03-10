@@ -37,15 +37,18 @@ class CustomSpawnEggItem(
 		fun initSpawnEggs() {
 			val eggs =
 				ObfuscationReflectionHelper.getPrivateValue<MutableMap<EntityType<*>, CustomSpawnEggItem>, SpawnEggItem>(
-					SpawnEggItem::class.java, null, "field_195987_b") ?: Maps.newIdentityHashMap()
+					SpawnEggItem::class.java, null, "BY_ID"
+				) ?: Maps.newIdentityHashMap()
 
 			val dispenserBehavior: DefaultDispenseItemBehavior = object : DefaultDispenseItemBehavior() {
-				override fun dispenseStack(source: IBlockSource, stack: ItemStack): ItemStack {
-					val direction = source.blockState.get(DispenserBlock.FACING)
+				override fun execute(source: IBlockSource, stack: ItemStack): ItemStack {
+					val direction = source.blockState.getValue(DispenserBlock.FACING)
 					val type = (stack.item as SpawnEggItem).getType(stack.tag)
 
-					type.spawn(source.world, stack, null, source.blockPos.offset(direction),
-						SpawnReason.DISPENSER, direction != Direction.UP, false)
+					type.spawn(
+						source.level, stack, null, source.pos.relative(direction),
+						SpawnReason.DISPENSER, direction != Direction.UP, false
+					)
 
 					stack.shrink(1)
 					return stack
@@ -54,7 +57,7 @@ class CustomSpawnEggItem(
 
 			unaddedEggs.forEach {
 				eggs[it.getType(null)] = it
-				DispenserBlock.registerDispenseBehavior(it, dispenserBehavior)
+				DispenserBlock.registerBehavior(it, dispenserBehavior)
 			}
 
 			unaddedEggs.clear()
