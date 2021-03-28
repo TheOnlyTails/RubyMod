@@ -84,9 +84,11 @@ class RubyBarrelContainer(
 
 	override fun removed(playerIn: PlayerEntity) {
 		super.removed(playerIn)
-		tileEntity.players--
-		tileEntity.playSound(SoundEvents.BARREL_CLOSE)
-		tileEntity.changeState(tileEntity.blockState, false)
+		tileEntity.apply {
+			players--
+			playSound(SoundEvents.BARREL_CLOSE)
+			changeState(tileEntity.blockState, false)
+		}
 	}
 
 	override fun stillValid(playerIn: PlayerEntity): Boolean {
@@ -110,6 +112,7 @@ class RubyBarrelContainer(
 
 			if (itemStack1.isEmpty) slot.set(ItemStack.EMPTY) else slot.setChanged()
 		}
+
 		return itemStack
 	}
 

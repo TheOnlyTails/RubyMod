@@ -24,37 +24,33 @@ class Ruby : Item(rubyTabProperty) {
 		playerIn: PlayerEntity,
 		target: LivingEntity,
 		hand: Hand,
-	): ActionResultType {
+	): ActionResultType =
+		if (target is SheepEntity && target.isAlive && !target.isSheared && target !is RubySheepEntity) {
+			if (!playerIn.level.isClientSide) {
+				EntityTypeRegistry.rubySheep.create(playerIn.level)?.apply {
+					moveTo(
+						target.x,
+						target.y,
+						target.z,
+						target.yRot,
+						target.xRot
+					)
 
-		if (target is SheepEntity) {
-			if (target.isAlive && !target.isSheared && target !is RubySheepEntity) {
-				if (!playerIn.level.isClientSide) {
-					val rubySheepEntity = EntityTypeRegistry.rubySheep.create(playerIn.level)
-					if (rubySheepEntity != null) {
-						rubySheepEntity.moveTo(
-							target.x,
-							target.y,
-							target.z,
-							target.yRot,
-							target.xRot
-						)
-						rubySheepEntity.finalizeSpawn(
-							playerIn.level as IServerWorld,
-							playerIn.level.getCurrentDifficultyAt(rubySheepEntity.blockPosition()),
-							SpawnReason.CONVERSION,
-							null,
-							null
-						)
-						playerIn.level.addFreshEntity(rubySheepEntity)
-						target.remove()
+					finalizeSpawn(
+						playerIn.level as IServerWorld,
+						playerIn.level.getCurrentDifficultyAt(blockPosition()),
+						SpawnReason.CONVERSION,
+						null,
+						null
+					)
 
-						stack.shrink(1)
-					}
+					playerIn.level.addFreshEntity(this)
+					target.remove()
+
+					stack.shrink(1)
 				}
-
-				return ActionResultType.sidedSuccess(playerIn.level.isClientSide)
 			}
-		}
-		return ActionResultType.PASS
-	}
+
+			ActionResultType.sidedSuccess(playerIn.level.isClientSide)
+		} else ActionResultType.PASS
 }

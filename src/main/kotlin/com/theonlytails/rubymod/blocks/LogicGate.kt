@@ -1,10 +1,7 @@
 package com.theonlytails.rubymod.blocks
 
 import com.theonlytails.rubymod.util.enums.LogicGateModes
-import net.minecraft.block.Block
-import net.minecraft.block.BlockState
-import net.minecraft.block.RedstoneDiodeBlock
-import net.minecraft.block.SoundType
+import net.minecraft.block.*
 import net.minecraft.block.material.Material
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.state.EnumProperty
@@ -56,10 +53,10 @@ class LogicGate : RedstoneDiodeBlock(Properties.of(Material.DECORATION).instabre
     }
 
     override fun canConnectRedstone(
-        state: BlockState,
-        world: IBlockReader?,
-        pos: BlockPos?,
-        side: Direction?,
+	    state: BlockState,
+	    world: IBlockReader,
+	    pos: BlockPos,
+	    side: Direction?,
     ) = side == state.getValue(FACING)
             || side == state.getValue(FACING).clockWise
             || side == state.getValue(FACING).counterClockWise

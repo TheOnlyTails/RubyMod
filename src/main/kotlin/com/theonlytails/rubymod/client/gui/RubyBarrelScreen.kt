@@ -47,7 +47,7 @@ class RubyBarrelScreen(screenContainer: RubyBarrelContainer, inv: PlayerInventor
 			inventory.displayName.string,
 			inventoryLabelX.toFloat(),
 			inventoryLabelY.toFloat(),
-			4210752
+			4_210_752
 		)
 	}
 
