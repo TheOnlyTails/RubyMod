@@ -4,6 +4,7 @@ import com.theonlytails.rubymod.blocks.RubyBarrel
 import com.theonlytails.rubymod.registries.BlockRegistry
 import com.theonlytails.rubymod.registries.ContainerTypeRegistry
 import com.theonlytails.rubymod.tileentities.RubyBarrelTileEntity
+import com.theonlytails.rubymod.tileentities.rubyBarrelTileEntitySize
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.container.Container
@@ -13,7 +14,7 @@ import net.minecraft.network.PacketBuffer
 import net.minecraft.util.IWorldPosCallable
 import net.minecraft.util.SoundEvents
 import net.minecraftforge.items.SlotItemHandler
-import java.util.*
+import java.util.Objects
 
 /**
  * The container class for [RubyBarrel].
@@ -84,9 +85,11 @@ class RubyBarrelContainer(
 
 	override fun removed(playerIn: PlayerEntity) {
 		super.removed(playerIn)
-		tileEntity.players--
-		tileEntity.playSound(SoundEvents.BARREL_CLOSE)
-		tileEntity.changeState(tileEntity.blockState, false)
+		tileEntity.apply {
+			players--
+			playSound(SoundEvents.BARREL_CLOSE)
+			changeState(tileEntity.blockState, false)
+		}
 	}
 
 	override fun stillValid(playerIn: PlayerEntity): Boolean {
@@ -103,13 +106,14 @@ class RubyBarrelContainer(
 			val itemStack1 = slot.item
 			itemStack = itemStack1.copy()
 
-			if (index < tileEntity.size) {
+			if (index < rubyBarrelTileEntitySize) {
 				if (!moveItemStackTo(itemStack1, 5 * 9, slots.size, true)) return ItemStack.EMPTY
 
 			} else if (!moveItemStackTo(itemStack1, 0, 5 * 9, false)) return ItemStack.EMPTY
 
 			if (itemStack1.isEmpty) slot.set(ItemStack.EMPTY) else slot.setChanged()
 		}
+
 		return itemStack
 	}
 

@@ -50,7 +50,13 @@ println(
             " Arch: ${System.getProperty("os.arch")}"
 )
 
-// Minecraft Dependency
+repositories {
+    maven {
+        name = "kotlinforforge"
+        url = uri("https://thedarkcolour.github.io/KotlinForForge/")
+    }
+}
+
 // Note: Due to the way kotlin gradle works we need to define the minecraft dependency before we configure Minecraft
 dependencies {
     "minecraft"(group = "net.minecraftforge", name = "forge", version = "$minecraftVersion-$forgeVersion")
@@ -81,13 +87,6 @@ minecraft {
                 file("src/main/resources/")
             )
         }
-    }
-}
-
-repositories {
-    maven {
-        name = "kotlinforforge"
-        url = uri("https://thedarkcolour.github.io/KotlinForForge/")
     }
 }
 

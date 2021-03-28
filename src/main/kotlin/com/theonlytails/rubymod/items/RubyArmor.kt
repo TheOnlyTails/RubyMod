@@ -16,16 +16,9 @@ import net.minecraft.world.World
  *
  * @author TheOnlyTails
  */
-class RubyArmor(slot: EquipmentSlotType) :
-	ArmorItem(RubyArmorMaterial.RUBY, slot, rubyTabProperty) {
-
+class RubyArmor(slot: EquipmentSlotType) : ArmorItem(RubyArmorMaterial.RUBY, slot, rubyTabProperty) {
 	override fun onArmorTick(stack: ItemStack, world: World, player: PlayerEntity) {
-		val mainHandItem = player.mainHandItem.item
-		val armor = player.armorSlots
-
-		val wearingAllRubyArmor = armor.all { it.item is RubyArmor }
-
-		if (wearingAllRubyArmor && mainHandItem == ItemRegistry.rubyPickaxe)
+		if (player.armorSlots.all { it.item is RubyArmor } && player.mainHandItem.item == ItemRegistry.rubyPickaxe)
 			player.addEffect(EffectInstance(Effects.DIG_SPEED, 220, 0, true, true))
 	}
 }

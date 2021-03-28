@@ -5,7 +5,6 @@ import com.theonlytails.rubymod.id
 import net.minecraft.client.renderer.entity.EntityRendererManager
 import net.minecraft.client.renderer.entity.MobRenderer
 import net.minecraft.client.renderer.entity.model.SheepModel
-import javax.annotation.Nonnull
 
 /**
  * The model class for [RubySheepEntity].
@@ -26,6 +25,5 @@ class RubySheepRenderer(renderManagerIn: EntityRendererManager) :
 		addLayer(RubySheepWoolLayer(this))
 	}
 
-	@Nonnull
 	override fun getTextureLocation(entity: RubySheepEntity) = id("textures/entity/ruby_sheep/ruby_sheep.png")
 }

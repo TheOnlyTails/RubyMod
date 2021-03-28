@@ -10,10 +10,7 @@ import net.minecraftforge.event.world.BiomeLoadingEvent
  *
  * @author TheOnlyTails
  */
-object FeatureGen {
-	fun addFeaturesToBiomes(event: BiomeLoadingEvent) {
-		if (event.category == Biome.Category.NETHER) {
-			event.generation.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureRegistry.oreRuby)
-		}
-	}
+fun addFeaturesToBiomes(event: BiomeLoadingEvent) {
+	if (event.category == Biome.Category.NETHER)
+		event.generation.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, FeatureRegistry.oreRuby)
 }

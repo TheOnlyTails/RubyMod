@@ -25,16 +25,14 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.world.DifficultyInstance
 import net.minecraft.world.IServerWorld
 import net.minecraft.world.World
-import net.minecraftforge.api.distmarker.Dist
-import net.minecraftforge.api.distmarker.OnlyIn
-import javax.annotation.Nonnull
+import kotlin.math.max
 
 /**
  * The ruby sheep entity class.
  *
  * @author TheOnlyTails
  */
-class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : SheepEntity(type, worldIn) {
+class RubySheepEntity(type: EntityType<out SheepEntity>, worldIn: World) : SheepEntity(type, worldIn) {
 	private lateinit var eatGrassGoal: EatGrassGoal
 	private var rubySheepTimer = 0
 
@@ -59,9 +57,9 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 
 	override fun getDeathSound(): SoundEvent = SoundEvents.SHEEP_DEATH
 
-	override fun getHurtSound(@Nonnull damageSourceIn: DamageSource): SoundEvent = SoundEvents.SHEEP_HURT
+	override fun getHurtSound(damageSourceIn: DamageSource): SoundEvent = SoundEvents.SHEEP_HURT
 
-	override fun playStepSound(@Nonnull pos: BlockPos, @Nonnull blockIn: BlockState) =
+	override fun playStepSound(pos: BlockPos, blockIn: BlockState) =
 		playSound(SoundEvents.SHEEP_STEP, 0.1f, 1f)
 
 	override fun customServerAiStep() {
@@ -70,20 +68,18 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 	}
 
 	override fun aiStep() {
-		if (level.isClientSide) rubySheepTimer = 0.coerceAtLeast(rubySheepTimer - 1)
+		if (level.isClientSide) rubySheepTimer = max(0, rubySheepTimer - 1)
 		super.aiStep()
 	}
 
-	@OnlyIn(Dist.CLIENT)
 	override fun handleEntityEvent(id: Byte) =
 		if (id.toInt() == 10) rubySheepTimer = 40 else super.handleEntityEvent(id)
 
 	override fun shear(category: SoundCategory) {
 		level.playSound(null, this, SoundEvents.SHEEP_SHEAR, category, 1.0f, 1.0f)
 		this.isSheared = true
-		val i = 1 + random.nextInt(3)
 
-		for (j in 0 until i) {
+    for (j in 0 until 1 + random.nextInt(3)) {
 			val itementity = this.spawnAtLocation(ItemRegistry.rubyWool, 1)
 			if (itementity != null) {
 				itementity.deltaMovement = itementity.deltaMovement.add(
@@ -101,7 +97,10 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		world: World,
 		pos: BlockPos,
 		fortune: Int,
-	): List<ItemStack> {
+	) = (if (!world.isClientSide) listOf(*((0 until 1 + random.nextInt(3))
+		.map { ItemStack(ItemRegistry.rubyWool) }.toTypedArray()))
+		.also { isSheared = true }
+	else emptyList()).also {
 		world.playSound(
 			null,
 			this,
@@ -110,16 +109,6 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 			1.0f,
 			1.0f
 		)
-		if (!world.isClientSide) {
-			this.isSheared = true
-			val i = 1 + random.nextInt(3)
-			val items: MutableList<ItemStack> = ArrayList()
-			for (j in 0 until i) {
-				items.add(ItemStack(ItemRegistry.rubyWool))
-			}
-			return items
-		}
-		return emptyList()
 	}
 
 	override fun finalizeSpawn(
@@ -128,10 +117,8 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 		reason: SpawnReason,
 		spawnDataIn: ILivingEntityData?,
 		dataTag: CompoundNBT?,
-	): ILivingEntityData? {
-		val onInitialSpawnResult = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag)
+	) = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag).also {
 		this.color = DyeColor.WHITE
-		return onInitialSpawnResult
 	}
 
 	override fun getDefaultLootTable() = id("entities/ruby_sheep")
@@ -141,13 +128,9 @@ class RubySheepEntity(type: EntityType<out SheepEntity?>, worldIn: World) : Shee
 	companion object {
 		val TEMPTATION_ITEMS: Ingredient = Ingredient.of(ItemRegistry.ruby, Items.WHEAT)
 
-		@Nonnull
-		fun setCustomAttributes(): AttributeModifierMap {
-			// func_233666_p_() -> registerAttributes()
-			return createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 10.0)
-				.add(Attributes.MOVEMENT_SPEED, 0.23)
-				.build()
-		}
+		val customAttributes: AttributeModifierMap = createMobAttributes()
+			.add(Attributes.MAX_HEALTH, 10.0)
+			.add(Attributes.MOVEMENT_SPEED, 0.23)
+			.build()
 	}
 }

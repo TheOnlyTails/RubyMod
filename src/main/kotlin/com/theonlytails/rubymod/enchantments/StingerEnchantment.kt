@@ -22,7 +22,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber
  * @author TheOnlyTails
  */
 class StingerEnchantment : Enchantment(Rarity.VERY_RARE, EnchantmentType.WEAPON, arrayOf(EquipmentSlotType.MAINHAND)) {
-
 	override fun getMaxLevel() = 2
 
 	override fun canEnchant(stack: ItemStack) = stack.item == Items.SHEARS || super.canEnchant(stack)
@@ -38,7 +37,7 @@ class StingerEnchantment : Enchantment(Rarity.VERY_RARE, EnchantmentType.WEAPON,
 	 * @author TheOnlyTails
 	 */
 	@EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
-	private object PoisonedBladeEquipped {
+	private object StingerEnchantmentEquipped {
 		@SubscribeEvent
 		fun damageWithEnchant(event: AttackEntityEvent) {
 			val mainHandItem = event.player.mainHandItem
@@ -47,9 +46,7 @@ class StingerEnchantment : Enchantment(Rarity.VERY_RARE, EnchantmentType.WEAPON,
 
 			if (EnchantmentHelper.getEnchantments(mainHandItem).containsKey(enchant)) {
 				val target = event.target
-				if (target is LivingEntity) {
-					target.addEffect(EffectInstance(Effects.POISON, 100, enchantLevel))
-				}
+				if (target is LivingEntity) target.addEffect(EffectInstance(Effects.POISON, 100, enchantLevel))
 			}
 		}
 	}

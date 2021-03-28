@@ -56,10 +56,10 @@ class LogicGate : RedstoneDiodeBlock(Properties.of(Material.DECORATION).instabre
     }
 
     override fun canConnectRedstone(
-        state: BlockState,
-        world: IBlockReader?,
-        pos: BlockPos?,
-        side: Direction?,
+	    state: BlockState,
+	    world: IBlockReader,
+	    pos: BlockPos,
+	    side: Direction?,
     ) = side == state.getValue(FACING)
             || side == state.getValue(FACING).clockWise
             || side == state.getValue(FACING).counterClockWise

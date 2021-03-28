@@ -9,22 +9,19 @@ import net.minecraft.potion.Potions
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 
 /**
- * Holds generic events that run on the mod bus.
+ * Registers brewing recipes.
  *
  * @author TheOnlyTails
  */
-object BrewingRecipes {
-	@Suppress("UNUSED_PARAMETER")
-	fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
-		PotionBrewing.addMix(Potions.WATER, ItemRegistry.ruby, PotionRegistry.motivation)
+fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
+	PotionBrewing.addMix(Potions.WATER, ItemRegistry.ruby, PotionRegistry.motivation)
 
-		addPotency(PotionRegistry.motivation, PotionRegistry.strongMotivation)
-		addTime(PotionRegistry.motivation, PotionRegistry.longMotivation)
+	addPotency(PotionRegistry.motivation, PotionRegistry.strongMotivation)
+	addTime(PotionRegistry.motivation, PotionRegistry.longMotivation)
 
-		addInverted(PotionRegistry.motivation, PotionRegistry.laziness)
-		addPotency(PotionRegistry.laziness, PotionRegistry.strongLaziness)
-		addTime(PotionRegistry.laziness, PotionRegistry.longLaziness)
-	}
+	addInverted(PotionRegistry.motivation, PotionRegistry.laziness)
+	addPotency(PotionRegistry.laziness, PotionRegistry.strongLaziness)
+	addTime(PotionRegistry.laziness, PotionRegistry.longLaziness)
 }
 
 fun addPotency(input: Potion, output: Potion) = PotionBrewing.addMix(input, Items.GLOWSTONE_DUST, output)
