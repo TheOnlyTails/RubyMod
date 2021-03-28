@@ -55,6 +55,8 @@ repositories {
         name = "kotlinforforge"
         url = uri("https://thedarkcolour.github.io/KotlinForForge/")
     }
+
+    maven(url = "https://jitpack.io")
 }
 
 // Note: Due to the way kotlin gradle works we need to define the minecraft dependency before we configure Minecraft
@@ -62,6 +64,8 @@ dependencies {
     "minecraft"(group = "net.minecraftforge", name = "forge", version = "$minecraftVersion-$forgeVersion")
 
     implementation(group = "thedarkcolour", name = "kotlinforforge", version = kffVersion)
+
+    implementation(group = "com.github.TheOnlyTails", name = "LootTables", version = "0.1.5")
 }
 
 // Minecraft

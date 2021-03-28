@@ -1,13 +1,13 @@
 package com.theonlytails.rubymod.datagen
 
+import com.theonlytails.loottables.*
 import com.theonlytails.rubymod.id
 import com.theonlytails.rubymod.logger
-import net.minecraft.data.DataGenerator
-import net.minecraft.data.DirectoryCache
-import net.minecraft.data.IDataProvider
-import net.minecraft.data.LootTableProvider
+import net.minecraft.data.*
 import net.minecraft.item.Items
-import net.minecraft.loot.*
+import net.minecraft.loot.LootParameterSets
+import net.minecraft.loot.LootTable
+import net.minecraft.loot.LootTableManager
 import net.minecraft.util.ResourceLocation as RL
 
 /**
@@ -18,16 +18,16 @@ import net.minecraft.util.ResourceLocation as RL
 class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableProvider(generator) {
 	private val jewelerGiftLootTable = id("gameplay/hero_of_the_village/jeweler_gift")
 
-	private val tables = hashMapOf<RL, LootTable>(
+	private val tables = hashMapOf(
 		jewelerGiftLootTable to
-				LootTable.lootTable().withPool(
-					LootPool.lootPool()
-						.setRolls(ConstantRange.exactly(1))
-						.add(ItemLootEntry.lootTableItem(Items.IRON_NUGGET))
-						.add(ItemLootEntry.lootTableItem(Items.IRON_INGOT))
-						.add(ItemLootEntry.lootTableItem(Items.GOLD_NUGGET))
-						.add(ItemLootEntry.lootTableItem(Items.GOLD_INGOT))
-				).setParamSet(LootParameterSets.GIFT).build()
+				lootTable(LootParameterSets.GIFT) {
+					pool {
+						itemEntry(Items.IRON_NUGGET).add(this)
+						itemEntry(Items.IRON_INGOT).add(this)
+						itemEntry(Items.GOLD_NUGGET).add(this)
+						itemEntry(Items.GOLD_INGOT).add(this)
+					}
+				}
 	)
 
 	/**
