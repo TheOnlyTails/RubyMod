@@ -2,10 +2,7 @@
 
 package com.theonlytails.rubymod.blocks
 
-import net.minecraft.block.Block
-import net.minecraft.block.BlockState
-import net.minecraft.block.Blocks
-import net.minecraft.block.SoundType
+import net.minecraft.block.*
 import net.minecraft.block.material.Material
 import net.minecraft.block.material.MaterialColor
 import net.minecraft.util.Direction
@@ -26,12 +23,12 @@ class RubyCarpet : Block(Properties.of(Material.CLOTH_DECORATION, MaterialColor.
 	.sound(SoundType.WOOL)
 ) {
 
-    override fun getShape(
-        state: BlockState,
-        worldIn: IBlockReader,
-        pos: BlockPos,
-        context: ISelectionContext,
-    ): VoxelShape = SHAPE
+	override fun getShape(
+		state: BlockState,
+		worldIn: IBlockReader,
+		pos: BlockPos,
+		context: ISelectionContext,
+	): VoxelShape = SHAPE
 
 	/**
 	 * Update the provided state given the provided neighbor facing and neighbor state, returning a new state.

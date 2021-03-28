@@ -9,7 +9,7 @@ import net.minecraft.potion.Potions
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 
 /**
- * Holds generic events that run on the mod bus.
+ * Registers brewing recipes.
  *
  * @author TheOnlyTails
  */

@@ -74,19 +74,7 @@ class RubyBarrel : Block(Properties.of(Material.METAL, MaterialColor.COLOR_RED)
 		super.onRemove(state, worldIn, pos, newState, isMoving)
 	}
 
-
-    override fun onRemove(state: BlockState, worldIn: World, pos: BlockPos, newState: BlockState, isMoving: Boolean) {
-        if (state.block != newState.block) {
-            val tileEntity = worldIn.getBlockEntity(pos)
-            if (tileEntity is RubyBarrelTileEntity) {
-                dropItems(tileEntity, worldIn, pos)
-                worldIn.updateNeighbourForOutputSignal(pos, this)
-            }
-        }
-        super.onRemove(state, worldIn, pos, newState, isMoving)
-    }
-
-    override fun createTileEntity(state: BlockState, world: IBlockReader) = TileEntityTypes.rubyBarrel.create()
+	override fun createTileEntity(state: BlockState, world: IBlockReader) = TileEntityTypes.rubyBarrel.create()
 
 	override fun getAnalogOutputSignal(blockState: BlockState, worldIn: World, pos: BlockPos): Int {
 		val rubyBarrel = worldIn.getBlockEntity(pos)
@@ -99,17 +87,16 @@ class RubyBarrel : Block(Properties.of(Material.METAL, MaterialColor.COLOR_RED)
 		builder.add(PROPERTY_OPEN)
 	}
 
-    override fun createBlockStateDefinition(builder: StateContainer.Builder<Block, BlockState>) {
-        builder.add(PROPERTY_OPEN)
-    }
+	private fun dropItems(rubyBarrel: RubyBarrelTileEntity, world: World, pos: BlockPos) {
+		(0..rubyBarrel.itemHandler.slots)
+			.map { slot -> rubyBarrel.itemHandler.getStackInSlot(slot) }
+			.filter { !it.isEmpty }
+			.forEach {
+				InventoryHelper.dropItemStack(world, pos.x.toDouble(), pos.y.toDouble(), pos.z.toDouble(), it)
+			}
+	}
 
-		private fun dropItems(rubyBarrel: RubyBarrelTileEntity, world: World, pos: BlockPos) {
-			(0..rubyBarrel.itemHandler.slots)
-				.map { slot -> rubyBarrel.itemHandler.getStackInSlot(slot) }
-				.filter { !it.isEmpty }
-				.forEach {
-					InventoryHelper.dropItemStack(world, pos.x.toDouble(), pos.y.toDouble(), pos.z.toDouble(), it)
-				}
-		}
+	companion object {
+		val PROPERTY_OPEN: BooleanProperty = BlockStateProperties.OPEN
 	}
 }

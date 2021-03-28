@@ -32,7 +32,7 @@ class RubyBarrelTileEntity : TileEntity(TileEntityTypes.rubyBarrel), INamedConta
 	val itemHandler = createHandler()
 	var players = 0
 
-	private fun createHandler() = object : ItemStackHandler(size) {
+	private fun createHandler() = object : ItemStackHandler(rubyBarrelTileEntitySize) {
 		override fun onContentsChanged(slot: Int) {
 			super.onContentsChanged(slot)
 			setChanged()

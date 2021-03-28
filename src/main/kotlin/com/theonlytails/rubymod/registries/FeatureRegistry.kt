@@ -3,10 +3,7 @@ package com.theonlytails.rubymod.registries
 import com.theonlytails.rubymod.id
 import net.minecraft.util.registry.Registry
 import net.minecraft.util.registry.WorldGenRegistries
-import net.minecraft.world.gen.feature.ConfiguredFeature
-import net.minecraft.world.gen.feature.Feature
-import net.minecraft.world.gen.feature.IFeatureConfig
-import net.minecraft.world.gen.feature.OreFeatureConfig
+import net.minecraft.world.gen.feature.*
 import net.minecraft.world.gen.placement.Placement
 import net.minecraft.world.gen.placement.TopSolidRangeConfig
 
@@ -27,8 +24,8 @@ object FeatureRegistry {
 }
 
 private fun <T : IFeatureConfig> registerFeature(
-    path: String,
-    feature: ConfiguredFeature<T, *>
+	@Suppress("SameParameterValue") path: String,
+	feature: ConfiguredFeature<T, *>,
 ): ConfiguredFeature<T, *> {
     return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, id(path), feature)
 }

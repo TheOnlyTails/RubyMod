@@ -5,6 +5,7 @@ import com.theonlytails.rubymod.client.render.RubySheepRenderer
 import com.theonlytails.rubymod.entities.RubySheepEntity
 import com.theonlytails.rubymod.items.CustomSpawnEggItem
 import com.theonlytails.rubymod.registries.*
+import com.theonlytails.rubymod.trades.addVillagerTrades
 import com.theonlytails.rubymod.util.registerBrewingRecipes
 import com.theonlytails.rubymod.world.addFeaturesToBiomes
 import net.minecraft.block.ComposterBlock
