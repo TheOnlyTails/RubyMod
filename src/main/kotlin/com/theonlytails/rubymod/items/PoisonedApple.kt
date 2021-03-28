@@ -4,7 +4,10 @@ import com.theonlytails.rubymod.entities.RubySheepEntity
 import com.theonlytails.rubymod.util.effect
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.item.*
+import net.minecraft.item.Food
+import net.minecraft.item.Item
+import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
 import net.minecraft.potion.EffectInstance
 import net.minecraft.potion.Effects
 import net.minecraft.util.ActionResultType

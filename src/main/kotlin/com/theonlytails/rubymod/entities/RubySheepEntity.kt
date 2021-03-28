@@ -17,7 +17,10 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.item.crafting.Ingredient
 import net.minecraft.nbt.CompoundNBT
-import net.minecraft.util.*
+import net.minecraft.util.DamageSource
+import net.minecraft.util.SoundCategory
+import net.minecraft.util.SoundEvent
+import net.minecraft.util.SoundEvents
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.DifficultyInstance
 import net.minecraft.world.IServerWorld
@@ -76,7 +79,7 @@ class RubySheepEntity(type: EntityType<out SheepEntity>, worldIn: World) : Sheep
 		level.playSound(null, this, SoundEvents.SHEEP_SHEAR, category, 1.0f, 1.0f)
 		this.isSheared = true
 
-		for (j in 0 until 1 + random.nextInt(3)) {
+    for (j in 0 until 1 + random.nextInt(3)) {
 			val itementity = this.spawnAtLocation(ItemRegistry.rubyWool, 1)
 			if (itementity != null) {
 				itementity.deltaMovement = itementity.deltaMovement.add(

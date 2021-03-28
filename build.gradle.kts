@@ -90,7 +90,6 @@ minecraft {
     }
 }
 
-
 // Setup
 project.group = modGroup
 project.version = "$minecraftVersion-$modVersion"

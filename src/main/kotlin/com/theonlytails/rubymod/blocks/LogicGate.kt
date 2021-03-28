@@ -1,7 +1,10 @@
 package com.theonlytails.rubymod.blocks
 
 import com.theonlytails.rubymod.util.enums.LogicGateModes
-import net.minecraft.block.*
+import net.minecraft.block.Block
+import net.minecraft.block.BlockState
+import net.minecraft.block.RedstoneDiodeBlock
+import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.state.EnumProperty

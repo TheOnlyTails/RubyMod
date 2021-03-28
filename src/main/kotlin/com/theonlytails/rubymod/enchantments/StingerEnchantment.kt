@@ -2,7 +2,10 @@ package com.theonlytails.rubymod.enchantments
 
 import com.theonlytails.rubymod.MOD_ID
 import com.theonlytails.rubymod.registries.EnchantmentRegistry
-import net.minecraft.enchantment.*
+import net.minecraft.enchantment.Enchantment
+import net.minecraft.enchantment.EnchantmentHelper
+import net.minecraft.enchantment.EnchantmentType
+import net.minecraft.enchantment.Enchantments
 import net.minecraft.entity.LivingEntity
 import net.minecraft.inventory.EquipmentSlotType
 import net.minecraft.item.ItemStack
