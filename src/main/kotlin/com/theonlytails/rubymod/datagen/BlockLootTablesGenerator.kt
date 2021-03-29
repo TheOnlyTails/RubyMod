@@ -33,7 +33,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 							condition { hasSilkTouch() }
 						},
 						itemEntry(ItemRegistry.ruby),
-					).add(this)
+					)
 
 					condition { survivesExplosion() }
 				}
@@ -45,7 +45,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 			pool {
 				itemEntry(BlockRegistry.rubyBarrel) {
 					function { copyName(CopyName.Source.BLOCK_ENTITY) }
-				}.add(this)
+				}
 
 				condition { survivesExplosion() }
 			}
@@ -86,7 +86,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 						function { explosionDecay() }
 						function { oreBonusCount(Enchantments.BLOCK_FORTUNE) }
 					},
-				).add(this)
+				)
 
 				condition { survivesExplosion() }
 			}
@@ -100,7 +100,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 	private fun dropSelf(block: Block) {
 		tables[block] = lootTable(LootParameterSets.BLOCK) {
 			pool {
-				itemEntry(block).add(this)
+				itemEntry(block)
 				condition { survivesExplosion() }
 			}
 		}
@@ -109,7 +109,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 	private fun dropSlabs(block: Block) {
 		tables[block] = lootTable(LootParameterSets.BLOCK) {
 			pool {
-				itemEntry(block).add(this)
+				itemEntry(block)
 
 				condition { survivesExplosion() }
 

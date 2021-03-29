@@ -1,6 +1,8 @@
 package com.theonlytails.rubymod.datagen
 
-import com.theonlytails.loottables.*
+import com.theonlytails.loottables.itemEntry
+import com.theonlytails.loottables.lootTable
+import com.theonlytails.loottables.pool
 import com.theonlytails.rubymod.id
 import com.theonlytails.rubymod.logger
 import net.minecraft.data.*
@@ -22,10 +24,11 @@ class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableP
 		jewelerGiftLootTable to
 				lootTable(LootParameterSets.GIFT) {
 					pool {
-						itemEntry(Items.IRON_NUGGET).add(this)
-						itemEntry(Items.IRON_INGOT).add(this)
-						itemEntry(Items.GOLD_NUGGET).add(this)
-						itemEntry(Items.GOLD_INGOT).add(this)
+						itemEntry(Items.IRON_NUGGET)
+						itemEntry(Items.IRON_INGOT)
+						itemEntry(Items.GOLD_NUGGET)
+						itemEntry(Items.GOLD_INGOT)
+						this
 					}
 				}
 	)
