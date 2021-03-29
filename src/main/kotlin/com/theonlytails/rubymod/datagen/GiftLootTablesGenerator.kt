@@ -28,7 +28,6 @@ class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableP
 						itemEntry(Items.IRON_INGOT)
 						itemEntry(Items.GOLD_NUGGET)
 						itemEntry(Items.GOLD_INGOT)
-						this
 					}
 				}
 	)

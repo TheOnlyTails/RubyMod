@@ -114,7 +114,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 				condition { survivesExplosion() }
 
 				function {
-					setCount(constantRange(2)) {
+					setConstantCount(2) {
 						condition {
 							blockStateProperty(block) {
 								setProperties(stateProperties { hasProperty(SlabBlock.TYPE, SlabType.DOUBLE) })
