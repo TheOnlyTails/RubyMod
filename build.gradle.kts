@@ -1,4 +1,5 @@
 import Build_gradle.*
+import net.minecraftforge.gradle.userdev.DependencyManagementExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // BuildScript
@@ -65,13 +66,12 @@ dependencies {
 
 	implementation(group = "thedarkcolour", name = "kotlinforforge", version = kffVersion)
 
-	implementation(project.the<net.minecraftforge.gradle.userdev.DependencyManagementExtension>()
+	implementation(project.the<DependencyManagementExtension>()
 		.deobf(project.dependencies.create(group = "com.github.TheOnlyTails", name = "LootTables", version = "0.2.1")
 			.apply {
 				isTransitive = false
 			}
 		))
-	// implementation(group = "com.github.TheOnlyTails", name = "LootTables", version = "0.2.1")
 }
 
 // Minecraft
