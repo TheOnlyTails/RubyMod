@@ -14,12 +14,6 @@
     "facing=east": {
       "model": "rubymod:block/centrifuge",
       "y": 90
-    },
-    "facing=up": {
-      "model": "rubymod:block/centrifuge"
-    },
-    "facing=down": {
-      "model": "rubymod:block/centrifuge"
     }
   }
 }
