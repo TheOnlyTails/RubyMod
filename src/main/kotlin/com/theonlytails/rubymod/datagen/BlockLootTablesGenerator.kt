@@ -29,10 +29,10 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 			BlockRegistry.centrifuge, lootTable(LootParameterSets.BLOCK) {
 				pool {
 					alternativesEntry(
-						itemEntry(ItemRegistry.centrifuge) {
+						itemEntry(ItemRegistry.centrifuge, addToPool = false) {
 							condition { hasSilkTouch() }
 						},
-						itemEntry(ItemRegistry.ruby),
+						itemEntry(ItemRegistry.ruby, addToPool = false),
 					)
 
 					condition { survivesExplosion() }
@@ -79,10 +79,10 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 		loot.addLoot(BlockRegistry.rubyOre, lootTable(LootParameterSets.BLOCK) {
 			pool {
 				alternativesEntry(
-					itemEntry(ItemRegistry.rubyOre) {
+					itemEntry(ItemRegistry.rubyOre, addToPool = false) {
 						condition { hasSilkTouch() }
 					},
-					itemEntry(ItemRegistry.ruby) {
+					itemEntry(ItemRegistry.ruby, addToPool = false) {
 						function { explosionDecay() }
 						function { oreBonusCount(Enchantments.BLOCK_FORTUNE) }
 					},

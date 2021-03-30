@@ -67,7 +67,7 @@ dependencies {
 	implementation(group = "thedarkcolour", name = "kotlinforforge", version = kffVersion)
 
 	implementation(project.the<DependencyManagementExtension>()
-		.deobf(project.dependencies.create(group = "com.github.TheOnlyTails", name = "LootTables", version = "0.2.3")
+		.deobf(project.dependencies.create(group = "com.github.TheOnlyTails", name = "LootTables", version = "0.2.5")
 			.apply {
 				isTransitive = false
 			}
