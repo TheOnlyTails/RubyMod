@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
  *
  * @author TheOnlyTails
  */
-fun registerBrewingRecipes(event: FMLCommonSetupEvent) {
+fun registerBrewingRecipes(@Suppress("UNUSED_PARAMETER") event: FMLCommonSetupEvent) {
 	PotionBrewing.addMix(Potions.WATER, ItemRegistry.ruby, PotionRegistry.motivation)
 
 	addPotency(PotionRegistry.motivation, PotionRegistry.strongMotivation)

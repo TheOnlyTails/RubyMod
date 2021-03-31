@@ -22,6 +22,7 @@ val mappingsChannel: String by extra
 val mappingsVersion: String by extra
 val minecraftVersion: String by extra
 val kffVersion: String by extra
+val lootTablesVersion: String by extra
 
 // Config -> Mod
 val modId: String by extra
@@ -67,7 +68,11 @@ dependencies {
 	implementation(group = "thedarkcolour", name = "kotlinforforge", version = kffVersion)
 
 	implementation(project.the<DependencyManagementExtension>()
-		.deobf(project.dependencies.create(group = "com.github.TheOnlyTails", name = "LootTables", version = "0.2.5")
+		.deobf(project.dependencies.create(
+			group = "com.github.TheOnlyTails",
+			name = "LootTables",
+			version = lootTablesVersion
+		)
 			.apply {
 				isTransitive = false
 			}

@@ -21,15 +21,14 @@ class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableP
 	private val jewelerGiftLootTable = id("gameplay/hero_of_the_village/jeweler_gift")
 
 	private val tables = hashMapOf(
-		jewelerGiftLootTable to
-				lootTable(LootParameterSets.GIFT) {
-					pool {
-						itemEntry(Items.IRON_NUGGET)
-						itemEntry(Items.IRON_INGOT)
-						itemEntry(Items.GOLD_NUGGET)
-						itemEntry(Items.GOLD_INGOT)
-					}
-				}
+		jewelerGiftLootTable to lootTable(LootParameterSets.GIFT) {
+			pool {
+				itemEntry(Items.IRON_NUGGET)
+				itemEntry(Items.IRON_INGOT)
+				itemEntry(Items.GOLD_NUGGET)
+				itemEntry(Items.GOLD_INGOT)
+			}
+		}
 	)
 
 	/**
