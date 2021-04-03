@@ -67,16 +67,14 @@ dependencies {
 
 	implementation(group = "thedarkcolour", name = "kotlinforforge", version = kffVersion)
 
-	implementation(project.the<DependencyManagementExtension>()
-		.deobf(project.dependencies.create(
-			group = "com.github.TheOnlyTails",
-			name = "LootTables",
-			version = lootTablesVersion
-		)
-			.apply {
-				isTransitive = false
-			}
-		))
+	implementation(
+		project.the<DependencyManagementExtension>()
+			.deobf(project.dependencies.create(
+				group = "com.github.TheOnlyTails",
+				name = "LootTables",
+				version = lootTablesVersion
+			).apply { isTransitive = false })
+	)
 }
 
 // Minecraft
