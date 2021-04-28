@@ -1,8 +1,8 @@
 # RubyMod
 
 ![License](https://img.shields.io/badge/License-MIT-brightgreen)
-![Language](https://img.shields.io/badge/language-kotlin-blue?logo=kotlin)
-![Minecraft 1.16.5](https://img.shields.io/badge/minecraft-1.16.5-green.svg)
+[![Language](https://img.shields.io/badge/language-kotlin-blue?logo=kotlin)](https://kotl.in/)
+[![Minecraft 1.16.5](https://img.shields.io/badge/minecraft-1.16.5-green.svg)](https://minecraft.net/)
 ![GitHub stars](https://img.shields.io/github/stars/TheOnlyTails/RubyMod?style=social)
 ![GitHub last commit](https://img.shields.io/github/last-commit/TheOnlyTails/RubyMod)
 [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
