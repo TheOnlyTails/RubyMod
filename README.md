@@ -7,6 +7,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/TheOnlyTails/RubyMod)
 [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
 [![CurseForge Downloads](http://cf.way2muchnoise.eu/full_421370_downloads.svg)](https://minecraft.curseforge.com/projects/421370)
+[![Modrinth](https://img.shields.io/badge/modrinth-rubymod-green.svg)](https://modrinth.com/mod/rubymod)
 
 ## What is RubyMod?
 
