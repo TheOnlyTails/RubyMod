@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // BuildScript
 buildscript {
 	repositories {
-		maven(url = "https://files.minecraftforge.net/maven")
+		maven(url = "https://maven.minecraftforge.net/")
 		jcenter()
 		mavenCentral()
 	}
