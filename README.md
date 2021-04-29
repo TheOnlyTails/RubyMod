@@ -4,7 +4,7 @@
 [![Language](https://img.shields.io/badge/language-kotlin-blue?logo=kotlin)](https://kotl.in/)
 [![Minecraft 1.16.5](https://img.shields.io/badge/minecraft-1.16.5-green.svg)](https://minecraft.net/)
 ![GitHub stars](https://img.shields.io/github/stars/TheOnlyTails/RubyMod?style=social)
-![GitHub last commit](https://img.shields.io/github/last-commit/TheOnlyTails/RubyMod)
+[![Java CI with Gradle](https://github.com/TheOnlyTails/RubyMod/actions/workflows/gradle.yml/badge.svg)](https://github.com/TheOnlyTails/RubyMod/actions/workflows/gradle.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/theonlytails/rubymod/badge)](https://www.codefactor.io/repository/github/theonlytails/rubymod)
 [![CurseForge Downloads](http://cf.way2muchnoise.eu/full_421370_downloads.svg)](https://minecraft.curseforge.com/projects/421370)
 [![Modrinth](https://img.shields.io/badge/modrinth-rubymod-green.svg)](https://modrinth.com/mod/rubymod)
