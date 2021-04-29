@@ -11,7 +11,7 @@
 
 ## What is RubyMod?
 
-RubyMod is a Minecraft Forge (see https://github.com/theonlytails/rubymodfabric/ for a fabric version) mod for Minecraft 1.16.4/1.16.5.
+RubyMod is a Minecraft Forge ([the fabric port](https://github.com/theonlytails/rubymodfabric/)) mod for Minecraft 1.16.4/1.16.5.
 
 RubyMod is an open-source mod, which prioritizes sharing its code to help other modders learn.
 
