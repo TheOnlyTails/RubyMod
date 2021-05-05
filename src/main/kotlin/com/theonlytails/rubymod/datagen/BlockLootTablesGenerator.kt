@@ -1,16 +1,16 @@
 package com.theonlytails.rubymod.datagen
 
 import com.theonlytails.loottables.*
-import com.theonlytails.rubymod.logger
 import com.theonlytails.rubymod.registries.BlockRegistry
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.block.Block
 import net.minecraft.block.SlabBlock
-import net.minecraft.data.*
+import net.minecraft.data.DataGenerator
+import net.minecraft.data.DirectoryCache
+import net.minecraft.data.LootTableProvider
 import net.minecraft.enchantment.Enchantments
 import net.minecraft.loot.LootParameterSets
 import net.minecraft.loot.LootTable
-import net.minecraft.loot.LootTableManager
 import net.minecraft.loot.functions.CopyName
 import net.minecraft.state.properties.SlabType
 import net.minecraft.util.ResourceLocation
@@ -30,7 +30,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 				pool {
 					alternativesEntry(
 						itemEntry(ItemRegistry.centrifuge, addToPool = false) {
-							condition { hasSilkTouch() }
+							condition { hasSilkTouch }
 						},
 						itemEntry(ItemRegistry.ruby, addToPool = false),
 					)
@@ -80,7 +80,7 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 			pool {
 				alternativesEntry(
 					itemEntry(ItemRegistry.rubyOre, addToPool = false) {
-						condition { hasSilkTouch() }
+						condition { hasSilkTouch }
 					},
 					itemEntry(ItemRegistry.ruby, addToPool = false) {
 						function { explosionDecay() }
@@ -143,20 +143,6 @@ class BlockLootTablesGenerator(private val generator: DataGenerator) : LootTable
 			namespacedTables[entry.key.lootTable] = entry.value
 		}
 
-		writeLootTables(namespacedTables, cache)
-	}
-
-	private fun writeLootTables(tables: Map<ResourceLocation, LootTable>, cache: DirectoryCache) {
-		val output = generator.outputFolder
-
-		tables.forEach { (key, table) ->
-			val path = output.resolve("data/${key.namespace}/loot_tables/${key.path}.json")
-
-			try {
-				IDataProvider.save(gson, cache, LootTableManager.serialize(table), path)
-			} catch (e: Exception) {
-				logger.error("Couldn't write loot table $path", e)
-			}
-		}
+		writeLootTables(generator, namespacedTables, cache)
 	}
 }

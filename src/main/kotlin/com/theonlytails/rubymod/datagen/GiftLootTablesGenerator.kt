@@ -4,13 +4,11 @@ import com.theonlytails.loottables.itemEntry
 import com.theonlytails.loottables.lootTable
 import com.theonlytails.loottables.pool
 import com.theonlytails.rubymod.id
-import com.theonlytails.rubymod.logger
-import net.minecraft.data.*
+import net.minecraft.data.DataGenerator
+import net.minecraft.data.DirectoryCache
+import net.minecraft.data.LootTableProvider
 import net.minecraft.item.Items
 import net.minecraft.loot.LootParameterSets
-import net.minecraft.loot.LootTable
-import net.minecraft.loot.LootTableManager
-import net.minecraft.util.ResourceLocation as RL
 
 /**
  * Generates loot tables for hero of the village gifts.
@@ -35,21 +33,6 @@ class GiftLootTablesGenerator(private val generator: DataGenerator) : LootTableP
 	 * Performs this provider's action.
 	 */
 	override fun run(cache: DirectoryCache) {
-		writeLootTables(tables, cache)
-	}
-
-	private fun writeLootTables(tables: HashMap<RL, LootTable>, cache: DirectoryCache) {
-		val output = generator.outputFolder
-
-		tables.forEach { (key, table) ->
-			val path =
-				output.resolve("data/${key.namespace}/loot_tables/${key.path}.json")
-
-			try {
-				IDataProvider.save(gson, cache, LootTableManager.serialize(table), path)
-			} catch (e: Exception) {
-				logger.error("Couldn't write loot table $path", e)
-			}
-		}
+		writeLootTables(generator, tables, cache)
 	}
 }

@@ -2,6 +2,13 @@ package com.theonlytails.rubymod.datagen
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.theonlytails.rubymod.logger
+import net.minecraft.data.DataGenerator
+import net.minecraft.data.DirectoryCache
+import net.minecraft.data.IDataProvider
+import net.minecraft.loot.LootTable
+import net.minecraft.loot.LootTableManager
+import net.minecraft.util.ResourceLocation
 import net.minecraftforge.eventbus.api.SubscribeEvent
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent
@@ -36,6 +43,20 @@ object DataGenerators {
 			generator.addProvider(blockTags)
 			generator.addProvider(ItemTagGenerator(generator, blockTags, helper))
 			generator.addProvider(itemModels)
+		}
+	}
+}
+
+fun writeLootTables(generator: DataGenerator, tables: Map<ResourceLocation, LootTable>, cache: DirectoryCache) {
+	val output = generator.outputFolder
+
+	tables.forEach { (key, table) ->
+		val path = output.resolve("data/${key.namespace}/loot_tables/${key.path}.json")
+
+		try {
+			IDataProvider.save(gson, cache, LootTableManager.serialize(table), path)
+		} catch (e: Exception) {
+			logger.error("Couldn't write loot table $path", e)
 		}
 	}
 }

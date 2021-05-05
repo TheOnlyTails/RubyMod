@@ -1,95 +1,111 @@
-import Build_gradle.*
+import net.minecraftforge.gradle.common.util.ModConfig
+import net.minecraftforge.gradle.common.util.RunConfig
 import net.minecraftforge.gradle.userdev.DependencyManagementExtension
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import net.minecraftforge.gradle.userdev.UserDevExtension
+import java.time.Instant
+import java.time.format.DateTimeFormatter
 
-// BuildScript
 buildscript {
 	repositories {
-		maven(url = "https://maven.minecraftforge.net/")
+		maven { url = uri("https://files.minecraftforge.net/maven") }
 		jcenter()
 		mavenCentral()
 	}
-
 	dependencies {
 		classpath(group = "net.minecraftforge.gradle", name = "ForgeGradle", version = "4.1.+")
-		classpath(group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version = "1.4.31")
 	}
 }
 
+plugins {
+	idea
+	kotlin("jvm") version "1.5.0"
+}
+apply(plugin = "net.minecraftforge.gradle")
+
 // Config -> Minecraft
 val forgeVersion: String by extra
-val mappingsChannel: String by extra
-val mappingsVersion: String by extra
 val minecraftVersion: String by extra
-val kffVersion: String by extra
 val lootTablesVersion: String by extra
 
 // Config -> Mod
 val modId: String by extra
 val modVersion: String by extra
-val modGroup: String by extra
-val author: String by extra
 
-// Config -> Run Config
-val level: String by extra
-val markers: String by extra
+// Default Mod Information
+version = modVersion
+group = "com.theonlytails.rubymod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+base.archivesBaseName = "rubymod"
 
-// Config -> Gradle/Maven
-val archivesBaseName: String by extra
-
-// Plugins
-plugins {
-	`java-library`
-	kotlin("jvm") version ("1.4.31")
-}
-
-apply(plugin = "net.minecraftforge.gradle")
-
-// JVM Info
-println(
-	"Java: ${System.getProperty("java.version")}" +
-			" JVM: ${System.getProperty("java.vm.version")}(${System.getProperty("java.vendor")})" +
-			" Arch: ${System.getProperty("os.arch")}"
-)
-
-repositories {
-	maven {
-		name = "kotlinforforge"
-		url = uri("https://thedarkcolour.github.io/KotlinForForge/")
+// Sets the toolchain to compile against OpenJDK 8
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(8))
+		vendor.set(JvmVendorSpec.ADOPTOPENJDK)
 	}
-
-	maven(url = "https://jitpack.io")
 }
 
-// Note: Due to the way kotlin gradle works we need to define the minecraft dependency before we configure Minecraft
-dependencies {
-	"minecraft"(group = "net.minecraftforge", name = "forge", version = "$minecraftVersion-$forgeVersion")
+configure<UserDevExtension> {
+	// The mappings can be changed at any time, and must be in the following format.
+	// snapshot_YYYYMMDD   Snapshot are built nightly.
+	// stable_#            Stables are built at the discretion of the MCP team.
+	// Use non-default mappings at your own risk. they may not always work.
+	// Simply re-run your setup task after changing the mappings to update your workspace.
+	mappings("official", minecraftVersion)
 
-	implementation(group = "thedarkcolour", name = "kotlinforforge", version = kffVersion)
-
-	implementation(
-		project.the<DependencyManagementExtension>()
-			.deobf(project.dependencies.create(
-				group = "com.github.TheOnlyTails",
-				name = "LootTables",
-				version = lootTablesVersion
-			).apply { isTransitive = false })
-	)
-}
-
-// Minecraft
-minecraft {
-	mappingChannel = mappingsChannel
-	mappingVersion = minecraftVersion
-
+	// Exposes fields, methods, constructors, and classes for use within the mod.
+	// Uncomment this to enable.
 	accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
-	runs {
-		config("client")
+	// Default run configurations.
+	// These can be tweaked, removed, or duplicated as needed.
+	runs(closureOf<NamedDomainObjectContainer<RunConfig>> {
+		create("client") {
+			workingDirectory(file("run"))
 
-		config("server")
+			taskName("client")
 
-		config("data") {
+			// Recommended logging data for a userdev environment
+			property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
+
+			// Recommended logging level for the console
+			property("forge.logging.console.level", "debug")
+
+			mods(closureOf<NamedDomainObjectContainer<ModConfig>> {
+				create(modId) {
+					source(sourceSets["main"])
+				}
+			})
+		}
+
+		create("server") {
+			workingDirectory(file("run"))
+
+			taskName("server")
+			// Recommended logging data for a userdev environment
+			property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
+
+			// Recommended logging level for the console
+			property("forge.logging.console.level", "debug")
+
+			mods(closureOf<NamedDomainObjectContainer<ModConfig>> {
+				create(modId) {
+					source(sourceSets["main"])
+				}
+			})
+		}
+
+		create("data") {
+			workingDirectory(file("run"))
+
+			taskName("datagen")
+
+			// Recommended logging data for a userdev environment
+			property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
+
+			// Recommended logging level for the console
+			property("forge.logging.console.level", "debug")
+
+			// Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
 			args(
 				"--mod",
 				modId,
@@ -99,73 +115,61 @@ minecraft {
 				"--existing",
 				file("src/main/resources/")
 			)
+
+			mods(closureOf<NamedDomainObjectContainer<ModConfig>> {
+				create(modId) {
+					source(sourceSets["main"])
+				}
+			})
 		}
+	})
+}
+
+// Include resources generated by data generators
+sourceSets["main"].resources { srcDir("src/generated/resources") }
+
+dependencies {
+	// Specify the version of Minecraft to use, If this is any group other then "net.minecraft" it is assumed
+	// that the dep is a ForgeGradle "patcher" dependency. And it's patches will be applied.
+	// The userdev artifact is a special name and will get all sorts of transformations applied to it.
+	"minecraft"(group = "net.minecraftforge", name = "forge", version = "$minecraftVersion-$forgeVersion")
+
+	// Specify that the standard library of Kotlin that should be used to compile
+	implementation(group = "thedarkcolour", name = "kotlinforforge", version = "latest.release")
+
+	implementation(
+		project.the<DependencyManagementExtension>()
+			.deobf(project.dependencies.create(
+				group = "com.theonlytails", name = "loottables", version = lootTablesVersion
+			).apply { isTransitive = false })
+	)
+}
+
+// Repositories to add Kotlin
+repositories {
+	mavenCentral()
+	maven {
+		name = "Kotlin for Forge"
+		url = uri("https://thedarkcolour.github.io/KotlinForForge/")
 	}
 }
 
-// Setup
-project.group = modGroup
-project.version = "$minecraftVersion-$modVersion"
-base.archivesBaseName = archivesBaseName
+tasks {
+	named<Jar>("jar") {
+		// Example for how to set properties within the manifest for reading by runtime
+		manifest {
+			attributes(
+				"Specification-Title" to "RubyMod",
+				"Specification-Vendor" to "TheOnlyTails",
+				"Specification-Version" to project.version,
+				"Implementation-Title" to "RubyMod",
+				"Implementation-Vendor" to "TheOnlyTails",
+				"Implementation-Version" to project.version,
+				"Implementation-Timestamp" to DateTimeFormatter.ISO_INSTANT.format(Instant.now())
+			)
+		}
 
-// Java 8 Target
-tasks.withType<JavaCompile> {
-	sourceCompatibility = "1.8"
-	targetCompatibility = "1.8"
-}
-
-tasks.withType<KotlinCompile>().configureEach {
-	kotlinOptions.jvmTarget = "1.8"
-	kotlinOptions.useIR = true
-}
-
-// Finalize the jar by Reobf
-tasks.named<Jar>("jar") { finalizedBy("reobfJar") }
-
-// Manifest
-tasks.withType<Jar> {
-	manifest {
-		attributes(
-			"Specification-Title" to modId,
-			"Specification-Vendor" to author,
-			"Specification-Version" to "1",
-			"Implementation-Title" to project.name,
-			"Implementation-Version" to project.version,
-			"Implementation-Vendor" to author,
-			"Implementation-Timestamp" to Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-		)
-	}
-}
-
-// Generated Resources
-sourceSets["main"].resources.srcDir("src/generated/resources")
-
-// Utilities
-
-typealias Date = java.util.Date
-typealias SimpleDateFormat = java.text.SimpleDateFormat
-
-fun Date.format(format: String) = SimpleDateFormat(format).format(this)
-
-typealias RunConfig = net.minecraftforge.gradle.common.util.RunConfig
-typealias UserDevExtension = net.minecraftforge.gradle.userdev.UserDevExtension
-
-typealias RunConfiguration = RunConfig.() -> Unit
-
-fun minecraft(configuration: UserDevExtension.() -> Unit) =
-	configuration(extensions.getByName("minecraft") as UserDevExtension)
-
-fun NamedDomainObjectContainerScope<RunConfig>.config(name: String, additionalConfiguration: RunConfiguration = {}) {
-	val runDirectory = project.file("run")
-	val sourceSet = the<JavaPluginConvention>().sourceSets["main"]
-
-	create(name) {
-		workingDirectory(runDirectory)
-		property("forge.logging.markers", markers)
-		property("forge.logging.console.level", level)
-
-		additionalConfiguration(this)
-
-		mods { create(modId) { source(sourceSet) } }
+		// This is the preferred method to reobfuscate your jar file
+		finalizedBy("reobfJar")
 	}
 }

@@ -1,17 +1,14 @@
 package com.theonlytails.rubymod.datagen
 
-import com.theonlytails.rubymod.logger
 import com.theonlytails.rubymod.registries.EntityTypeRegistry
 import com.theonlytails.rubymod.registries.ItemRegistry
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.DirectoryCache
-import net.minecraft.data.IDataProvider
 import net.minecraft.data.LootTableProvider
 import net.minecraft.data.loot.EntityLootTables
 import net.minecraft.entity.EntityType
 import net.minecraft.loot.LootParameterSets
 import net.minecraft.loot.LootTable
-import net.minecraft.loot.LootTableManager
 import net.minecraft.util.ResourceLocation
 
 /**
@@ -42,21 +39,7 @@ class EntityLootTablesGenerator(private val generator: DataGenerator) : LootTabl
 			namespacedTables[entry.key.defaultLootTable] = entry.value.setParamSet(LootParameterSets.ENTITY).build()
 		}
 
-		writeLootTables(namespacedTables, cache)
-	}
-
-	private fun writeLootTables(tables: HashMap<ResourceLocation, LootTable>, cache: DirectoryCache) {
-		val output = generator.outputFolder
-
-		tables.forEach { (key, table) ->
-			val path = output.resolve("data/${key.namespace}/loot_tables/${key.path}.json")
-
-			try {
-				IDataProvider.save(gson, cache, LootTableManager.serialize(table), path)
-			} catch (e: Exception) {
-				logger.error("Couldn't write loot table $path", e)
-			}
-		}
+		writeLootTables(generator, namespacedTables, cache)
 	}
 
 	private fun addLoot(entityType: EntityType<*>, loot: LootTable.Builder) {
