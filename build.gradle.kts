@@ -135,7 +135,7 @@ dependencies {
 	"minecraft"(group = "net.minecraftforge", name = "forge", version = "$minecraftVersion-$forgeVersion")
 
 	// Specify that the standard library of Kotlin that should be used to compile
-	implementation(group = "thedarkcolour", name = "kotlinforforge", version = "latest.release")
+	implementation(group = "thedarkcolour", name = "kotlinforforge", version = "1.12.0")
 
 	implementation(
 		project.the<DependencyManagementExtension>()
