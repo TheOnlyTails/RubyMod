@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter
 
 buildscript {
 	repositories {
-		maven { url = uri("https://files.minecraftforge.net/maven") }
+		maven { url = uri("https://maven.minecraftforge.net/") }
 		jcenter()
 		mavenCentral()
 	}
@@ -18,7 +18,7 @@ buildscript {
 
 plugins {
 	idea
-	kotlin("jvm") version "1.5.0"
+	kotlin("jvm") version "latest.release"
 }
 apply(plugin = "net.minecraftforge.gradle")
 
