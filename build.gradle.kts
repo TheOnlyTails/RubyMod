@@ -1,6 +1,6 @@
+
 import net.minecraftforge.gradle.common.util.ModConfig
 import net.minecraftforge.gradle.common.util.RunConfig
-import net.minecraftforge.gradle.userdev.DependencyManagementExtension
 import net.minecraftforge.gradle.userdev.UserDevExtension
 import java.time.Instant
 import java.time.format.DateTimeFormatter
@@ -129,20 +129,15 @@ configure<UserDevExtension> {
 sourceSets["main"].resources { srcDir("src/generated/resources") }
 
 dependencies {
-	// Specify the version of Minecraft to use, If this is any group other then "net.minecraft" it is assumed
-	// that the dep is a ForgeGradle "patcher" dependency. And it's patches will be applied.
+	// Specify the version of Minecraft to use, If this is any group other than "net.minecraft" it is assumed
+	// that the dep is a ForgeGradle "patcher" dependency, and its patches will be applied.
 	// The userdev artifact is a special name and will get all sorts of transformations applied to it.
 	"minecraft"(group = "net.minecraftforge", name = "forge", version = "$minecraftVersion-$forgeVersion")
 
 	// Specify that the standard library of Kotlin that should be used to compile
 	implementation(group = "thedarkcolour", name = "kotlinforforge", version = "latest.release")
 
-	implementation(
-		project.the<DependencyManagementExtension>()
-			.deobf(project.dependencies.create(
-				group = "com.theonlytails", name = "loottables", version = lootTablesVersion
-			).apply { isTransitive = false })
-	)
+	implementation(group = "com.theonlytails", name = "loottables", version = "0.2.13")
 }
 
 // Repositories to add Kotlin
